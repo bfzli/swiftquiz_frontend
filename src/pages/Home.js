@@ -1,12 +1,25 @@
 import Layout from "../components/Layout/Layout"
-import Title from '../components/Home/Title'
-import Description from '../components/Home/Description'
+import Hero from '../components/Home/Hero/Hero'
+import Features from '../components/Home/Features/Features'
+import styled from "styled-components"
+
+const Purple = styled.div`
+    background: #5928E5
+`
+
+const White = styled.div`
+    background: white
+`
 
 export default function Home() {
     return (
         <Layout>
-                <Title />
-                <Description />
+            <Purple>
+                <Hero />
+            </Purple>
+            <White>
+                <Features />
+            </White>
         </Layout>
     )
 }
