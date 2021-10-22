@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 const Heading = styled.h1`
-font-size: 4.5em;
-letter-spacing: 1px`
+    width: 40%;
+    text-align: center;
+    color: #5928E5;
+    font-size: 3em;
+    letter-spacing: 1px;
+    margin-top: 2.5%;
+    margin-bottom: .1em;
+`
 
-export default function Description() {
+export default function Title() {
     return (
         <Heading>
-            {/* THE PLACE OF QUIZZES AND KNOWLEDGE. */}
-            {/* PLACE OF KNOWLEDGE AND QUIZES. */}
+            WE GOT YOU WITH OUR FEATURES!
         </Heading>
     )
 }

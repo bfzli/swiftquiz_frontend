@@ -12,7 +12,10 @@ export default function Routing() {
           <Route path="/" exact> 
             <Home />
           </Route>
-          <Route path="*" exact> 
+          <Route path="/about-us"> 
+            <h1>is workign</h1>
+          </Route>
+          <Route path="*"> 
             <Error />
           </Route>
         </Switch>

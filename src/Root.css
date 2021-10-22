@@ -30,3 +30,12 @@ button:hover,
 #hover{
   cursor: -webkit-image-set(url('./assets/images/hover.png') 2.75x), default !important;
 }
+
+.link-footer{
+  margin-bottom: .375em;
+  transition: all ease-in-out .3s;
+}
+
+.link-footer:hover{
+  letter-spacing: 1px;
+}

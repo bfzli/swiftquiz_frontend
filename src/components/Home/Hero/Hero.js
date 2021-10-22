@@ -26,7 +26,9 @@ const Right = styled.div`
     width: 50%;
     display: flex;
     align-items: flex-end;
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 `
 
 export default function Hero() {

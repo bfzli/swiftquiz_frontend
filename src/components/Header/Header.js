@@ -6,18 +6,25 @@ import Logomania from './components/Logomania';
 
 const Wrapper = styled.div`
     width: 100%;
-    margin-top: 1em;
-    width: 92%;
+    background: #5928E5;
     position: fixed;
+    top: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+
+`
+
+const Container = styled.div`
+    width: 92%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0; right: 4%;
-    z-index: 10;
-    padding: 1em;
-    background: #5928E5;
+    padding: 1em 0em;
     border-radius: 1em;
 `
+
 
 const Left = styled.div`
     display: flex;
@@ -42,23 +49,19 @@ const MenuItem = styled.a`
 
 const MenuItems = [
     {
-        name: 'CATEGORIES',
-        link: '/ctg'
-    },
-    {
         name: 'PLAY WITH A CODE',
-        link: '/about'
+        link: '/play-with-a-code'
     },
     {
-        name: 'COMMUNITY',
+        name: 'HOW TO PLAY',
         link: '/how-to-play'
     },
     {
-        name: 'GET IN TOUCH',
-        link: '/contact'
+        name: 'ABOUT US',
+        link: '/about-us'
     },
     {
-        name: 'ABOUT US',
+        name: 'GET IN TOUCH',
         link: '/contact'
     }
 ]
@@ -66,18 +69,20 @@ const MenuItems = [
 export default function Header() {
     return (
         <Wrapper>
-            <Left>
-                <Logomania />
-                {
-                    MenuItems.map(item => <MenuItem a={item.link}>{item.name}</MenuItem>)
-                }
-            </Left>
+            <Container>
+                <Left>
+                    <Logomania />
+                    {
+                        MenuItems.map(item => <MenuItem href={item.link}>{item.name}</MenuItem>)
+                    }
+                </Left>
 
-            <Right>
-                <Button_Faded />
+                <Right>
+                    <Button_Faded />
 
-                <Button />
-            </Right>
+                    <Button />
+                </Right>
+            </Container>
         </Wrapper>
     )
 }

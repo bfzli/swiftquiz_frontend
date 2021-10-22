@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Paragraph = styled.p``
+const Paragraph = styled.p`
+    font-family: 'Space Grotesk', sans-serif;
+`
 
 export default function Description() {
     return (

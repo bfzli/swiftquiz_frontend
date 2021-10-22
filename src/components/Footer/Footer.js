@@ -1,60 +1,51 @@
 import styled from 'styled-components'
-import Title from './components/Title'
-// import Description from './components/Description'
-// import Illustration from './components/Illustration'
-import Button from './components/Button'
+import Info from './components/Info'
+import Links from './components/Links'
+import Media from './components/Media'
+
+const WrapperFull = styled.div`
+    width: 100%;
+    background: #5928E5;
+    padding-top: 2.5em;
+`
 
 const Container = styled.div`
-    width: 100%;
+    width: 92%;
+    margin-left: 4%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, rgba(89, 40, 229, 0.54) 0%, #5928E5 74.48%); 
-`
-
-const Footer_Hero = styled.div`
-    padding: 5% 0em;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
-
-const Footer_End = styled.div`
-    width: 100%;
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    text-align: center;
+    padding-bottom: 1em;
 `
 
-const End_Left = styled.div``
-const End_Center = styled.div``
-const End_Right = styled.div``
+const End = styled.div`
+    display: flex;
+    border-top: 1px solid #ffffff10;
+    justify-content: center;
+    padding: .75em 0em;
+    align-items: center;
+`
 
+const Copyright = styled.p`
+    font-size: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+`
 
 export default function Footer() {
     return (
-        <Container>
-            <Footer_Hero>
-                <Title />
-                <Button />
-            </Footer_Hero>
-
-            <Footer_End>
-                <End_Left>
-                    a
-                </End_Left>
-
-                <End_Center>
-                    a
-                </End_Center>
-
-                <End_Right>
-                    a
-                </End_Right>
-            </Footer_End>
-        </Container>
+        <WrapperFull>
+            <Container>
+                <Info />
+                <Links />
+                <Media />
+            </Container>
+            <End>
+                <Copyright>SwfitQuiz &copy; All rights Reserved</Copyright>
+            </End>
+        </WrapperFull>
     )
 }
