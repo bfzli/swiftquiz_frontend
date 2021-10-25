@@ -1,10 +1,8 @@
 import { connect } from 'react-redux';
 import { Content } from './StyledComp';
-import { removeQuestion } from '../../reduxComponents/actions/Questions';
 import showQuiz from '../../reduxComponents/selectors/reducerFilter';
 
 function Description(props) {
-    console.log(props.questions)
     return (
         <div>
                 {props.questions.map((question, index) => {
