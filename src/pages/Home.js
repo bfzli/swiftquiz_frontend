@@ -1,34 +1,16 @@
-import Layout from "../components/Layout/Layout"
-import styled from "styled-components"
-
-import Hero from '../components/Home/Hero/Hero'
-import Features from '../components/Home/Features/Features'
-import Make from '../components/Home/Make/Make'
-import Community from '../components/Home/Community/Community'
-
-const Purple = styled.div`
-    background: #5928E5
-`
-
-const White = styled.div`
-    background: white
-`
+import Layout from "./Layout";
+import Hero from "../components/pages/Home/Hero/Hero";
+import Features from "../components/pages/Home/Features/Features";
+import Started from "../components/pages/Home/Started/Started";
+import Community from "../components/pages/Home/Community/Community";
 
 export default function Home() {
     return (
         <Layout>
-            <Purple>
-                <Hero />
-            </Purple>
-            <White>
-                <Features />
-            </White>
-            <White>
-                <Make />
-            </White>
-            <White>
-                <Community />
-            </White>
+            <Hero />
+            <Features />
+            <Started />
+            <Community />
         </Layout>
     )
 }

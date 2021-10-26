@@ -1,0 +1,43 @@
+.header{
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 3em;
+    background: var(--purple);
+    z-index: 100;
+}
+
+.right{
+    display: flex;
+    align-items: center;
+}
+
+.left{
+    display: flex;
+    align-items: center;
+}
+
+.link{
+    display: flex;
+    align-items: center;
+    font-family: 'Integral CF Extra';
+    font-size: 1em;
+    color: #fff;
+    margin-right: 1rem;
+    transition: all ease-in-out .5s;
+    cursor: pointer;
+}
+
+.link:hover{
+    letter-spacing: 1px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    height: 2.3em;
+    margin-right: 1.25em;
+    fill: #fff
+}
