@@ -9,6 +9,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "sass": "^1.43.3",
     "styled-components": "^5.3.1"
   },
   "scripts": {
@@ -34,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^6.0.1"
   }
 }
