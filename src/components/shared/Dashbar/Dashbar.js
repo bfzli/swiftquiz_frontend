@@ -1,7 +1,7 @@
 import { container, top, center, bottom, user_pic, icon_holder, icon, icon_active, icon_holder_active } from './Dashbar.module.scss'
 import Logo from './Logo'
 import { Link } from 'react-router-dom'
-import avatar from '../../../assets/images/avatar.jpg'
+import avatar from '../../../assets/images/profiles/benjamin.png'
 
 export default function Dashbar() {
     return (
@@ -11,7 +11,7 @@ export default function Dashbar() {
             </div>
 
             <div className={center}>
-                <div className={icon_holder_active}>
+                <div className={icon_holder_active} title="Home">
                     <svg className={icon_active} viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M23.622 53.6872V45.7645C23.6219 43.7568 25.2545 42.1257 27.2766 42.1131H34.7016C36.7327 42.1131 38.3793 43.7479 38.3793 45.7645V45.7645V53.6642C38.3793 55.4056 39.7944 56.8207 41.5482 56.8333H46.6139C48.9797 56.8394 51.2508 55.9106 52.9258 54.2519C54.6009 52.5932 55.5423 50.3409 55.5423 47.992V25.4869C55.5423 23.5895 54.6952 21.7898 53.2292 20.5725L36.02 6.90861C33.0118 4.51865 28.7154 4.59585 25.7962 7.09232L8.9571 20.5725C7.4219 21.7539 6.50433 23.559 6.45898 25.4869V47.9691C6.45898 52.8647 10.4564 56.8333 15.3874 56.8333H20.3374C21.1818 56.8395 21.9938 56.5107 22.5931 55.92C23.1924 55.3293 23.5295 54.5256 23.5294 53.6872H23.622Z" />
                     </svg>
