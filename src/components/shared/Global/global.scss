@@ -1,0 +1,24 @@
+:root{
+  --purple: #5928E5;
+  --white: #fff;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body{
+  color: var(--secondary);
+  background: var(--priamry);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+#_VAR{
+  width: 95%;
+  margin-left: 5%;
+}
