@@ -13,7 +13,7 @@ export default function Header() {
     }
 
     return (
-        <div>
+        <div data-aos="fade-down">
             <header className={header}>
                 <div className={left}>
                     <Logo />

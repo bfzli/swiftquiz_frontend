@@ -1,10 +1,9 @@
-:root{
-  --purple: #5928E5;
+:root {
+  --purple: #5928e5;
   --white: #fff;
 }
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -12,13 +11,18 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   color: var(--secondary);
   background: var(--priamry);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
-#_VAR{
+#_VAR {
   width: 95%;
   margin-left: 5%;
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    margin-left: 0%;
+  }
 }

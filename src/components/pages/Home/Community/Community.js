@@ -8,11 +8,11 @@ export default function Community() {
     return (
         <section className={container}>
 
-            <div className={right}>
+            <div className={right} data-aos="fade-left">
                 <img src={main_illustration} className={illustration} alt="Illustration" />
             </div>
 
-            <div className={left}>
+            <div className={left} data-aos="fade-right">
                 <h2 className={title}>
                     COMMUNITY BUILD QUIZESS FOR ALL
                 </h2>

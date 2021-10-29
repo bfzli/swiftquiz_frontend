@@ -2,6 +2,23 @@
     padding: 2.5% 4%;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 1000px) {
+        padding: 2.5%;
+    }
+}
+
+.mobile_only{
+    display: none;
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2.5%;
+        margin-bottom: 15%;
+    }
 }
 
 .welcome_text {
@@ -12,7 +29,6 @@
     margin-top: 0.5em;
     margin-left: 0.1em;
     font-size: 1.15em;
-    // font-family: "Integral CF Demi Bold";
 }
 
 .main {
@@ -24,27 +40,42 @@
     margin-top: 2.5em;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+    }
 }
 
 .top_left {
     width: 49%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.5px solid rgba(51, 51, 51, 0.1);
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
     height: auto;
     border-radius: 0.75em;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
 }
 
 .top_right {
     width: 49%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.5px solid rgba(51, 51, 51, 0.1);
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
     border-radius: 0.75em;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        margin-bottom: 2em;
+    }
 }
 
 .top_right_title {
     font-size: 1.2em;
     padding: 0.35em 0.5em;
-    border-bottom: 0.5px solid rgba(51, 51, 51, 0.1);
+    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
     font-family: "Integral CF Demi Bold";
 }
 
@@ -52,14 +83,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow: scroll;
+    height: 70vh;
     padding: 1%;
 }
 
 .quiz {
     width: 32%;
     background: rgba(245, 245, 245, 0.2);
-    border: 0.5px solid rgba(51, 51, 51, 0.1);
-    margin-bottom: 1%;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    margin-bottom: 2%;
     border-radius: 0.85em;
 
 }
@@ -98,26 +131,41 @@
     display: flex;
     justify-content: space-between;
     padding: .5em;
+
+    @media screen and (max-width: 1000px) {
+        margin-top: 0em;
+        flex-direction: column;
+    }
 }
 
 .bottom_left{
     width: 48.6%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.5px solid rgba(51, 51, 51, 0.1);
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
     height: auto;
     border-radius: 0.75em;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        margin-bottom: 2em;
+    }
 }
 
 .bottom_right{
     width: 48.6%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.5px solid rgba(51, 51, 51, 0.1);
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
     height: auto;
     border-radius: 0.75em;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        margin-bottom: 1.2em;
+    }
 }
 
 .quiz_description{
-    padding: .5em;
+    padding: .25em .5em .5em .6em;
 }
 
 .quizer_holder{
@@ -144,13 +192,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1%;
+
+    overflow: scroll;
+    height: 50vh;
 }
 
 .blog{
     display: flex;
     // width: 32%;
     background: rgba(245, 245, 245, 0.2);
-    border: 0.5px solid rgba(51, 51, 51, 0.1);
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
     margin-bottom: 1%;
     border-radius: 0.85em;
 }
@@ -178,6 +229,9 @@
 .leaderboard{
     display: flex;
     flex-direction: column;
+
+    overflow: scroll;
+    height: 50vh;
 }
 
 
@@ -196,7 +250,7 @@
 .user{
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.5px solid rgba(51, 51, 51, 0.1);
+    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
     margin-bottom: 1%;
     padding: .5em;
     display: flex;
@@ -227,12 +281,15 @@
 .your_quizzes{
     display: flex;
     flex-direction: column;
+
+    overflow: scroll;
+    height: 70vh;
 }
 
 .your_quiz{
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.5px solid rgba(51, 51, 51, 0.1);
+    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
     margin-bottom: 1%;
     padding: .5em;
     display: flex;
@@ -244,7 +301,8 @@
 }
 
 .your_quiz_thumb{
-    width: 40%;
+    width: 30%;
+    height: 90%;
 }
 
 .your_quiz_wrapper{
@@ -275,4 +333,8 @@
         background: rgba(147, 109, 254, 0.2);
         border: .5px solid var(--purple);
     }
+}
+
+.end{
+    font-family: "Integral CF Demi Bold";
 }

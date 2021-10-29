@@ -5,7 +5,7 @@ import avatar from '../../../assets/images/profiles/benjamin.png'
 
 export default function Dashbar() {
     return (
-        <header className={container}>
+        <header data-aos="fade-right" className={container}>
             <div className={top}>
                 <Logo />
             </div>

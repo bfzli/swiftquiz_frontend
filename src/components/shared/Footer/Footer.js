@@ -7,7 +7,7 @@ import Logo from "../../shared/Header/Logo";
 
 export default function Footer() {
     return (
-        <footer className={container}>
+        <footer className={container} data-aos="fade-up">
             <div className={top}>
                 <div className={left}>
                     <Logo className={logo} />

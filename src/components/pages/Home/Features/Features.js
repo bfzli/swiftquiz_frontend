@@ -6,7 +6,7 @@ import Three from '../../../../assets/images/Three.png'
 export default function Features() {
     return (
         <section className={container}>
-            <div className={head}>
+            <div className={head} data-aos="fade-down">
                 <h1 className={title}>
                     WE GOT YOU WITH OUR FEATURES!
                 </h1>
@@ -16,7 +16,7 @@ export default function Features() {
             </div>
 
             <div className={cards}>
-                <div className={card}>
+                <div className={card} data-aos="fade-left">
                     <img className={card_figure} src={One} alt="" of the name />
                     <h3 className={card_title}>
                         BUILD QUIZESS
@@ -26,7 +26,7 @@ export default function Features() {
                     </p>
                 </div>
 
-                <div className={card}>
+                <div className={card} data-aos="fade-up">
                     <img className={card_figure} src={Two} alt="" of the name />
                     <h3 className={card_title}>
                         SHARE QUIZESS
@@ -36,7 +36,7 @@ export default function Features() {
                     </p>
                 </div>
 
-                <div className={card}>
+                <div className={card} data-aos="fade-right">
                     <img className={card_figure} src={Three} alt="" of the name />
                     <h3 className={card_title}>
                         BROWSE COMMUNITY

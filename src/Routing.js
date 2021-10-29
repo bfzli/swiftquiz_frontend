@@ -3,8 +3,17 @@ import { BrowserRouter as Wrapper, Switch, Route, Redirect } from 'react-router-
 import Home from './pages/Home';
 import Error from './pages/Error';
 import Screen from './pages/Dashboard/Screen';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 export default function Routing() {
+
+    AOS.init({
+      duration: 800,
+      disable: "mobile",
+      once: true,
+    });
+
   return (
     <Wrapper>
       <Switch>

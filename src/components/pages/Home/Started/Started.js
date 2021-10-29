@@ -7,11 +7,11 @@ export default function Started() {
     return (
         <section className={container}>
         
-            <div className={right}>
+            <div className={right} data-aos="fade-right">
                 <img src={main_illustration} className={illustration} alt="Illustration" />
             </div>
 
-            <div className={left}>
+            <div className={left} data-aos="fade-left">
                 <h2 className={title}>
                     SEEK KNOWLEDGE BY PLAYING QUIZZES
                 </h2>

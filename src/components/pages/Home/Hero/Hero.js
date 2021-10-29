@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 export default function Hero() {
     return (
         <section className={container}>
-            <div className={left}>
+            <div className={left} data-aos="fade-right">
                 <h1 className={title}>
                     MAKING LEARNING FUN WITH QUIZESS
                 </h1>
@@ -20,7 +20,7 @@ export default function Hero() {
                 </Link>
             </div>
 
-            <div className={right}>
+            <div className={right} data-aos="fade-left">
                 <img className={illustration} src={hero_illustration} alt="Illustration" />
             </div>
         </section>
