@@ -22,7 +22,7 @@ export default function Header() {
 
             <div className={right}>
                 <button className={button_faded} styles={{marginRight: '16px'}}>LOGIN</button>
-                <button className={button_fill}>GET STARTED</button>
+                <Link to="/register"><button className={button_fill}>GET STARTED</button></Link>
             </div>
         </header>
     )

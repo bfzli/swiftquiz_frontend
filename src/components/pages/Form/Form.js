@@ -13,28 +13,30 @@ export const Form = () => {
     const [isRegister, setIsRegister] = useState(false); 
 
     return (
-        <div className="mainCont">
-            <div className={isRegister === false ? "container" : "container right_panel_active"}>
-                    <Register/>
-                    <Login/>
-                    <div className="overlay_container">
-                        <div className="overlay">
-                            <div className="overlay_panel overlay_left">
-                                <img src={logoPic} className="logo"/>
-                                <h1>Welcome Back!</h1>
-                                <p>To keep connected with us please login with your personal info</p>
-                                <input type="button" className="butonat" id="signIn" value="Sign Up" onClick={() => setIsRegister(!isRegister)}/>
-                            </div>
-                            <div className="overlay_panel overlay_right">
-                                <img src={logoPic} className="logo"/>
-                                <h1>Hello, Friend!</h1>
-                                <p>Enter your personal details and start journey with us</p>
-                                <input type="button" className="butonat" id="signUp" value="Sign Up" onClick={() => setIsRegister(!isRegister)}/>
+        <body style={{marginTop: '80px'}}>    
+            <div className="mainCont">
+                <div className={isRegister === false ? "container" : "container right_panel_active"}>
+                        <Register/>
+                        <Login/>
+                        <div className="overlay_container">
+                            <div className="overlay">
+                                <div className="overlay_panel overlay_left">
+                                    <img src={logoPic} className="logo"/>
+                                    <h1>Welcome Back!</h1>
+                                    <p>To keep connected with us please login with your personal info</p>
+                                    <input type="button" className="butonat" id="signIn" value="Sign Up" onClick={() => setIsRegister(!isRegister)}/>
+                                </div>
+                                <div className="overlay_panel overlay_right">
+                                    <img src={logoPic} className="logo"/>
+                                    <h1>Hello, Friend!</h1>
+                                    <p>Enter your personal details and start journey with us</p>
+                                    <input type="button" className="butonat" id="signUp" value="Sign Up" onClick={() => setIsRegister(!isRegister)}/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-        </div>
+            </div>
+        </body>
     );
 }
 

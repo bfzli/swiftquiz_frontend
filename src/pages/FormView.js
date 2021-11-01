@@ -4,7 +4,7 @@ import '../components/shared/Website/FormGeneral.scss'
 
 function FormView() {
     return (
-            <Form/>
+        <Form/>
     )
 }
 export default FormView
