@@ -1,14 +1,8 @@
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-padding: .5em 1em;`
-
-function Header(props) {
-    console.log(props)
+function Header() {
     return (
-        <Wrapper>
+        <div>
         
-        </Wrapper>
+        </div>
     )
 }
 
