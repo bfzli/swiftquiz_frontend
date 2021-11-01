@@ -40,10 +40,23 @@
 .contactInputs {
   border: 1px solid #936dfe;
   border-radius: 5px;
+  background: none;
   box-shadow: 8px;
   width: 40%;
+  margin-top: 10px;
   &.six {
     height: 250px;
+    padding: 10px 0 0 14px;
+    background: none;
+    resize: none;
+    margin-bottom: 10px;
+  }
+  &:hover {
+    transition: 0.2s ease;
+    font-size: 10.5pt;
+  }
+  &::-webkit-input-placeholder {
+    font-family: "myFont", Arial, Helvetica, sans-serif;
   }
 }
 
@@ -51,9 +64,20 @@
   display: flex;
   justify-content: center;
   background: none;
+  margin: 2rem 0 2rem 0;
 }
 
 #contactSubmit {
   width: 150px;
   margin-left: 26rem;
+}
+
+.ContactError {
+  margin: -5px;
+  margin-right: 30px;
+  font-family: Poppiins;
+  color: red;
+  font-size: 12pt;
+  width: 37%;
+  text-align: left;
 }
