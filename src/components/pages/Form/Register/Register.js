@@ -15,6 +15,7 @@ function Register() {
     const [values, setValues] = useState({name:"",email:"",username:"",password:"", confirmpassword:""});
     const [errors,setErrors] = useState({});
     const [dataIsCorrect,setDataIsCorrect] = useState(false);
+    const [backError,setBackError] = useState(false);
 
     const RegisterHandler = (e) =>{
         e.preventDefault();
@@ -29,17 +30,25 @@ function Register() {
         }
 
         axios.post("http://localhost:5000/api/users/register-user",user).then((res)=>{
+            if(res.status == 400 && res.data == values.email){
+                throw Error ('Email is already in use');
+            }else if(res.status == 400 && res.data == values.username){
+                throw Error ('Username is already in use');
+            }
                 console.log(res);
+        }).then((data)=>{
+            setBackError(null);
         }).catch((err)=>{
+            setBackError(err.response.data.message);
             console.log(err);
         })
-
         console.log(user);
     };
 
     return (
                     <div className="form_container sign_up_container">
 			            <form id="formReg" name="forma">
+                            {backError && <div className="BackError" style={{marginLeft: '115px'}}>{backError}</div> }
 				            <h1>Create Account</h1>
 				            <div className="social_container">
 					            <a className="social"><img src={facebook} alt="" width="40px" height="40"/></a>

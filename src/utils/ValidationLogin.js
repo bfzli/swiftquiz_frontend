@@ -3,7 +3,7 @@ function ValidationLogin(values) {
     let errors = {};
 
     if(!values.username){
-        errors.username = "Email or Username is required.";
+        errors.username = "Username is required.";
     }
     if(!values.password){
         errors.password = "Password is required."

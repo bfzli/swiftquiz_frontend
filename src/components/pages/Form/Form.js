@@ -13,7 +13,7 @@ export const Form = () => {
     const [isRegister, setIsRegister] = useState(false); 
 
     return (
-        <body style={{marginTop: '80px'}}>    
+        <body style={{marginTop: '45px'}}>    
             <div className="mainCont">
                 <div className={isRegister === false ? "container" : "container right_panel_active"}>
                         <Register/>
