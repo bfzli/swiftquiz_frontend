@@ -8,7 +8,7 @@ const configureStore = () => {
         combineReducers({
             questions: questionReducer,
             filters: filterReducer
-        }),applyMiddleware(logger)
+        }),applyMiddleware( logger)
         //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
     

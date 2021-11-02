@@ -5,7 +5,7 @@ import { setTextFilter } from '../../reduxComponents/actions/Filters';
 import React from 'react';
 
 function Description() {
-    const state = useSelector(state => showQuiz(state.questions, state.filters));
+    const state = useSelector(state => showQuiz(state.questions.questions, state.filters));
     const dispatch = useDispatch();
 
     const handleRemove = e => {

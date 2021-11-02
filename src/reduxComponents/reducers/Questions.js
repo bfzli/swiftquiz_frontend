@@ -1,14 +1,27 @@
 //Setting up the default state
 const questionDefaultState = [];
+const demoState = {
+    questions: [],
+    isLoading: false,
+    error: null
+}
 
 //Setting up Question Reducer 
-const questionReducer = (state = questionDefaultState, action) => {
+const questionReducer = (state = demoState, action) => {
     switch(action.type){
         case 'ADD_QUESTION':
-            return [...state, action.question];
+            return {
+                ...state,
+                questions: [...state.questions, action.question]
+            }
+            //return [...state, action.question];
 
         case 'REMOVE_QUESTION':
-            return state.filter(({ id }) => id !== action.id);
+            return {
+                ...state,
+                questions: state.questions.filter(({ id }) => id !== action.id) 
+            }
+            //return state.filter(({ id }) => id !== action.id);
         
         case 'EDIT_QUESTION':
             return state.map(question => {
