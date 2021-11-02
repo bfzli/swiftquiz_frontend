@@ -26,3 +26,19 @@ body {
     margin-left: 0%;
   }
 }
+
+#view_active{
+  border-radius: 1.4em;
+  border: 0.5px solid #ffffff15;
+  transition: all ease-in-out .3s;
+
+  &:hover{
+    background: #ffffff10;
+  }
+}
+
+#view_inactive{
+  background: #ffffff10;
+  border: 0.5px solid #ffffff15;
+  
+}
