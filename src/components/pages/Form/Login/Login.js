@@ -4,8 +4,6 @@ import google from '../../../../assets/images/google.png'
 import github from '../../../../assets/images/github.png'
 import './Login.scss'
 import '../shared/LoginRegister.scss'
-// import {sign_in_container,sIn} from '../Login/Login.module.scss'
-// import {form_container,social_container,social,inputat,error,butonat} from '../shared/LoginRegister.module.scss'
 
 import ValidationLogin from '../../../../utils/ValidationLogin'
 import axios, { Axios } from 'axios'
