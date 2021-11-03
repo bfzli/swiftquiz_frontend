@@ -1,12 +1,16 @@
-import Layout from "../components/Layout/Layout"
-import Title from '../components/Home/Title'
-import Description from '../components/Home/Description'
+import Layout from "./Layout";
+import Hero from "../components/pages/Home/Hero/Hero";
+import Features from "../components/pages/Home/Features/Features";
+import Started from "../components/pages/Home/Started/Started";
+import Community from "../components/pages/Home/Community/Community";
 
 export default function Home() {
     return (
         <Layout>
-                <Title />
-                <Description />
+            <Hero />
+            <Features />
+            <Started />
+            <Community />
         </Layout>
     )
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Root.css';
-import Routing from './Routing';
+import Routing from './Routing'
+import './components/shared/Global/fonts.scss'
+import './components/shared/Global/global.scss'
 import configureStore from './reduxComponents/store/configureStore';
 import { Provider } from 'react-redux';
 
