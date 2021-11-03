@@ -41,6 +41,13 @@ function Register() {
             console.log(err);
         })
         console.log(user);
+
+        axios.post("http://localhost:5000/api/notifications/subscribe").then((res)=>{
+            console.log(res);
+        }).catch((err)=>{
+            console.log(err.response.data.message);
+        })
+
     };
 
     return (
