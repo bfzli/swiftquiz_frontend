@@ -1,0 +1,291 @@
+@font-face {
+  font-family: "Poppins-Black";
+  src: local("Poppins-Black"),
+    local("../../../assets/fonts/Poppins/Poppins-Black")
+      url("../../../assets/fonts/Poppins/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-BlackItalic";
+  src: local("Poppins-BlackItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-BlackItalic")
+      url("../../../assets/fonts/Poppins/Poppins-BlackItalic.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: local("Poppins-Bold"),
+    local("../../../assets/fonts/Poppins/Poppins-Bold")
+      url("../../../assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-BoldItalic";
+  src: local("Poppins-BoldItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-BoldItalic")
+      url("../../../assets/fonts/Poppins/Poppins-BoldItalic.ttf")
+      format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: local("Poppins-ExtraBold"),
+    local("../../../assets/fonts/Poppins/Poppins-ExtraBold")
+      url("../../../assets/fonts/Poppins/Poppins-ExtraBold.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-ExtraBoldItalic";
+  src: local("Poppins-ExtraBoldItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-ExtraBoldItalic")
+      url("../../../assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-ExtraLight";
+  src: local("Poppins-ExtraLight"),
+    local("../../../assets/fonts/Poppins/Poppins-ExtraLight")
+      url("../../../assets/fonts/Poppins/Poppins-ExtraLight.ttf")
+      format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-ExtraLightItalic";
+  src: local("Poppins-ExtraLightItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-ExtraLightItalic")
+      url("../../../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf")
+      format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-Italic";
+  src: local("Poppins-Italic"),
+    local("../../../assets/fonts/Poppins/Poppins-Italic")
+      url("../../../assets/fonts/Poppins/Poppins-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-Light";
+  src: local("Poppins-Light"),
+    local("../../../assets/fonts/Poppins/Poppins-Light")
+      url("../../../assets/fonts/Poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-LightItalic";
+  src: local("Poppins-LightItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-LightItalic")
+      url("../../../assets/fonts/Poppins/Poppins-LightItalic.ttf")
+      format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: local("Poppins-Medium"),
+    local("../../../assets/fonts/Poppins/Poppins-Medium")
+      url("../../../assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-MediumItalic";
+  src: local("Poppins-MediumItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-MediumItalic")
+      url("../../../assets/fonts/Poppins/Poppins-MediumItalic.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: local("Poppins-Regular"),
+    local("../../../assets/fonts/Poppins/Poppins-Regular")
+      url("../../../assets/fonts/Poppins/Poppins-Regular.ttf")
+      format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: local("Poppins-SemiBold"),
+    local("../../../assets/fonts/Poppins/Poppins-SemiBold")
+      url("../../../assets/fonts/Poppins/Poppins-SemiBold.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-SemiBoldItalic";
+  src: local("Poppins-SemiBoldItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-SemiBoldItalic")
+      url("../../../assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins-Thin";
+  src: local("Poppins-Thin"),
+    local("../../../assets/fonts/Poppins/Poppins-Thin")
+      url("../../../assets/fonts/Poppins/Poppins-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-ThinItalic";
+  src: local("Poppins-ThinItalic"),
+    local("../../../assets/fonts/Poppins/Poppins-ThinItalic")
+      url("../../../assets/fonts/Poppins/Poppins-ThinItalic.ttf")
+      format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF Extra";
+  src: local("Integral CF Extra Bold"),
+    local("../../../assets/fonts/Integral/IntegralCF-ExtraBold"),
+    url("../../../assets/fonts/Integral/IntegralCF-ExtraBold.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF Heavy Oblique";
+  src: local("Integral CF Heavy Oblique"),
+    local("../../../assets/fonts/Integral/IntegralCF-HeavyOblique"),
+    url("../../../assets/fonts/Integral/IntegralCF-HeavyOblique.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: local("Integral CF Bold"),
+    local("../../../assets/fonts/Integral/IntegralCF-Bold"),
+    url("../../../assets/fonts/Integral/IntegralCF-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: local("Integral CF"),
+    local("../../../assets/fonts/Integral/IntegralCF-Regular"),
+    url("../../../assets/fonts/Integral/IntegralCF-Regular.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF Oblique";
+  src: local("Integral CF Oblique"),
+    local("../../../assets/fonts/Integral/IntegralCF-RegularOblique"),
+    url("../../../assets/fonts/Integral/IntegralCF-RegularOblique.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF Medium Oblique";
+  src: local("Integral CF Medium Oblique"),
+    local("../../../assets/fonts/Integral/IntegralCF-MediumOblique"),
+    url("../../../assets/fonts/Integral/IntegralCF-MediumOblique.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: local("Integral CF Medium"),
+    local("../../../assets/fonts/Integral/IntegralCF-Medium"),
+    url("../../../assets/fonts/Integral/IntegralCF-Medium.ttf")
+      format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF Bold Oblique";
+  src: local("Integral CF Bold Oblique"),
+    local("../../../assets/fonts/Integral/IntegralCF-BoldOblique"),
+    url("../../../assets/fonts/Integral/IntegralCF-BoldOblique.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF Demi Bold Oblique";
+  src: local("Integral CF Demi Bold Oblique"),
+    local("../../../assets/fonts/Integral/IntegralCF-DemiBoldOblique"),
+    url("../../../assets/fonts/Integral/IntegralCF-DemiBoldOblique.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF Demi";
+  src: local("Integral CF Demi Bold"),
+    local("../../../assets/fonts/Integral/IntegralCF-DemiBold"),
+    url("../../../assets/fonts/Integral/IntegralCF-DemiBold.ttf")
+      format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: local("Integral CF Heavy"),
+    local("../../../assets/fonts/Integral/IntegralCF-Heavy"),
+    url("../../../assets/fonts/Integral/IntegralCF-Heavy.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF Extra Bold Oblique";
+  src: local("Integral CF Extra Bold Oblique"),
+    local("../../../assets/fonts/Integral/IntegralCF-ExtraBoldOblique"),
+    url("../../../assets/fonts/Integral/IntegralCF-ExtraBoldOblique.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}

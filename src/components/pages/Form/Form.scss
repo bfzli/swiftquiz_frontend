@@ -1,0 +1,129 @@
+.mainCont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: absolute;
+  overflow: hidden;
+  width: 768px;
+  height: 86%;
+  max-width: 100%;
+  min-height: 480px;
+  padding: 0;
+  margin: 0;
+}
+
+.overlay_container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.overlay {
+  background: #ff416c;
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(2, 173, 116),
+    rgb(5, 43, 27)
+  );
+  background: linear-gradient(
+    22.88deg,
+    #5928e5 -2%,
+    rgba(43, 19, 111, 0.95361) 43.53%,
+    rgba(27, 12, 69, 0.937264) 75.97%,
+    rgba(6, 3, 15, 0.91) 98.63%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  color: #ffffff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay_panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay_left {
+  transform: translateX(-20%);
+}
+
+.overlay_right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.logo {
+  margin-top: -70px;
+  margin-bottom: -45px;
+  width: "200px";
+  cursor: pointer;
+}
+
+#signIn {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+#signUp {
+  background-color: transparent;
+  border-color: #ffffff;
+}
+
+.container.right_panel_active {
+  .sign_in_container {
+    transform: translateX(100%);
+  }
+  .sign_up_container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+  }
+  .overlay_container {
+    transform: translateX(-100%);
+  }
+  .overlay {
+    transform: translateX(50%);
+  }
+  .overlay_left {
+    transform: translateX(0);
+  }
+  .overlay_right {
+    transform: translateX(20%);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

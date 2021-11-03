@@ -1,3 +1,4 @@
+}
 import { container, left, right, illustration, title, description } from './Started.module.scss'
 import { button_fill_purple } from '../../../shared/Buttons/Buttons.module.scss'
 import main_illustration from "../../../../assets/images/desk.jpeg"
