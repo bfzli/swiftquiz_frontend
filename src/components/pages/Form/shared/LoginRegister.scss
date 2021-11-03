@@ -36,18 +36,25 @@
   width: 40px;
 }
 
-.inputat {
+.form_container.sign_in_container form .inputat {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
   background: none;
   outline: none;
   border-bottom: 1px solid #5928e5;
-
-  &input {
-    background-color: #eee;
-    border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
-    width: 100%;
-  }
+}
+.form_container.sign_up_container form .inputat {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  background: none;
+  outline: none;
+  border-bottom: 1px solid #5928e5;
 }
 
 .BackError {
@@ -59,6 +66,7 @@
   width: 100%;
   text-align: center;
   margin-right: 115px;
+  padding: 3px;
 }
 
 .error {
@@ -96,5 +104,4 @@
 }
 
 @media only screen and (max-width: 700px) {
-  
 }
