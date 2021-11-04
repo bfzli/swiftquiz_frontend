@@ -1,13 +1,13 @@
-h1 {
+.h1 {
   font-weight: bold;
   font-family: Integral CF;
 }
 
-h2 {
+.h2 {
   text-align: center;
 }
 
-p {
+.p {
   font-size: 14px;
   font-weight: 300;
   line-height: 20px;
@@ -16,13 +16,13 @@ p {
   font-family: Poppins;
 }
 
-span {
+.span {
   font-size: 12px;
   font-family: Poppins;
   font-weight: bold;
 }
 
-a {
+.a {
   color: #333;
   font-size: 14px;
   text-decoration: none;
@@ -31,26 +31,7 @@ a {
   font-weight: 300;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #f1f1f1db;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  height: 20hv;
-  // margin: -20px 0 50px;
-  // margin-top: 50px;
-}
-
-form {
+.form {
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -61,7 +42,7 @@ form {
   text-align: center;
 }
 
-input {
+.input {
   background-color: #eee;
   border: none;
   padding: 12px 15px;

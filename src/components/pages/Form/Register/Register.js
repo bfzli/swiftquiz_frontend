@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import facebook from '../../../../assets/images/facebook.png'
-import google from '../../../../assets/images/google.png'
-import github from '../../../../assets/images/github.png'
+import facebook from '../../../../assets/images/social/facebook.png'
+import google from '../../../../assets/images/social/google.png'
+import github from '../../../../assets/images/social/github.png'
 import './Register.scss'
 import '../shared/LoginRegister.scss'
+import * as styles from '../Globals.module.scss'
 
 import ValidationRegister from '../../../../utils/ValidationRegister'
 import axios, { Axios } from 'axios'
@@ -45,15 +46,15 @@ function Register() {
 
     return (
                     <div className="form_container sign_up_container">
-			            <form id="formReg" name="forma">
+			            <form id="formReg" className={styles.form}>
                             {backError && <div className="BackError" style={{marginLeft: '115px'}}>{backError}</div> }
-				            <h1>Create Account</h1>
+				            <h1 className={styles.h1}>Create Account</h1>
 				            <div className="social_container">
-					            <a className="social"><img src={facebook} alt="" width="40px" height="40"/></a>
-					            <a className="social"><img src={google} alt="" width="40px" height="40px"/></a>
-					            <a className="social"><img src={github} alt="" width="40px" height="40px"/></a>
+					            <a className={styles.a}><img src={facebook} alt="" width="40px" height="40"/></a>
+					            <a className={styles.a}><img src={google} alt="" width="40px" height="40px"/></a>
+					            <a className={styles.a}><img src={github} alt="" width="40px" height="40px"/></a>
 				            </div>
-				                <span>or use your email for registration</span>
+				                <span className={styles.span}>or use your email for registration</span>
 				                <input type="text"  name="name" id="e" className="inputat" placeholder="Name" onChange={(e) => setValues({...values, name: e.target.value})} value={values.name} />
 				            {errors.name && <p className="error">{errors.name}</p>}
 				                <input type="email" className="inputat" placeholder="Email" name="email" id="em" onChange={(e) => setValues({...values, email: e.target.value})} value={values.email}/>

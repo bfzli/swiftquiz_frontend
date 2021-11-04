@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './ContactForm.scss'
-import '../../shared/Website/FormFonts.scss'
 import '../../shared/../../components/pages/Form/shared/LoginRegister.scss'
+import * as styles from '../Form/Globals.module.scss'
 
 export default function ContactForm() {
 
@@ -11,8 +11,8 @@ export default function ContactForm() {
     return (
         <div className="mainContainer">
             <div className="topContent">
-                <h1 id="topTitle">Contact Us</h1>
-                <h1 id="second">How can we help you?</h1>
+                <h1 className={styles.h1} id="topTitle">Contact Us</h1>
+                <h1 className={styles.h1} id="second">How can we help you?</h1>
                 <h4 id="third">Give us a call or email us using the form bellow:</h4>    
             </div>
             <form className="Contactforma">

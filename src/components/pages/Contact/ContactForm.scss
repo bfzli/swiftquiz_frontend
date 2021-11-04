@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   color: white;
+  margin: -25px 0 32px 0;
 }
 
 #topTitle {
@@ -37,7 +38,11 @@
   margin-top: -10px;
 }
 
-.contactInputs {
+.mainContainer form .contactInputs {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
   border: 1px solid #936dfe;
   border-radius: 5px;
   box-shadow: 8px;
@@ -45,6 +50,17 @@
   &.six {
     height: 250px;
   }
+}
+
+.mainContainer form {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
 }
 
 .Contactforma {
@@ -56,4 +72,5 @@
 #contactSubmit {
   width: 150px;
   margin-left: 26rem;
+  margin-bottom: 2rem;
 }

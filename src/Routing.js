@@ -32,7 +32,8 @@ export default function Routing() {
             <Contact/>
           </Route>
         <Route path="/dashboard">
-          <Redirect to="/dashboard/home" />
+          {/* <Redirect to="/dashboard/home" /> */}
+          <Screen/>
         </Route>
         <Route path="/play">
           <Play />
