@@ -17,19 +17,17 @@
 .right {
     width: 50%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    // align-items: center;
     position: relative;
-    flex-direction: column;
+    padding-bottom: 3%;
 }
+
 
 .left {
     width: 50%;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .codebox {
@@ -131,8 +129,18 @@
         width: 100%;
         text-align: center;
     }
+
+    &:hover{
+        letter-spacing: 2px;
+    }
 }
-.lottie{
+
+.logo {
+    display: flex;
     position: absolute;
-    width: 120%;
+    align-items: center;
+    height: 3em;
+    margin-right: 1.25em;
+    top: 4%;
+    fill: #fff;
 }

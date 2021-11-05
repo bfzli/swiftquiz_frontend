@@ -1,0 +1,11 @@
+.sign_in_container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+#sIn {
+  &:hover {
+    cursor: pointer;
+  }
+}
