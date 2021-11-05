@@ -5,6 +5,8 @@
 
 .h2 {
   text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+
 }
 
 .p {
@@ -12,14 +14,14 @@
   font-weight: 300;
   line-height: 20px;
   letter-spacing: 0.5px;
-  margin: 20px 0 30px;
-  font-family: Poppins;
+  margin-bottom: 1em;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .span {
   font-size: 12px;
-  font-family: Poppins;
   font-weight: bold;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .a {
@@ -27,8 +29,7 @@
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
-  font-family: Poppins;
-  font-weight: 300;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .form {
@@ -40,6 +41,8 @@
   padding: 0 50px;
   height: 100%;
   text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+
 }
 
 .input {
@@ -48,4 +51,5 @@
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+  font-family: "Space Grotesk", sans-serif;
 }

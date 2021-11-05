@@ -1,9 +1,15 @@
-import React from 'react'
 import Form from '../components/pages/Form/Form';
+import { Helmet } from 'react-helmet';
 
-function FormView() {
+export default function FormView() {
     return (
-        <Form/>
+        <>
+            <Helmet>
+                <title>Authentication - Swiftquiz</title>
+                <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
+            </Helmet>
+
+            <Form />
+        </>
     )
 }
-export default FormView

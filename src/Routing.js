@@ -6,8 +6,9 @@ import FormView from './pages/FormView'
 import Contact from './pages/Contact';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play'
+import AddQuiz from './pages/Dashboard/AddQuiz'
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 
 
@@ -25,11 +26,14 @@ export default function Routing() {
           <Route path="/" exact> 
             <Home />
           </Route>
-          <Route path="/register">
+          <Route path="/auth">
             <FormView/>
           </Route>
           <Route path="/contact">
             <Contact/>
+          </Route>
+          <Route path="/dashboard/quizes/add-quiz">
+            <AddQuiz/>
           </Route>
         <Route path="/dashboard">
           {/* <Redirect to="/dashboard/home" /> */}

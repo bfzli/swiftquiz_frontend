@@ -138,24 +138,23 @@
     border-bottom: 0.5px solid #ffffff15;
 }
 
-.general_stats{
+.general_stats {
     height: 40vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: .75em;
+    margin-top: 0.75em;
 }
 
-.general_corrector{
+.general_corrector {
     height: 40vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: .75em;
+    margin-top: 0.75em;
 }
 
-
-.stats_boxes{
+.stats_boxes {
     position: relative;
     width: 45.75%;
     height: 45.75%;
@@ -165,16 +164,16 @@
     align-items: center;
     flex-direction: column;
     background: #ffffff10;
-    margin-bottom: .75em;
+    margin-bottom: 0.75em;
     cursor: pointer;
-    transition: .4s ease-in-out all;
+    transition: 0.4s ease-in-out all;
 
-    &:hover{
+    &:hover {
         background: #ffffff20;
     }
 }
 
-.questions_boxes{
+.questions_boxes {
     position: relative;
     width: 91.5%;
     height: 45.75%;
@@ -184,89 +183,85 @@
     align-items: center;
     flex-direction: column;
     background: #ffffff10;
-    margin-bottom: .75em;
+    margin-bottom: 0.75em;
 
-    &:last-child{
+    &:last-child {
         margin-bottom: 1em;
     }
 }
 
-.stats_icon{
+.stats_icon {
     font-family: "Integral CF Extra";
     font-size: 2em;
     color: white;
 }
 
-.question_which{
+.question_which {
     font-family: "Integral CF Extra";
     font-size: 1.25em;
     color: white;
 }
 
-
-
-.stats_description{
-    font-size: .95em;
+.stats_description {
+    font-size: 0.95em;
     color: white;
     width: 90%;
     text-align: center;
-    font-size: .95em;
+    font-size: 0.95em;
     color: white;
 }
 
-.view_container{
+.view_container {
     width: 100%;
     padding: 1.5em 1.25em 1.25em 1.25em;
 }
 
-.view_wrapper{
+.view_wrapper {
     border-radius: 1.4em;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.view_option{
+.view_option {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .65em 1em;
+    padding: 0.65em 1em;
     border-radius: 1.4em;
     cursor: pointer;
 
-    &:first-child{
-        margin-right: .2em;
+    &:first-child {
+        margin-right: 0.2em;
     }
 
-    &:last-child{
-        margin-left: .2em;
+    &:last-child {
+        margin-left: 0.2em;
     }
-
 }
 
-
-.view_icon{
+.view_icon {
     fill: var(--white);
     height: 1em;
-    margin-right: .65em;
+    margin-right: 0.65em;
 }
 
-.view_item_text{
+.view_item_text {
     font-size: 1.1em;
     color: var(--white);
     position: relative;
 }
 
-.question_current{
+.question_current {
     width: 80%;
-    color: var(--white)
+    color: var(--white);
 }
 
-.mute{
+.mute {
     background: #ffffff10;
     border-radius: 100%;
     margin-top: 1em;
-    padding: .5em;
+    padding: 0.5em;
     width: 3em;
     height: 3em;
     border: 0.5px solid transparent;
@@ -274,24 +269,35 @@
     cursor: pointer;
     fill: #ffffff;
 
-    &:hover{
+    &:hover {
         background: #ffffff30;
         color: white;
         border: 0.5px solid #ffffff;
     }
 }
 
-.notification{
+.notification {
     font-family: "Integral CF Extra";
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 28px; height: 28px;
+    width: 28px;
+    height: 28px;
     position: absolute;
     right: -8px;
     background: white;
     color: var(--purple);
     border-radius: 100%;
     top: -26px;
-    font-size: .9em;
+    font-size: 0.9em;
+}
+
+.nothing {
+    width: 90%;
+    text-align: center;
+    font-family: "Integral CF Extra";
+    color: white;
+    font-size: 1.65em;
+    margin-top: -1em;
+    margin-right: .5em;
 }

@@ -146,7 +146,7 @@ export default function Screen() {
 
     return (
         <main className={styles.container}>
-            <header className={styles.header}>
+            <header className={styles.header} data-aos="fade-right">
                 <p className={styles.stats_title}>Information Area</p>
 
                 {
@@ -168,7 +168,9 @@ export default function Screen() {
                                         <svg className={styles.view_icon} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd" clipRule="evenodd" d="M10.3264 0.209663C10.4861 0.0663223 10.6973 -0.00881318 10.9135 0.000824899C15.4843 0.137655 19.3044 3.4558 19.9967 7.89063C20.0011 7.91711 20.0011 7.94411 19.9967 7.97059C20.0116 8.18043 19.9407 8.38745 19.7996 8.54585C19.6586 8.70425 19.459 8.80099 19.2451 8.81466L11.5656 9.3211C11.3116 9.34362 11.0597 9.26005 10.8718 9.09092C10.6839 8.92179 10.5774 8.68278 10.5785 8.43261L10.0623 0.889316V0.764928C10.0717 0.552776 10.1667 0.353003 10.3264 0.209663ZM9.79965 11.2936L16.4297 10.8848H16.5011C16.7869 10.8895 17.0591 11.0054 17.2579 11.207C17.4566 11.4087 17.5655 11.6795 17.5606 11.9599C17.2984 15.782 14.4962 18.9755 10.6828 19.7982C6.86938 20.621 2.96017 18.8754 1.08778 15.5139C0.537217 14.5457 0.189303 13.4794 0.064454 12.3775C0.0160313 12.051 -0.0051696 11.7212 0.00106199 11.3913C0.0136824 7.32706 2.90728 3.81907 6.95607 2.9595C7.4462 2.86776 7.93762 3.11248 8.15146 3.55479C8.25711 3.71408 8.28448 3.9091 8.29693 4.09983C8.36702 5.17389 8.43928 6.23903 8.51126 7.30004C8.57317 8.2127 8.63488 9.1223 8.69482 10.0319C8.69173 10.2462 8.7254 10.4594 8.79444 10.6627C8.95695 11.0627 9.36136 11.3165 9.79965 11.2936Z" />
                                         </svg>
-                                        <p className={styles.view_item_text}>Anwsers <span className={styles.notification}>{all.length - 1}</span></p>
+                                        {/* <p className={styles.view_item_text}>Anwsers <span className={styles.notification}>{all.length - 1}</span></p> */}
+                                        <p className={styles.view_item_text}>Anwsers<span className={styles.notification}>{TotalQuestions - wrongAnswersCount - correctAnswersCount === 0 ? all.length : all.length - 1}</span></p>
+
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +178,6 @@ export default function Screen() {
                                 <div className={styles.stats_boxes}>
                                     <h3 className={styles.stats_icon}>{minutes}:{seconds}</h3>
                                     <p className={styles.stats_description}>Time to Answer</p>
-                                    {/* <div style={timeprogress} /> */}
                                 </div>
 
                                 <div className={styles.stats_boxes}>
@@ -203,8 +204,8 @@ export default function Screen() {
                                     <h3 className={styles.stats_icon}>{TotalQuestions}</h3>
                                     <p className={styles.stats_description}>Total Questions</p>
                                 </div>
-                            <p style={{marginTop: '12px'}} className={styles.stats_title}>Settings</p>
-                            {
+                                <p style={{ marginTop: '12px' }} className={styles.stats_title}>Settings</p>
+                                {
                                     sounds === true ?
 
                                         <svg className={styles.mute} onClick={() => setSounds(!sounds)} viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,8 +217,8 @@ export default function Screen() {
                                         :
 
                                         <svg className={styles.mute} onClick={() => setSounds(!sounds)} viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M12.8579 4.55634C12.8762 4.68965 12.8933 4.81521 12.9025 4.9814L3.29014 14.5926H3.06782C1.65985 14.5926 0.632979 13.5976 0.442426 12.0522C0.2307 10.5068 0.273045 7.86053 0.442426 6.45272C0.643565 4.99198 1.72337 3.9864 3.06782 3.9864H4.89925L8.39272 1.12739C8.81618 0.768555 9.5678 0.429834 10.15 0.41819C11.2087 0.41819 12.1826 1.1602 12.532 2.34572C12.6696 2.84216 12.7225 3.34072 12.7649 3.81598L12.8496 4.49449C12.8524 4.5154 12.8552 4.53596 12.8579 4.55634ZM11.8808 10.7315C12.0248 10.5907 12.3434 10.4912 12.4874 10.5272C12.877 10.6267 12.9521 11.1845 12.9468 11.6228C12.9288 12.8951 12.8854 13.78 12.8177 14.3272L12.77 14.7782L12.7692 14.7866C12.724 15.2402 12.6771 15.7096 12.5435 16.2103C12.1899 17.3937 11.2446 18.1622 10.1711 18.1622C10.1351 18.1622 10.1002 18.1622 10.0642 18.1611C9.47136 18.1611 8.82666 17.8055 8.46143 17.4953L7.16038 16.4887C6.66706 16.1214 6.81209 15.5339 7.08945 15.1942C7.2965 14.9413 9.78432 12.658 11.0922 11.4577C11.5363 11.0502 11.8443 10.7675 11.8808 10.7315Z"/>
-                                            <path d="M18.7275 0.269787C18.3538 -0.0911623 17.7801 -0.0890453 17.4201 0.270846L0.270349 17.4186C-0.0906437 17.7795 -0.0906438 18.3543 0.273524 18.7322C0.459843 18.9047 0.690624 19 0.924581 19C1.16383 19 1.40943 18.8994 1.57987 18.729L18.7286 1.58127C19.0906 1.21926 19.0906 0.632854 18.7275 0.269787Z"/>
+                                            <path opacity="0.4" fillRule="evenodd" clipRule="evenodd" d="M12.8579 4.55634C12.8762 4.68965 12.8933 4.81521 12.9025 4.9814L3.29014 14.5926H3.06782C1.65985 14.5926 0.632979 13.5976 0.442426 12.0522C0.2307 10.5068 0.273045 7.86053 0.442426 6.45272C0.643565 4.99198 1.72337 3.9864 3.06782 3.9864H4.89925L8.39272 1.12739C8.81618 0.768555 9.5678 0.429834 10.15 0.41819C11.2087 0.41819 12.1826 1.1602 12.532 2.34572C12.6696 2.84216 12.7225 3.34072 12.7649 3.81598L12.8496 4.49449C12.8524 4.5154 12.8552 4.53596 12.8579 4.55634ZM11.8808 10.7315C12.0248 10.5907 12.3434 10.4912 12.4874 10.5272C12.877 10.6267 12.9521 11.1845 12.9468 11.6228C12.9288 12.8951 12.8854 13.78 12.8177 14.3272L12.77 14.7782L12.7692 14.7866C12.724 15.2402 12.6771 15.7096 12.5435 16.2103C12.1899 17.3937 11.2446 18.1622 10.1711 18.1622C10.1351 18.1622 10.1002 18.1622 10.0642 18.1611C9.47136 18.1611 8.82666 17.8055 8.46143 17.4953L7.16038 16.4887C6.66706 16.1214 6.81209 15.5339 7.08945 15.1942C7.2965 14.9413 9.78432 12.658 11.0922 11.4577C11.5363 11.0502 11.8443 10.7675 11.8808 10.7315Z" />
+                                            <path d="M18.7275 0.269787C18.3538 -0.0911623 17.7801 -0.0890453 17.4201 0.270846L0.270349 17.4186C-0.0906437 17.7795 -0.0906438 18.3543 0.273524 18.7322C0.459843 18.9047 0.690624 19 0.924581 19C1.16383 19 1.40943 18.8994 1.57987 18.729L18.7286 1.58127C19.0906 1.21926 19.0906 0.632854 18.7275 0.269787Z" />
                                         </svg>
 
                                 }
@@ -248,8 +249,14 @@ export default function Screen() {
                             </div>
                             <div className={styles.general_corrector}>
                                 {
-                                    all[currentQuestion - 1] === null  ? 'is null' : 'is not null'
+                                    currentQuestion === 0 ?
+                                        <>
+                                            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_dmw3t0vg.json" background="transparent" speed="1" style={{ width: '220px', height: '220px', marginRight: '.5em', opacity: '.89' }} loop autoplay></lottie-player>
+                                            <h3 className={styles.nothing}>Nothing yet, start playing the quiz.</h3>
+                                        </>
+                                        : null
                                 }
+
                                 {all?.map(item =>
                                     item === undefined ?
                                         null
@@ -279,21 +286,21 @@ export default function Screen() {
 
                         ?
                         <>
-                            <div className={styles.question}>
+                            <div className={styles.question} data-aos="fade-left">
 
                                 <div style={timeprogress} />
 
                                 {questions[currentQuestion].question}
                             </div>
 
-                            <div className={styles.anwsers}>
+                            <div className={styles.anwsers} data-aos="fade-right">
                                 {
-                                    questions[currentQuestion].anwsers.map(item => <div onClick={() => handleAnswer(item.isCorrect)} className={styles.anwser}>{item.anwser}</div>)
+                                    questions[currentQuestion].anwsers.map(item => <div data-aos="fade-right" onClick={(which) => { handleAnswer(item.isCorrect) }} className={styles.anwser}>{item.anwser}</div>)
                                 }
                             </div>
                         </>
                         :
-                        <div className={styles.modal}>
+                        <div className={styles.modal} data-aos="fade-top">
                             <h1>
                                 You scored {correctAnswersCount} of {TotalQuestions}
                             </h1>
