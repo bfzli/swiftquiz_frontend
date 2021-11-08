@@ -3,7 +3,9 @@ import { button_fill, button_faded } from '../Buttons/Buttons.module.scss'
 import Links from './Links'
 import Logo from './Logo'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +14,15 @@ export default function Header() {
         setIsOpen(!isOpen)
     }
 
+    const auth = useSelector((state) => state.auth.auth.username)
+
+
+
+    useEffect(() => {
+        console.log(auth)
+    }, [])
+
+    
     return (
         <div data-aos="fade-down">
             <header className={header}>
@@ -28,10 +39,23 @@ export default function Header() {
                     }
                 </div>
 
-                <div className={right}>
-                    <button className={button_faded} styles={{ marginRight: '16px' }}>LOGIN</button>
-                    <button className={button_fill}>GET STARTED</button>
-                </div>
+                {
+                    auth !== "" || auth !== {} || auth !== null?
+                        <div className={right}>
+                            <button className={button_faded} styles={{ marginRight: '16px' }}>get support</button>
+                            <button className={button_fill}>Login TO dashboard {auth}</button>
+                            is login
+                        </div>
+
+                        :
+
+                        <div className={right}>
+                            <button className={button_faded} styles={{ marginRight: '16px' }}>LOGIN</button>
+                            <button className={button_fill}>GET STARTED</button>
+                            is not login
+                        </div>
+                }
+
             </header>
 
 

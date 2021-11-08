@@ -6,7 +6,6 @@ import './Register.scss'
 import '../shared/LoginRegister.scss'
 import * as styles from '../Globals.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import Notification from '../../../shared/Notification/Notification'
 
 import ValidationRegister from '../../../../utils/ValidationRegister'
 import axios from 'axios'
@@ -23,7 +22,6 @@ function Register({register}) {
     const [backError, setBackError] = useState(false);
     const [session, setSession] = useState(localStorage.getItem('token') || null)
     const [user, setUser] = useState(localStorage.getItem('user') || null)
-    const [showNot, setNowShow] = useState(false);
 
     useEffect(() => {
         if (session !== null) {
@@ -105,9 +103,7 @@ function Register({register}) {
     return (
         <div>
             <div className="form_container sign_up_container">
-            {
-                showNot === false ? <Notification message="hello world" /> : null
-            }
+            
                 <form id="formReg" className={styles.form}>
                     {backError && <div className="BackError" style={{ marginLeft: '115px' }}>{backError}</div>}
                     <h1 className={styles.h1}>Join Now</h1>

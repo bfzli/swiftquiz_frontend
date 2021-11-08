@@ -43,6 +43,8 @@
     color: #fff;
 }
 
+
+
 .anwsers {
     border-top: 0.5px solid #ffffff15;
     width: 100%;
@@ -109,8 +111,9 @@
 }
 
 .button {
+    font-family: "Space Grotesk", sans-serif;
     margin-top: 1.5em;
-    font-size: 1em;
+    font-size: .5em;
     padding: 0.75em 1.25em;
     border: 0.35px solid #ffffff;
     transition: all ease-in-out 0.3s;
@@ -118,6 +121,9 @@
     font-weight: 500em;
     color: white;
     border-radius: 1000px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 .button:hover {
@@ -176,11 +182,10 @@
 .questions_boxes {
     position: relative;
     width: 91.5%;
-    height: 45.75%;
     display: flex;
     justify-content: center;
     border-radius: 1.4em;
-    align-items: center;
+    padding: 1em;
     flex-direction: column;
     background: #ffffff10;
     margin-bottom: 0.75em;
@@ -188,6 +193,15 @@
     &:last-child {
         margin-bottom: 1em;
     }
+}
+
+.question_box {
+    color: white;
+}
+
+.ttq{
+    display: flex;
+    align-items: center;
 }
 
 .stats_icon {
@@ -253,8 +267,10 @@
 }
 
 .question_current {
-    width: 80%;
+    font-family: "Integral CF Extra";
+    font-size: 1.2em;
     color: var(--white);
+    margin-bottom: .5em;
 }
 
 .mute {
@@ -302,11 +318,39 @@
     margin-right: 0.5em;
 }
 
-.profile {
-    display: flex;
-}
+
 
 .profile_wrapper {
     display: flex;
+    align-items: center;
     flex-direction: column;
+}
+
+.profile_name{
+    font-family: "Integral CF Extra";
+    font-size: 1.25em;
+}
+
+.profile_img{
+    width: 3.5em;
+    border-radius: 100%;
+    margin-right: 1em;
+}
+
+.pointers{
+    font-size: .65em;
+}
+
+.coinsw{
+    display: flex;
+    align-items: center;
+}
+
+.anwsers_all{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.anwsers_all_single{
+   width: 50%; 
 }
