@@ -5,12 +5,13 @@ import github from '../../../../assets/images/social/github.png'
 import './Register.scss'
 import '../shared/LoginRegister.scss'
 import * as styles from '../Globals.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
 
 import ValidationRegister from '../../../../utils/ValidationRegister'
 import axios from 'axios'
+import { signUpAction } from '../../../../reduxComponents/actions/Auth'
 
 function Register() {
-
     const [values, setValues] = useState({ name: "", email: "", username: "", password: "", confirmpassword: "" });
     const [errors, setErrors] = useState({});
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
@@ -31,6 +32,8 @@ function Register() {
 
     // }, [localStorage.getItem('token')])
 
+    const dispatch = useDispatch();
+
     const RegisterHandler = (e) => {
         e.preventDefault();
         setErrors(ValidationRegister(values));
@@ -43,7 +46,8 @@ function Register() {
             password: values.password
         }
 
-        axios.post("https://swiftquiz-api.herokuapp.com/api/user/register-user", user).then((res) => {
+        dispatch(signUpAction(user.name, user.email, user.username, user.password));
+        /* axios.post("https://swiftquiz-api.herokuapp.com/api/user/register-user", user).then((res) => {
             if (res.status == 400 && res.data == values.email) {
                 throw Error('Email is already in use');
             } else if (res.status == 400 && res.data == values.username) {
@@ -75,7 +79,7 @@ function Register() {
             })
         }).catch((err) => {
             setBackError(err.response.data.message);
-        })
+        }) */
         // console.log(user);
     };
 
@@ -87,7 +91,7 @@ function Register() {
         }).join(''));
 
         return JSON.parse(jsonPayload);
-    };
+    }; 
 
     return (
         <div className="form_container sign_up_container">

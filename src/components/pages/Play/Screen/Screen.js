@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react'
 import Questions from './dataJSON'
 import wrong_choice from '../../../../assets/voices/isWrong.mp3'
 import correct_choice from '../../../../assets/voices/isCorrect.mp3'
+import { useDispatch } from 'react-redux';
+import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
+import { useSelector } from 'react-redux';
 
 export default function Screen() {
 
@@ -26,6 +29,7 @@ export default function Screen() {
     useEffect(() => {
         var seperate = questions[currentQuestion - 1];
         setAll([...all, seperate])
+
     }, [currentQuestion])
 
 
