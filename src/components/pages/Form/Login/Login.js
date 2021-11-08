@@ -5,16 +5,18 @@ import github from '../../../../assets/images/social/github.png'
 import './Login.scss'
 import '../shared/LoginRegister.scss'
 import * as styles from '../Globals.module.scss'
+import { useDispatch } from 'react-redux'
 
 import ValidationLogin from '../../../../utils/ValidationLogin'
-import axios from 'axios'
+import { logInAction } from '../../../../reduxComponents/actions/Auth'
 
 
-export default function Login() {
+export default function Login({login}) {
 
     const [details, setDetails] = useState({ username: "", password: "" });
     const [errors, setErrors] = useState({});
     const [backError, setBackError] = useState(null);
+    const dispatch = useDispatch();
 
     const LoginHandler = (e) => {
         e.preventDefault();
@@ -25,7 +27,10 @@ export default function Login() {
             password: details.password
         };
 
-        axios.post("https://swiftquiz-api.herokuapp.com/api/user/login-user", logindata).then((res) => {
+        dispatch(logInAction(logindata.username, logindata.password));
+        login();
+
+        /* axios.post("https://swiftquiz-api.herokuapp.com/api/user/login-user", logindata).then((res) => {
             if (res.status == 403) {
                 throw Error("Incorrect Password");
             } else if (res.status == 404) {
@@ -37,7 +42,7 @@ export default function Login() {
             // localStorage.setItem('token', token)
         }).catch((err) => {
             setBackError(err.response.data.message);
-        })
+        }) */
     }
 
     return (

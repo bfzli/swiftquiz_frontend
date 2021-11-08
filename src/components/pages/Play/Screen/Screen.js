@@ -3,6 +3,14 @@ import { useState, useEffect } from 'react'
 import Questions from './dataJSON'
 import wrong_choice from '../../../../assets/voices/isWrong.mp3'
 import correct_choice from '../../../../assets/voices/isCorrect.mp3'
+import { useDispatch } from 'react-redux';
+import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
+import { useSelector } from 'react-redux';
+
+
+import coin from '../../../../assets/images/Coin.png';
+
+import avatar from '../../../../assets/images/profile.jpg'
 
 export default function Screen() {
 
@@ -26,6 +34,7 @@ export default function Screen() {
     useEffect(() => {
         var seperate = questions[currentQuestion - 1];
         setAll([...all, seperate])
+
     }, [currentQuestion])
 
 
@@ -65,7 +74,7 @@ export default function Screen() {
             setRunTimer(false)
             setModal(true)
             var coins = 0;
-            setPoints(coins)
+            // setPoints(coins)
         }
     }
 
@@ -220,7 +229,6 @@ export default function Screen() {
                                             <path opacity="0.4" fillRule="evenodd" clipRule="evenodd" d="M12.8579 4.55634C12.8762 4.68965 12.8933 4.81521 12.9025 4.9814L3.29014 14.5926H3.06782C1.65985 14.5926 0.632979 13.5976 0.442426 12.0522C0.2307 10.5068 0.273045 7.86053 0.442426 6.45272C0.643565 4.99198 1.72337 3.9864 3.06782 3.9864H4.89925L8.39272 1.12739C8.81618 0.768555 9.5678 0.429834 10.15 0.41819C11.2087 0.41819 12.1826 1.1602 12.532 2.34572C12.6696 2.84216 12.7225 3.34072 12.7649 3.81598L12.8496 4.49449C12.8524 4.5154 12.8552 4.53596 12.8579 4.55634ZM11.8808 10.7315C12.0248 10.5907 12.3434 10.4912 12.4874 10.5272C12.877 10.6267 12.9521 11.1845 12.9468 11.6228C12.9288 12.8951 12.8854 13.78 12.8177 14.3272L12.77 14.7782L12.7692 14.7866C12.724 15.2402 12.6771 15.7096 12.5435 16.2103C12.1899 17.3937 11.2446 18.1622 10.1711 18.1622C10.1351 18.1622 10.1002 18.1622 10.0642 18.1611C9.47136 18.1611 8.82666 17.8055 8.46143 17.4953L7.16038 16.4887C6.66706 16.1214 6.81209 15.5339 7.08945 15.1942C7.2965 14.9413 9.78432 12.658 11.0922 11.4577C11.5363 11.0502 11.8443 10.7675 11.8808 10.7315Z" />
                                             <path d="M18.7275 0.269787C18.3538 -0.0911623 17.7801 -0.0890453 17.4201 0.270846L0.270349 17.4186C-0.0906437 17.7795 -0.0906438 18.3543 0.273524 18.7322C0.459843 18.9047 0.690624 19 0.924581 19C1.16383 19 1.40943 18.8994 1.57987 18.729L18.7286 1.58127C19.0906 1.21926 19.0906 0.632854 18.7275 0.269787Z" />
                                         </svg>
-
                                 }
                             </div>
 
@@ -262,11 +270,56 @@ export default function Screen() {
                                         null
                                         :
                                         <div className={styles.questions_boxes}>
-                                            <p className={styles.question_current}>
-                                                The correct anwser for "{item.question}", was:
-                                            </p>
+                                            <p className={styles.question_current}>{item.question}</p>
 
-                                            {item.anwsers.map(test => <h3 className={styles.question_which}>{test.isCorrect && test.anwser}</h3>)}
+                                            {item.anwsers.map(test =>
+                                                <div className={styles.ttq}>
+                                                    <p className={styles.question_box}>{test.isCorrect === true ?
+
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="white" />
+                                                            <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
+                                                        </svg>
+
+                                                        :
+
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="white" />
+                                                            <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
+                                                        </svg>}
+
+                                                        {test.anwser}
+                                                    </p>
+                                                </div>
+                                            )}
+
+                                            {
+                                                item.anwsers.map(
+                                                    loop => {
+                                                        loop.isCorrect === true ?
+                                                            <div>
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="white" />
+                                                                    <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
+                                                                </svg>
+
+                                                                <p>{loop.anwser}</p>
+                                                            </div>
+
+                                                            :
+
+                                                            <div>
+                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="white" />
+                                                                    <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
+                                                                </svg>
+
+                                                                <p>{loop.anwser}</p>
+                                                            </div>
+                                                    }
+                                                )
+                                            }
+
                                         </div>
                                 )}
 
@@ -301,14 +354,26 @@ export default function Screen() {
                         </>
                         :
                         <div className={styles.modal} data-aos="fade-top">
-                            <h1>
-                                You scored {correctAnswersCount} of {TotalQuestions}
-                            </h1>
+                            <div className={styles.profile}>
+                                <img className={styles.profile_img} src={avatar} />
+                                <p className={styles.profile_name}>
+                                    Benjamin Fazli
+                                </p>
+                                <div className={styles.coinsw}>
+                                    <p className={styles.pointers}>10.399 </p>
+                                    <img src={coin} width="42px" height="42px" />
 
-                            <button className={styles.button}
-                                onClick={() => resetQuiz()}>
-                                Play again with 200 coins
-                            </button>
+                                    <sup style={{ display: 'flex' }}>
+                                        <p className={styles.pointers} style={{ fontSize: '.75em' }}> + {points} </p>
+                                        <img src={coin} width="26px" height="26px" />
+                                    </sup>
+
+                                </div>
+                                <button className={styles.button}
+                                    onClick={() => resetQuiz()}>
+                                    <p style={{ marginRight: '.35em' }}>Play again with 200</p> <img src={coin} width="32px" height="32px" />
+                                </button>
+                            </div>
                         </div>
                 }
             </div>
