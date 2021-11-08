@@ -11,7 +11,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 
-
 export default function Routing() {
 
   AOS.init({

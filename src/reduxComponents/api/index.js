@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const API_BASE_URL = 'https://swiftquzi-api.herokuapp.com/api/user/api/user/quizzes/';
+const API_BASE_URL = 'https://swiftquiz-api.herokuapp.com/api/user';
 
 const client = axios.create({
     baseURL: API_BASE_URL,
     headers: {
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('user')
     }
 });
 
@@ -21,7 +22,8 @@ export const signUp = (name, email, username, password) => {
         email,
         username,
         password
-    }
+    };
+
     return client.post('/register-user', postData);
 };
 
@@ -30,5 +32,11 @@ export const logIn = (username, password) => {
         username,
         password
     };
+
     return client.post('/login-user', postData);
 };
+
+export const saveToLocalStorage = (token) => {
+        localStorage.setItem('user', token)
+};
+//export const removeFromLocalStorage = (token) => localStorage.removeItem('user', token);

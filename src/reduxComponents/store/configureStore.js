@@ -1,14 +1,17 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import questionReducer from '../reducers/Questions';
+import quizReducer from '../reducers/Quiz';
 import filterReducer from '../reducers/Filters';
+import authReducer from '../reducers/Auth';
 import logger from '../middleware/logger';
+import thunk from 'redux-thunk';
 
 const configureStore = () => {
     const store = createStore(
         combineReducers({
-            questions: questionReducer,
+            auth: authReducer,
+            quizes: quizReducer,
             filters: filterReducer
-        }),applyMiddleware( logger)
+        }),applyMiddleware(thunk, logger)
         //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
     
