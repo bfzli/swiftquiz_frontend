@@ -11,7 +11,7 @@ import ValidationLogin from '../../../../utils/ValidationLogin'
 import { logInAction } from '../../../../reduxComponents/actions/Auth'
 
 
-export default function Login() {
+export default function Login({login}) {
 
     const [details, setDetails] = useState({ username: "", password: "" });
     const [errors, setErrors] = useState({});
@@ -28,6 +28,7 @@ export default function Login() {
         };
 
         dispatch(logInAction(logindata.username, logindata.password));
+        login();
 
         /* axios.post("https://swiftquiz-api.herokuapp.com/api/user/login-user", logindata).then((res) => {
             if (res.status == 403) {
