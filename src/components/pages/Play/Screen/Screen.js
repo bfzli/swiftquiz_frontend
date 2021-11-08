@@ -7,6 +7,8 @@ import { useDispatch } from 'react-redux';
 import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
 import { useSelector } from 'react-redux';
 
+import avatar from '../../../../assets/images/profiles/benjamin.png'
+
 export default function Screen() {
 
     const [menuView, setMenuView] = useState('stats');
@@ -224,7 +226,6 @@ export default function Screen() {
                                             <path opacity="0.4" fillRule="evenodd" clipRule="evenodd" d="M12.8579 4.55634C12.8762 4.68965 12.8933 4.81521 12.9025 4.9814L3.29014 14.5926H3.06782C1.65985 14.5926 0.632979 13.5976 0.442426 12.0522C0.2307 10.5068 0.273045 7.86053 0.442426 6.45272C0.643565 4.99198 1.72337 3.9864 3.06782 3.9864H4.89925L8.39272 1.12739C8.81618 0.768555 9.5678 0.429834 10.15 0.41819C11.2087 0.41819 12.1826 1.1602 12.532 2.34572C12.6696 2.84216 12.7225 3.34072 12.7649 3.81598L12.8496 4.49449C12.8524 4.5154 12.8552 4.53596 12.8579 4.55634ZM11.8808 10.7315C12.0248 10.5907 12.3434 10.4912 12.4874 10.5272C12.877 10.6267 12.9521 11.1845 12.9468 11.6228C12.9288 12.8951 12.8854 13.78 12.8177 14.3272L12.77 14.7782L12.7692 14.7866C12.724 15.2402 12.6771 15.7096 12.5435 16.2103C12.1899 17.3937 11.2446 18.1622 10.1711 18.1622C10.1351 18.1622 10.1002 18.1622 10.0642 18.1611C9.47136 18.1611 8.82666 17.8055 8.46143 17.4953L7.16038 16.4887C6.66706 16.1214 6.81209 15.5339 7.08945 15.1942C7.2965 14.9413 9.78432 12.658 11.0922 11.4577C11.5363 11.0502 11.8443 10.7675 11.8808 10.7315Z" />
                                             <path d="M18.7275 0.269787C18.3538 -0.0911623 17.7801 -0.0890453 17.4201 0.270846L0.270349 17.4186C-0.0906437 17.7795 -0.0906438 18.3543 0.273524 18.7322C0.459843 18.9047 0.690624 19 0.924581 19C1.16383 19 1.40943 18.8994 1.57987 18.729L18.7286 1.58127C19.0906 1.21926 19.0906 0.632854 18.7275 0.269787Z" />
                                         </svg>
-
                                 }
                             </div>
 
@@ -305,10 +306,19 @@ export default function Screen() {
                         </>
                         :
                         <div className={styles.modal} data-aos="fade-top">
-                            <h1>
-                                You scored {correctAnswersCount} of {TotalQuestions}
-                            </h1>
+                            <div className={styles.profile}>
+                                <img src={avatar} />
 
+                                <div className={styles.profile_wrapper}>
+                                    <p>
+                                        Benjamin Fazli
+
+                                    </p>
+
+                                    <p>102013 coins + 22 from this game</p>
+                                </div>
+
+                            </div>
                             <button className={styles.button}
                                 onClick={() => resetQuiz()}>
                                 Play again with 200 coins

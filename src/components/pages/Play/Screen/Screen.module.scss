@@ -299,5 +299,14 @@
     color: white;
     font-size: 1.65em;
     margin-top: -1em;
-    margin-right: .5em;
+    margin-right: 0.5em;
+}
+
+.profile {
+    display: flex;
+}
+
+.profile_wrapper {
+    display: flex;
+    flex-direction: column;
 }
