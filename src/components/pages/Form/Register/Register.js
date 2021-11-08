@@ -12,7 +12,11 @@ import ValidationRegister from '../../../../utils/ValidationRegister'
 import axios from 'axios'
 import { signUpAction } from '../../../../reduxComponents/actions/Auth'
 
-function Register() {
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+
+function Register({register}) {
     const [values, setValues] = useState({ name: "", email: "", username: "", password: "", confirmpassword: "" });
     const [errors, setErrors] = useState({});
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
@@ -49,6 +53,7 @@ function Register() {
         }
 
         dispatch(signUpAction(user.name, user.email, user.username, user.password));
+        register();
         /* axios.post("https://swiftquiz-api.herokuapp.com/api/user/register-user", user).then((res) => {
             if (res.status == 400 && res.data == values.email) {
                 throw Error('Email is already in use');

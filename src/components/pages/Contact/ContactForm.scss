@@ -39,16 +39,35 @@
 }
 
 .mainContainer form .contactInputs {
+  // background-color: #eee;
+  // border: none;
+  // padding: 12px 15px;
+  // margin: 8px 0;
+  // border: 1px solid #936dfe;
+  // border-radius: 5px;
+  // box-shadow: 8px;
+  // width: 40%;
+  // &.six {
+  //   height: 250px;
+  // }
   background-color: #eee;
-  border: none;
-  padding: 12px 15px;
+  background: none;
+  border: 0.5px solid #33333315;
+  padding: 0.65em 0.75em;
+  border-radius: 1em;
   margin: 8px 0;
-  border: 1px solid #936dfe;
-  border-radius: 5px;
-  box-shadow: 8px;
+  width: 100%;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05em;
   width: 40%;
+  transition: all ease-in-out 0.3s;
   &.six {
     height: 250px;
+    resize: none;
+  }
+  &:hover {
+    background-color: #f5f5f515;
+    border: 0.5px solid #5928e550;
   }
 }
 

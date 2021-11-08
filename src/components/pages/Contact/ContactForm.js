@@ -17,10 +17,10 @@ export default function ContactForm() {
             <form className="Contactforma">
                 <input className="contactInputs one" type="text" name="name" placeholder="Name" onChange={(e)=> setValues({...values, name: e.target.value})} value={values.name}/> 
                 <input className="contactInputs two" type="email" name="email" placeholder="Email" onChange={(e)=> setValues({...values, email: e.target.value})} value={values.email}/> 
-                <input className="contactInputs three" type="number" name="phone" placeholder="Phone" onChange={(e)=> setValues({...values, phone: e.target.value})} value={values.phone}/> 
+                <input className="contactInputs three" type="text" name="phone" placeholder="Phone" onChange={(e)=> setValues({...values, phone: e.target.value})} value={values.phone}/> 
                 <input className="contactInputs four" type="text" name="category" placeholder="Category" onChange={(e)=> setValues({...values, category: e.target.value})} value={values.category}/> 
                 <input className="contactInputs five" type="text" name="subject" placeholder="Subject" onChange={(e)=> setValues({...values, subject: e.target.value})} value={values.subject}/> 
-                <input className="contactInputs six" type="text" name="description" placeholder="Description" onChange={(e)=> setValues({...values, description: e.target.value})} value={values.description}/> 
+                <textarea className="contactInputs six" type="text" name="description" placeholder="Description" onChange={(e)=> setValues({...values, description: e.target.value})} value={values.description}/> 
                 <input className="butonat" id="contactSubmit" type="submit" value="Submit" />
             </form>
         </div>
