@@ -37,9 +37,9 @@ import {selectQuizesOfUsers} from '../../../../reduxComponents/selectors/selecto
 function Welcome({userQuizes}) {
     
     const dispatch = useDispatch()
-
-    console.log(userQuizes)
+    
     useEffect(() => dispatch(fetchQuiz()), []);
+
     return (
         <div className={styles.container}>
 
@@ -540,5 +540,5 @@ function Welcome({userQuizes}) {
 const mapStateToProps = (state) => ({
     userQuizes: selectQuizesOfUsers(state)
 });
-  
+
 export default connect(mapStateToProps)(Welcome);
