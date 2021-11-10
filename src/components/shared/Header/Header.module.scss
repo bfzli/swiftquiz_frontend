@@ -1,13 +1,14 @@
 .header {
+    position: fixed;
     display: block;
     width: 100%;
+    height: 10vh;
     display: flex;
-    position: fixed;
     justify-content: space-between;
     align-items: center;
     padding: 1em 3em;
     background: var(--purple);
-    z-index: 100;
+    z-index: 10;
 
     @media screen and (max-width: 900px) {
         display: none;
@@ -55,7 +56,6 @@
 
 .mobile {
     display: block;
-
     width: 100%;
     display: flex;
     position: fixed;
@@ -63,7 +63,7 @@
     align-items: center;
     padding: 1em 1em;
     background: var(--purple);
-    z-index: 100;
+    z-index: 9;
 
     @media screen and (min-width: 900px) {
         display: none;
@@ -93,11 +93,30 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-    background-color: var(--purple);
+    background: var(--purple);
     top: 0; right: 0;
-    z-index: 100220;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.acc_holder{
+    display: flex;
+    align-items: center;
+}
+
+.username{
+    margin-right: 1em;
+    margin-left: .345em;
+
+    font-family: "Integral CF Extra";
+    color: var(--white);
+    font-size: .89em;
+}
+
+.icon{
+    width: 1.5em;
+    fill: white;
 }

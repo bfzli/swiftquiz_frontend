@@ -10,7 +10,7 @@ import AddQuiz from './pages/Dashboard/AddQuiz'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
-import Header from './components/shared/Header/Header';
+
 export default function Routing() {
 
   AOS.init({
@@ -35,7 +35,7 @@ export default function Routing() {
             <AddQuiz/>
           </Route>
         <Route path="/dashboard">
-          {/* <Redirect to="/dashboard/home" /> */}
+          <Redirect to="/dashboard/home" />
           <Screen/>
         </Route>
         <Route path="/play">
@@ -43,9 +43,6 @@ export default function Routing() {
         </Route>
         <Route path="/testing">
           <TestingLoaders />
-        </Route>
-        <Route path="/123213">
-          <Redirect to="/" />
         </Route>
         <Route path="*">
           <Error />

@@ -6,7 +6,6 @@ import './Login.scss'
 import '../shared/LoginRegister.scss'
 import * as styles from '../Globals.module.scss'
 import { useDispatch } from 'react-redux'
-
 import ValidationLogin from '../../../../utils/ValidationLogin'
 import { logInAction } from '../../../../reduxComponents/actions/Auth'
 
@@ -26,8 +25,9 @@ export default function Login({login}) {
             username: details.username,
             password: details.password
         };
-
+        
         dispatch(logInAction(logindata.username, logindata.password));
+        
         login();
 
         /* axios.post("https://swiftquiz-api.herokuapp.com/api/user/login-user", logindata).then((res) => {

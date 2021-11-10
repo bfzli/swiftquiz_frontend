@@ -1,9 +1,113 @@
 .container {
-    padding: 2.5% 4%;
+    // padding: 2.5% 4%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
 
     @media screen and (max-width: 1000px) {
         padding: 2.5%;
     }
+}
+
+.slides {
+    width: 25%;
+    height: 100vh;
+    margin-left: -0.1em;
+    // background-color: red;
+    padding: 1em;
+    overflow-y: scroll;
+    border-right: 0.25px solid rgba(141, 141, 141, 0.085);
+}
+
+.single_slide {
+    width: 100%;
+    height: 20%;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-radius: 0.75em;
+}
+
+.add_slide {
+    width: 100%;
+    background: #f5f5f520;
+    height: 20%;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-radius: 0.75em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+        background: #f5f5f550;
+    }
+}
+
+.header {
+    width: 100%;
+    // background-color: red;
+    height: 7.5vh;
+    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+}
+
+.right_wrapper {
+    // display: flex;
+    width: 100%;
+    // padding: 1.35%;
+}
+
+.current_slide {
+    padding-top: 1%;
+    height: 100vh - 7.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.current_question {
+    width: 97%;
+    height: 62%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75em;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+}
+
+.current_question_text {
+    width: 80.12345678%;
+    font-size: 2.3456789em;
+    text-align: center;
+    overflow: hidden;
+    font-family: "Integral CF Demi Bold";
+
+}
+
+.options_wrapper {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    padding: 1em;
+
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.option {
+    width: 49.4567%;
+    height: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75em;
+    margin-bottom: 1%;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+}
+
+.option_text{
+    font-size: 1.34567em;
+    font-family: "Integral CF Demi Bold";
 }

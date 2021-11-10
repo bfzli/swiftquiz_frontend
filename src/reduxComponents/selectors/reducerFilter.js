@@ -8,3 +8,4 @@ const showQuiz = (questions, {difficulty, text}) => {
 };
 
 export default showQuiz;
+
