@@ -1,10 +1,9 @@
-import React, {useState} from 'react'
-import logoPic from '../../../assets/images/logo_50.png'
-import Register from '../Form/Register/Register'
-import * as styles from './Globals.module.scss'
-import Login from '../Form/Login/Login'
-import './Form.scss'
-
+import React, {useState} from 'react';
+import logoPic from '../../../assets/images/logo_50.png';
+import Register from '../Form/Register/Register';
+import * as styles from './Globals.module.scss';
+import Login from '../Form/Login/Login';
+import './Form.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
