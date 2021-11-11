@@ -1,7 +1,9 @@
 import * as CONST from '../constants/index';
 
-const authState = {
-    auth: {},
+let user = JSON.parse(localStorage.getItem('user'));    
+
+export const authState = {
+    auth: user ? user : {},
     messageResponse: {
         message: '',
         success: ''

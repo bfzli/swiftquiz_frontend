@@ -11,8 +11,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
+import { useSelector } from 'react-redux';
 
 export default function Routing() {
+
+  const user = useSelector(state => state.auth.auth);
+  console.log(user);
 
   AOS.init({
     duration: 800,
