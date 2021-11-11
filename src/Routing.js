@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView'
 import Contact from './pages/Contact';
+import Profile from './pages/Dashboard/Profile';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play'
 import AddQuiz from './pages/Dashboard/AddQuiz'
@@ -30,6 +31,9 @@ export default function Routing() {
           </Route>
           <Route path="/contact">
             <Contact/>
+          </Route>
+          <Route path="/profile">
+            <Profile/>
           </Route>
           <Route path="/dashboard/quizes/add-quiz">
             <AddQuiz/>
