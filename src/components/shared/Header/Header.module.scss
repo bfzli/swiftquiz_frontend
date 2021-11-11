@@ -1,5 +1,4 @@
 .header {
-    position: fixed;
     display: block;
     width: 100%;
     height: 10vh;
@@ -8,7 +7,8 @@
     align-items: center;
     padding: 1em 3em;
     background: var(--purple);
-    z-index: 10;
+    position: absolute;
+    z-index: 1022222;
 
     @media screen and (max-width: 900px) {
         display: none;
@@ -32,9 +32,11 @@
     font-family: "Integral CF Extra";
     font-size: 1em;
     color: #fff;
-    margin-right: 1rem;
+    padding: .55em .77em;
+    margin-right: .25em;
     transition: all ease-in-out 0.5s;
     cursor: pointer;
+    border-radius: 100px;
 
     @media screen and (max-width: 900px) {
         margin-bottom: 1em;
@@ -43,13 +45,13 @@
 }
 
 .link:hover {
-    letter-spacing: 1px;
+    background: #ffffff40;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    height: 2.3em;
+    height: 2.75em;
     margin-right: 1.25em;
     fill: #fff;
 }

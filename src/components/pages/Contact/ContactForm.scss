@@ -1,59 +1,48 @@
 .mainContainer {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-top: 6rem;
 }
 
 .topContent {
-  background-color: #936dfe;
+  background-color: var(--purple);
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
-  margin: -25px 0 32px 0;
+  margin-top: 8.9vh;
+  border-top: 1px solid #ffffff50;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
 }
 
 #topTitle {
-  padding-top: 3rem;
+  padding: 4em 0em;
   display: flex;
   justify-content: center;
+  font-size: 2em;
 }
 
 #second {
-  display: flex;
-  justify-content: center;
-  padding: 7rem 6.8rem 0 0;
-  font-family: "Poppins";
+  text-align: center;
+  margin-top: 3.5em;
+  margin-bottom: .75em;
 }
+
 #third {
-  display: flex;
-  justify-content: center;
+  width: 40%;
   padding-bottom: 3rem;
-  font-family: "Poppins";
   font-weight: 400;
-  margin-top: -10px;
+  text-align: center;
 }
 
 .mainContainer form .contactInputs {
-  // background-color: #eee;
-  // border: none;
-  // padding: 12px 15px;
-  // margin: 8px 0;
-  // border: 1px solid #936dfe;
-  // border-radius: 5px;
-  // box-shadow: 8px;
-  // width: 40%;
-  // &.six {
-  //   height: 250px;
-  // }
-  background-color: #eee;
   background: none;
-  border: 0.5px solid #33333315;
-  padding: 0.65em 0.75em;
+  border: .5px solid #33333315;
+  padding: .65em .9em;
   border-radius: 1em;
   margin: 8px 0;
   width: 100%;
@@ -61,10 +50,12 @@
   font-size: 1.05em;
   width: 40%;
   transition: all ease-in-out 0.3s;
+
   &.six {
     height: 250px;
     resize: none;
   }
+  
   &:hover {
     background-color: #f5f5f515;
     border: 0.5px solid #5928e550;

@@ -15,6 +15,9 @@ body {
   color: var(--secondary);
   background: var(--priamry);
   font-family: "Space Grotesk", sans-serif;
+  scroll-behavior: smooth;
+  cursor: url('../../../assets/images/cursor.svg'), auto;
+
 }
 
 #_VAR {
@@ -48,4 +51,20 @@ body {
 
 #left{
   background-color: green;
+}
+
+
+::-webkit-scrollbar{
+  width: 100;
+}
+
+#cursor_hover,
+#cursor_hover:hover,
+button,
+button:hover,
+a,
+input,
+input:hover,
+a:hover{
+  cursor: url('../../../assets/images/cursor_hover.svg'), auto;
 }

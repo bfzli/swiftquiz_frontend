@@ -10,7 +10,7 @@ import ValidationLogin from '../../../../utils/ValidationLogin'
 import { logInAction } from '../../../../reduxComponents/actions/Auth'
 
 
-export default function Login({login}) {
+export default function Login({ login }) {
 
     const [details, setDetails] = useState({ username: "", password: "" });
     const [errors, setErrors] = useState({});
@@ -25,24 +25,11 @@ export default function Login({login}) {
             username: details.username,
             password: details.password
         };
-        
+
         dispatch(logInAction(logindata.username, logindata.password));
-        
+
         login();
 
-        /* axios.post("https://swiftquiz-api.herokuapp.com/api/user/login-user", logindata).then((res) => {
-            if (res.status == 403) {
-                throw Error("Incorrect Password");
-            } else if (res.status == 404) {
-                throw Error("Username is not found");
-            }
-        }).then((data) => {
-            setBackError(null);
-            // console.log(data)
-            // localStorage.setItem('token', token)
-        }).catch((err) => {
-            setBackError(err.response.data.message);
-        }) */
     }
 
     return (
@@ -55,10 +42,10 @@ export default function Login({login}) {
                     <a className={styles.a}><img alt="Google" src={google} width="40px" height="40px" /></a>
                     <a className={styles.a}><img alt="GitHub" src={github} width="40px" height="40px" /></a>
                 </div>
-                <span className={styles.span} style={{marginBottom: '.75em'}}>Or use your account.</span>
-                <input type="text" className="inputat" placeholder="Username" name="username" id="email" onChange={(e) => setDetails({ ...details, username: e.target.value })} value={details.username} />
+                <span className={styles.span} style={{ marginBottom: '.75em' }}>Or use your account.</span>
+                <input spellCheck="false" type="text" className="inputat" placeholder="Username" name="username" id="email" onChange={(e) => setDetails({ ...details, username: e.target.value })} value={details.username} />
                 {errors.username && <p className="error">{errors.username}</p>}
-                <input type="password" className="inputat" placeholder="Password" name="password" id="passs" onChange={(e) => setDetails({ ...details, password: e.target.value })} value={details.password} />
+                <input spellCheck="false" type="password" className="inputat" placeholder="Password" name="password" id="passs" onChange={(e) => setDetails({ ...details, password: e.target.value })} value={details.password} />
                 {errors.password && <p className="error">{errors.password}</p>}
                 <a className={styles.a} href="">Forgot your password?</a>
                 <input type="submit" className="butonat" id="sIn" value="Sign In" name="submit" />

@@ -3,15 +3,17 @@
     font-size: 0.9em;
     padding: 0.775em 1.5em;
     background: #fff;
-    color: #5928e5;
+    border: .5px solid #fff;
+    color: var(--purple);
     border-radius: 100px;
-    border: 0;
     transition: all ease-in-out .5s;
     cursor: pointer;
 }
 
 .button_fill:hover {
-    letter-spacing: 1px;
+    background: var(--purple);
+    color: #fff;
+    border: .5px solid #fff;
 }
 
 .button_faded {
@@ -19,8 +21,8 @@
     font-size: 0.9em;
     padding: 0.775em 1.5em;
     background: #ffffff25;
+    border: .5px solid #ffffff25;
     color: #fff;
-    border: 0;
     border-radius: 100px;
     transition: all ease-in-out .5s;
     cursor: pointer;
@@ -28,7 +30,9 @@
 }
 
 .button_faded:hover {
-    letter-spacing: 1px;
+    background: #ffffff50;
+    color: var(--white);
+    border: .5px solid #fff;
 }
 
 
@@ -38,9 +42,9 @@
     font-size: 1.1em;
     padding: 1em 1.9em;
     background: #fff;
-    color: #5928E5;
+    color: var(--purple);
+    border: .5px solid #fff;
     border-radius: 100px;
-    border: 0;
     cursor: pointer;
     text-align: center;
     transition: all ease-in-out .5s;
@@ -52,21 +56,25 @@
 }
 
 .cta_hero:hover{
-    letter-spacing: 1px;
+    background: var(--purple);
+    color: #fff;
+    border: .5px solid #fff;
 }
 
 .button_fill_purple {
     font-family: "Integral CF Demi Bold";
     font-size: 0.9em;
     padding: 0.775em 1.5em;
-    background: #5928e5;
+    background: var(--purple);
     color: #fff;
+    border: .5px solid var(--purple);
     border-radius: 100px;
-    border: 0;
     transition: all ease-in-out .5s;
     cursor: pointer;
 }
 
 .button_fill_purple:hover {
-    letter-spacing: 1px;
+    background: #fff;
+    color: var(--purple);
+    border: .5px solid var(--purple);
 }

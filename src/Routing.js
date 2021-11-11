@@ -10,6 +10,7 @@ import AddQuiz from './pages/Dashboard/AddQuiz'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
+import { ProtectedRoute } from './pages/ProtectedRoute';
 
 export default function Routing() {
 
@@ -21,32 +22,31 @@ export default function Routing() {
 
   return (
     <Wrapper>
-        <Switch>
-          <Route path="/" exact> 
-            <Home />
-          </Route>
-          <Route path="/auth">
-            <FormView/>
-          </Route>
-          <Route path="/contact">
-            <Contact/>
-          </Route>
-          <Route path="/dashboard/quizes/add-quiz">
-            <AddQuiz/>
-          </Route>
-        <Route path="/dashboard">
-          <Redirect to="/dashboard/home" />
-          <Screen/>
+      <Switch>
+        {/* Global Routes for All Users */}
+        <Route path="/" exact>
+          <Home />
         </Route>
-        <Route path="/play">
-          <Play />
+        <Route path="/auth">
+          <FormView />
         </Route>
-        <Route path="/testing">
-          <TestingLoaders />
+        <Route path="/contact">
+          <Contact />
         </Route>
+        {/* Global Routes for All Users */}
+
+        {/* Protected Routes for Platform Users */}
+        <ProtectedRoute path="/dashboard/quizes/add-quiz" component={AddQuiz}/>
+        <Route path="/dashboard" component={Screen} />
+        <ProtectedRoute path="/play" component={Play}/>
+        <ProtectedRoute path="/testing" component={TestingLoaders} />
+        {/* Protected Routes for Platform Users */}
+
+        {/* Super Global, recommended to be at the end of each route */}
         <Route path="*">
           <Error />
         </Route>
+        {/* Super Global, recommended to be at the end of each route */}
       </Switch>
     </Wrapper>
   )

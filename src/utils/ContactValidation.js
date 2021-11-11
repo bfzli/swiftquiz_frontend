@@ -10,11 +10,7 @@ export default function ContactValidation(values){
     }else if(!/\S+@\S+\.\S+/.test(values.email)){
         errors.email = "Email is invalid.";
     }
-    if(!values.phone){
-        errors.phone = "";
-    }else if(!/\+\d{8,12}/.test(values.phone)){
-        errors.phone = "Phone is not valid."
-    }
+    
     if(!values.subject.trim()){
         errors.subject = "Subject is required."
     }
