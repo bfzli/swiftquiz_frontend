@@ -14,7 +14,8 @@ const client = axios.create({
 });
 
 
-export const fetchQuizes = () => client.get(`${API_BASE_URL}/quizzes/my-quizzes`)
+export const fetchQuizes = () => client.get(`${API_BASE_URL}/quizzes/my-quizzes`);
+
 export const fetchData = (endpoint) => client.get(`/${endpoint}`);
 
 export const createQuiz = (params) => client.post('/questions', params);
