@@ -1,6 +1,9 @@
 :root {
   --purple: #5928e5;
   --white: #fff;
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 * {
@@ -31,26 +34,26 @@ body {
   }
 }
 
-#view_active{
+#view_active {
   border-radius: 1.4em;
   border: 0.5px solid #ffffff15;
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out 0.3s;
 
-  &:hover{
+  &:hover {
     background: #ffffff10;
   }
 }
 
-#view_inactive{
+#view_inactive {
   background: #ffffff10;
   border: 0.5px solid #ffffff15;
 }
 
-#right{
+#right {
   background: red;
 }
 
-#left{
+#left {
   background-color: green;
 }
 

@@ -1,0 +1,29 @@
+.admin_panel {
+  margin-bottom: 40px;
+  .panel_title {
+    margin-left: 80px;
+    color: #5928e5;
+    //  font-size: 1.2em;
+    padding: 0.35em 0.5em;
+    //  border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    font-family: "Integral CF Demi Bold";
+  }
+  .admin_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .left_content {
+      margin-top: 50px;
+      margin-left: 120px;
+      @media (max-width: 767px) {
+        margin-left: -0.5rem;
+      }
+    }
+    .right_content {
+      margin-top: 50px;
+    }
+  }
+}

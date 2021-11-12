@@ -13,8 +13,9 @@ import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
 
+import AdminPanel from "./pages/AdminDashboard/AdminPanel";
+import Quizzes from './pages/Dashboard/Quizzes';
 export default function Routing() {
-
   AOS.init({
     duration: 800,
     disable: "mobile",
@@ -36,11 +37,13 @@ export default function Routing() {
         </Route>
         {/* Global Routes for All Users */}
 
+
         {/* Protected Routes for Platform Users */}
         <ProtectedRoute path="/dashboard/quizes/add-quiz" component={AddQuiz} />
         <ProtectedRoute path="/dashboard" component={Screen} />
         <ProtectedRoute path="/play" component={Play} />
         <ProtectedRoute path="/testing" component={TestingLoaders} />
+        <ProtectedRoute path="dashboard/admin-panel" component={AdminPanel}
         {/* Protected Routes for Platform Users */}
 
         {/* Super Global, recommended to be at the end of each route */}
@@ -50,5 +53,5 @@ export default function Routing() {
         {/* Super Global, recommended to be at the end of each route */}
       </Switch>
     </Wrapper>
-  )
+  );
 }
