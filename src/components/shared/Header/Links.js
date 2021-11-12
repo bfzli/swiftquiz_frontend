@@ -6,21 +6,16 @@ const Links = [
     },
     {
         id: 2,
-        name: 'HOW TO PLAY',
-        link: '/how-to-play'
-    },
-    {
-        id: 3,
         name: 'COMMUNITY',
         link: '/community'
     },
     {
-        id: 4,
+        id: 3,
         name: 'ABOUT US',
         link: '/about-us'
     },
     {
-        id: 5,
+        id: 4,
         name: 'GET IN TOUCH',
         link: '/contact'
     }

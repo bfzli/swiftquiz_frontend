@@ -27,18 +27,28 @@ import rinor from '../../../../assets/images/profiles/rinor.png'
 
 import your1 from '../../../../assets/images/quizes/ruby.jpg'
 
-import {useEffect} from 'react'
-import {fetchQuiz} from '../../../../reduxComponents/actions/Questions'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
+import { useDispatch, useSelector } from 'react-redux'
 import { connect } from "react-redux";
-import {selectQuizesOfUsers} from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
+import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
+import filterReducer from '../../../../reduxComponents/reducers/Filters';
 
 
-function Welcome({userQuizes}) {
-    
+function Welcome({ userQuizes }) {
+    const [filtredQuizes, setFiltredQuizes] = useState(null)
     const dispatch = useDispatch()
-    
-    useEffect(() => dispatch(fetchQuiz()), []);
+
+    useEffect(() => {
+        dispatch(fetchQuiz())
+        setFiltredQuizes(userQuizes);
+    }, []);
+
+    // console.log("test", userQuizes)
+
+
+    // const quizes = useSelector(state => state.quizes)
+
 
     return (
         <div className={styles.container}>
@@ -71,6 +81,21 @@ function Welcome({userQuizes}) {
                                         </p>
                                     </div>
                                 </div>
+                                {/* {
+                                    filtredQuizes.map(item =>
+                                        <div className={styles.your_quiz_wrapper}>
+                                            <img src={your1} alt="Blog" className={styles.your_quiz_thumb} />
+                                            <div className={styles.your_quiz_info}>
+                                                <p className={styles.quiz_title}>
+                                                    {item.category.name}
+                                                </p>
+                                                <p className={styles.quiz_description}>
+                                                    Ruby on Rails is your favorite Ruby web framework to use.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                } */}
                                 <div>
                                     <div className={styles.edit}>
 

@@ -12,12 +12,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
-import { useSelector } from 'react-redux';
 
 export default function Routing() {
-
-  const user = useSelector(state => state.auth.auth);
-  console.log(user);
 
   AOS.init({
     duration: 800,
@@ -41,9 +37,9 @@ export default function Routing() {
         {/* Global Routes for All Users */}
 
         {/* Protected Routes for Platform Users */}
-        <ProtectedRoute path="/dashboard/quizes/add-quiz" component={AddQuiz}/>
-        <Route path="/dashboard" component={Screen} />
-        <ProtectedRoute path="/play" component={Play}/>
+        <ProtectedRoute path="/dashboard/quizes/add-quiz" component={AddQuiz} />
+        <ProtectedRoute path="/dashboard" component={Screen} />
+        <ProtectedRoute path="/play" component={Play} />
         <ProtectedRoute path="/testing" component={TestingLoaders} />
         {/* Protected Routes for Platform Users */}
 

@@ -1,38 +1,14 @@
+import { useReducer } from 'react';
 import { useState, useEffect } from 'react'
 import * as styles from './AddQuiz.module.scss'
 import Helmet from 'react-helmet'
+import { formReducer, initState } from "./helpers/Helper";
 
 export default function AddQuiz() {
 
-    const [questions, setQuestions] = useState([
-        {
-            question: 'Your question here...',
-            anwsers: [
-                { anwser: 'your option here...', isCorrect: true },
-                { anwser: 'your option here...', isCorrect: false },
-                { anwser: 'your option here...', isCorrect: false },
-                { anwser: 'your option here...', isCorrect: false },
-            ]
-        }]);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [indexes, setIndexes] = useState(0)
+    const [form, dispatch] = useReducer(formReducer, initState);
 
-    function addQuiz() {
-        const temp = {
-            question: 'What type of data is "23.4"?',
-            anwsers: [
-                { anwser: 'String', isCorrect: false },
-                { anwser: 'Int', isCorrect: false },
-                { anwser: 'Float', isCorrect: true },
-                { anwser: 'Double', isCorrect: false },
-            ]
-        }
-
-        setQuestions([...questions, temp])
-
-        const nextQuestion = currentQuestion + 1;
-        setCurrentQuestion(nextQuestion)
-    }
+    useEffect(() => console.log(form), [])
 
     return (
         <div className={styles.container}>
@@ -41,16 +17,11 @@ export default function AddQuiz() {
             </Helmet>
 
             <div className={styles.slides}>
-                {
-                    questions.map(item =>
-                        <div className={styles.single_slide}>
-                            {
-                                questions[0].question
-                            }
-                        </div>
-                    )
-                }
-                <div onClick={() => addQuiz()} className={styles.add_slide}>
+
+                <div className={styles.single_slide}>
+                    question
+                </div>
+                <div className={styles.add_slide}>
                     Add New Question
                 </div>
             </div>
@@ -72,20 +43,72 @@ export default function AddQuiz() {
                 </div>
                 <div className={styles.current_slide}>
                     <div className={styles.current_question}>
-                        <h1 contentEditable="true" className={styles.current_question_text}>{questions[currentQuestion].question}</h1>
+                        <input
+                            className={styles.current_question_text}
+                            type="text"
+                            placeholder="Your question"
+                            onChange={(e) =>
+                                dispatch({ type: e.target.name, payload: e.target.value })
+                            }
+                        />
                     </div>
 
                     <div className={styles.options_wrapper}>
-                        {questions[currentQuestion].anwsers.map(item =>
-                            <div className={styles.option}>
-                                <p contentEditable="true" className={styles.option_text}>{item.anwser}</p>
-                            </div>
-                        )}
-                        {console.log(questions)}
+
+                        <div className={styles.option}>
+                            <input
+                                type="text"
+                                placeholder="Anwser 1"
+                                onChange={(e) =>
+                                    dispatch({
+                                        type: e.target.name,
+                                        payload: { answer: e.target.value }
+                                    })
+                                }
+                            />
+                        </div>
+
+                        <div className={styles.option}>
+                            <input
+                                type="text"
+                                placeholder="Anwser 2"
+                                onChange={(e) =>
+                                    dispatch({
+                                        type: e.target.name,
+                                        payload: { answer: e.target.value }
+                                    })
+                                }
+                            />
+                        </div>
+
+                        <div className={styles.option}>
+                            <input
+                                type="text"
+                                placeholder="Anwser 3"
+                                onChange={(e) =>
+                                    dispatch({
+                                        type: e.target.name,
+                                        payload: { answer: e.target.value }
+                                    })
+                                }
+                            />
+                        </div>
+
+                        <div className={styles.option}>
+                            <input
+                                type="text"
+                                placeholder="Anwser 4"
+                                onChange={(e) =>
+                                    dispatch({
+                                        type: e.target.name,
+                                        payload: { answer: e.target.value }
+                                    })
+                                }
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

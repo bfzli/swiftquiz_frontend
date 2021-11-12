@@ -9,6 +9,7 @@
   text-decoration: none;
   outline: none;
   box-sizing: border-box;
+  // overflow-x: hidden;
 }
 
 body {
@@ -53,11 +54,6 @@ body {
   background-color: green;
 }
 
-
-::-webkit-scrollbar{
-  width: 100;
-}
-
 #cursor_hover,
 #cursor_hover:hover,
 button,
@@ -67,4 +63,22 @@ input,
 input:hover,
 a:hover{
   cursor: url('../../../assets/images/cursor_hover.svg'), auto;
+}
+
+::-webkit-scrollbar{
+  width: .25em;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track{
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--purple);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #5928e570;
 }

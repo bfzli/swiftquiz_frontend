@@ -15,7 +15,6 @@
     }
 }
 
-
 .right {
     display: flex;
     align-items: center;
@@ -32,8 +31,8 @@
     font-family: "Integral CF Extra";
     font-size: 1em;
     color: #fff;
-    padding: .55em .77em;
-    margin-right: .25em;
+    padding: .55em .75em;
+    margin-right: 0.25em;
     transition: all ease-in-out 0.5s;
     cursor: pointer;
     border-radius: 100px;
@@ -72,31 +71,33 @@
     }
 }
 
-.menu_icon{
-    margin-top: .085em;
+.menu_icon {
+    margin-top: 0.085em;
     height: 1.6em;
     fill: white;
     cursor: pointer;
     margin-left: 1em;
 }
 
-.close_icon{
+.close_icon {
     position: absolute;
-    top: 1em; right: 1em;
+    top: 1em;
+    right: 1em;
     fill: white;
     height: 1em;
 }
 
-.menu_icon:hover{
-    opacity: .8;
+.menu_icon:hover {
+    opacity: 0.8;
 }
 
-.screen{
+.screen {
     width: 100%;
     height: 100vh;
     position: absolute;
     background: var(--purple);
-    top: 0; right: 0;
+    top: 0;
+    right: 0;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -104,21 +105,42 @@
     align-items: center;
 }
 
-.acc_holder{
+.acc_holder {
     display: flex;
     align-items: center;
 }
 
-.username{
-    margin-right: 1em;
-    margin-left: .345em;
-
+.username {
+    margin-left: .5em;
     font-family: "Integral CF Extra";
     color: var(--white);
-    font-size: .89em;
+    font-size: 0.89em;
 }
 
-.icon{
+.icon {
     width: 1.5em;
     fill: white;
+}
+
+.single_action {
+    display: flex;
+    align-items: center;
+    padding: 0.5em .75em;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100px;
+    transition: all ease-in-out 0.3s;
+
+
+    &:hover {
+        background: #ffffff40;
+    }
+
+    &:first-child{
+        margin-right: .35em;
+    }
+
+    &:last-child{
+        margin-right: 1em;
+    }
 }
