@@ -1,33 +1,33 @@
 import * as styles from './Welcome.module.scss'
 import { Link } from 'react-router-dom'
 
-import quiz1 from '../../../../assets/images/community/rubyonrails.png'
-import quiz2 from '../../../../assets/images/community/svlete.png'
-import quiz3 from '../../../../assets/images/community/typescript.png'
-import quiz4 from '../../../../assets/images/community/kotlin.png'
-import quiz5 from '../../../../assets/images/community/react.png'
-import quiz6 from '../../../../assets/images/community/docker.png'
+import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
+import quiz2 from '../../../../assets/images/community/svlete.webp'
+import quiz3 from '../../../../assets/images/community/typescript.webp'
+import quiz4 from '../../../../assets/images/community/kotlin.webp'
+import quiz5 from '../../../../assets/images/community/react.webp'
+import quiz6 from '../../../../assets/images/community/docker.webp'
 
 
-import blog1 from '../../../../assets/images/blog/blog1.png'
-import blog2 from '../../../../assets/images/blog/blog2.png'
-import blog3 from '../../../../assets/images/blog/blog3.png'
+import blog1 from '../../../../assets/images/blog/blog1.webp'
+import blog2 from '../../../../assets/images/blog/blog2.webp'
+import blog3 from '../../../../assets/images/blog/blog3.webp'
 import avatar from '../../../../assets/images/avatar.jpg'
 
-import gold_medal from '../../../../assets/images/medals/gold.png'
-import silver_medal from '../../../../assets/images/medals/silver.png'
-import bronze_medal from '../../../../assets/images/medals/bronze.png'
-import medal_medal from '../../../../assets/images/medals/medal.png'
+import gold_medal from '../../../../assets/images/medals/gold.webp'
+import silver_medal from '../../../../assets/images/medals/silver.webp'
+import bronze_medal from '../../../../assets/images/medals/bronze.webp'
+import medal_medal from '../../../../assets/images/medals/medal.webp'
 
-import benjamin from '../../../../assets/images/profiles/benjamin.png'
-import fitim from '../../../../assets/images/profiles/fitim.png'
-import laurat from '../../../../assets/images/profiles/laurat.png'
-import adnan from '../../../../assets/images/profiles/adnan.png'
-import mendrit from '../../../../assets/images/profiles/mendrit.png'
-import rinor from '../../../../assets/images/profiles/rinor.png'
+import benjamin from '../../../../assets/images/profiles/benjamin.webp'
+import fitim from '../../../../assets/images/profiles/fitim.webp'
+import laurat from '../../../../assets/images/profiles/laurat.webp'
+import adnan from '../../../../assets/images/profiles/adnan.webp'
+import mendrit from '../../../../assets/images/profiles/mendrit.webp'
+import rinor from '../../../../assets/images/profiles/rinor.webp'
 
 
-import your1 from '../../../../assets/images/quizes/ruby.jpg'
+import your1 from '../../../../assets/images/quizes/ruby.webp'
 
 export default function Welcome() {
     return (

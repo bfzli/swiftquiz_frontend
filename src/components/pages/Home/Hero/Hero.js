@@ -1,6 +1,6 @@
 import {container, left, title, description, right, illustration} from './Hero.module.scss'
 import {cta_hero} from '../../../shared/Buttons/Buttons.module.scss'
-import hero_illustration from '../../../../assets/images/illustration.png'
+import hero_illustration from '../../../../assets/images/webp/illustration.webp'
 import {Link} from 'react-router-dom'
 
 export default function Hero() {
