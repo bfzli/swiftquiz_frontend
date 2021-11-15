@@ -1,13 +1,15 @@
-import Layout from "../components/Layout/Layout"
-import Title from '../components/Error/Title'
-import Description from '../components/Error/Description'
-
+import Layout from './Layout'
+import { Helmet } from 'react-helmet'
+import ErrorView from '../components/pages/Error/Error'
 
 export default function Error() {
     return (
         <Layout>
-            <Title />
-            <Description />
+            <Helmet>
+                <title>404 Not Found - Swiftquiz</title>
+                <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
+            </Helmet>
+            <ErrorView />
         </Layout>
     )
 }

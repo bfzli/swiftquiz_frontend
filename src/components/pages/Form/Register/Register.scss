@@ -1,0 +1,13 @@
+.sign_up_container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+#sUp {
+  &:hover {
+    cursor: pointer;
+  }
+  margin-top: 20px;
+}

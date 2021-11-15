@@ -1,0 +1,51 @@
+:root {
+  --purple: #5928e5;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--secondary);
+  background: var(--priamry);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+#_VAR {
+  width: 95%;
+  margin-left: 5%;
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    margin-left: 0%;
+  }
+}
+
+#view_active{
+  border-radius: 1.4em;
+  border: 0.5px solid #ffffff15;
+  transition: all ease-in-out .3s;
+
+  &:hover{
+    background: #ffffff10;
+  }
+}
+
+#view_inactive{
+  background: #ffffff10;
+  border: 0.5px solid #ffffff15;
+}
+
+#right{
+  background: red;
+}
+
+#left{
+  background-color: green;
+}
