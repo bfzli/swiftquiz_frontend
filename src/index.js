@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routing from './Routing'
-import './components/shared/Global/fonts.scss'
-import './components/shared/Global/global.scss'
-import configureStore from './reduxComponents/store/configureStore';
-import { Provider } from 'react-redux';
+import './Root.css';
+import Routing from './Routing';
 
-const store = configureStore();
-
-//Providing the store to the root 
-let jsx = (
-  <Provider store={store}>
+ReactDOM.render(
+  <React.StrictMode>
     <Routing />
-  </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
-ReactDOM.render(jsx,document.getElementById('root'));
