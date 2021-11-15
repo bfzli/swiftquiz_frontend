@@ -1,7 +1,7 @@
 import { container, head, title, description, cards, card, card_title, card_figure, card_description } from './Features.module.scss'
-import One from '../../../../assets/images/One.png'
-import Two from '../../../../assets/images/Two.png'
-import Three from '../../../../assets/images/Three.png'
+import One from '../../../../assets/images/webp/One.webp'
+import Two from '../../../../assets/images/webp/Two.webp'
+import Three from '../../../../assets/images/webp/Three.webp'
 
 export default function Features() {
     return (

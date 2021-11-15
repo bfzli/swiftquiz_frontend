@@ -17,7 +17,7 @@ export default function ContactForm() {
   const ContactHandler = (e) => {
     e.preventDefault();
     setErrors(ContactValidation(values));
-    if(errors === null){
+    if(values.name  && values.email && values.subject && values.description && !values.phone || values.phone && !errors.phone){
         emailjs.sendForm('service_5n3h55t', 'swiftquiz_template', form.current, 'user_5GMcFcZjQDsQd8qZSzybg')
         .then((result) => {
             console.log(result.text);
