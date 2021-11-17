@@ -64,7 +64,7 @@ export default function Header() {
 
                             </div>
 
-                            <Link to="/dashboard">
+                            <Link to="/dashboard/welcome">
                                 <button styles={{ marginLeft: '16px' }} className={button_fill}>Go To Dashboard</button>
                             </Link>
                         </div>

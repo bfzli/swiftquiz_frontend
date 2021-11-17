@@ -85,3 +85,32 @@ a:hover{
 ::-webkit-scrollbar-thumb:hover{
   background: #5928e570;
 }
+
+#tooltip {
+  position: relative;
+}
+
+#tooltip:before {
+  content: attr(data-text); /* here's the magic */
+  position:absolute;
+
+  top:50%;
+  transform:translateY(-50%);
+
+  width: auto;
+  left:100%;
+  margin-left: .5em; 
+
+  font-size: 1.19em;
+  padding: .5em .75em;
+  border-radius: .5em;
+  background:var(--purple);
+  color: #fff;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
+
+#tooltip:hover:before {
+  display:block;
+}

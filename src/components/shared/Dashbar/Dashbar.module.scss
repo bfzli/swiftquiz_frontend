@@ -11,6 +11,7 @@
   box-shadow: 4px 4px 4px #00000010;
   position: fixed;
   left: 0;
+  z-index: 10;
 
   @media screen and (max-width: 900px) {
     width: 100%;
@@ -51,7 +52,7 @@
 }
 
 .icon_holder_active{
-    padding: .5em .65em;
+    padding: .65em;
     background: #fff;
     border-radius: 1em;
     margin-bottom: 2em;
@@ -72,7 +73,7 @@
 }
 
 .icon_holder{
-    padding: .5em .65em;
+    padding: .65em;
     background: transparent;
     border-radius: 1em;
     margin-bottom: 1.5em;
@@ -96,7 +97,7 @@
 }
 
 .user_pic {
-  width: 3em;
+  width: 2.35em;
   border-radius: 999px;
   border: 4px solid var(--white);
 }

@@ -1,16 +1,6 @@
 import * as CONST from '../constants/index';
 import * as api from '../api/index';
 
-function parseJwt(token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
-};
-
 export const signUpAction = (name, email, username, password) => async dispatch => {
     try{
         const response = await api.signUp(name, email, username, password);
@@ -36,7 +26,7 @@ export const logInAction = (username, password) => async dispatch => {
         const data = await response.data;
         api.saveToLocalStorage(JSON.stringify(data));
         dispatch(confirmedLogIn(data));
-        window.location.href = "/";
+        window.location.href = "/dashboard/welcome";
     }
     catch(error){
         dispatch({ type: CONST.LOG_IN_FAILED, payload: error });

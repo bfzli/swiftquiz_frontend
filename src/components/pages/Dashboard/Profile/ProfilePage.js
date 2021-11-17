@@ -1,4 +1,4 @@
-import React from 'react'
+import { useSelector } from 'react-redux'
 import profilebcg from '../../../../assets/images/profile/ProfileBcg.webp'
 import adnanAvatar from '../../../../assets/images/profiles/adnan.webp'
 import adnan from '../../../../assets/images/profile/adnan.webp'
@@ -10,6 +10,10 @@ import './ProfilePage.scss'
 import * as styles from '../../../../components/shared/Buttons/Buttons.module.scss'
 
 export default function ProfilePage() {
+
+    const user = useSelector(state => state.auth.auth)
+
+
     return (
         <div className="mainProfileCont">
             <div className="topProfileCont">
@@ -19,13 +23,13 @@ export default function ProfilePage() {
             <div className="bottomProfileCont">
                 <div className="leftBottomProfileCont">
                     <img src={adnan}/>
-                    <h1>Adnan Kasumaj</h1>
-                    <h4>@adnankasumaj_</h4>
+                    <h1>{user.name}</h1>
+                    <h4>@{user.username}</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, suscipit itaque! Saepe fugit iste delectus, magnam mollitia sit commodi corrupti!</p>
                     <button className={styles.button_fill_purple}>Edit Profile</button>
                 </div>
                 <div className="rightBottomProfileCont">
-                    <h2>Adnan's Quizes</h2>
+                    <h2>{user.name}'s Quizes</h2>
                     <div className="profileQuizes">
                         <div className="QuizBody">
                             <img id="quizImage" src={quiz1}/>

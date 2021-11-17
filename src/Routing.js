@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { BrowserRouter as Wrapper, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView'
 import Contact from './pages/Contact';
 import Profile from './pages/Dashboard/Profile';
+import AdminPanel from "./pages/AdminDashboard/AdminPanel";
+import Quizzes from './pages/Dashboard/Quizzes';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play'
 import AddQuiz from './pages/Dashboard/AddQuiz'
@@ -13,8 +15,6 @@ import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
 
-import AdminPanel from "./pages/AdminDashboard/AdminPanel";
-import Quizzes from './pages/Dashboard/Quizzes';
 export default function Routing() {
   AOS.init({
     duration: 800,
@@ -25,32 +25,19 @@ export default function Routing() {
   return (
     <Wrapper>
       <Switch>
-        {/* Global Routes for All Users */}
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/auth">
-          <FormView />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        {/* Global Routes for All Users */}
+        <NotProtected path="/" component={Home} exact />
+        <NotProtected path="/auth" component={FormView} />
+        <NotProtected path="/contact" component={Contact} />
+        <NotProtected path="/testing" component={TestingLoaders} />
 
-
-        {/* Protected Routes for Platform Users */}
-        <ProtectedRoute path="/dashboard/quizes/add-quiz" component={AddQuiz} />
-        <ProtectedRoute path="/dashboard" component={Screen} />
+        <ProtectedRoute path="/dashboard/welcome" component={Screen} />
+        <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={AddQuiz} />
         <ProtectedRoute path="/play" component={Play} />
-        <ProtectedRoute path="/testing" component={TestingLoaders} />
-        <ProtectedRoute path="dashboard/admin-panel" component={AdminPanel}
-        {/* Protected Routes for Platform Users */}
+        <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
+        <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
+        <ProtectedRoute path="/dashboard/profile" component={Profile} />
 
-        {/* Super Global, recommended to be at the end of each route */}
-        <Route path="*">
-          <Error />
-        </Route>
-        {/* Super Global, recommended to be at the end of each route */}
+        <NotProtected path="*" component={Error} />
       </Switch>
     </Wrapper>
   );

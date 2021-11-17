@@ -17,16 +17,28 @@ export const editQuiz = (id, updates) => ({
 export const fetchQuiz = () => async dispatch => {
     dispatch({ type: CONST.FETCH_QUIZES_STARTED });
 
-    try{
+    try {
         const response = await api.fetchQuizes();
         const data = await response.data;
         dispatch({ type: CONST.FETCH_QUIZES_SUCCEEDED, payload: data });
     }
-    catch(error){
+    catch (error) {
         dispatch({ type: CONST.FETCH_QUIZES_FAILED, payload: error })
     }
 };
 
-export const createQuiz = () => dispatch => {
-    //...incoming soon
+export const createQuiz = (data) => async dispatch => {
+    let user = JSON.parse(localStorage.getItem('user'));
+
+    const { title, questions, thumbnail, description, category, difficulty } = data;
+    const newObj = { created_by: user.user_id, title, description, category, questions, thumbnail, difficulty };
+
+    try {
+        const response = await api.createQuiz(newObj);
+        const data = await response.data;
+        dispatch({ type: CONST.ADD_QUIZ_SUCCEEDED, payload: data });
+    }
+    catch (error) {
+        dispatch({ type: CONST.ADD_QUIZ_FAILED, payload: error });
+    }
 };

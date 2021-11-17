@@ -17,7 +17,7 @@ export const fetchQuizes = () => client.get(`${API_BASE_URL}/${user_id}/quizzes/
 
 export const fetchData = (endpoint) => client.get(`/${endpoint}`);
 
-export const createQuiz = (params) => client.post('/questions', params);
+export const createQuiz = (params) => client.post(`/${user_id}/quizzes/create-quiz`, params);
 
 export const editQuiz = (id, params) => axios.put(`${API_BASE_URL}/questions/${id}`, params);
 
