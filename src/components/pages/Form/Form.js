@@ -1,19 +1,25 @@
-import React, {useState} from 'react'
-import logoPic from '../../../assets/images/logo_50.png'
+import {useEffect, useState} from 'react'
+import logoPic from '../../../assets/images/logo_50.webp'
 import Register from '../Form/Register/Register'
 import * as styles from './Globals.module.scss'
 import Login from '../Form/Login/Login'
 import './Form.scss'
+import { useDispatch } from 'react-redux'
+import {fetchQuiz} from '../../../reduxComponents/actions/Questions'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Form = () => {
+
+    const dispatch = useDispatch()
     
     const [isRegister, setIsRegister] = useState(false); 
 
     const register = () => toast("Registered!");
     const login = () => toast("Logged in!");
+
+    useEffect(() => { dispatch(fetchQuiz()) }, []);
 
 
     return (
@@ -28,7 +34,7 @@ export const Form = () => {
                                 <img src={logoPic} className="FormLogo"/>
                                 <h1 className={styles.h1}>Do you have <br /> an account?</h1>
                                 <p className={styles.p}>If do you have an account, then come back let's learn together by playing quizes and bee a like Einstein.</p>
-                                <input type="button" style={{border: '1px solid white'}} className="butonat" id="signIn" value="Sign Up" onClick={() => setIsRegister(!isRegister)}/>
+                                <input type="button" style={{border: '1px solid white'}} className="butonat" id="signIn" value="Sign In" onClick={() => setIsRegister(!isRegister)}/>
                             </div>
                             <div className="overlay_panel overlay_right">
                                 <img src={logoPic} className="FormLogo"/>

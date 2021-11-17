@@ -1,18 +1,21 @@
 import * as React from 'react';
-import { BrowserRouter as Wrapper, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView'
 import Contact from './pages/Contact';
+import Profile from './pages/Dashboard/Profile';
+import AdminPanel from "./pages/AdminDashboard/AdminPanel";
+import Quizzes from './pages/Dashboard/Quizzes';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play'
 import AddQuiz from './pages/Dashboard/AddQuiz'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
-import Header from './components/shared/Header/Header';
-export default function Routing() {
+import { ProtectedRoute } from './pages/ProtectedRoute';
 
+export default function Routing() {
   AOS.init({
     duration: 800,
     disable: "mobile",
@@ -21,36 +24,21 @@ export default function Routing() {
 
   return (
     <Wrapper>
-        <Switch>
-          <Route path="/" exact> 
-            <Home />
-          </Route>
-          <Route path="/auth">
-            <FormView/>
-          </Route>
-          <Route path="/contact">
-            <Contact/>
-          </Route>
-          <Route path="/dashboard/quizes/add-quiz">
-            <AddQuiz/>
-          </Route>
-        <Route path="/dashboard">
-          {/* <Redirect to="/dashboard/home" /> */}
-          <Screen/>
-        </Route>
-        <Route path="/play">
-          <Play />
-        </Route>
-        <Route path="/testing">
-          <TestingLoaders />
-        </Route>
-        <Route path="/123213">
-          <Redirect to="/" />
-        </Route>
-        <Route path="*">
-          <Error />
-        </Route>
+      <Switch>
+        <NotProtected path="/" component={Home} exact />
+        <NotProtected path="/auth" component={FormView} />
+        <NotProtected path="/contact" component={Contact} />
+        <NotProtected path="/testing" component={TestingLoaders} />
+
+        <ProtectedRoute path="/dashboard/welcome" component={Screen} />
+        <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={AddQuiz} />
+        <ProtectedRoute path="/play" component={Play} />
+        <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
+        <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
+        <ProtectedRoute path="/dashboard/profile" component={Profile} />
+
+        <NotProtected path="*" component={Error} />
       </Switch>
     </Wrapper>
-  )
+  );
 }

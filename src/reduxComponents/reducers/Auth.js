@@ -1,11 +1,14 @@
 import * as CONST from '../constants/index';
 
-const authState = {
-    auth: {},
+let user = JSON.parse(localStorage.getItem('user'));    
+
+export const authState = {
+    auth: user ? user : {},
     messageResponse: {
         message: '',
         success: ''
-    } 
+    },
+    is_logedin: false
 };
 
 const authReducer = (state = authState, action) => {
@@ -27,19 +30,22 @@ const authReducer = (state = authState, action) => {
         case CONST.LOG_IN_CONFIRMED:
             return {
                 ...state,
-                auth: payload
+                auth: payload,
+                is_logedin: true
             }
 
         case CONST.LOG_IN_FAILED:
             return {
                 auth: {},
-                messageResponse: payload
+                messageResponse: payload,
+                is_logedin: false
             }
         
         case CONST.LOG_OUT_ACTION:
             return {
                 ...state,
-                auth: {}
+                auth: {},
+                is_logedin: false
             }
 
         default:

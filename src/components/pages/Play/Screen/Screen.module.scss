@@ -197,6 +197,11 @@
 
 .question_box {
     color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .34em;
 }
 
 .ttq{

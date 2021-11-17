@@ -5,7 +5,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^0.23.0",
-    "i": "^0.3.7",
+    "emailjs-com": "^3.2.0",
     "npm": "^8.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -14,8 +14,10 @@
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-slick": "^0.28.1",
     "react-toastify": "^8.1.0",
     "redux-thunk": "^2.4.0",
+    "reselect": "^4.1.2",
     "sass": "^1.43.3",
     "styled-components": "^5.3.1"
   },

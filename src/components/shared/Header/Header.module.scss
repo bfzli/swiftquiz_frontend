@@ -1,19 +1,19 @@
 .header {
     display: block;
     width: 100%;
+    height: 10vh;
     display: flex;
-    position: fixed;
     justify-content: space-between;
     align-items: center;
     padding: 1em 3em;
     background: var(--purple);
-    z-index: 100;
+    position: absolute;
+    z-index: 1022222;
 
     @media screen and (max-width: 900px) {
         display: none;
     }
 }
-
 
 .right {
     display: flex;
@@ -31,9 +31,11 @@
     font-family: "Integral CF Extra";
     font-size: 1em;
     color: #fff;
-    margin-right: 1rem;
+    padding: .55em .75em;
+    margin-right: 0.25em;
     transition: all ease-in-out 0.5s;
     cursor: pointer;
+    border-radius: 100px;
 
     @media screen and (max-width: 900px) {
         margin-bottom: 1em;
@@ -42,20 +44,19 @@
 }
 
 .link:hover {
-    letter-spacing: 1px;
+    background: #ffffff40;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    height: 2.3em;
+    height: 2.75em;
     margin-right: 1.25em;
     fill: #fff;
 }
 
 .mobile {
     display: block;
-
     width: 100%;
     display: flex;
     position: fixed;
@@ -63,41 +64,83 @@
     align-items: center;
     padding: 1em 1em;
     background: var(--purple);
-    z-index: 100;
+    z-index: 9;
 
     @media screen and (min-width: 900px) {
         display: none;
     }
 }
 
-.menu_icon{
-    margin-top: .085em;
+.menu_icon {
+    margin-top: 0.085em;
     height: 1.6em;
     fill: white;
     cursor: pointer;
     margin-left: 1em;
 }
 
-.close_icon{
+.close_icon {
     position: absolute;
-    top: 1em; right: 1em;
+    top: 1em;
+    right: 1em;
     fill: white;
     height: 1em;
 }
 
-.menu_icon:hover{
-    opacity: .8;
+.menu_icon:hover {
+    opacity: 0.8;
 }
 
-.screen{
+.screen {
     width: 100%;
     height: 100vh;
     position: absolute;
-    background-color: var(--purple);
-    top: 0; right: 0;
-    z-index: 100220;
+    background: var(--purple);
+    top: 0;
+    right: 0;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.acc_holder {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-left: .5em;
+    font-family: "Integral CF Extra";
+    color: var(--white);
+    font-size: 0.89em;
+}
+
+.icon {
+    width: 1.5em;
+    fill: white;
+}
+
+.single_action {
+    display: flex;
+    align-items: center;
+    padding: 0.5em .75em;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100px;
+    transition: all ease-in-out 0.3s;
+
+
+    &:hover {
+        background: #ffffff40;
+    }
+
+    &:first-child{
+        margin-right: .35em;
+    }
+
+    &:last-child{
+        margin-right: 1em;
+    }
 }

@@ -2,12 +2,12 @@ const Links = [
     {   
         id: 1,
         name: 'PLAY WITH A CODE',
-        link: '/play-with-a-code'
+        link: '/play'
     },
     {
         id: 2,
-        name: 'HOW TO PLAY',
-        link: '/how-to-play'
+        name: 'COMMUNITY',
+        link: '/community'
     },
     {
         id: 3,

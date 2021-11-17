@@ -1,26 +1,40 @@
-.container{
+.container {
+  display: block;
+  height: 100vh;
+  width: 4.4em;
+  background: var(--purple);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75em 0.5em;
+  box-shadow: 4px 4px 4px #00000010;
+  position: fixed;
+  left: 0;
+  z-index: 10;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75em 2.5%;
+  }
+}
+
+.container_mobile{
     display: block;
     height: 100vh;
-    width: 4.4em;
+    width: 17.5%;
     background: var(--purple);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     padding: .75em .5em;
     box-shadow: 4px 4px 4px #00000010;
     position: fixed;
     left: 0;
-
-    @media screen and (max-width: 900px) {
-        width: 100%;
-        height: auto;
-        bottom: 0;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: .75em 2.5%;
-    }
 }
 
 .top{
@@ -29,66 +43,81 @@
     }
 }
 
-.center{
-    @media screen and (max-width: 900px) {
-        width: 85%;
-        display: flex;
-        justify-content: space-between;;
-    }
-}
-
-.bottom{
-
+.center {
+  @media screen and (max-width: 900px) {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .icon_holder_active{
-    padding: .5em .65em;
+    padding: .65em;
     background: #fff;
     border-radius: 1em;
     margin-bottom: 2em;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--purple);
 
-    @media screen and (max-width: 900px) {
-        margin-bottom: 0em;
-        // margin-right: 1em;
-    }
+  @media screen and (max-width: 900px) {
+    margin-bottom: 0em;
+    // margin-right: 1em;
+  }
 }
 
-.icon_active{
-    fill: #5928E5; 
-    height: 2.35em;
+.icon_active {
+  fill: #5928e5;
+  height: 2.35em;
 }
 
 .icon_holder{
-    padding: .5em .65em;
+    padding: .65em;
     background: transparent;
     border-radius: 1em;
     margin-bottom: 1.5em;
     cursor: pointer;
     transition: all ease-in-out .4s;
+    display: flex;
 
-    @media screen and (max-width: 900px) {
-        margin-bottom: 0em;
-        // margin-right: 1em;
-    }
+  @media screen and (max-width: 900px) {
+    margin-bottom: 0em;
+    // margin-right: 1em;
+  }
 }
 
-.icon_holder:hover{
-    background: #ffffff22;
+.icon_holder:hover {
+  background: #ffffff22;
 }
 
-.icon{
-    fill: #ffffff; 
-    height: 2.35em;
+.icon {
+  fill: #ffffff;
+  height: 2.35em;
 }
 
-.user_pic{
-    width: 3em;
-    border-radius: 999px;
-    border: 4px solid var(--white);
+.user_pic {
+  width: 2.35em;
+  border-radius: 999px;
+  border: 4px solid var(--white);
 }
 
 .logo {
-    height: 2.65em;
-    fill: #fff;
+  height: 2.65em;
+  fill: #fff;
+}
+
+.testing{
+    background-color: brown;
+    padding: .5em;
+    font-size: 1.25em;
+    position: absolute;
+    top: 1em; right: 1em;
+}
+
+.icon_menu_text{
+    font-size: 1.25em;
+    font-family: "Integral CF Demi Bold";
+    margin-left: 1em;
+
 }

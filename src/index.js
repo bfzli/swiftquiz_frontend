@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 
 const store = configureStore();
 
-//Providing the store to the root 
 let jsx = (
   <Provider store={store}>
     <Routing />

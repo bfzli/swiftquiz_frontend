@@ -1,6 +1,6 @@
 import {container, left, title, description, right, illustration} from './Hero.module.scss'
 import {cta_hero} from '../../../shared/Buttons/Buttons.module.scss'
-import hero_illustration from '../../../../assets/images/illustration.png'
+import hero_illustration from '../../../../assets/images/webp/illustration.webp'
 import {Link} from 'react-router-dom'
 
 export default function Hero() {
@@ -14,9 +14,9 @@ export default function Hero() {
                     With our platform learning is awesome and fun with community made quizes of different fields.
                 </p>
                 <Link to="/randomizer">
-                <button className={cta_hero}>
-                    PLAY A RANDOM QUIZ
-                </button>
+                    <button className={cta_hero}>
+                        PLAY A RANDOM QUIZ
+                    </button>
                 </Link>
             </div>
 
