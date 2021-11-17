@@ -32,7 +32,7 @@ export const createQuiz = (data) => async dispatch => {
 
     const { title, questions, thumbnail, description, category, difficulty } = data;
     const newObj = { created_by: user.user_id, title, description, category, questions, thumbnail, difficulty };
-
+    console.log(newObj)
     try {
         const response = await api.createQuiz(newObj);
         const data = await response.data;

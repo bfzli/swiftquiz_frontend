@@ -12,12 +12,10 @@ export default function ContactForm() {
 
     const form = useRef();
 
-<<<<<<< HEAD
     const ContactHandler = (e) => {
         e.preventDefault();
         setErrors(ContactValidation(values));
-
-        if (errors === 0 || errors === {} || errors === null || errors === []) {
+        if (values.name && values.email && values.subject && values.description && !values.phone || values.phone && !errors.phone) {
             emailjs.sendForm('service_5n3h55t', 'swiftquiz_template', form.current, 'user_5GMcFcZjQDsQd8qZSzybg')
                 .then((result) => {
                     console.log(result.text);
@@ -25,31 +23,10 @@ export default function ContactForm() {
                 }, (error) => {
                     console.log(error.text);
                 });
-
             setValues({ name: "", email: "", phone: "", subject: "", description: "" });
+        } else {
+            console.log("Error");
         }
-
-        else {
-            console.log("All Fields are required");
-
-        }
-
-=======
-  const ContactHandler = (e) => {
-    e.preventDefault();
-    setErrors(ContactValidation(values));
-    if(values.name  && values.email && values.subject && values.description && !values.phone || values.phone && !errors.phone){
-        emailjs.sendForm('service_5n3h55t', 'swiftquiz_template', form.current, 'user_5GMcFcZjQDsQd8qZSzybg')
-        .then((result) => {
-            console.log(result.text);
-            alert("Sent Successfully ^_^");
-        }, (error) => {
-            console.log(error.text);
-        });
-        setValues({name:"", email:"", phone:"", subject:"", description:""});
-    }else{
-        console.log("Error");
->>>>>>> dev
     }
 
     return (
@@ -66,6 +43,8 @@ export default function ContactForm() {
                     {errors.name ? <p className="errorContact">{errors.name}</p> : null}
                     <input spellCheck="false" className="contactInputs two" type="email" name="email" placeholder="Email" onChange={(e) => setValues({ ...values, email: e.target.value })} value={values.email} />
                     {errors.email ? <p className="errorContact">{errors.email}</p> : null}
+                    <input spellCheck="false" className="contactInputs two" type="text" name="phone" placeholder="Phone" onChange={(e) => setValues({ ...values, phone: e.target.value })} value={values.phone} />
+                    {errors.phone ? <p className="errorContact">{errors.phone}</p> : null}
                     <input spellCheck="false" className="contactInputs five" type="text" name="subject" placeholder="Subject" onChange={(e) => setValues({ ...values, subject: e.target.value })} value={values.subject} />
                     {errors.subject ? <p className="errorContact">{errors.subject}</p> : null}
                     <textarea spellCheck="false" className="contactInputs six" type="text" name="description" placeholder="Description" onChange={(e) => setValues({ ...values, description: e.target.value })} value={values.description} />

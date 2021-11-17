@@ -15,7 +15,7 @@
     border-right: 0.25px solid rgba(141, 141, 141, 0.085);
 }
 
-.quiz_list{
+.quiz_list {
     padding: 1em;
 }
 
@@ -29,7 +29,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 .single_slide {
     display: flex;
@@ -102,14 +101,13 @@
     justify-content: space-between;
 }
 
-.empty_text{
+.empty_text {
     font-size: 1.15em;
 }
 
-.mini_title{
+.mini_title {
     font-size: 1.12em;
     font-family: "Integral CF Demi Bold";
-
 }
 
 .navicon_wrapper {
@@ -171,6 +169,17 @@
     border: 0;
 }
 
+.option_active {
+    width: 49.4567%;
+    height: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75em;
+    margin-bottom: 1%;
+    border: 1px solid var(--purple);
+}
+
 .options_wrapper {
     width: 100%;
     height: 35%;
@@ -193,7 +202,7 @@
 }
 
 .option_input {
-    width: 100%;
+    width: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,4 +212,17 @@
     font-family: "Space Grotesk", sans-serif;
     font-weight: 500;
     border: 0;
+}
+
+.option_check{
+    border-left: 0.25px solid rgba(141, 141, 141, 0.085);
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option_check_icon{
+    fill: var(--purple)
 }

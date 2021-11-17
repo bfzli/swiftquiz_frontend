@@ -4,11 +4,18 @@ import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { createQuiz } from '../../../../reduxComponents/actions/Questions';
 
+import Edit from './modals/Edit';
+
 
 export default function AddQuiz() {
     const dispatch = useDispatch();
 
+    const [editModal, setEditModal] = useState('not-showing')
+    const [publishingModal, setPublishingModal] = useState('not-showing')
+
     const [mode, setMode] = useState("add");
+
+    const [trueQ, setTrueQ] = useState('none')
 
     const [questionList, setQuestionList] = useState([]);
 
@@ -17,14 +24,12 @@ export default function AddQuiz() {
     const [currentID, setCurrentID] = useState('')
 
     const [quiz, setQuiz] = useState({
-        title: 'Quiz 2',
-        description: 'Quiz to play',
+        title: '',
+        description: '',
         difficulty: 1,
         thumbnail: '',
         category: "61814110fef0cd2c3264a354",
-        questions: [
-            
-        ]
+        questions: [],
     })
 
     useEffect(() => {
@@ -32,13 +37,24 @@ export default function AddQuiz() {
         console.log("list of q: ", questionList)
     }, [quiz, questionList])
 
+
+    function handleCorrectAnwser(which) {
+
+        if (which === "answer1") setTrueQ('anwser1');
+        else if (which === "answer2") setTrueQ('anwser2');
+        else if (which === "answer3") setTrueQ('anwser3');
+        else if (which === "answer4") setTrueQ('anwser4');
+
+    }
+
     const [fields, updateFields] = useState({
-        id: Math.floor(100000 + Math.random() * 900000),
+        quiz_id: Math.floor(100000 + Math.random() * 900000),
         question: "",
         answer1: "",
         answer2: "",
         answer3: "",
-        answer4: ""
+        answer4: "",
+        isCorrect: "answer1"
     });
 
     const addQuestion = (question) => {
@@ -49,12 +65,13 @@ export default function AddQuiz() {
         if (mode === "add") {
 
             updateFields({
-                id: Math.floor(100000 + Math.random() * 900000),
+                quiz_id: Math.floor(100000 + Math.random() * 900000),
                 question: "",
                 answer1: "",
                 answer2: "",
                 answer3: "",
                 answer4: "",
+                isCorrect: "answer1"
             })
         }
     };
@@ -100,7 +117,8 @@ export default function AddQuiz() {
                 answer1: "",
                 answer2: "",
                 answer3: "",
-                answer4: ""
+                answer4: "",
+                isCorrect: "answer1"
             });
         } else {
             addQuestion(fields);
@@ -114,11 +132,11 @@ export default function AddQuiz() {
             </Helmet>
 
             <div className={styles.slides}>
-            <div className={styles.miniheader}>
-                <p className={styles.mini_title}>
-                    Your Questions
-                </p>
-            </div>
+                <div className={styles.miniheader}>
+                    <p className={styles.mini_title}>
+                        Your Questions
+                    </p>
+                </div>
                 {questionList.length <= 0 ? (
                     <div className={styles.empty_slide}>
                         <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_GlZGOi.json" background="transparent" speed="1" style={{ width: '242px', height: '242px' }} loop autoplay></lottie-player>
@@ -170,7 +188,6 @@ export default function AddQuiz() {
 
                             </div>
 
-
                             <div className={styles.navicon_text}>
                                 <p>Add Question</p>
                             </div>
@@ -196,7 +213,7 @@ export default function AddQuiz() {
                                 </svg>
                             </div>
                             <div className={styles.navicon_text}>
-                                <p>Delete Quiz</p>
+                                <p>Delete Question</p>
                             </div>
                         </div>
                     }
@@ -219,63 +236,87 @@ export default function AddQuiz() {
                             :
 
                             null
-
                     }
                 </div>
                 {mode === "edit" || mode === "add" ?
-                <div className={styles.current_slide}>
-                    <div className={styles.current_question}>
-                        <input
-                            className={styles.current_question_input}
-                            placeholder="Start typing your question..."
-                            onChange={(e) => setField("question", e)}
-                            value={fields.question}
-                        />
-                    </div>
-
-                    <div className={styles.options_wrapper}>
-
-                        <div className={styles.option}>
+                    <div className={styles.current_slide}>
+                        <div className={styles.current_question}>
                             <input
-                                className={styles.option_input}
-                                placeholder="Your anwser here..."
-                                type="text"
-                                onChange={(e) => setField("answer1", e)}
-                                value={fields.answer1}
+                                className={styles.current_question_input}
+                                placeholder="Start typing your question..."
+                                onChange={(e) => setField("question", e)}
+                                value={fields.question}
                             />
                         </div>
 
-                        <div className={styles.option}>
-                            <input
-                                className={styles.option_input}
-                                placeholder="Your anwser here..."
-                                type="text"
-                                onChange={(e) => setField("answer2", e)}
-                                value={fields.answer2}
-                            />
-                        </div>
+                        <div className={styles.options_wrapper}>
+                            <div className={trueQ === "anwser1" ? styles.option_active : styles.option}>
+                                <input
+                                    className={styles.option_input}
+                                    placeholder="Your anwser here..."
+                                    type="text"
+                                    onChange={(e) => setField("answer1", e)}
+                                    value={fields.answer1}
+                                />
+                                <div
+                                    onClick={() =>
+                                        handleCorrectAnwser('answer1')} className={styles.option_check}>
+                                    <svg className={styles.option_check_icon} width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity={trueQ === "anwser1" ? "1" : ".1234"} d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z" />
+                                    </svg>
+                                </div>
+                            </div>
 
-                        <div className={styles.option}>
-                            <input
-                                className={styles.option_input}
-                                placeholder="Your anwser here..."
-                                type="text"
-                                onChange={(e) => setField("answer3", e)}
-                                value={fields.answer3}
-                            />
-                        </div>
+                            <div className={trueQ === "anwser2" ? styles.option_active : styles.option}>
+                                <input
+                                    className={styles.option_input}
+                                    placeholder="Your anwser here..."
+                                    type="text"
+                                    onChange={(e) => setField("answer2", e)}
+                                    value={fields.answer2}
+                                />
+                                <div
+                                    onClick={() => handleCorrectAnwser('answer2')} className={styles.option_check}>
+                                    <svg className={styles.option_check_icon} width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity={trueQ === "anwser2" ? "1" : ".1234"} d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z" />
+                                    </svg>
+                                </div>
+                            </div>
 
-                        <div className={styles.option}>
-                            <input
-                                className={styles.option_input}
-                                placeholder="Your anwser here..."
-                                type="text"
-                                onChange={(e) => setField("answer4", e)}
-                                value={fields.answer4}
-                            />
+                            <div className={trueQ === "anwser3" ? styles.option_active : styles.option}>
+                                <input
+                                    className={styles.option_input}
+                                    placeholder="Your anwser here..."
+                                    type="text"
+                                    onChange={(e) => setField("answer3", e)}
+                                    value={fields.answer3}
+                                />
+                                <div
+                                    onClick={() => handleCorrectAnwser('answer3')}
+                                    className={styles.option_check}>
+                                    <svg className={styles.option_check_icon} width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity={trueQ === "anwser3" ? "1" : ".1234"} d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div className={trueQ === "anwser4" ? styles.option_active : styles.option}
+                            >
+                                <input
+                                    className={styles.option_input}
+                                    placeholder="Your anwser here..."
+                                    type="text"
+                                    onChange={(e) => setField("answer4", e)}
+                                    value={fields.answer4}
+                                />
+                                <div onClick={() => handleCorrectAnwser('answer4')} className={styles.option_check}>
+                                    <svg className={styles.option_check_icon} width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity={trueQ === "anwser4" ? "1" : ".1234"} d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div> : 'add one question'}
+                    </div> : 'add one question'}
             </div>
         </div>
     )
