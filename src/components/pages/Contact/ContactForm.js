@@ -12,6 +12,7 @@ export default function ContactForm() {
 
     const form = useRef();
 
+<<<<<<< HEAD
     const ContactHandler = (e) => {
         e.preventDefault();
         setErrors(ContactValidation(values));
@@ -33,6 +34,22 @@ export default function ContactForm() {
 
         }
 
+=======
+  const ContactHandler = (e) => {
+    e.preventDefault();
+    setErrors(ContactValidation(values));
+    if(values.name  && values.email && values.subject && values.description && !values.phone || values.phone && !errors.phone){
+        emailjs.sendForm('service_5n3h55t', 'swiftquiz_template', form.current, 'user_5GMcFcZjQDsQd8qZSzybg')
+        .then((result) => {
+            console.log(result.text);
+            alert("Sent Successfully ^_^");
+        }, (error) => {
+            console.log(error.text);
+        });
+        setValues({name:"", email:"", phone:"", subject:"", description:""});
+    }else{
+        console.log("Error");
+>>>>>>> dev
     }
 
     return (
