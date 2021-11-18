@@ -2,6 +2,15 @@
 
 @font-face {
   font-family: "Integral CF Extra";
+  src: local("Integral CF Extra"),
+    local("../../../assets/fonts/Integral/IntegralCF-ExtraBold"),
+    url("../../../assets/fonts/Integral/IntegralCF-ExtraBold.ttf")
+      format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Integral CF Extra Bold";
   src: local("Integral CF Extra Bold"),
     local("../../../assets/fonts/Integral/IntegralCF-ExtraBold"),
     url("../../../assets/fonts/Integral/IntegralCF-ExtraBold.ttf")
@@ -12,10 +21,18 @@
 
 @font-face {
     font-family: 'Integral CF';
-    src: local('Integral CF Bold'), local('../../../assets/fonts/Integral/IntegralCF-Bold'),
+    src: local('Integral CF'), local('../../../assets/fonts/Integral/IntegralCF-Bold'),
         url('../../../assets/fonts/Integral/IntegralCF-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+}
+
+@font-face {
+  font-family: 'Integral CF old';
+  src: local('Integral CF Bold'), local('../../../assets/fonts/Integral/IntegralCF-Bold'),
+      url('../../../assets/fonts/Integral/IntegralCF-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
@@ -29,15 +46,15 @@
 }
 
 @font-face {
-    font-family: 'Integral CF';
-    src: local('Integral CF Medium'), local('../../../assets/fonts/Integral/IntegralCF-Medium'),
-        url('../../../assets/fonts/Integral/IntegralCF-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Integral CF Medium';
+  src: local('Integral CF Medium'), local('../../../assets/fonts/Integral/IntegralCF-Medium'),
+      url('../../../assets/fonts/Integral/IntegralCF-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Integral CF Demi';
+    font-family: 'Integral CF Demi Bold';
     src: local('Integral CF Demi Bold'), local('../../../assets/fonts/Integral/IntegralCF-DemiBold'),
         url('../../../assets/fonts/Integral/IntegralCF-DemiBold.ttf') format('truetype');
     font-weight: 600;
@@ -45,8 +62,26 @@
 }
 
 @font-face {
-  font-family: "Integral CF";
+  font-family: 'Integral CF Demi';
+  src: local('Integral CF Demi'), local('../../../assets/fonts/Integral/IntegralCF-DemiBold'),
+      url('../../../assets/fonts/Integral/IntegralCF-DemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF Heavy";
   src: local("Integral CF Heavy"),
+    local("../../../assets/fonts/Integral/IntegralCF-Heavy"),
+    url("../../../assets/fonts/Integral/IntegralCF-Heavy.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: local("Integral CF"),
     local("../../../assets/fonts/Integral/IntegralCF-Heavy"),
     url("../../../assets/fonts/Integral/IntegralCF-Heavy.ttf")
       format("truetype");

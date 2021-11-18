@@ -8,7 +8,7 @@
     padding: 1em 3em;
     background: var(--purple);
     position: absolute;
-    z-index: 1022222;
+    z-index: 1022223422;
 
     @media screen and (max-width: 900px) {
         display: none;
@@ -18,11 +18,13 @@
 .right {
     display: flex;
     align-items: center;
+    z-index: 2321;
 }
 
 .left {
     display: flex;
     align-items: center;
+    z-index: 2321;
 }
 
 .link {

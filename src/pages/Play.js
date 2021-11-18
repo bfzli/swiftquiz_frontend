@@ -24,7 +24,6 @@ export default function Play() {
         setSelectedQuiz(filter_it)
         console.log(selectedQuiz)
         // setIsPlaying(true)
-
     }
 
     return (
