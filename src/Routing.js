@@ -31,8 +31,8 @@ export default function Routing() {
         <NotProtected path="/testing" component={TestingLoaders} />
 
         <ProtectedRoute path="/dashboard/welcome" component={Screen} />
+        <ProtectedRoute path="/invite/*" component={Play}/>
         <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={AddQuiz} />
-        <ProtectedRoute path="/play" component={Play} />
         <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
         <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
         <ProtectedRoute path="/dashboard/profile" component={Profile} />
