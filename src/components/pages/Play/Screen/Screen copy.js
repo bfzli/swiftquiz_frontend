@@ -3,21 +3,25 @@ import { useState, useEffect } from 'react'
 import Questions from './dataJSON'
 import wrong_choice from '../../../../assets/voices/isWrong.mp3'
 import correct_choice from '../../../../assets/voices/isCorrect.mp3'
+import { useDispatch } from 'react-redux';
+import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
+import { useSelector } from 'react-redux';
+
+
 import coin from '../../../../assets/images/Coin.png';
+
 import avatar from '../../../../assets/images/profile.jpg'
 
-export default function Screen(quiz) {
-    const [menuView, setMenuView] = useState('stats');
-    const [questions] = useState(quiz)
-    console.log("this it:", quiz);
-    console.log("this it fill:", Questions);
+export default function Screen() {
 
+    const [menuView, setMenuView] = useState('stats');
+    const [questions] = useState(Questions)
     let [currentQuestion, setCurrentQuestion] = useState(0)
     const [correctAnswersCount, setCorrectAnwsersCount] = useState(0)
     const [points, setPoints] = useState(0)
     const [wrongAnswersCount, setWrongAnwsersCount] = useState(0)
     const [modal, setModal] = useState(false)
-    const TotalQuestions = questions.questions.length
+    const TotalQuestions = questions.length
     const [countDown, setCountDown] = useState(0);
     const [runTimer, setRunTimer] = useState(true);
     const [sounds, setSounds] = useState(true);
@@ -28,14 +32,13 @@ export default function Screen(quiz) {
     let correct_choice_run = new Audio(correct_choice)
 
     useEffect(() => {
-        var seperate = questions.questions[currentQuestion - 1];
+        var seperate = questions[currentQuestion - 1];
         setAll([...all, seperate])
     }, [currentQuestion])
 
 
     let handleAnswer = (isCorrect) => {
-
-        if (isCorrect !== null) {
+        if (isCorrect === true) {
             {
                 sounds && correct_choice_run.play()
             }
@@ -45,7 +48,7 @@ export default function Screen(quiz) {
             setCorrectAnwsersCount(newScore);
         }
 
-        if (isCorrect === null) {
+        if (isCorrect !== true) {
             {
                 sounds && wrong_choice_run.play();
             }
@@ -70,6 +73,7 @@ export default function Screen(quiz) {
             setRunTimer(false)
             setModal(true)
             var coins = 0;
+            // setPoints(coins)
         }
     }
 
@@ -264,73 +268,26 @@ export default function Screen(quiz) {
                                         <div className={styles.questions_boxes}>
                                             <p className={styles.question_current}>{item.question}</p>
 
-                                            <div className={styles.ttq}>
-                                                <p className={styles.question_box}>
-                                                {item.isCorrect === "answer1" ?
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="#33E790" />
-                                                        <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
-                                                    </svg>
-                                                    :
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="#D75656" />
-                                                        <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
-                                                    </svg>
-                                                    }
-                                                    {item.answer1}
-                                                </p>
-                                            </div>
+                                            {item.anwsers.map(test =>
+                                                <div className={styles.ttq}>
+                                                    <p className={styles.question_box}>{test.isCorrect === true ?
 
-                                            <div className={styles.ttq}>
-                                                <p className={styles.question_box}>
-                                                {item.isCorrect === "answer2" ?
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="#33E790" />
-                                                        <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
-                                                    </svg>
-                                                    :
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="#D75656" />
-                                                        <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
-                                                    </svg>
-                                                    }
-                                                    {item.answer1}
-                                                </p>
-                                            </div>
+                                                        <svg width="24" height="24" style={{marginRight: '.2em'}} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="#33E790" />
+                                                            <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
+                                                        </svg>
 
-                                            <div className={styles.ttq}>
-                                                <p className={styles.question_box}>
-                                                {item.isCorrect === "answer3" ?
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="#33E790" />
-                                                        <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
-                                                    </svg>
-                                                    :
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="#D75656" />
-                                                        <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
-                                                    </svg>
-                                                    }
-                                                    {item.answer1}
-                                                </p>
-                                            </div>
+                                                        :
 
-                                            <div className={styles.ttq}>
-                                                <p className={styles.question_box}>
-                                                {item.isCorrect === "answer4" ?
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M11.9999 1.99979C17.5149 1.99979 21.9999 6.48579 21.9999 11.9998C21.9999 17.5138 17.5149 21.9998 11.9999 21.9998C6.48588 21.9998 1.99988 17.5138 1.99988 11.9998C1.99988 6.48579 6.48588 1.99979 11.9999 1.99979" fill="#33E790" />
-                                                        <path d="M11.113 15.2255C10.8983 15.2255 10.6837 15.1441 10.5198 14.9802L8.2458 12.7062C7.91807 12.3784 7.91807 11.8475 8.2458 11.5208C8.57353 11.193 9.10347 11.1921 9.4312 11.5198L11.113 13.2016L15.0688 9.2458C15.3965 8.91807 15.9265 8.91807 16.2542 9.2458C16.5819 9.57353 16.5819 10.1044 16.2542 10.4322L11.7062 14.9802C11.5423 15.1441 11.3276 15.2255 11.113 15.2255" fill="white" />
-                                                    </svg>
-                                                    :
-                                                    <svg width="24" height="24" style={{ marginRight: '.2em' }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="#D75656" />
-                                                        <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
-                                                    </svg>
-                                                    }
-                                                    {item.answer1}
-                                                </p>
-                                            </div>
+                                                        <svg width="24" height="24" style={{marginRight: '.2em'}} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path opacity="0.4" d="M22.0002 11.9999C22.0002 17.5149 17.5142 21.9999 12.0002 21.9999C6.48621 21.9999 2.00021 17.5149 2.00021 11.9999C2.00021 6.48591 6.48621 1.99991 12.0002 1.99991C17.5142 1.99991 22.0002 6.48591 22.0002 11.9999" fill="#D75656" />
+                                                            <path d="M15.2453 14.0164L13.4789 12.2509L15.2443 10.4853C15.5839 10.1467 15.5839 9.59556 15.2443 9.25694C14.9047 8.91535 14.3556 8.91634 14.0161 9.25595L12.2496 11.0215L10.4832 9.25396C10.1436 8.91435 9.59353 8.91634 9.25394 9.25396C8.91535 9.59357 8.91535 10.1447 9.25394 10.4833L11.0214 12.2509L9.25791 14.0135C8.91833 14.3531 8.91833 14.9042 9.25791 15.2418C9.42771 15.4126 9.64913 15.497 9.87155 15.497C10.095 15.497 10.3164 15.4126 10.4862 15.2428L12.2496 13.4792L14.0171 15.2458C14.1868 15.4156 14.4083 15.5 14.6307 15.5C14.8531 15.5 15.0755 15.4146 15.2453 15.2458C15.5849 14.9062 15.5849 14.3561 15.2453 14.0164" fill="white" />
+                                                        </svg>}
+
+                                                        {test.anwser}
+                                                    </p>
+                                                </div>
+                                            )}
                                         </div>
                                 )}
 
@@ -341,7 +298,7 @@ export default function Screen(quiz) {
             <div className={styles.play_area}>
                 <div className={styles.bar}>
                     <div className={styles.bar_value}>
-                        {questions.title}
+                        How much you know about programming?
                     </div>
                 </div>
 
@@ -354,14 +311,13 @@ export default function Screen(quiz) {
 
                                 <div style={timeprogress} />
 
-                                {questions.questions[currentQuestion].question}
+                                {questions[currentQuestion].question}
                             </div>
 
                             <div className={styles.anwsers} data-aos="fade-right">
-                                <div data-aos="fade-right" onClick={(which) => { handleAnswer(questions.questions[currentQuestion].isCorrect === "answer1" ? "answer1" : null) }} className={styles.anwser}>{questions.questions[currentQuestion].answer1}</div>
-                                <div data-aos="fade-right" onClick={(which) => { handleAnswer(questions.questions[currentQuestion].isCorrect === "answer2" ? "answer2" : null) }} className={styles.anwser}>{questions.questions[currentQuestion].answer2}</div>
-                                <div data-aos="fade-right" onClick={(which) => { handleAnswer(questions.questions[currentQuestion].isCorrect === "answer3" ? "answer3" : null) }} className={styles.anwser}>{questions.questions[currentQuestion].answer3}</div>
-                                <div data-aos="fade-right" onClick={(which) => { handleAnswer(questions.questions[currentQuestion].isCorrect === "answer4" ? "answer4" : null) }} className={styles.anwser}>{questions.questions[currentQuestion].answer4}</div>
+                                {
+                                    questions[currentQuestion].anwsers.map(item => <div data-aos="fade-right" onClick={(which) => { handleAnswer(item.isCorrect) }} className={styles.anwser}>{item.anwser}</div>)
+                                }
                             </div>
                         </>
                         :
