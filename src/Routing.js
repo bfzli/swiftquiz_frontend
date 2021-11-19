@@ -15,13 +15,20 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
+import { useDispatch } from 'react-redux';
+import { fetchQuiz } from './reduxComponents/actions/Questions';
 
 export default function Routing() {
+  const dispatch = useDispatch();
   AOS.init({
     duration: 800,
     disable: "mobile",
     once: true,
   });
+
+  React.useEffect(() => {
+    dispatch(fetchQuiz());
+  })
 
   return (
     <Wrapper>
