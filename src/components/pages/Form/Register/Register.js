@@ -5,17 +5,17 @@ import github from '../../../../assets/images/social/github.webp'
 import './Register.scss'
 import '../shared/LoginRegister.scss'
 import * as styles from '../Globals.module.scss'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import ValidationRegister from '../../../../utils/ValidationRegister'
 import { signUpAction } from '../../../../reduxComponents/actions/Auth'
 
-function Register({register}) {
+function Register({ register }) {
     const [values, setValues] = useState({ name: "", email: "", username: "", password: "", confirmpassword: "" });
     const [errors, setErrors] = useState({});
     const [dataIsCorrect, setDataIsCorrect] = useState(false);
     const [backError, setBackError] = useState(false);
- 
+
     const dispatch = useDispatch();
 
     const RegisterHandler = (e) => {
@@ -31,8 +31,10 @@ function Register({register}) {
         }
 
         dispatch(signUpAction(user.name, user.email, user.username, user.password));
-        
-        register();
+
+        if (dataIsCorrect === true) {
+            register();
+        }
     };
 
     return (

@@ -15,7 +15,7 @@
     border-right: 0.25px solid rgba(141, 141, 141, 0.085);
 }
 
-.quiz_list{
+.quiz_list {
     padding: 1em;
 }
 
@@ -30,13 +30,12 @@
     align-items: center;
 }
 
-
 .single_slide {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 20%;
+    height: 20vh;
     padding: 1em;
     margin-bottom: 1em;
     border: 0.25px solid rgba(141, 141, 141, 0.085);
@@ -102,14 +101,13 @@
     justify-content: space-between;
 }
 
-.empty_text{
+.empty_text {
     font-size: 1.15em;
 }
 
-.mini_title{
+.mini_title {
     font-size: 1.12em;
     font-family: "Integral CF Demi Bold";
-
 }
 
 .navicon_wrapper {
@@ -121,10 +119,10 @@
     transition: all ease-in-out 0.3s;
     cursor: pointer;
     user-select: none;
-}
 
-.navicon_wrapper:hover {
-    background: #e0d9f7;
+    &:hover {
+        background: rgba(141, 141, 141, 0.09);
+    }
 }
 
 .right_wrapper {
@@ -160,15 +158,28 @@
     width: 70%;
     height: 100%;
     word-wrap: break-word;
-
     font-size: 2.75em;
     text-align: center;
     overflow: hidden;
-    // font-family: "Integral CF Demi Bold";
     font-family: "Space Grotesk", sans-serif;
     font-weight: 500;
-
     border: 0;
+    transition: 0.3s ease-in-out all;
+
+    &::placeholder {
+        color: #33333350;
+    }
+}
+
+.option_active {
+    width: 49.4567%;
+    height: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75em;
+    margin-bottom: 1%;
+    border: 1px solid var(--purple);
 }
 
 .options_wrapper {
@@ -190,10 +201,15 @@
     border-radius: 0.75em;
     margin-bottom: 1%;
     border: 0.25px solid rgba(141, 141, 141, 0.085);
+    transition: 0.3s ease-in-out all;
+
+    &:hover {
+        border: 0.25px solid rgba(141, 141, 141, 0.4);
+    }
 }
 
 .option_input {
-    width: 100%;
+    width: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,4 +219,141 @@
     font-family: "Space Grotesk", sans-serif;
     font-weight: 500;
     border: 0;
+    transition: 0.3s ease-in-out all;
+
+    &::placeholder {
+        color: #33333350;
+    }
+
+    &:active {
+        color: 0.25px solid rgba(141, 141, 141, 0.4);
+    }
+
+    &:hover {
+        color: 0.25px solid rgba(141, 141, 141, 0.4);
+    }
+}
+
+.option_check {
+    // border-left: 0.25px solid rgba(141, 141, 141, 0.085);
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option_check_icon {
+    fill: var(--purple);
+}
+
+._container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--white);
+    z-index: 1222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #18181895;
+}
+
+._modal {
+    width: 33%;
+    height: 67.5vh;
+    background: #fff;
+    box-shadow: #33333315 -0.25em 0.25em 1em;
+    border-radius: 1em;
+    position: relative;
+    padding: 1em 1em;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+
+    overflow: scroll;
+}
+
+._modal_small {
+    width: 33%;
+    height: 50vh;
+    background: #fff;
+    box-shadow: #33333315 -0.25em 0.25em 1em;
+    border-radius: 1em;
+    position: relative;
+    padding: 1em 1em;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+
+    overflow: scroll;
+}
+
+._close_icon {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    padding: 0.2345em;
+    fill: black;
+    stroke: black;
+    width: 2em;
+    height: 2em;
+    border-radius: 120px;
+
+    &:hover {
+        background: #33333310;
+    }
+}
+
+._modal_title {
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+}
+
+._form_wrapper {
+    margin: 1em 0em;
+}
+
+._form_label_name {
+    margin-top: 1em;
+    margin-left: 0.5em;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+._form_input {
+    width: 100%;
+    margin-top: 0.3em;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.15em;
+    padding: 0.65em 0.75em;
+    border-radius: 1em;
+    border: 0.5px solid white;
+    margin-right: 0.25em;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+
+    &:active {
+        border: 0.5px solid rgba(125, 99, 196, 0.314);
+    }
+
+    &:hover {
+        background: #f1f1f130;
+    }
+}
+
+.savingit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.publishing_title {
+    font-family: "Integral CF Demi Bold";
 }

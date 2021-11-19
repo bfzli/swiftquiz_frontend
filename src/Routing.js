@@ -10,6 +10,7 @@ import Quizzes from './pages/Dashboard/Quizzes';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play'
 import AddQuiz from './pages/Dashboard/AddQuiz'
+import Community from './pages/Dashboard/Community';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
@@ -31,12 +32,13 @@ export default function Routing() {
         <NotProtected path="/testing" component={TestingLoaders} />
 
         <ProtectedRoute path="/dashboard/welcome" component={Screen} />
-        <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={AddQuiz} />
+        <ProtectedRoute path="/invite/*" component={Play} />
         <ProtectedRoute path="/play" component={Play} />
+        <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={AddQuiz} />
         <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
         <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
+        <ProtectedRoute path="/dashboard/community" component={Community} />
         <ProtectedRoute path="/dashboard/profile" component={Profile} />
-
         <NotProtected path="*" component={Error} />
       </Switch>
     </Wrapper>

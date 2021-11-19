@@ -4,7 +4,6 @@ export default function Dashlayout(props) {
     return (
         <div id="_VAR">
             <Dashbar />
-            
             {props.children}
         </div>
     )
