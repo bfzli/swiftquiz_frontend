@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchQuiz } from '../reduxComponents/actions/Questions'
 
 export default function Play() {
-
     const dispatch = useDispatch()
     const playingCode = /[^/]*$/.exec(window.location.href)[0];
     const [isPlaying, setIsPlaying] = useState(false);
@@ -23,12 +22,12 @@ export default function Play() {
         let filter_it = all_quizzes.filter(quiz => quiz.redeem_code === code);
         setSelectedQuiz(filter_it)
         console.log(selectedQuiz)
-        // setIsPlaying(true)
+        console.log(code)
+        console.log(filter_it)
     }
 
     return (
         <>
-
             <Helmet>
                 <title>Let's see what you know! - Swiftquiz</title>
                 <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
@@ -38,7 +37,9 @@ export default function Play() {
                 isPlaying === false
 
                     ?
+                    
                     <Code code={code} setCode={setCode} select_quiz={() => select_quiz()} />
+                    
                     :
 
                     <Screen quiz={selectedQuiz} />

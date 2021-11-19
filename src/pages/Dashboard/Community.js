@@ -1,10 +1,10 @@
 import Dashlayout from './Dashlayout'
-import QuizScreen from '../../components/pages/Dashboard/Quizzes/Quizzes'
+import Community from '../../components/pages/Dashboard/Community/Community'
 
 export default function Quizzes() {
     return (
         <Dashlayout>
-            <QuizScreen />
+            <Community />
         </Dashlayout>
     )
 }

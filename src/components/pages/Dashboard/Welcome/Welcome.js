@@ -8,17 +8,6 @@ import quiz4 from '../../../../assets/images/community/kotlin.webp'
 import quiz5 from '../../../../assets/images/community/react.webp'
 import quiz6 from '../../../../assets/images/community/docker.webp'
 
-
-import blog1 from '../../../../assets/images/blog/blog1.webp'
-import blog2 from '../../../../assets/images/blog/blog2.webp'
-import blog3 from '../../../../assets/images/blog/blog3.webp'
-import avatar from '../../../../assets/images/avatar.jpg'
-
-import gold_medal from '../../../../assets/images/medals/gold.webp'
-import silver_medal from '../../../../assets/images/medals/silver.webp'
-import bronze_medal from '../../../../assets/images/medals/bronze.webp'
-import medal_medal from '../../../../assets/images/medals/medal.webp'
-
 import benjamin from '../../../../assets/images/profiles/benjamin.webp'
 import fitim from '../../../../assets/images/profiles/fitim.webp'
 import laurat from '../../../../assets/images/profiles/laurat.webp'
@@ -26,16 +15,11 @@ import adnan from '../../../../assets/images/profiles/adnan.webp'
 import mendrit from '../../../../assets/images/profiles/mendrit.webp'
 import rinor from '../../../../assets/images/profiles/rinor.webp'
 
-
-import your1 from '../../../../assets/images/quizes/ruby.webp'
-
 import { useEffect, useState } from 'react'
 import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
 import { useDispatch, useSelector } from 'react-redux'
 import { connect } from "react-redux";
 import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
-import filterReducer from '../../../../reduxComponents/reducers/Filters';
-
 
 function Welcome({ userQuizes }) {
     const [filtredQuizes, setFiltredQuizes] = useState(null)
@@ -58,7 +42,7 @@ function Welcome({ userQuizes }) {
 
             <div className={styles.page_info} data-aos="fade-down">
                 <h2 className={styles.welcome_text}>WELCOME BACK, BENJAMIN!</h2>
-                <p className={styles.breadcrumb}>Dashboard / Home</p>
+                <p className={styles.breadcrumb}>Dashboard {">"} Home</p>
             </div>
 
             <main className={styles.main}>
@@ -218,202 +202,6 @@ function Welcome({ userQuizes }) {
                         </div>
                     </div>
                 </div>
-                <div className={styles.main_bottom}>
-                    <div className={styles.bottom_left} data-aos="fade-right">
-                        <h2 className={styles.top_right_title}>
-                            LEADERBOARD
-                        </h2>
-                        <div className={styles.leaderboard}>
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={gold_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={fitim} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Fitim Hoti
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            14,512 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={silver_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={adnan} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Adnan Kasumaj
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            11,521 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={bronze_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={laurat} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Laurat Hajrullaga
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            9,421 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={medal_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={mendrit} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Mendrit Arifi
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            7,621 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={medal_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={benjamin} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Benjamin Fazli
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            5,233 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={medal_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={benjamin} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Benjamin Fazli
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            5,233 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className={styles.user}>
-                                <div className={styles.medal}>
-                                    <img src={medal_medal} alt="Gold Medal" className={styles.medal} />
-                                </div>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={benjamin} alt="User" className={styles.user_avatar} />
-                                    <div className={styles.user_wrapper}>
-                                        <p className={styles.user_name}>
-                                            Benjamin Fazli
-                                        </p>
-                                        <p className={styles.user_points}>
-                                            5,233 points
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className={styles.bottom_right} data-aos="fade-left">
-                        <h2 className={styles.top_right_title}>
-                            TEAM TUTORIALS
-                        </h2>
-
-                        <div className={styles.news}>
-                            <div className={styles.blog}>
-                                <img className={styles.blog_thumbnail} src={blog1} alt="Blog" />
-                                <div className={styles.blog_info}>
-                                    <p className={styles.blog_title}>
-                                        how to build the best quiz
-                                    </p>
-                                    <p className={styles.blog_description}>
-                                        Building a Swfit Quiz is easy, this is a tutorial be Swift Team on how to build your first Quiz using the best practices and sharing it to the community
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className={styles.blog}>
-                                <img className={styles.blog_thumbnail} src={blog1} alt="Blog" />
-                                <div className={styles.blog_info}>
-                                    <p className={styles.blog_title}>
-                                        how to build the best quiz
-                                    </p>
-                                    <p className={styles.blog_description}>
-                                        Building a Swfit Quiz is easy, this is a tutorial be Swift Team on how to build your first Quiz using the best practices and sharing it to the community
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className={styles.blog}>
-                                <img className={styles.blog_thumbnail} src={blog1} alt="Blog" />
-                                <div className={styles.blog_info}>
-                                    <p className={styles.blog_title}>
-                                        how to build the best quiz
-                                    </p>
-                                    <p className={styles.blog_description}>
-                                        Building a Swfit Quiz is easy, this is a tutorial be Swift Team on how to build your first Quiz using the best practices and sharing it to the community
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className={styles.blog}>
-                                <img className={styles.blog_thumbnail} src={blog2} alt="Blog" />
-                                <div className={styles.blog_info}>
-                                    <p className={styles.blog_title}>
-                                        how to close your account
-                                    </p>
-                                    <p className={styles.blog_description}>
-                                        Closing Swift Quiz account is fairly easy with few steeps, our team members will explain steep by steep how to get your account closed forever and all data to be deleted.                                    </p>
-                                </div>
-                            </div>
-
-                            <div className={styles.blog}>
-                                <img className={styles.blog_thumbnail} src={blog3} alt="Blog" />
-                                <div className={styles.blog_info}>
-                                    <p className={styles.blog_title}>
-                                        WHY OUR PLATFORM?
-                                    </p>
-                                    <p className={styles.blog_description}>
-                                        The mission of this platform is to help people learn in a different way and fun way. This platform offers quizess of different kind that where build from random users.                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.mobile_only}>
-                    <p className={styles.end}>
-                        You've reached the end!
-                    </p>
-                </div>
-
             </main>
         </div>
     )

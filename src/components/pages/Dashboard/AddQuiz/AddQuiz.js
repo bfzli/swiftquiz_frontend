@@ -11,10 +11,10 @@ export default function AddQuiz() {
     const dispatch = useDispatch();
 
     const [editModal, setEditModal] = useState(false)
-    const [publishingModal, setPublishingModal] = useState('not-showing')
+    const [publishingModal, setPublishingModal] = useState(false)
 
     const [mode, setMode] = useState("add");
-    const [saving, setSaving] = useState(false);
+    const [saving, setSaving] = useState(true);
     const [trueQ, setTrueQ] = useState('none');
 
     const [questionList, setQuestionList] = useState([]);
@@ -42,10 +42,10 @@ export default function AddQuiz() {
         isCorrect: ""
     });
 
-    useEffect(() => {
-        console.log("quiz: ", quiz)
-        console.log("list of q: ", questionList)
-    }, [quiz, questionList])
+    // useEffect(() => {
+    //     console.log("quiz: ", quiz)
+    //     console.log("list of q: ", questionList)
+    // }, [quiz, questionList])
 
     function handleCorrectAnwser(which) {
 
@@ -69,6 +69,7 @@ export default function AddQuiz() {
             setTrue("isCorrect", "answer4")
         }
     }
+
     const addQuestion = (question) => {
         setQuestionList([...questionList, question]);
         setQuiz({ ...quiz, questions: [...questionList, question] })
@@ -376,7 +377,7 @@ export default function AddQuiz() {
 
                         <div className={styles._form_wrapper}>
                             <label className={styles._form_label_name} for="l-quiz-name">Category</label>
-                            <select className={styles._form_input} id="l-quiz-name" placeholder="Quiz Name">
+                            <select className={styles._form_input} id="l-quiz-name" placeholder="Category">
                                 <option>Programming</option>
                                 <option>Mathematics</option>
                                 <option>Algorithm</option>
@@ -388,11 +389,11 @@ export default function AddQuiz() {
                         </div>
 
                         <div className={styles._form_wrapper}>
-                            <label className={styles._form_label_name} for="l-quiz-name">Quiz Name</label>
+                            <label className={styles._form_label_name} for="l-quiz-name">Thumbnail</label>
                             <input className={styles._form_input} type="file" id="l-quiz-name" placeholder="Quiz Name" />
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.9999 12.586L16.2429 16.828L14.8279 18.243L12.9999 16.415V22H10.9999V16.413L9.17189 18.243L7.75689 16.828L11.9999 12.586ZM11.9999 2C13.7169 2.00008 15.374 2.63111 16.6561 3.77312C17.9382 4.91512 18.756 6.48846 18.9539 8.194C20.1982 8.53332 21.2836 9.2991 22.0206 10.3575C22.7575 11.416 23.099 12.6997 22.9855 13.9844C22.872 15.2691 22.3106 16.473 21.3995 17.3858C20.4883 18.2986 19.2854 18.8622 18.0009 18.978L17.9999 17C18.0015 15.4271 17.3854 13.9166 16.2842 12.7935C15.1831 11.6703 13.685 11.0245 12.1124 10.995C10.5398 10.9655 9.01856 11.5547 7.87608 12.6357C6.7336 13.7168 6.0613 15.2032 6.00389 16.775L5.99989 17V18.978C4.71534 18.8623 3.5123 18.2989 2.60103 17.3862C1.68976 16.4735 1.12822 15.2696 1.01457 13.9848C0.900915 12.7001 1.24237 11.4163 1.97926 10.3578C2.71615 9.29926 3.8016 8.53339 5.04589 8.194C5.2436 6.48838 6.0613 4.91491 7.34347 3.77287C8.62565 2.63082 10.2829 1.99986 11.9999 2Z" fill="#333333" />
-                            </svg>
+                            </svg> */}
                         </div>
                     </div>
                 </section>
@@ -406,16 +407,22 @@ export default function AddQuiz() {
                             <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" />
                         </svg>
                         <h3 className={styles._modal_title}>Publication</h3>
+                        <div className={styles.savingit}>
+                            {
+                                saving === true ?
+                                    <>
+                                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_voizisa4.json" background="transparent" speed="1" style={{ width: "200px", height: "200px", marginBottom: "-3", marginTop: "-1em"}} loop autoplay></lottie-player>
+                                        <h2 className={styles.publishing_title}>We're publishing it...</h2>
+                                        <p>We'ere working to put it to the world, please wait a little for the server to respond.</p>
+                                    </>
+                                    :
 
-                        {
-                            saving && <div>
-                                auto saving
-                                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_WLDTXp.json" background="transparent" speed="1" width="300px" loop autoplay></lottie-player>
-                            </div>
-                        }
+                                    null
 
+                            }
+                        </div>
                     </div>
-                </section>
+                </section >
             }
         </div >
     )
