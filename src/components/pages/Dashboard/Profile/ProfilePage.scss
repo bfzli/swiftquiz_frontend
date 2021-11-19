@@ -26,10 +26,98 @@
   }
 }
 
-#coverPic {
-  width: 1350px;
-  border-radius: 10px;
+.profilePicCont {
+  &:hover {
+    .profilePicOverlay {
+      opacity: 50%;
+      transition: 0.3s ease;
+    }
+  }
+}
 
+.profilePicOverlay {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  border: 5px solid #5928e5;
+  border-radius: 50%;
+  margin-right: 5rem;
+  transform: translateX(-66%);
+  background-color: black;
+  opacity: 0;
+  & img {
+    width: 45px;
+    margin-top: 40%;
+    margin-left: 42%;
+    &:hover {
+      cursor: pointer;
+    }
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
+  }
+  & input {
+    outline: none;
+    color: transparent;
+    display: none;
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+  }
+}
+
+.coverCont {
+  border-radius: 10px;
+  width: 100%;
+  height: 325px;
+  & button {
+    position: absolute;
+    width: 100px;
+    top: 40%;
+    left: 87.5%;
+  }
+  &:hover {
+    .coverPicOverlay {
+      opacity: 50%;
+      transition: 0.3s ease;
+    }
+  }
+}
+
+.coverPicOverlay {
+  width: 1350px;
+  height: 325px;
+  border-radius: 10px;
+  background-color: black;
+  position: absolute;
+  opacity: 0;
+  top: 13%;
+  object-fit: cover;
+  & img {
+    width: 65px;
+    margin-top: 10%;
+    margin-left: 45%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  & input {
+    outline: none;
+    color: transparent;
+    display: none;
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.coverPic {
+  width: 1350px;
+  height: 325px;
+  border-radius: 10px;
   @media screen and (max-width: 900px) {
     width: 90%;
     display: block;
@@ -54,17 +142,25 @@
   flex-direction: column;
   align-items: center;
   transform: translateY(-25%);
+
   @media screen and (max-width: 900px) {
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  & img {
+  & #saveProfilePic {
+    position: absolute;
+    width: 100px;
+    left: 34%;
+    top: 39%;
+  }
+  & input {
     width: 250px;
     height: 250px;
     border: 5px solid #5928e5;
     border-radius: 50%;
     margin-right: 5rem;
+
     @media screen and (max-width: 900px) {
       margin: 0;
       width: 100px;
