@@ -4,17 +4,14 @@ import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { createQuiz } from '../../../../reduxComponents/actions/Questions';
 
-import Edit from './modals/Edit';
-
-
 export default function AddQuiz() {
     const dispatch = useDispatch();
-
+    const [givenCode, setGivenCode] = useState("https://swiftquiz.vercel.app/invite/4mf");
     const [editModal, setEditModal] = useState(false)
     const [publishingModal, setPublishingModal] = useState(false)
 
     const [mode, setMode] = useState("add");
-    const [saving, setSaving] = useState(true);
+    const [saving, setSaving] = useState(false);
     const [trueQ, setTrueQ] = useState('none');
 
     const [questionList, setQuestionList] = useState([]);
@@ -86,6 +83,15 @@ export default function AddQuiz() {
         }
         setTrueQ('none')
     };
+
+
+    function copy() {
+        navigator.clipboard.writeText(givenCode).then(function () {
+            console.log('');
+        }, function (err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
 
     const editQuestion = (question) => {
         setMode("edit");
@@ -406,19 +412,30 @@ export default function AddQuiz() {
                         <svg className={styles._close_icon} onClick={() => setPublishingModal(!publishingModal)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" />
                         </svg>
-                        <h3 className={styles._modal_title}>Publication</h3>
+                        <h3 className={styles._modal_title}>Publishing</h3>
                         <div className={styles.savingit}>
                             {
                                 saving === true ?
                                     <>
-                                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_voizisa4.json" background="transparent" speed="1" style={{ width: "200px", height: "200px", marginBottom: "-3", marginTop: "-1em"}} loop autoplay></lottie-player>
+                                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_voizisa4.json" background="transparent" speed="1" style={{ width: "200px", height: "200px", marginBottom: "-3", marginTop: "-1em" }} loop autoplay></lottie-player>
                                         <h2 className={styles.publishing_title}>We're publishing it...</h2>
                                         <p>We'ere working to put it to the world, please wait a little for the server to respond.</p>
                                     </>
                                     :
 
-                                    null
+                                    <>
+                                        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_vwafhp2v.json" background="transparent" speed="1" style={{ width: "125px", height: "125px", marginTop: "1em" }} loop autoplay></lottie-player>
+                                        <h2 className={styles.publishing_title}>Your Quiz is now Live 🎉</h2>
 
+                                        <div onClick={() => copy()} className={styles.copy_code}>
+                                            <p>
+                                                {givenCode}
+                                            </p>
+                                            <svg className={styles.copy_code_icon} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 7V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H21C21.2652 2 21.5196 2.10536 21.7071 2.29289C21.8946 2.48043 22 2.73478 22 3V16C22 16.2652 21.8946 16.5196 21.7071 16.7071C21.5196 16.8946 21.2652 17 21 17H17V20.993C17 21.549 16.551 22 15.993 22H3.007C2.87472 22.0001 2.74372 21.9742 2.62148 21.9236C2.49925 21.8731 2.38819 21.7989 2.29465 21.7053C2.20112 21.6118 2.12695 21.5008 2.07639 21.3785C2.02583 21.2563 1.99987 21.1253 2 20.993L2.003 8.007C2.003 7.451 2.452 7 3.01 7H7ZM9 7H15.993C16.549 7 17 7.449 17 8.007V15H20V4H9V7Z" fill="#333333" />
+                                            </svg>
+                                        </div>
+                                    </>
                             }
                         </div>
                     </div>

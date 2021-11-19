@@ -1,6 +1,6 @@
 const Questions = [
     {
-        question: 'Who is the founder of Meta?',
+        question: '',
         anwsers: [
             {anwser: 'Mark Zuckberkg', isCorrect: true},
             {anwser: 'Gary Vee', isCorrect: false},
