@@ -46,6 +46,8 @@ export default function Routing() {
         <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
         <ProtectedRoute path="/dashboard/community" component={Community} />
         <ProtectedRoute path="/dashboard/profile" component={Profile} />
+        <NotProtected path="/dashboard"> <Redirect to="/dashboard/welcome" /></NotProtected>
+        <NotProtected path="/dashboard/*"> <Redirect to="/dashboard/welcome" /></NotProtected>
         <NotProtected path="*" component={Error} />
       </Switch>
     </Wrapper>

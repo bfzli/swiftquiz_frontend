@@ -357,3 +357,29 @@
 .publishing_title {
     font-family: "Integral CF Demi Bold";
 }
+
+.copy_code {
+    width: 100%;
+    padding: 1em 2.25em 1em 1em;
+    border-radius: 0.85em;
+    background: transparent;
+    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    transition: .3s ease-in-out all;
+    position: relative;
+
+    &:hover {
+        background: rgba(141, 141, 141, .050);
+        border: 0.25px solid rgba(141, 141, 141, 0.125);
+    }
+
+    user-select: none;
+
+    margin: 1em 0em;
+
+}
+
+.copy_code_icon{
+    position: absolute;
+    top: 30%;
+    right: .75em;
+}
