@@ -1,13 +1,14 @@
 import * as CONST from '../constants/index';
 
+
 export const userState = {
     name: '',
     email: '',
     username: '',
-    password: '',
     role: '',
     thumbnail: '',
-    isLoggedIn: false
+    isLoggedIn: false,
+    currentlyPlaying: {}
 };
 
 const userReducer = (state = userState, action) => {
@@ -15,12 +16,11 @@ const userReducer = (state = userState, action) => {
 
     switch(action.type){
         case CONST.LOG_IN_CONFIRMED:
-            const { name, username, email, password, role, thumbnail } = payload;
+            const { name, username, email, role, thumbnail } = payload;
             return {
                 name,
                 username,
                 email,
-                password,
                 role,
                 thumbnail,
                 isLoggedIn: true
@@ -31,7 +31,6 @@ const userReducer = (state = userState, action) => {
                 name: '',
                 email: '',
                 username: '',
-                password: '',
                 role: '',
                 thumbnail: '',
                 isLoggedIn: false
@@ -41,7 +40,24 @@ const userReducer = (state = userState, action) => {
             return {
                 ...state,
                 ...payload
-            }
+            };
+        
+        case CONST.PLAY_QUIZ_STARTED:
+            return state;
+
+        case CONST.PLAY_QUIZ_SUCCEEDED:
+            return {
+                ...state,
+                currentlyPlaying: payload
+            };
+        
+        case CONST.PLAY_QUIZ_FAILED:
+            return {
+                ...state,
+                currentlyPlaying: { 
+                    error: payload 
+                }
+            };
 
         default:
             return state

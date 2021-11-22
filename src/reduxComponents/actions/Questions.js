@@ -43,3 +43,18 @@ export const createQuiz = (data) => async dispatch => {
         dispatch({ type: CONST.ADD_QUIZ_FAILED, payload: error });
     }
 };
+
+export const playQuiz = (redeemCode) => async dispatch => {
+    dispatch({ type: CONST.PLAY_QUIZ_STARTED });
+
+    try{
+        const response = await api.playQuiz(redeemCode);
+        const data = await response.data;
+        console.log(data);
+        dispatch({ type: CONST.PLAY_QUIZ_SUCCEEDED, payload: data });
+    } 
+    catch(error){
+        dispatch({ type: CONST.PLAY_QUIZ_FAILED });
+    }
+    
+};

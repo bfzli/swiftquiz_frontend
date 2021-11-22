@@ -17,6 +17,8 @@ const client = axios.create({
 
 export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 
+export const playQuiz = (redeemCode) => client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
+
 export const createQuiz = (params) => client.post(`/${user_id}/quizzes/create-quiz`, params);
 
 export const editQuiz = (id, params) => axios.put(`${API_BASE_URL}/questions/${id}`, params);

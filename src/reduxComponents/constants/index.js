@@ -30,4 +30,9 @@ export const DELETE_ALL_USERS = 'DELETE_ALL_USERS';
 export const DELETE_USER = "DELETE_USER";
 
 //user constants
-export const UPDATE_USER = 'UPDATE_USER'; 
+export const UPDATE_USER = 'UPDATE_USER';
+
+//play quiz
+export const PLAY_QUIZ_STARTED = 'PLAY_QUIZ_STARTED';
+export const PLAY_QUIZ_SUCCEEDED = 'PLAY_QUIZ_SUCCEEDED';
+export const PLAY_QUIZ_FAILED = 'PLAY_QUIZ_FAILED';
