@@ -5,6 +5,7 @@ export const userState = {
     name: '',
     email: '',
     username: '',
+    coins: null,
     role: '',
     thumbnail: '',
     isLoggedIn: false,
