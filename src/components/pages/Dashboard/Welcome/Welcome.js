@@ -63,6 +63,9 @@ function Welcome({ userQuizes }) {
                                                     <p className={styles.quiz_description}>
                                                         {current.description}
                                                     </p>
+                                                    <p className={styles.quiz_description}>
+                                                        {current.redeem_code}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div>

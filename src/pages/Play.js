@@ -12,14 +12,23 @@ export default function Play() {
     const url = /[^/]*$/.exec(window.location.href)[0];
     const [typing, setTyping] = useState(url === 'play' ? '' : url)
 
-    useEffect(() => {
-        dispatch(fetchQuiz())
-    }, []);
+    const currentQuiz = useSelector(state => state.user.currentlyPlaying);
 
     function play_quiz(){
         dispatch(playQuiz(typing));
+        setQuiz(currentQuiz)
         setPlaying(true)
     }
+
+    function isEmpty(obj) {
+        for(var prop in obj) {
+          if(Object.prototype.hasOwnProperty.call(obj, prop)) {
+            return false;
+          }
+        }
+      
+        return JSON.stringify(obj) === JSON.stringify({});
+      }
 
     return (
         <>
@@ -29,15 +38,16 @@ export default function Play() {
             </Helmet>
 
             {
-                playing === false
+                playing === true && isEmpty(quiz) === false
 
                     ?
 
-                    <Code code={typing} setCode={setTyping} play_quiz={() => play_quiz()} />
+                    <Screen quiz={quiz} />
 
                     :
 
-                    <Screen quiz={quiz} />
+                    <Code code={typing} setCode={setTyping} play_quiz={() => play_quiz()} />
+
             }
         </>
     )

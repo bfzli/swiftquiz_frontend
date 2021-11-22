@@ -1,7 +1,7 @@
 import * as styles from './Code.module.scss'
 import { Link } from 'react-router-dom'
 
-export default function Screen({code, setCode, play_quiz}) {
+export default function Screen({ code, setCode, play_quiz }) {
 
     return (
         <>
@@ -18,7 +18,7 @@ export default function Screen({code, setCode, play_quiz}) {
                         Playing a quiz is simple easly, play by entering a code or through a link that someone invited you to do so.
                     </p>
                     <div style={{ display: 'flex' }}>
-                        <input value={code} onChange={(e) => {e.preventDefault(); setCode(e.target.value)}} className={styles.codebox} placeholder="SWIFT2991" type="text" />
+                        <input value={code} onChange={(e) => { e.preventDefault(); setCode(e.target.value) }} className={styles.codebox} placeholder="SWIFT2991" type="text" />
                         <button title="By entering a code you agree to our Terms of Service and Privacy Policy." onClick={() => play_quiz()} className={styles.cta}>Enter</button>
                     </div>
                 </div>
