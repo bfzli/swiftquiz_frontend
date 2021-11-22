@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet';
 import Code from '../components/pages/Play/Code/Code'
 import Screen from "../components/pages/Play/Screen/Screen";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchQuiz } from '../reduxComponents/actions/Questions'
-import axios from 'axios'
+import { fetchQuiz, playQuiz } from '../reduxComponents/actions/Questions'
 
 export default function Play() {
     const dispatch = useDispatch()
@@ -18,7 +17,8 @@ export default function Play() {
     }, []);
 
     function play_quiz(){
-        console.log(typing)
+        dispatch(playQuiz(typing));
+        setPlaying(true)
     }
 
     return (

@@ -5,19 +5,22 @@ import wrong_choice from '../../../../assets/voices/isWrong.mp3'
 import correct_choice from '../../../../assets/voices/isCorrect.mp3'
 import coin from '../../../../assets/images/Coin.png';
 import avatar from '../../../../assets/images/profile.jpg'
+import { useSelector } from 'react-redux'
 
-export default function Screen(quiz) {
+export default function Screen() {
+    const currentQuiz = useSelector(state => state.user.currentlyPlaying);
     const [menuView, setMenuView] = useState('stats');
-    const [questions] = useState(Questions)
-    console.log("this it:", quiz);
-    console.log("this it fill:", Questions);
+    
+    const [questions] = useState(Questions);
+    
+    console.log("this it:", currentQuiz);
 
     let [currentQuestion, setCurrentQuestion] = useState(0)
     const [correctAnswersCount, setCorrectAnwsersCount] = useState(0)
     const [points, setPoints] = useState(0)
     const [wrongAnswersCount, setWrongAnwsersCount] = useState(0)
     const [modal, setModal] = useState(false)
-    const TotalQuestions = questions.questions.length
+    let TotalQuestions = 3;
     const [countDown, setCountDown] = useState(0);
     const [runTimer, setRunTimer] = useState(true);
     const [sounds, setSounds] = useState(true);
