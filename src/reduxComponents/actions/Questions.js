@@ -18,7 +18,8 @@ export const fetchQuiz = () => async dispatch => {
     dispatch({ type: CONST.FETCH_QUIZES_STARTED });
 
     try {
-        const response = await api.fetchQuizes();
+        //const response = await api.fetchQuizes();
+        const response = await api.fetchData('quizzes/my-quizzes');
         const data = await response.data;
         dispatch({ type: CONST.FETCH_QUIZES_SUCCEEDED, payload: data });
     }
@@ -32,7 +33,7 @@ export const createQuiz = (data) => async dispatch => {
 
     const { title, questions, thumbnail, description, category, difficulty } = data;
     const newObj = { created_by: user.user_id, title, description, category, questions, thumbnail, difficulty };
-    console.log(newObj)
+    console.log(newObj);
     try {
         const response = await api.createQuiz(newObj);
         const data = await response.data;

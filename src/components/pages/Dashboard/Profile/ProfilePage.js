@@ -9,7 +9,6 @@ import * as styles from '../../../../components/shared/Buttons/Buttons.module.sc
 import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
 
 function ProfilePage(props) {
-    console.log();
     const user = useSelector(state => state.auth.auth);
 
     return (

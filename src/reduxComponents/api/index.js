@@ -13,9 +13,9 @@ const client = axios.create({
     }
 });
 
-export const fetchQuizes = () => client.get(`${API_BASE_URL}/${user_id}/quizzes/my-quizzes`);
+//export const fetchQuizes = () => client.get(`${API_BASE_URL}/${user_id}/quizzes/my-quizzes`);
 
-export const fetchData = (endpoint) => client.get(`/${endpoint}`);
+export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 
 export const createQuiz = (params) => client.post(`/${user_id}/quizzes/create-quiz`, params);
 
@@ -37,12 +37,21 @@ export const logIn = (username, password) => {
         username,
         password
     };
-
     return client.post('/login-user', postData);
 };
+
+export const logIn_admin = (username, password) => {
+    const postData = {
+        username,
+        password
+    };
+    return client.post('/login-admin', postData);
+}
 
 export const saveToLocalStorage = (token) => {
     localStorage.setItem('user', token)
 };
 
 export const removeFromLocalStorage = () => localStorage.removeItem('user');
+
+export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
