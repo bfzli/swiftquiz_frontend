@@ -1,0 +1,22 @@
+:root,
+#lightmode{
+    --background-less-important: #fcfcfc;
+    --background-important: #ffffff;
+    --border-color: #f3f3f3;
+    --hover-color: #f3f3f3;
+    --icon-inside: #A4ADB7;
+    --icon-border: #151E28;
+    --text-color: #151E28;
+    --animate: .3456789s ease-in-out all;
+}
+
+#darkmode{
+    --background-less-important: #0d151d !important;
+    --background-important: #111b25 !important;
+    --border-color: #36424d !important; //#141d25
+    --hover-color: #263d5360 !important;
+    --icon-inside: #9b9ea3 !important;
+    --icon-border: #fff !important;
+    --text-color: #f3f3f3;
+    --animate: .3456789s ease-in-out all;
+}

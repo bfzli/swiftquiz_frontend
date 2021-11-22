@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+.container {
+    background: var(--background-less-important);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar {
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    background: var(--background-important);
+    border-right: 2px solid var(--border-color);
+    padding: .75em;
+    transition: var(--animate);
+}
+
+.sidebar_top {
+
+}
+
+.sidebar_top_small{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar_bottom {
+}
+
+.sidebar_logo {
+}
+
+.spacer {
+    background: var(--border-color);
+    width: 70%;
+    height: 2px;
+    margin: 1.75em 15%;
+}
+
+.sidebar_item {
+    display: flex;
+    align-items: center;
+    padding: 0.75em;
+    border-radius: 0.75em;
+    margin-bottom: 0.5em;
+    transition: var(--animate);
+    position: relative;
+
+    &:hover {
+        background: var(--hover-color);
+    }
+}
+
+.item_is_active{
+    background: var(--hover-color);
+}
+
+.is_active{
+    width: .7em;
+    height: .7em;
+    border-radius: 999999px;
+    background: #000;
+    position: absolute;
+    top: 42%;
+    right: 1em;
+}
+
+.sidebar_item_avatar {
+    width: 2em;
+    border-radius: 100%;
+}
+
+.sidebar_item_icon {
+    width: 2em;
+    border: var(--icon-border);
+    fill: var(--icon-inside)
+}
+
+.sidebar_item_text {
+    font-size: 1.05em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    margin-left: 0.5em;
+    color: var(--text-color)
+}
+
+.acc_actions{
+    position: absolute;
+    top: 1em; right: 1em;
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
+    border-radius: .75em;
+    display: flex;
+    align-items: center;
+    padding: .25em;
+}
+
+.acc_actions_dropwdown{
+    width: auto;
+    position: absolute;
+    margin-top: 50%;
+    right: 0;
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
+    border-radius: .75em;
+    display: flex;
+    padding: .25em;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.action_dropdown_item{
+    width: auto;
+    padding: .5em .75em;
+    display: flex;
+    align-items: center;
+    transition: var(--animate);
+    border-radius: .75em;
+
+    &:hover{
+
+        background: var(--hover-color);
+    }
+
+    &:first-child{
+        margin-bottom: .35em;
+    }
+
+    
+}
+
+.action_item{
+    display: flex;
+    align-items: center;
+    padding: .4em .75em;
+    border-radius: .75em;
+    transition: var(--animate);
+
+
+    &:first-child{
+        margin-right: .25em;
+    }
+
+    &:hover{
+        background: var(--hover-color);
+    }
+}
+
+.action_item_acc_name{
+    font-family: "Poppins", sans-serif;
+    margin-right: .3em;
+
+    &:last-child{
+    margin-right: .75em;
+    }
+    color: var(--text-color);
+    
+}
+
+.actions_bar_icon{
+    width: 1.75em;
+    border-radius: 100%;
+}
+
+.action_item_icon{
+    width: auto;
+    width: 1.5em;
+    
+    &:first-child{
+        margin-left: .75em;
+    }
+}
+
+.action_dropdown_item_name{
+    color: var(--text-color);
+    font-size: 1.05em;
+
+    margin-right: .5em
+}

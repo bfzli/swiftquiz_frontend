@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView'
@@ -15,10 +16,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
+import Welcome from './components/pages/Dashboard/Welcome/Welcome';
+import Dash2 from './components/pages/Dashboard_v2/Home/Home'
 import { useDispatch } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 
 export default function Routing() {
+  const user = useSelector((state) => state.auth.auth);
+
   const dispatch = useDispatch();
   AOS.init({
     duration: 800,
@@ -46,6 +51,15 @@ export default function Routing() {
         <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
         <ProtectedRoute path="/dashboard/community" component={Community} />
         <ProtectedRoute path="/dashboard/profile" component={Profile} />
+
+        {
+          user.role === "user"
+          ?
+          <ProtectedRoute path="/dashboard/v2" component={Dash2} />
+          :
+          null
+        }
+
         <NotProtected path="/dashboard"> <Redirect to="/dashboard/welcome" /></NotProtected>
         <NotProtected path="/dashboard/*"> <Redirect to="/dashboard/welcome" /></NotProtected>
         <NotProtected path="*" component={Error} />

@@ -1,7 +1,7 @@
 import * as styles from './Code.module.scss'
 import { Link } from 'react-router-dom'
 
-export default function Screen({code, setCode, select_quiz}) {
+export default function Screen({code, setCode, play_quiz}) {
 
     return (
         <>
@@ -19,7 +19,7 @@ export default function Screen({code, setCode, select_quiz}) {
                     </p>
                     <div style={{ display: 'flex' }}>
                         <input value={code} onChange={(e) => {e.preventDefault(); setCode(e.target.value)}} className={styles.codebox} placeholder="SWIFT2991" type="text" />
-                        <button title="By entering a code you agree to our Terms of Service and Privacy Policy." onClick={() => select_quiz(code)} className={styles.cta}>Enter</button>
+                        <button title="By entering a code you agree to our Terms of Service and Privacy Policy." onClick={() => play_quiz()} className={styles.cta}>Enter</button>
                     </div>
                 </div>
                 <div data-aos="fade-left" className={styles.right}>
