@@ -22,14 +22,12 @@ import { connect } from "react-redux";
 import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
 
 function Welcome({ userQuizes }) {
-    const [filtredQuizes, setFiltredQuizes] = useState(null)
-    const dispatch = useDispatch()
+    const [filtredQuizes, setFiltredQuizes] = useState(null);
 
     const all_quizzes = useSelector(state => state.quizes.quizes);
     console.log(all_quizzes)
 
     useEffect(() => {
-        dispatch(fetchQuiz())
         setFiltredQuizes(userQuizes);
     }, []);
 

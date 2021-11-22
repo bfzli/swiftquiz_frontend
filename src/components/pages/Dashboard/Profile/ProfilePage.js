@@ -1,18 +1,15 @@
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector, connect } from 'react-redux'
 import profilebcg from '../../../../assets/images/profile/ProfileBcg.webp'
 import adnanAvatar from '../../../../assets/images/profiles/adnan.webp'
 import adnan from '../../../../assets/images/profile/adnan.webp'
 import quiz1 from '../../../../assets/images/profile/quiz1.webp'
-import quiz2 from '../../../../assets/images/profile/quiz2.webp'
-import quiz3 from '../../../../assets/images/profile/quiz3.webp'
-
 import './ProfilePage.scss'
 import * as styles from '../../../../components/shared/Buttons/Buttons.module.scss'
+import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
 
-export default function ProfilePage() {
-
-    const user = useSelector(state => state.auth.auth)
-
+function ProfilePage(props) {
+    const user = useSelector(state => state.auth.auth);
 
     return (
         <div className="mainProfileCont">
@@ -31,45 +28,35 @@ export default function ProfilePage() {
                 <div className="rightBottomProfileCont">
                     <h2>{user.name}'s Quizes</h2>
                     <div className="profileQuizes">
-                        <div className="QuizBody">
-                            <img id="quizImage" src={quiz1}/>
-                            <h3>React Components</h3>
-                            <p>A Component is one of the core building blocks of React. In other words, we can say that every application you will develop in made of components.</p>                        
-                            <div className="quizBottom">
-                                <img src={adnanAvatar}/>
-                                <div className="quizBottomRight">
-                                    <h5 id="quizMadeBy">MADE BY</h5>
-                                    <h5>ADNAN KASUMAJ</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="QuizBody">
-                            <img id="quizImage" src={quiz2}/>
-                            <h3>Graphql Universe</h3>
-                            <p>A query language for your API — GraphQL provides a complete description of the data in your API, gives clients the power to ask for exactly what they need.</p>
-                            <div className="quizBottom">
-                                <img src={adnanAvatar}/>
-                                <div className="quizBottomRight">
-                                    <h5 id="quizMadeBy">MADE BY</h5>
-                                    <h5>ADNAN KASUMAJ</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="QuizBody">
-                            <img id="quizImage" src={quiz3}/>
-                            <h3>Rust the best lang</h3>
-                            <p>Svelte is a JavaScript framework for building user interfaces. Its compiler architecture enables amazing tradeoffs for UX and DX.</p>
-                            <div className="quizBottom">
-                                <img src={adnanAvatar}/>
-                                <div className="quizBottomRight">
-                                    <h5 id="quizMadeBy">MADE BY</h5>
-                                    <h5>ADNAN KASUMAJ</h5>
-                                </div>
-                            </div>
-                        </div>
+                        {
+                            props.userQuizes.map(quiz => {
+                                const { title, description } = quiz;
+                                return (
+                                    <div className="QuizBody">
+                                        <img id="quizImage" src={quiz1}/>
+                                        <h3>{title}</h3>
+                                        <p>{description}</p>
+                                        <div className="quizBottom">
+                                            <img src={adnanAvatar}/>
+                                            <div className="quizBottomRight">
+                                                <h5 id="quizMadeBy">MADE BY</h5>
+                                                <h5>{user.name}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
         </div>
     )
-}
+};
+
+
+const mapStateToProps = (state) => ({
+    userQuizes: selectQuizesOfUsers(state)
+});
+
+export default connect(mapStateToProps)(ProfilePage);

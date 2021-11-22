@@ -23,3 +23,11 @@ export const SIGN_UP_FAILED = 'SIGN_UP_FAILED';
 export const LOG_IN_CONFIRMED = 'LOG_IN_CONFIRMED';
 export const LOG_IN_FAILED = 'LOG_IN_FAILED';
 export const LOG_OUT_ACTION = 'LOG_OUT_ACTION';
+
+//admin constants
+export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
+export const DELETE_ALL_USERS = 'DELETE_ALL_USERS';
+export const DELETE_USER = "DELETE_USER";
+
+//user constants
+export const UPDATE_USER = 'UPDATE_USER'; 

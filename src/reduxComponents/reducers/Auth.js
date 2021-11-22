@@ -8,7 +8,7 @@ export const authState = {
         message: '',
         success: ''
     },
-    is_logedin: false
+    is_loggedin: false
 };
 
 const authReducer = (state = authState, action) => {
@@ -31,21 +31,21 @@ const authReducer = (state = authState, action) => {
             return {
                 ...state,
                 auth: payload,
-                is_logedin: true
+                is_loggedin: true
             }
 
         case CONST.LOG_IN_FAILED:
             return {
                 auth: {},
                 messageResponse: payload,
-                is_logedin: false
+                is_loggedin: false
             }
         
         case CONST.LOG_OUT_ACTION:
             return {
                 ...state,
                 auth: {},
-                is_logedin: false
+                is_loggedin: false
             }
 
         default:
