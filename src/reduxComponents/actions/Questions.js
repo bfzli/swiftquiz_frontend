@@ -56,5 +56,4 @@ export const playQuiz = (redeemCode) => async dispatch => {
     catch(error){
         dispatch({ type: CONST.PLAY_QUIZ_FAILED, payload: error });
     }
-    
 };

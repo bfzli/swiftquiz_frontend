@@ -1,35 +1,18 @@
 import * as styles from './Community.module.scss'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
+
 import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
-import quiz2 from '../../../../assets/images/community/svlete.webp'
-import quiz3 from '../../../../assets/images/community/typescript.webp'
-import quiz4 from '../../../../assets/images/community/kotlin.webp'
-import quiz5 from '../../../../assets/images/community/react.webp'
 import quiz6 from '../../../../assets/images/community/docker.webp'
 
 import benjamin from '../../../../assets/images/profiles/benjamin.webp'
-import fitim from '../../../../assets/images/profiles/fitim.webp'
-import laurat from '../../../../assets/images/profiles/laurat.webp'
-import adnan from '../../../../assets/images/profiles/adnan.webp'
-import mendrit from '../../../../assets/images/profiles/mendrit.webp'
 import rinor from '../../../../assets/images/profiles/rinor.webp'
 
-import { useEffect } from 'react'
-import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
-import { useDispatch, useSelector } from 'react-redux'
-import { connect } from "react-redux";
-import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
+import {useSelector} from 'react-redux'
 
-function MyQuizzes({ userQuizes }) {
-    const dispatch = useDispatch()
-
+export default function Community() {
     const all_quizzes = useSelector(state => state.quizes.quizes);
     console.log(all_quizzes)
-
-    useEffect(() => {
-        dispatch(fetchQuiz())
-    }, []);
 
     return (
         <div className={styles.container}>
@@ -55,135 +38,27 @@ function MyQuizzes({ userQuizes }) {
             <main style={{ marginTop: '2.5em' }}>
                 <div className={styles.top_right} data-aos="fade-left">
                     <div className={styles.quizess}>
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
-                            <h3 className={styles.quiz_title}>
-                                RUBY & RAILS
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Ruby on Rails is your favorite Ruby web framework to use.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Benjamin Fazli</p>
-                            </div>
-                            <button to="/d" class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz2} />
-                            <h3 className={styles.quiz_title}>
-                                SVLETE
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Svelte is a radical new approach to building user interfaces.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={mendrit} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Mendrit Arifi</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz2} />
-                            <h3 className={styles.quiz_title}>
-                                SVLETE
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Svelte is a radical new approach to building user interfaces.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={mendrit} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Mendrit Arifi</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz3} />
-                            <h3 className={styles.quiz_title}>
-                                TYPESCRIPT
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Javascript but with a strict syntactical superset with types.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={laurat} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Laurat Hajrullaga</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz3} />
-                            <h3 className={styles.quiz_title}>
-                                TYPESCRIPT
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Javascript but with a strict syntactical superset with types.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={laurat} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Laurat Hajrullaga</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz4} />
-                            <h3 className={styles.quiz_title}>
-                                KOTLIN
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Modern, concise and safe language. Easy to pick up and build.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={adnan} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Adnan Kasumaj</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz5} />
-                            <h3 className={styles.quiz_title}>
-                                REACT
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                A JS library used for building single-page applications
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={fitim} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Fitim Hoti</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
-
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz6} />
-                            <h3 className={styles.quiz_title}>
-                                DOCKER
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                A software that allows you to build, test, and deploy applications.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={rinor} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Rinor Sylejmani</p>
-                            </div>
-                            <button class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div>
+                        {
+                            all_quizzes.map(item =>
+                                <div className={styles.quiz}>
+                                    <img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
+                                    <h3 className={styles.quiz_title}>
+                                        {item.title}
+                                    </h3>
+                                    <p className={styles.quiz_description}>
+                                        {item.description}
+                                    </p>
+                                    <div className={styles.quizer_holder}>
+                                        <img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
+                                        <p className={styles.quizer_name}>Benjamin Fazli</p>
+                                    </div>
+                                    <Link style={{textAlign: 'center'}} to={`/invite/${item.redeem_code}`} class={styles.quiz_play}>PLAY QUIZ</Link>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </main >
         </div >
     )
 }
-
-
-const mapStateToProps = (state) => ({
-    userQuizes: selectQuizesOfUsers(state)
-});
-
-export default connect(mapStateToProps)(MyQuizzes);

@@ -5,8 +5,10 @@ import correct_choice from '../../../../assets/voices/isCorrect.mp3'
 import coin from '../../../../assets/images/Coin.png';
 import avatar from '../../../../assets/images/profile.jpg'
 import Helmet from 'react-helmet'
+import { useSelector } from 'react-redux';
 
 export default function Screen({ quiz }) {
+    const user = useSelector(state => state.auth.auth)
     const [menuView, setMenuView] = useState('stats');
     const [questions] = useState(quiz);
     let [currentQuestion, setCurrentQuestion] = useState(0)
@@ -372,7 +374,7 @@ export default function Screen({ quiz }) {
                                     <div className={styles.profile}>
                                         <img className={styles.profile_img} src={avatar} />
                                         <p className={styles.profile_name}>
-                                            Benjamin Fazli
+                                            {user.name}
                                         </p>
                                         <div className={styles.coinsw}>
                                             <p className={styles.pointers}>10.399 </p>

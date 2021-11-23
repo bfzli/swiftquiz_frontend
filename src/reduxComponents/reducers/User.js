@@ -1,6 +1,5 @@
 import * as CONST from '../constants/index';
 
-
 export const userState = {
     name: '',
     email: '',
@@ -8,7 +7,8 @@ export const userState = {
     role: '',
     thumbnail: '',
     isLoggedIn: false,
-    currentlyPlaying: {}
+    currentlyPlaying: {},
+    coins: 0
 };
 
 const userReducer = (state = userState, action) => {

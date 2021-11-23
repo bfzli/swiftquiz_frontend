@@ -44,7 +44,7 @@ const quizReducer = (state = quizState, action) => {
                 ...state,
                 error: payload
             };
-
+        
         default:
             return state;
     };
