@@ -1,18 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
 .container {
     background: var(--background-less-important);
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
     position: relative;
+    overflow: hidden;
 }
 
 .sidebar {
+    // width: 20%;
     height: 100%;
-    position: absolute;
+    // position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,6 +25,10 @@
 
 .sidebar_top {
 
+}
+
+.content{
+    padding: 1em;
 }
 
 .sidebar_top_small{

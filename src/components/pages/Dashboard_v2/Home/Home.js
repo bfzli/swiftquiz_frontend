@@ -1,8 +1,11 @@
 import * as styles from './Home.module.scss'
-import { useState } from 'react'
 import Logo from './components/Logo'
+import Quiz from '../pages/Quiz/Quiz';
+import { useState} from "react";
 import './globals.scss'
 import coin from './components/coin.png'
+import { Helmet } from 'react-helmet'
+
 export default function Dash2() {
 
     const [menu, setMenu] = useState(false)
@@ -11,7 +14,7 @@ export default function Dash2() {
 
     return (
         <main id={theme === true ? "lightmode" : "darkmode"} className={styles.container}>
-            <div className={styles.sidebar}>
+            <header className={styles.sidebar}>
                 <div className={menu === true ? styles.sidebar_top : styles.sidebar_top_small}>
                     <Logo />
                     <div className={styles.spacer} />
@@ -28,7 +31,6 @@ export default function Dash2() {
                         }
                         {/* <div className={styles.is_active}></div> */}
                     </div>
-
 
                     <div className={styles.sidebar_item}>
                         <svg className={styles.sidebar_item_icon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,8 +68,6 @@ export default function Dash2() {
                         }
                     </div>
 
-
-
                     <div className={styles.sidebar_item}>
                         <svg className={styles.sidebar_item_icon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19 21V9C19 6.17157 19 4.75736 18.1213 3.87868C17.2426 3 15.8284 3 13 3H11C8.17157 3 6.75736 3 5.87868 3.87868C5 4.75736 5 6.17157 5 9V21L10.0154 18.134C10.9844 17.5803 11.4689 17.3035 12 17.3035C12.5311 17.3035 13.0156 17.5803 13.9846 18.134L19 21Z" fill="var(--icon-inside)" fill-opacity="0.15" />
@@ -104,7 +104,6 @@ export default function Dash2() {
                     </div>
                 </div>
                 <div className={styles.sidebar_bottom}>
-
 
                     <div onClick={() => setMenu(!menu)} className={styles.sidebar_item}>
                         {menu === false ?
@@ -144,7 +143,10 @@ export default function Dash2() {
 
                     </div>
                 </div>
-            </div>
+            </header>
+            <section className={styles.content}>
+                <Quiz />
+            </section>
             <section className={styles.acc_actions}>
 
                 <div className={styles.action_item}>

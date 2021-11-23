@@ -7,7 +7,7 @@ const searchTerm = (state) => state.filters.text;
 export const selectQuizesOfUsers = createSelector(
   [selectUser, selectQuizes],
   (user, quizes) => {
-    return quizes.filter((quiz) => quiz.created_by === user.user_id);
+    return quizes.filter((quiz) => quiz.created_by._id === user.user_id);
   }
 );
 
@@ -20,5 +20,16 @@ export const searchSelectedQuizzes = createSelector(
           const textMatch = quiz.title.toLowerCase().includes(term.toLowerCase());
           return textMatch;
       });
+  }
+);
+
+//Searching All Quizzes
+export const searchAllQuizes = createSelector(
+  [selectQuizes, searchTerm],
+  (quizzes, term) => {
+    return quizzes.filter(quiz => {
+        const textMatch = quiz.title.toLowerCase().includes(term.toLowerCase());
+          return textMatch;
+    });
   }
 );

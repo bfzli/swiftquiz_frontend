@@ -1,10 +1,10 @@
-import * as styles from './AddQuiz.module.scss'
+import * as styles from './Quiz.module.scss'
 import Helmet from 'react-helmet'
 import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { createQuiz } from '../../../../reduxComponents/actions/Questions';
+import { createQuiz } from "../../../../../reduxComponents/actions/Questions";
 
-export default function AddQuiz() {
+export default function Quiz() {
     const dispatch = useDispatch();
     const [givenCode, setGivenCode] = useState("%PUBLIC_URL%/invite/4mf");
     const [editModal, setEditModal] = useState(false)
@@ -143,23 +143,12 @@ export default function AddQuiz() {
 
     return (
         <div className={styles.container}>
-            <Helmet>
-                <title>Add Quiz - SwiftQuiz</title>
-            </Helmet>
-
             <div className={styles.slides}>
-                <div className={styles.miniheader}>
-                    <p className={styles.mini_title}>
-                        Your Questions
-                    </p>
-                </div>
+            
                 {questionList.length <= 0 ? (
-                    <div className={styles.empty_slide}>
-                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_GlZGOi.json" background="transparent" speed="1" style={{ width: '242px', height: '242px' }} loop autoplay></lottie-player>
-                        <p className={styles.empty_text}>No questions yet!</p>
-                    </div>
+                    'empty'
                 ) : (
-                    <div className={styles.quiz_list}>
+                    <>
                         {questionList.map((item, i) => {
                             return (
                                 //onClick={() => editQuestion(item)}
@@ -169,7 +158,7 @@ export default function AddQuiz() {
                                 </div>
                             );
                         })}
-                    </div>
+                    </>
                 )}
             </div>
 

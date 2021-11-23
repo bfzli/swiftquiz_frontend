@@ -4,20 +4,14 @@ import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
-import quiz6 from '../../../../assets/images/community/docker.webp'
-
 import benjamin from '../../../../assets/images/profiles/benjamin.webp'
-import rinor from '../../../../assets/images/profiles/rinor.webp'
-
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
-import { selectQuizesOfUsers, searchSelectedQuizzes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
+import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
-import {useSelector} from 'react-redux'
 
-export default function Community() {
-    const all_quizzes = useSelector(state => state.quizes.quizes);
+export function Community({userQuizes}) {
+    const dispatch = useDispatch();
 
     const handleOnChange = e => {
         const text = e.target.value;
@@ -49,7 +43,7 @@ export default function Community() {
                 <div className={styles.top_right} data-aos="fade-left">
                     <div className={styles.quizess}>
                         {
-                            all_quizzes.map(item =>
+                            userQuizes.map(item =>
                                 <div className={styles.quiz}>
                                     <img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
                                     <h3 className={styles.quiz_title}>
@@ -60,9 +54,9 @@ export default function Community() {
                                     </p>
                                     <div className={styles.quizer_holder}>
                                         <img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
-                                        <p className={styles.quizer_name}>Benjamin Fazli</p>
+                                        <p className={styles.quizer_name}>{item.created_by.name}</p>
                                     </div>
-                                    <Link style={{textAlign: 'center'}} to={`/invite/${item.redeem_code}`} class={styles.quiz_play}>PLAY QUIZ</Link>
+                                    <Link style={{textAlign: 'center'}} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>PLAY QUIZ</Link>
                                 </div>
                             )
                         }
@@ -73,9 +67,8 @@ export default function Community() {
     )
 }
 
-
 const mapStateToProps = (state) => ({
-    userQuizes: searchSelectedQuizzes(state)
+    userQuizes: searchAllQuizes(state)
 });
 
-export default connect(mapStateToProps)(MyQuizzes);
+export default connect(mapStateToProps)(Community);
