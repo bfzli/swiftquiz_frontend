@@ -2,7 +2,6 @@ import * as CONST from '../constants/index';
 import * as api from '../api/index';
 
 const confirmedLogIn = (data) => {
-    window.location.href = "/dashboard/welcome";
     return {
         type: CONST.LOG_IN_CONFIRMED,
         payload: data
@@ -33,7 +32,10 @@ export const logInAction = (username, password) => async dispatch => {
         const response = await api.logIn(username, password);
         const data = await response.data;
         api.saveToLocalStorage(JSON.stringify(data));
+
         dispatch(confirmedLogIn(data));
+
+        //redirecting user to welcome page
         window.location.href = "/dashboard/welcome";
     }
     catch(error){

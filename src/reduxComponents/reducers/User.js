@@ -1,12 +1,10 @@
 import * as CONST from '../constants/index';
 
-
 export const userState = {
     name: '',
     email: '',
     username: '',
     coins: null,
-    role: '',
     thumbnail: '',
     isLoggedIn: false,
     currentlyPlaying: {}
@@ -16,24 +14,25 @@ const userReducer = (state = userState, action) => {
     const { payload } = action;
 
     switch(action.type){
-        case CONST.LOG_IN_CONFIRMED:
-            const { name, username, email, role, thumbnail } = payload;
+        case CONST.SET_USER_DATA:
+            const { name, username, email, thumbnail,coins } = payload;
+            console.log(payload);
             return {
                 name,
                 username,
                 email,
-                role,
+                coins,
                 thumbnail,
                 isLoggedIn: true
             };
 
-        case CONST.LOG_IN_FAILED:
+        case CONST.REMOVE_USER_DATA:
             return {
                 name: '',
                 email: '',
                 username: '',
-                role: '',
                 thumbnail: '',
+                coins: null,
                 isLoggedIn: false
             };
 

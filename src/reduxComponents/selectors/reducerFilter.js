@@ -1,11 +1,8 @@
-const showQuiz = (questions, {difficulty, text}) => {
+const showQuiz = (questions, {text}) => {
     return questions.filter(question => {
         const textMatch = question.title.toLowerCase().includes(text.toLowerCase());
-        const difficultyMatch = question.difficulty === difficulty;
-
-        return textMatch && difficultyMatch;
+        return textMatch;
     });
 };
-
 export default showQuiz;
 

@@ -31,6 +31,8 @@ export const DELETE_USER = "DELETE_USER";
 
 //user constants
 export const UPDATE_USER = 'UPDATE_USER';
+export const SET_USER_DATA = 'SET_USER_DATA';
+export const REMOVE_USER_DATA = 'REMOVE_USER_DATA';
 
 //play quiz
 export const PLAY_QUIZ_STARTED = 'PLAY_QUIZ_STARTED';
