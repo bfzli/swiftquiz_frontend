@@ -16,14 +16,34 @@ function Welcome({ userQuizes }) {
     return (
         <div className={styles.container}>
 
-            <Helmet>
-                <title>Dashboard - SwiftQuiz</title>
-            </Helmet>
+					<div className={styles.top_right} data-aos="fade-left">
+						<h2 className={styles.top_right_title}>COMMUNITY</h2>
+						<div className={styles.quizess}>
+							<div className={styles.quiz}>
+								<img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
+								<h3 className={styles.quiz_title}>RUBY & RAILS</h3>
+								<p className={styles.quiz_description}>
+									Ruby on Rails is your favorite Ruby web framework to use.
+								</p>
+								<div className={styles.quizer_holder}>
+									<img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
+									<p className={styles.quizer_name}>Benjamin Fazli</p>
+								</div>
+								<button class={styles.quiz_play}>PLAY QUIZ</button>
+							</div>
 
-            <div className={styles.page_info} data-aos="fade-down">
-                <h2 className={styles.welcome_text}>WELCOME BACK, BENJAMIN!</h2>
-                <p className={styles.breadcrumb}>Dashboard {">"} Home</p>
-            </div>
+							<div className={styles.quiz}>
+								<img className={styles.quiz_image} alt="Quiz Image" src={quiz2} />
+								<h3 className={styles.quiz_title}>SVLETE</h3>
+								<p className={styles.quiz_description}>
+									Svelte is a radical new approach to building user interfaces.
+								</p>
+								<div className={styles.quizer_holder}>
+									<img src={mendrit} alt="Quiz Topic" className={styles.quizer_profile} />
+									<p className={styles.quizer_name}>Mendrit Arifi</p>
+								</div>
+								<button class={styles.quiz_play}>PLAY QUIZ</button>
+							</div>
 
             <main className={styles.main}>
                 <div className={styles.main_top}>
@@ -99,9 +119,8 @@ function Welcome({ userQuizes }) {
     )
 }
 
-
 const mapStateToProps = (state) => ({
-    userQuizes: selectQuizesOfUsers(state)
+	userQuizes: selectQuizesOfUsers(state)
 });
 
 export default connect(mapStateToProps)(Welcome);

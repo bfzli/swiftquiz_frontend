@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
 import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
+import { removeQuiz } from '../../../../reduxComponents/actions/Questions';
 
 export function Community({userQuizes}) {
     const dispatch = useDispatch();
@@ -18,26 +19,41 @@ export function Community({userQuizes}) {
         dispatch(setTextFilter(text));
     }
 
-    return (
-        <div className={styles.container}>
-            <Helmet>
-                <title>Dashboard - SwiftQuiz</title>
-            </Helmet>
+	const handleDelete = (e) => {
+		let id = e.target.value;
+		dispatch(removeQuiz(id));
+	};
 
-            <div className={styles.page_info} data-aos="fade-down">
-                <h2 className={styles.welcome_text}>Community</h2>
-                <p className={styles.breadcrumb}>Dashboard {">"} Community</p>
-            </div>
+	return (
+		<div className={styles.container}>
+			<Helmet>
+				<title>Dashboard - SwiftQuiz</title>
+			</Helmet>
 
-            <div className={styles.search}>
-                <input className={styles.search_input} type="text" placeholder='Search your quizzes...'  onChange={handleOnChange}/>
-                <div className={styles.search_wrapper}>
-                    <svg className={styles.search_icon} width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.867 18 18 14.867 18 11C18 7.132 14.867 4 11 4C7.132 4 4 7.132 4 11C4 14.867 7.132 18 11 18ZM19.485 18.071L22.314 20.899L20.899 22.314L18.071 19.485L19.485 18.071Z" />
-                    </svg>
-                </div>
-            </div>
+			<div className={styles.page_info} data-aos="fade-down">
+				<h2 className={styles.welcome_text}>Community</h2>
+				<p className={styles.breadcrumb}>Dashboard {'>'} Community</p>
+			</div>
 
+			<div className={styles.search}>
+				<input
+					className={styles.search_input}
+					type="text"
+					placeholder="Search your quizzes..."
+					onChange={handleOnChange}
+				/>
+				<div className={styles.search_wrapper}>
+					<svg
+						className={styles.search_icon}
+						width="32"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.867 18 18 14.867 18 11C18 7.132 14.867 4 11 4C7.132 4 4 7.132 4 11C4 14.867 7.132 18 11 18ZM19.485 18.071L22.314 20.899L20.899 22.314L18.071 19.485L19.485 18.071Z" />
+					</svg>
+				</div>
+			</div>
 
             <main style={{ marginTop: '2.5em' }}>
                 <div className={styles.top_right} data-aos="fade-left">
