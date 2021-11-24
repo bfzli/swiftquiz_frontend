@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
 import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
-import { removeQuiz } from '../../../../reduxComponents/actions/Questions';
 
 export function Community({userQuizes}) {
     const dispatch = useDispatch();
@@ -18,11 +17,6 @@ export function Community({userQuizes}) {
         const text = e.target.value;
         dispatch(setTextFilter(text));
     }
-
-	const handleDelete = (e) => {
-		let id = e.target.value;
-		dispatch(removeQuiz(id));
-	};
 
 	return (
 		<div className={styles.container}>
@@ -39,7 +33,7 @@ export function Community({userQuizes}) {
 				<input
 					className={styles.search_input}
 					type="text"
-					placeholder="Search your quizzes..."
+					placeholder="Search community..."
 					onChange={handleOnChange}
 				/>
 				<div className={styles.search_wrapper}>
@@ -61,7 +55,7 @@ export function Community({userQuizes}) {
                         {
                             userQuizes.map(item =>
                                 <div className={styles.quiz}>
-                                    <img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
+                                    <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftquiz-api.herokuapp.com/${item.thumbnail}`} />
                                     <h3 className={styles.quiz_title}>
                                         {item.title}
                                     </h3>

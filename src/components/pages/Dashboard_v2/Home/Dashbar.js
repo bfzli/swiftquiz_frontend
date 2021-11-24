@@ -1,22 +1,19 @@
-import * as styles from './Home.module.scss'
+import * as styles from './Dashbar.module.scss'
 import Logo from './components/Logo'
 import Quiz from '../pages/Quiz/Quiz';
 import { useState, useEffect } from "react";
-import './globals.scss'
 import coin from './components/coin.png'
 import { Helmet } from 'react-helmet'
 import { useSelector } from 'react-redux'
 import CheckPath from '../../../../utils/CheckPath'
 
-export default function Dash2() {
+export default function Dashbar2() {
     const user = useSelector(state => state.auth.auth)
     const [menu, setMenu] = useState(false)
     const [theme, setTheme] = useState(true)
     const [dropdown, setDropdown] = useState(false)
 
     const current_url = document.URL;
-
-
 
     return (
         <main id={theme === true ? "lightmode" : "darkmode"} className={styles.container}>

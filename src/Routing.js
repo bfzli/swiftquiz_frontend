@@ -16,7 +16,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
-import Dash2 from './components/pages/Dashboard_v2/Home/Home'
+import Dashbar2 from './components/pages/Dashboard_v2/Home/Dashbar'
 import { useDispatch } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 
@@ -51,7 +51,7 @@ export default function Routing() {
 				<ProtectedRoute path="/dashboard/community" component={Community} />
 				<ProtectedRoute path="/dashboard/profile" component={Profile} />
 
-				{user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dash2} /> : null}
+				{user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null}
 
 				<NotProtected path="/dashboard">
 					{' '}
