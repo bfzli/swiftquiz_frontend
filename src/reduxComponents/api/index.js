@@ -1,16 +1,16 @@
-import axios from "axios";
-import { authState } from "../reducers/Auth";
+import axios from 'axios';
+import { authState } from '../reducers/Auth';
 
 const API_BASE_URL = 'https://swiftquiz-api.herokuapp.com/api/user';
 
 const { user_id, token } = authState.auth;
 
 const client = axios.create({
-    baseURL: API_BASE_URL,
-    headers: {
-        'Content-type': 'application/json',
-        'Authorization': 'Bearer ' + token
-    }
+	baseURL: API_BASE_URL,
+	headers: {
+		'Content-type': 'application/json',
+		Authorization: 'Bearer ' + token
+	}
 });
 
 //export const fetchQuizes = () => client.get(`${API_BASE_URL}/${user_id}/quizzes/my-quizzes`);
@@ -21,37 +21,41 @@ export const playQuiz = (redeemCode) => client.get(`/${user_id}/quizzes/my-quizz
 
 export const createQuiz = (params) => client.post(`/${user_id}/quizzes/create-quiz`, params);
 
-export const editQuiz = (id, params) => axios.put(`${API_BASE_URL}/questions/${id}`, params);
+export const editQuiz = (id, params) => axios.put(`${API_BASE_URL}/...add end point here`, params);
+
+export const deleteQuiz = (id) => client.delete(`/${user_id}/quizzes/my-quizzes/${id}`);
+
+export const fetchAllUsers = () => client.get(`/all-users`);
 
 export const signUp = (name, email, username, password) => {
-    const postData = {
-        name,
-        email,
-        username,
-        password
-    };
+	const postData = {
+		name,
+		email,
+		username,
+		password
+	};
 
-    return client.post('/register-user', postData);
+	return client.post('/register-user', postData);
 };
 
 export const logIn = (username, password) => {
-    const postData = {
-        username,
-        password
-    };
-    return client.post('/login-user', postData);
+	const postData = {
+		username,
+		password
+	};
+	return client.post('/login-user', postData);
 };
 
 export const logIn_admin = (username, password) => {
-    const postData = {
-        username,
-        password
-    };
-    return client.post('/login-admin', postData);
-}
+	const postData = {
+		username,
+		password
+	};
+	return client.post('/login-admin', postData);
+};
 
 export const saveToLocalStorage = (token) => {
-    localStorage.setItem('user', token)
+	localStorage.setItem('user', token);
 };
 
 export const removeFromLocalStorage = () => localStorage.removeItem('user');

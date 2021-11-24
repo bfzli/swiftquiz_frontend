@@ -7,13 +7,13 @@ export const FETCH_QUIZES_STARTED = 'FETCH_QUIZES_STARTED';
 export const FETCH_QUIZES_SUCCEEDED = 'FETCH_QUIZES_SUCCEEDED';
 export const FETCH_QUIZES_FAILED = 'FETCH_QUIZES_FAILED';
 
-//Quiz constants 
+//Quiz constants
 export const ADD_QUIZ_SUCCEEDED = 'ADD_QUIZ_SUCCEEDED';
-export const ADD_QUIZ_FAILED = 'ADD_QUIZ_FAILED'; 
+export const ADD_QUIZ_FAILED = 'ADD_QUIZ_FAILED';
 export const REMOVE_QUIZ_SUCCEEDED = 'REMOVE_QUIZ_SUCCEEDED';
-export const REMOVE_QUIZ_FAILED = 'REMOVE_QUIZ_FAILED'; 
+export const REMOVE_QUIZ_FAILED = 'REMOVE_QUIZ_FAILED';
 export const EDIT_QUIZ_SUCCEEDED = 'EDIT_QUIZ_SUCCEEDED';
-export const EDIT_QUIZ_FAILED = 'EDIT_QUIZ_FAILED'; 
+export const EDIT_QUIZ_FAILED = 'EDIT_QUIZ_FAILED';
 
 //sign up constants
 export const SIGN_UP_CONFIRMED = 'SIGN_UP_CONFIRMED';
@@ -25,9 +25,11 @@ export const LOG_IN_FAILED = 'LOG_IN_FAILED';
 export const LOG_OUT_ACTION = 'LOG_OUT_ACTION';
 
 //admin constants
+export const FETCH_ALL_USERS_STARTED = 'FETCH_ALL_USERS_STARTED';
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
+export const FETCH_ALL_USERS_FAILED = 'FETCH_ALL_USERS';
 export const DELETE_ALL_USERS = 'DELETE_ALL_USERS';
-export const DELETE_USER = "DELETE_USER";
+export const DELETE_USER = 'DELETE_USER';
 
 //user constants
 export const UPDATE_USER = 'UPDATE_USER';
