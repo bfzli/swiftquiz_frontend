@@ -16,8 +16,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
-import Welcome from './components/pages/Dashboard/Welcome/Welcome';
-import Dash2 from './components/pages/Dashboard_v2/Home/Home';
+import Dash2 from './components/pages/Dashboard_v2/Home/Home'
 import { useDispatch } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 

@@ -1,35 +1,23 @@
 import React from 'react';
-import * as styles from './Community.module.scss';
-import Helmet from 'react-helmet';
-import { Link } from 'react-router-dom';
-import quiz1 from '../../../../assets/images/community/rubyonrails.webp';
-import quiz2 from '../../../../assets/images/community/svlete.webp';
-import quiz3 from '../../../../assets/images/community/typescript.webp';
-import quiz4 from '../../../../assets/images/community/kotlin.webp';
-import quiz5 from '../../../../assets/images/community/react.webp';
-import quiz6 from '../../../../assets/images/community/docker.webp';
+import * as styles from './Community.module.scss'
+import Helmet from 'react-helmet'
+import { Link } from 'react-router-dom'
 
-import benjamin from '../../../../assets/images/profiles/benjamin.webp';
-import fitim from '../../../../assets/images/profiles/fitim.webp';
-import laurat from '../../../../assets/images/profiles/laurat.webp';
-import adnan from '../../../../assets/images/profiles/adnan.webp';
-import mendrit from '../../../../assets/images/profiles/mendrit.webp';
-import rinor from '../../../../assets/images/profiles/rinor.webp';
-import { useDispatch, useSelector } from 'react-redux';
-import { connect } from 'react-redux';
-import { searchSelectedQuizzes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
+import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
+import benjamin from '../../../../assets/images/profiles/benjamin.webp'
+import { useDispatch } from 'react-redux'
+import { connect } from "react-redux";
+import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
 import { removeQuiz } from '../../../../reduxComponents/actions/Questions';
 
-function MyQuizzes({ userQuizes }) {
-	const dispatch = useDispatch();
+export function Community({userQuizes}) {
+    const dispatch = useDispatch();
 
-	const all_quizzes = useSelector((state) => state.quizes.quizes);
-
-	const handleOnChange = (e) => {
-		const text = e.target.value;
-		dispatch(setTextFilter(text));
-	};
+    const handleOnChange = e => {
+        const text = e.target.value;
+        dispatch(setTextFilter(text));
+    }
 
 	const handleDelete = (e) => {
 		let id = e.target.value;
@@ -67,54 +55,36 @@ function MyQuizzes({ userQuizes }) {
 				</div>
 			</div>
 
-			<main style={{ marginTop: '2.5em' }}>
-				<div className={styles.top_right} data-aos="fade-left">
-					<div className={styles.quizess}>
-						{userQuizes.map((quiz, index) => {
-							const { title, description, _id } = quiz;
-
-							return (
-								<div className={styles.quiz} key={index}>
-									<img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
-									<h3 className={styles.quiz_title}>{title}</h3>
-									<p className={styles.quiz_description}>{description}</p>
-									<div className={styles.quizer_holder}>
-										<img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
-										<p className={styles.quizer_name}>Benjamin Fazli</p>
-									</div>
-									<button to="/d" class={styles.quiz_play}>
-										PLAY QUIZ
-									</button>
-									<button to="/d" class={styles.quiz_play} value={_id} onClick={handleDelete}>
-										REMOVE QUIZ
-									</button>
-								</div>
-							);
-						})}
-					</div>
-				</div>
-			</main>
-		</div>
-	);
+            <main style={{ marginTop: '2.5em' }}>
+                <div className={styles.top_right} data-aos="fade-left">
+                    <div className={styles.quizess}>
+                        {
+                            userQuizes.map(item =>
+                                <div className={styles.quiz}>
+                                    <img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
+                                    <h3 className={styles.quiz_title}>
+                                        {item.title}
+                                    </h3>
+                                    <p className={styles.quiz_description}>
+                                        {item.description}
+                                    </p>
+                                    <div className={styles.quizer_holder}>
+                                        <img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
+                                        <p className={styles.quizer_name}>{item.created_by.name}</p>
+                                    </div>
+                                    <Link style={{textAlign: 'center'}} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>PLAY QUIZ</Link>
+                                </div>
+                            )
+                        }
+                    </div>
+                </div>
+            </main >
+        </div >
+    )
 }
-/* 
-                        <div className={styles.quiz}>
-                            <img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
-                            <h3 className={styles.quiz_title}>
-                                {userQuizes.title}
-                            </h3>
-                            <p className={styles.quiz_description}>
-                                Ruby on Rails is your favorite Ruby web framework to use.
-                            </p>
-                            <div className={styles.quizer_holder}>
-                                <img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
-                                <p className={styles.quizer_name}>Benjamin Fazli</p>
-                            </div>
-                            <button to="/d" class={styles.quiz_play}>PLAY QUIZ</button>
-                        </div> */
 
 const mapStateToProps = (state) => ({
-	userQuizes: searchSelectedQuizzes(state)
+    userQuizes: searchAllQuizes(state)
 });
 
-export default connect(mapStateToProps)(MyQuizzes);
+export default connect(mapStateToProps)(Community);

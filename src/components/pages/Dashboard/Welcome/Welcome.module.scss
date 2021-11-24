@@ -82,14 +82,14 @@
 .quizess {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow: scroll;
     height: 70vh;
-    padding: 1%;
 }
 
 .quiz {
     width: 32%;
+    margin: .25em;
     background: rgba(245, 245, 245, 0.2);
     border: 0.25px solid rgba(141, 141, 141, 0.085);
     margin-bottom: 2%;

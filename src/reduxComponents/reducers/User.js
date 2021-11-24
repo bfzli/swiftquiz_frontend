@@ -7,7 +7,8 @@ export const userState = {
     coins: null,
     thumbnail: '',
     isLoggedIn: false,
-    currentlyPlaying: {}
+    currentlyPlaying: {},
+    coins: 0
 };
 
 const userReducer = (state = userState, action) => {
