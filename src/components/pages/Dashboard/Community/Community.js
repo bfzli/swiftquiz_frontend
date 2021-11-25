@@ -53,7 +53,7 @@ export function Community({userQuizes}) {
                         {
                             userQuizes.map(item =>
                                 <div className={styles.quiz}>
-                                    <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftquiz-api.herokuapp.com/${item.thumbnail}`} />
+                                    <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftapi.vercel.app/${item.thumbnail}`} />
                                     <h3 className={styles.quiz_title}>
                                         {item.title}
                                     </h3>

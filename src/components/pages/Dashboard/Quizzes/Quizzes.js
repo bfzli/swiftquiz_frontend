@@ -62,8 +62,8 @@ function Quizzes({ userQuizes }) {
 					<div className={styles.quizess}>
 						{
 							userQuizes.map(item =>
-								<div key={item._id} className={styles.quiz}>
-									<img className={styles.quiz_image} alt={item.title} src={`https://swiftquiz-api.herokuapp.com/${item.thumbnail}`} />
+								<div key={item._id} key={item._id} className={styles.quiz}>
+									<img className={styles.quiz_image} alt={item.title} src={`https://swiftapi.vercel.app/${item.thumbnail}`} />
 									<h3 className={styles.quiz_title}>
 										{item.title}
 									</h3>
