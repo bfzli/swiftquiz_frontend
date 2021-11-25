@@ -30,6 +30,7 @@ export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
 export const FETCH_ALL_USERS_FAILED = 'FETCH_ALL_USERS';
 export const DELETE_ALL_USERS = 'DELETE_ALL_USERS';
 export const DELETE_USER = 'DELETE_USER';
+export const DELETE_USER_FAILED = 'DELETE_USER_FAILED';
 
 // Update the User
 export const UPDATE_USER = 'UPDATE_USER';

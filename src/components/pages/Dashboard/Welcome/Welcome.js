@@ -1,17 +1,34 @@
-import * as styles from './Welcome.module.scss'
-import Helmet from 'react-helmet'
-import { Link } from 'react-router-dom'
+import * as styles from './Welcome.module.scss';
+import Helmet from 'react-helmet';
+import { Link } from 'react-router-dom';
 
-import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
-import benjamin from '../../../../assets/images/profiles/benjamin.webp'
+import quiz1 from '../../../../assets/images/community/rubyonrails.webp';
+import benjamin from '../../../../assets/images/profiles/benjamin.webp';
 
-import { useSelector } from 'react-redux'
-import { connect } from "react-redux";
-import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
+import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 
 function Welcome({ userQuizes }) {
+	const all_quizzes = useSelector((state) => state.quizes.quizes);
 
-    const all_quizzes = useSelector(state => state.quizes.quizes);
+	return (
+		<div className={styles.container}>
+			<div className={styles.top_right} data-aos="fade-left">
+				<h2 className={styles.top_right_title}>COMMUNITY</h2>
+				<div className={styles.quizess}>
+					<div className={styles.quiz}>
+						<img className={styles.quiz_image} alt="Quiz Image" src={quiz1} />
+						<h3 className={styles.quiz_title}>RUBY & RAILS</h3>
+						<p className={styles.quiz_description}>
+							Ruby on Rails is your favorite Ruby web framework to use.
+						</p>
+						<div className={styles.quizer_holder}>
+							<img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
+							<p className={styles.quizer_name}>Benjamin Fazli</p>
+						</div>
+						<button class={styles.quiz_play}>PLAY QUIZ</button>
+					</div>
 
     return (
         <div className={styles.container} style={{ display: 'flex' }}>

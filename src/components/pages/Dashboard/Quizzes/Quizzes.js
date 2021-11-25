@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 import benjamin from '../../../../assets/images/profiles/benjamin.webp';
 
-import { useEffect } from 'react'
-import { fetchQuiz } from '../../../../reduxComponents/actions/Questions'
-import { useDispatch, useSelector } from 'react-redux'
-import { connect } from "react-redux";
+import { useEffect } from 'react';
+import { fetchQuiz } from '../../../../reduxComponents/actions/Questions';
+import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import { searchSelectedQuizzes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
 import { removeQuiz } from '../../../../reduxComponents/actions/Questions';

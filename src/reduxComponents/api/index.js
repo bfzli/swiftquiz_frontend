@@ -15,18 +15,27 @@ const client = axios.create({
 
 //export const fetchQuizes = () => client.get(`${API_BASE_URL}/${user_id}/quizzes/my-quizzes`);
 
+//fetch data request
 export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 
+//Fetch single quiz to play request
 export const playQuiz = (redeemCode) => client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
 
+//Create a quiz request
 export const createQuiz = (params) => client.post(`/${user_id}/quizzes/create-quiz`, params);
 
+//Edit quiz request
 export const editQuiz = (id, params) => axios.put(`${API_BASE_URL}/...add end point here`, params);
 
+//Delete a single quiz request
 export const deleteQuiz = (id) => client.delete(`/${user_id}/quizzes/my-quizzes/${id}`);
 
+//Fetch all users only for admin request
 export const fetchAllUsers = () => client.get(`/all-users`);
+//Delete single user request
+export const deleteUser = (userId) => client.delete(`/${userId}`);
 
+//Signup request
 export const signUp = (name, email, username, password) => {
 	const postData = {
 		name,
@@ -38,6 +47,7 @@ export const signUp = (name, email, username, password) => {
 	return client.post('/register-user', postData);
 };
 
+//Login user request
 export const logIn = (username, password) => {
 	const postData = {
 		username,
@@ -46,6 +56,7 @@ export const logIn = (username, password) => {
 	return client.post('/login-user', postData);
 };
 
+//Login admin request
 export const logIn_admin = (username, password) => {
 	const postData = {
 		username,
@@ -54,10 +65,13 @@ export const logIn_admin = (username, password) => {
 	return client.post('/login-admin', postData);
 };
 
+//Save session and authentication to localstorage
 export const saveToLocalStorage = (token) => {
 	localStorage.setItem('user', token);
 };
 
+//Remove token from localstorage
 export const removeFromLocalStorage = () => localStorage.removeItem('user');
 
+//Update user request
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
