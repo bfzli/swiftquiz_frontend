@@ -18,9 +18,9 @@ const adminReducer = (state = adminState, action) => {
 
 		case CONST.FETCH_ALL_USERS:
 			return {
-				...state
-				/* allUsers: payload,
-				isLoading: false */
+				...state,
+				allUsers: payload,
+				isLoading: false
 			};
 
 		case CONST.FETCH_ALL_USERS_FAILED:
@@ -39,7 +39,8 @@ const adminReducer = (state = adminState, action) => {
 			};
 
 		case CONST.DELETE_USER:
-			const newUserList = state.allUsers.filter((user) => user.user_id !== payload);
+			const newUserList = state.allUsers.filter((user) => user._id !== payload);
+			console.log(newUserList);
 			return {
 				...state,
 				allUsers: newUserList,

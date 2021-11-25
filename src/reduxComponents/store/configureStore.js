@@ -8,19 +8,19 @@ import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
 
 const configureStore = () => {
-    const store = createStore(
-        combineReducers({
-            auth: authReducer,
-            quizes: quizReducer,
-            filters: filterReducer,
-            admin: adminReducer,
-            user: userReducer
-        }),applyMiddleware(thunk, logger)
-        //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    );
-    
-    return store;
+	const store = createStore(
+		combineReducers({
+			auth: authReducer,
+			quizes: quizReducer,
+			filters: filterReducer,
+			admin: adminReducer,
+			user: userReducer
+		}),
+		applyMiddleware(thunk, logger)
+		//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+	);
+
+	return store;
 };
 
 export default configureStore;
-

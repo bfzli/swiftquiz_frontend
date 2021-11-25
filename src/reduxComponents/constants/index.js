@@ -25,10 +25,12 @@ export const LOG_IN_FAILED = 'LOG_IN_FAILED';
 export const LOG_OUT_ACTION = 'LOG_OUT_ACTION';
 
 // Admin Permissons
+export const FETCH_ALL_USERS_STARTED = 'FETCH_ALL_USERS_STARTED';
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
 export const FETCH_ALL_USERS_FAILED = 'FETCH_ALL_USERS';
 export const DELETE_ALL_USERS = 'DELETE_ALL_USERS';
 export const DELETE_USER = 'DELETE_USER';
+export const DELETE_USER_FAILED = 'DELETE_USER_FAILED';
 
 // Update the User
 export const UPDATE_USER = 'UPDATE_USER';

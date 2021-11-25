@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AdminMembers from '../../components/pages/AdminPanel/Admins/AdminMembers';
 import Quizzes from '../../components/pages/AdminPanel/Quizzes/Quizzes';
 import Blogs from '../../components/pages/AdminPanel/Blogs/Blogs';
 import UserMembers from '../../components/pages/AdminPanel/Users/UserMembers';
 import SidePanel from '../../components/pages/AdminPanel/SidePanel/SidePanel';
 import { useDispatch } from 'react-redux';
-import { fetchAllUsers } from '../../reduxComponents/api';
+import { fetchAllUsersAction } from '../../reduxComponents/actions/Admin';
 import * as styles from '../../components/pages/AdminPanel/AdminPanel.module.scss';
 
 const AdminPanel = () => {
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchAllUsersAction());
+	});
 
 	return (
 		<div className={styles.admin_panel}>
