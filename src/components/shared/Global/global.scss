@@ -10,6 +10,7 @@
   --icon-border: #151e28;
   --text-color: #151e28;
   --border-active: #f3f3f3;
+  --button-bg: #0d151d;
   --animate: 0.3456789s ease-in-out all;
 }
 
@@ -21,6 +22,7 @@
   --icon-inside: #9b9ea3 !important;
   --icon-border: #fff !important;
   --text-color: #f3f3f3;
+  --button-bg: red;
   --border-active: #f3f3f3;
   --animate: 0.3456789s ease-in-out all;
 }
@@ -40,19 +42,8 @@
 body {
   color: var(--secondary);
   background: var(--priamry);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   scroll-behavior: smooth;
-  // cursor: url("../../../assets/images/cursor.svg"), auto;
-}
-
-#_VAR {
-  width: 95%;
-  margin-left: 5%;
-
-  @media screen and (max-width: 1000px) {
-    width: 100%;
-    margin-left: 0%;
-  }
 }
 
 #view_active {
@@ -77,17 +68,6 @@ body {
 #left {
   background-color: green;
 }
-
-// #cursor_hover,
-// #cursor_hover:hover,
-// button,
-// button:hover,
-// a,
-// input,
-// input:hover,
-// a:hover {
-//   cursor: url("../../../assets/images/cursor_hover.svg"), auto;
-// }
 
 ::-webkit-scrollbar {
   width: 0.25em;

@@ -1,5 +1,5 @@
 .container {
-    padding: 2.5% 4%;
+    padding: 1em;
     display: flex;
     flex-direction: column;
 
@@ -50,7 +50,6 @@
 
 .top_right {
     width: 100%;
-    background: rgba(245, 245, 245, 0.15);
     border-radius: 0.75em;
 
     @media screen and (max-width: 1000px) {
@@ -63,17 +62,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow: scroll;
 }
 
 .quiz {
     width: 23%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     margin-bottom: 2%;
     border-radius: 0.85em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: var(--background-important);
 }
 
 .quiz_play {
@@ -81,8 +81,8 @@
     font-family: "Integral CF Demi Bold";
     font-size: 0.85em;
     padding: 0.6em 1.5em;
-    background: #5928e5;
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--text-color);
     border-radius: 100px;
     border: 0;
     transition: all ease-in-out 0.3s;
@@ -103,6 +103,7 @@
     font-family: "Integral CF Demi Bold";
     font-size: 1.3em;
     padding: 0.5em 0.5em 0em 0.5em;
+    color: var(--text-color);
 }
 
 .main_bottom {
@@ -120,7 +121,7 @@
 .bottom_left {
     width: 48.6%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     height: auto;
     border-radius: 0.75em;
 
@@ -133,7 +134,7 @@
 .bottom_right {
     width: 48.6%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     height: auto;
     border-radius: 0.75em;
 
@@ -145,6 +146,7 @@
 
 .quiz_description {
     padding: 0.25em 0.5em 0.5em 0.6em;
+    color: var(--text-color);
 }
 
 .quizer_holder {
@@ -157,12 +159,13 @@
     font-size: 1em;
     margin-left: 0.5em;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 .quizer_profile {
     width: 32px;
     border-radius: 100px;
-    border: 2px solid var(--purple);
+    border: 2px solid var(--border-color);
 }
 
 .news {
@@ -179,7 +182,7 @@
     display: flex;
     // width: 32%;
     background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     margin-bottom: 1%;
     border-radius: 0.85em;
 }
@@ -224,7 +227,7 @@
 .user {
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: 0.5em;
     display: flex;
@@ -238,7 +241,7 @@
     width: 2.75em;
     height: 2.75em;
     border-radius: 99px;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--border-color);
     margin-right: 0.5em;
 }
 
@@ -260,7 +263,7 @@
 .your_quiz {
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: 0.5em;
     display: flex;
@@ -301,7 +304,7 @@
 
     &:hover {
         background: rgba(147, 109, 254, 0.2);
-        border: 0.5px solid var(--purple);
+        border: 0.5px solid var(--border-color);
     }
 }
 
@@ -318,8 +321,8 @@
     font-size: 1.15em;
     padding: 0.69em 0.8em;
     border-radius: 0.75em 0em 0em 0.75em;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
     border-right: 0px transparent solid;
     font-family: "Space Grotesk", sans-serif;
 }
@@ -330,10 +333,11 @@
     align-items: center;
     padding: 0.69em 0.8em;
     border-radius: 0em 0.75em 0.75em 0em;
-    background: rgba(245, 245, 245, 0.15);
-    border-top: 0.25px solid rgba(141, 141, 141, 0.085);
-    border-right: 0.25px solid rgba(141, 141, 141, 0.085);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    background: var(--background-important);
+    border-top: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-color);
 }
 
 .search_icon {

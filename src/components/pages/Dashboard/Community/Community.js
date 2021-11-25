@@ -3,7 +3,6 @@ import * as styles from './Community.module.scss'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
 import benjamin from '../../../../assets/images/profiles/benjamin.webp'
 import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
@@ -26,7 +25,6 @@ export function Community({userQuizes}) {
 
 			<div className={styles.page_info} data-aos="fade-down">
 				<h2 className={styles.welcome_text}>Community</h2>
-				<p className={styles.breadcrumb}>Dashboard {'>'} Community</p>
 			</div>
 
 			<div className={styles.search}>

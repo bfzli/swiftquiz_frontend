@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView';
@@ -10,18 +10,17 @@ import AdminPanel from './pages/AdminDashboard/AdminPanel';
 import Quizzes from './pages/Dashboard/Quizzes';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play';
-import AddQuiz from './pages/Dashboard/AddQuiz';
+import Quiz from './pages/Dashboard/Quiz';
 import Community from './pages/Dashboard/Community';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
-import Dashbar2 from './components/pages/Dashboard_v2/Home/Dashbar'
 import { useDispatch } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 
 export default function Routing() {
-	const user = useSelector((state) => state.auth.auth);
+	// const user = useSelector((state) => state.auth.auth);
 
 	const dispatch = useDispatch();
 	AOS.init({
@@ -45,20 +44,18 @@ export default function Routing() {
 				<ProtectedRoute path="/dashboard/welcome" component={Screen} />
 				<ProtectedRoute path="/invite/*" component={Play} />
 				<ProtectedRoute path="/play" component={Play} />
-				<ProtectedRoute path="/dashboard/quizzes/add-quiz" component={AddQuiz} />
+				<ProtectedRoute path="/dashboard/quizzes/add-quiz" component={Quiz} />
 				<ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
 				<ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
 				<ProtectedRoute path="/dashboard/community" component={Community} />
 				<ProtectedRoute path="/dashboard/profile" component={Profile} />
 
-				{user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null}
+				{/* {user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null} */}
 
 				<NotProtected path="/dashboard">
-					{' '}
 					<Redirect to="/dashboard/welcome" />
 				</NotProtected>
 				<NotProtected path="/dashboard/*">
-					{' '}
 					<Redirect to="/dashboard/welcome" />
 				</NotProtected>
 				<NotProtected path="*" component={Error} />

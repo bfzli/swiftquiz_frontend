@@ -1,7 +1,6 @@
 import * as styles from './Quizzes.module.scss'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
-import quiz1 from '../../../../assets/images/community/rubyonrails.webp'
 
 import benjamin from '../../../../assets/images/profiles/benjamin.webp';
 
@@ -63,7 +62,7 @@ function Quizzes({ userQuizes }) {
 					<div className={styles.quizess}>
 						{
 							userQuizes.map(item =>
-								<div key={item._id} key={item._id} className={styles.quiz}>
+								<div key={item._id} className={styles.quiz}>
 									<img className={styles.quiz_image} alt={item.title} src={`https://swiftquiz-api.herokuapp.com/${item.thumbnail}`} />
 									<h3 className={styles.quiz_title}>
 										{item.title}
@@ -91,7 +90,7 @@ function Quizzes({ userQuizes }) {
 												<path d="M11 20L1 12L11 4V9C16.523 9 21 13.477 21 19C21 19.273 20.99 19.543 20.968 19.81C19.46 16.95 16.458 15 13 15H11V20Z" />
 											</svg>
 										</button>
-										<button className={styles.quiz_play}>
+										<button onClick={handleDelete} value={item._id} className={styles.quiz_play}>
 											<svg className={styles.actions_btn} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17 6H22V8H20V21C20 21.2652 19.8946 21.5196 19.7071 21.7071C19.5196 21.8946 19.2652 22 19 22H5C4.73478 22 4.48043 21.8946 4.29289 21.7071C4.10536 21.5196 4 21.2652 4 21V8H2V6H7V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H16C16.2652 2 16.5196 2.10536 16.7071 2.29289C16.8946 2.48043 17 2.73478 17 3V6ZM9 11V17H11V11H9ZM13 11V17H15V11H13ZM9 4V6H15V4H9Z" />
 											</svg>
