@@ -4,6 +4,7 @@ import filterReducer from '../reducers/Filters';
 import authReducer from '../reducers/Auth';
 import userReducer from '../reducers/User';
 import adminReducer from '../reducers/Admin';
+import UIreducer from '../reducers/UI';
 import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
 
@@ -14,6 +15,7 @@ const configureStore = () => {
 			quizes: quizReducer,
 			filters: filterReducer,
 			admin: adminReducer,
+			ui: UIreducer,
 			user: userReducer
 		}),
 		applyMiddleware(thunk, logger)
