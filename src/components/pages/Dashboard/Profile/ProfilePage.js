@@ -10,12 +10,12 @@ import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selec
 import { fetchUserData } from '../../../../reduxComponents/actions/User';
 
 function ProfilePage(props) {
-	const user = useSelector((state) => state.auth.auth);
+	const user = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 
 	React.useEffect(() => {
 		dispatch(fetchUserData());
-	});
+	}, []);
 
 	return (
 		<div className="mainProfileCont">
@@ -25,13 +25,10 @@ function ProfilePage(props) {
 			</div>
 			<div className="bottomProfileCont">
 				<div className="leftBottomProfileCont">
-					<img src={adnan} />
+					<img src={`https://swiftapi.vercel.app/${user.avatar}`} />
 					<h1>{user.name}</h1>
 					<h4>@{user.username}</h4>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, suscipit itaque! Saepe fugit iste
-						delectus, magnam mollitia sit commodi corrupti!
-					</p>
+					<p>{user.bio}</p>
 					<button className={styles.button_fill_purple}>Edit Profile</button>
 				</div>
 				<div className="rightBottomProfileCont">
@@ -45,7 +42,7 @@ function ProfilePage(props) {
 									<h3>{title}</h3>
 									<p>{description}</p>
 									<div className="quizBottom">
-										<img src={adnanAvatar} />
+										<img src={`https://swiftapi.vercel.app/${user.avatar}`} />
 										<div className="quizBottomRight">
 											<h5 id="quizMadeBy">MADE BY</h5>
 											<h5>{user.name}</h5>
