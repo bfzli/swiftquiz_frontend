@@ -52,6 +52,7 @@
     margin-bottom: 0.5em;
     transition: var(--animate);
     position: relative;
+    cursor: pointer;
 
     &:hover {
         background: var(--hover-color);

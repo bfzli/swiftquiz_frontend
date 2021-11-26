@@ -11,6 +11,7 @@
   --text-color: #151e28;
   --border-active: #f3f3f3;
   --button-bg: #0d151d;
+  --button-text: #f3f3f3;
   --animate: 0.3456789s ease-in-out all;
 }
 
@@ -24,11 +25,9 @@
   --text-color: #f3f3f3;
   --button-bg: red;
   --border-active: #f3f3f3;
+  --button-bg: #f3f3f3;
+  --button-text: #0d151d;
   --animate: 0.3456789s ease-in-out all;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
 }
 
 * {
@@ -70,12 +69,12 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 0.25em;
+  width: .5em;
   height: 0px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--white);
+  background: black;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -87,39 +86,25 @@ body {
   background: #5928e570;
 }
 
-#tooltip {
-  position: relative;
-}
-
-#tooltip:before {
-  content: attr(data-text); /* here's the magic */
-  position: absolute;
-
-  top: 50%;
-  transform: translateY(-50%);
-
-  width: auto;
-  left: 100%;
-  margin-left: 0.5em;
-
-  font-size: 1.19em;
-  padding: 0.5em 0.75em;
-  border-radius: 0.5em;
-  background: var(--purple);
-  color: #fff;
-  text-align: center;
-
-  display: none; /* hide by default */
-}
-
-#tooltip:hover:before {
-  display: block;
-}
-
 #globl {
   width: 100%;
   top: 0;
   right: 0;
   position: absolute;
   z-index: 192349234239492394923432;
+}
+
+#nav-item{
+  display: flex;
+  align-items: center;
+  padding: 0.75em;
+  border-radius: 0.75em;
+  margin-bottom: 0.5em;
+  transition: var(--animate);
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+      background: var(--hover-color);
+  }
 }
