@@ -46,14 +46,14 @@ export const updateUser = (name, username, email, password, about) => {
          dispatch({
             type: CONST.USER_UPDATE_REQUEST,
          });
-         const {userInfo} = getState().auth.auth;
+         const userInfo = getState().auth.auth;
          const config = {
             headers: {
                "Content-Type": "application/json",
                authorization: `Bearer ${userInfo.token}`,
             },
          };
-         const {getdata} = await api.editprofil("/api/user/profile/update", {
+         const getdata = await api.editprofil("/api/user/profile/update", {
             name,
             email,
             username,

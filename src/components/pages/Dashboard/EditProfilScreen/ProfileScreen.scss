@@ -8,29 +8,28 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-// Css
 textarea#multiline-flexible {
-    margin: 0px;
-    max-width: 523px;
+	margin: 0px;
+	max-width: 523px;
 	border: 1px solid #d2d6db;
-    border-radius: 6px;
+	border-radius: 6px;
 	padding: 10px;
-	min-width:523px;
+	min-width: 523px;
 	min-height: 90px;
-}
-textarea#multiline-flexible:hover {
-	border: 2px solid #d2d6db ;
-}
-textarea#multiline-flexible:focus
-{
-    border: 1px solid #1670BE;
-    box-shadow: 0 0 3px #1670BE;
-    outline-offset: 0px;
-    outline: none;
+	&:hover {
+		border: 2px solid #d2d6db;
+	}
+	&:focus {
+		border: 1px solid #1670BE;
+		box-shadow: 0 0 3px #1670BE;
+		outline-offset: 0px;
+		outline: none;
+	}
 }
 .about {
-	line-height: 34px;    
+	line-height: 34px;
 }
+
 
 .title {
 	font-size: 24px;

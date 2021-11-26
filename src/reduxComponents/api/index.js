@@ -3,6 +3,7 @@ import {authState} from "../reducers/Auth";
 
 // const API_BASE_URL = "https://swiftquiz-api.herokuapp.com/api/user";
 const API_BASE_URL = "https://swiftapi.vercel.app/api/user";
+//const API_BASE_URL = "http://localhost:5000";
 
 const {user_id, token} = authState.auth;
 
@@ -26,8 +27,7 @@ export const editQuiz = (id, params) =>
    axios.put(`${API_BASE_URL}/questions/${id}`, params);
 
 // Edit Profil Information
-export const editprofil = (id, params) =>
-   client.put(`${API_BASE_URL}/updates${id}`, params);
+export const editprofil = (id, params) => client.put(`${id}`, params);
 
 export const signUp = (name, email, username, password) => {
    const postData = {

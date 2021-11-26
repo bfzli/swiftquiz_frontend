@@ -7,7 +7,6 @@ import {updateUser} from "../../../../reduxComponents/actions/Auth";
 export default function ProfileScreen() {
    const update = useSelector((state) => state.auth.auth);
    const userInfo = update;
-   console.log(userInfo);
 
    const dispatch = useDispatch();
 

@@ -6,7 +6,6 @@ import logger from "../middleware/logger";
 import thunk from "redux-thunk";
 import updateUserProfil from "../reducers/updateUserProfil";
 import userProfileReducer from "../reducers/userProfileReducer";
-//import {composeWithDevTools} from 'redux-devtools-extensions';
 
 const configureStore = () => {
    const store = createStore(
