@@ -13,8 +13,6 @@ const client = axios.create({
 	}
 });
 
-//export const fetchQuizes = () => client.get(`${API_BASE_URL}/${user_id}/quizzes/my-quizzes`);
-
 //fetch data request
 export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 
@@ -75,3 +73,5 @@ export const removeFromLocalStorage = () => localStorage.removeItem('user');
 
 //Update user request
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
+
+export const fetchUserProfile = () => client.get(`/${user_id}/my-profile`);

@@ -21,6 +21,8 @@ export default function Screen({ quiz }) {
     const [runTimer, setRunTimer] = useState(true);
     const [sounds, setSounds] = useState(true);
 
+    console.log(questions);
+
     let [all, setAll] = useState([])
 
     let wrong_choice_run = new Audio(wrong_choice)
@@ -147,7 +149,6 @@ export default function Screen({ quiz }) {
 
     return (
         <>
-
             {quiz !== null ?
                 <main className={styles.container}>
                     <Helmet>

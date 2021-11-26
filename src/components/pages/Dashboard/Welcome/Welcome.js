@@ -71,7 +71,7 @@ function Welcome({ userQuizes }) {
 }
 
 const mapStateToProps = (state) => ({
-    userQuizes: selectQuizesOfUsers(state)
+	userQuizes: selectQuizesOfUsers(state)
 });
 
 export default connect(mapStateToProps)(Welcome);

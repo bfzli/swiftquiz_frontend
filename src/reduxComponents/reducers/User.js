@@ -1,68 +1,70 @@
 import * as CONST from '../constants/index';
 
 export const userState = {
-    name: '',
-    email: '',
-    username: '',
-    coins: null,
-    thumbnail: '',
-    isLoggedIn: false,
-    currentlyPlaying: {},
-    coins: 0
+	name: '',
+	email: '',
+	username: '',
+	bio: '',
+	avatar: '',
+	isLoggedIn: false,
+	currentlyPlaying: {},
+	coins: 100
 };
 
 const userReducer = (state = userState, action) => {
-    const { payload } = action;
+	const { payload } = action;
 
-    switch(action.type){
-        case CONST.SET_USER_DATA:
-            const { name, username, email, thumbnail,coins } = payload;
-            console.log(payload);
-            return {
-                name,
-                username,
-                email,
-                coins,
-                thumbnail,
-                isLoggedIn: true
-            };
+	switch (action.type) {
+		case CONST.SET_USER_DATA:
+			const { username, avatar, bio } = payload;
+			return {
+				...state,
+				email: username.email,
+				username: username.username,
+				name: username.name,
+				avatar,
+				bio,
+				isLoggedIn: true
+			};
 
-        case CONST.REMOVE_USER_DATA:
-            return {
-                name: '',
-                email: '',
-                username: '',
-                thumbnail: '',
-                coins: null,
-                isLoggedIn: false
-            };
+		case CONST.REMOVE_USER_DATA:
+			return {
+				name: '',
+				email: '',
+				username: '',
+				bio: '',
+				avatar: '',
+				coins: 0,
+				currentlyPlaying: {},
+				isLoggedIn: false
+			};
 
-        case CONST.UPDATE_USER:
-            return {
-                ...state,
-                ...payload
-            };
-        
-        case CONST.PLAY_QUIZ_STARTED:
-            return state;
+		case CONST.UPDATE_USER:
+			return {
+				...state,
+				...payload
+			};
 
-        case CONST.PLAY_QUIZ_SUCCEEDED:
-            return {
-                ...state,
-                currentlyPlaying: payload
-            };
-        
-        case CONST.PLAY_QUIZ_FAILED:
-            return {
-                ...state,
-                currentlyPlaying: { 
-                    error: payload 
-                }
-            };
+		case CONST.PLAY_QUIZ_STARTED:
+			return state;
 
-        default:
-            return state
-    }
-}
+		case CONST.PLAY_QUIZ_SUCCEEDED:
+			return {
+				...state,
+				currentlyPlaying: payload
+			};
+
+		case CONST.PLAY_QUIZ_FAILED:
+			return {
+				...state,
+				currentlyPlaying: {
+					error: payload
+				}
+			};
+
+		default:
+			return state;
+	}
+};
 
 export default userReducer;

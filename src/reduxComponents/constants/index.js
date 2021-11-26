@@ -35,7 +35,9 @@ export const DELETE_USER_FAILED = 'DELETE_USER_FAILED';
 // Update the User
 export const UPDATE_USER = 'UPDATE_USER';
 export const SET_USER_DATA = 'SET_USER_DATA';
+export const SET_USER_DATA_FAILED = 'SET_USER_DATA_FAILED';
 export const REMOVE_USER_DATA = 'REMOVE_USER_DATA';
+export const FETCH_USER_PROFILE = 'FETCH_USER_PROFILE';
 
 // Play the Quiz
 export const PLAY_QUIZ_STARTED = 'PLAY_QUIZ_STARTED';
