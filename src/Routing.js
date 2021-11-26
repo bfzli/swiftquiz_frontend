@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView';
@@ -16,11 +15,31 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import TestingLoaders from './pages/TestingLoaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
+import * as CONST from './reduxComponents/constants/index'
+
 
 export default function Routing() {
 	// const user = useSelector((state) => state.auth.auth);
+	const theme = useSelector(state => state.ui.theme)
+
+	React.useEffect(() => {
+		console.log(theme)
+	}, [theme])
+
+
+	React.useEffect(() => {
+		if (localStorage.getItem('theme') === null)
+			dispatch({ type: CONST.SET_LIGHT_MODE })
+
+		localStorage.getItem('theme') === 'lightmode'
+			?
+			dispatch({ type: CONST.SET_LIGHT_MODE })
+			:
+			dispatch({ type: CONST.SET_DARK_MODE })
+	}, [])
+
 
 	const dispatch = useDispatch();
 	AOS.init({

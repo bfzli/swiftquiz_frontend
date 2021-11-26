@@ -48,6 +48,7 @@ export const PLAY_QUIZ_FAILED = 'PLAY_QUIZ_FAILED';
 export const ADD_COINS_TO_USER_SUCCEEDED = 'ADD_COINS_TO_USER_SUCCEEDED';
 export const ADD_COINS_TO_USER_FAILED = 'ADD_COINS_TO_USER_FAILED';
 
-//UI constants
+
+// Theme Controller Actions
 export const SET_LIGHT_MODE = 'SET_LIGHT_MODE';
 export const SET_DARK_MODE = 'SET_DARK_MODE';
