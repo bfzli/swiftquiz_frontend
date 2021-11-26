@@ -1,11 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, connect, useDispatch } from 'react-redux';
-import profilebcg from '../../../../assets/images/profile/ProfileBcg.webp';
-import adnanAvatar from '../../../../assets/images/profiles/adnan.webp';
-import adnan from '../../../../assets/images/profile/adnan.webp';
 import quiz1 from '../../../../assets/images/profile/quiz1.webp';
 import './ProfilePage.scss';
-import * as styles from '../../../../components/shared/Buttons/Buttons.module.scss';
 import { selectQuizesOfUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { fetchUserData } from '../../../../reduxComponents/actions/User';
 
@@ -21,7 +17,6 @@ function ProfilePage(props) {
 		<div className="mainProfileCont">
 			<div className="topProfileCont">
 				<h2>Your Account</h2>
-				<img id="coverPic" src={profilebcg} />
 			</div>
 			<div className="bottomProfileCont">
 				<div className="leftBottomProfileCont">
@@ -29,7 +24,7 @@ function ProfilePage(props) {
 					<h1>{user.name}</h1>
 					<h4>@{user.username}</h4>
 					<p>{user.bio}</p>
-					<button className={styles.button_fill_purple}>Edit Profile</button>
+                    <button>EDIT PROFILE</button>
 				</div>
 				<div className="rightBottomProfileCont">
 					<h2>{user.name}'s Quizes</h2>
@@ -38,7 +33,7 @@ function ProfilePage(props) {
 							const { title, description } = quiz;
 							return (
 								<div className="QuizBody">
-									<img id="quizImage" src={quiz1} />
+									<img id="quizImage" src={`https://swiftapi.vercel.app/${quiz.thumbnail}`} />
 									<h3>{title}</h3>
 									<p>{description}</p>
 									<div className="quizBottom">
