@@ -52,3 +52,15 @@ export const ADD_COINS_TO_USER_FAILED = 'ADD_COINS_TO_USER_FAILED';
 // Theme Controller Actions
 export const SET_LIGHT_MODE = 'SET_LIGHT_MODE';
 export const SET_DARK_MODE = 'SET_DARK_MODE';
+
+
+
+// USER PROFIL
+export const USER_PROFIL_REQUEST = "USER_PROFIL_REQUEST"
+export const USER_PROFIL_FAILED = "USER_PROFIL_FAILED"
+export const USER_PROFIL_SUCCESS = "USER_PROFIL_SUCCESS"
+
+// Update (Edit a Profile User)
+export const USER_UPDATE_REQUEST = "USER_UPDATE_REQUEST";
+export const USER_UPDATE_SUCCESS = "USER_UPDATE_SUCCESS";
+export const USER_UPDATE_FAIL = "USER_UPDATE_FAIL";

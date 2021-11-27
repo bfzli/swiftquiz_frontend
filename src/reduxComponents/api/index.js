@@ -3,7 +3,7 @@ import { authState } from '../reducers/Auth';
 
 const API_BASE_URL = 'https://swiftapi.vercel.app/api/user';
 
-const { user_id, token } = authState.auth;
+const {user_id, token} = authState.auth;
 
 const client = axios.create({
 	baseURL: API_BASE_URL,
@@ -34,6 +34,9 @@ export const fetchAllUsers = () => client.get(`/all-users`);
 export const deleteUser = (userId) => client.delete(`/${userId}`);
 
 //Signup request
+// Edit Profil Information
+export const editprofil = (id, params) => client.put(`${id}`, params);
+
 export const signUp = (name, email, username, password) => {
 	const postData = {
 		name,

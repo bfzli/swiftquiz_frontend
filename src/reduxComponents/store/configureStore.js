@@ -7,8 +7,11 @@ import adminReducer from '../reducers/Admin';
 import UIreducer from '../reducers/Theme';
 import logger from '../middleware/logger';
 import thunk from 'redux-thunk';
+import updateUserProfil from "../reducers/updateUserProfil";
+import userProfileReducer from "../reducers/userProfileReducer";
 
 const configureStore = () => {
+        
 	const store = createStore(
 		combineReducers({
 			auth: authReducer,
@@ -17,12 +20,18 @@ const configureStore = () => {
 			admin: adminReducer,
 			user: userReducer,
 			ui: UIreducer,
+            // Fetch User Profil
+            userProfile: userProfileReducer,
+            //  Store Update User
+            updatedUser: updateUserProfil,
+            
 		}),
 		applyMiddleware(thunk, logger)
 		//window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 	);
 
 	return store;
+ 
 };
 
 export default configureStore;
