@@ -48,8 +48,7 @@
 
 .top_left {
     width: 49%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     height: auto;
     border-radius: 0.75em;
 
@@ -62,8 +61,7 @@
 
 .top_right {
     width: 49%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     border-radius: 0.75em;
 
     @media screen and (max-width: 1000px) {
@@ -75,23 +73,22 @@
 .top_right_title {
     font-size: 1.2em;
     padding: 0.35em 0.5em;
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     font-family: "Integral CF Demi Bold";
 }
 
 .quizess {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow: scroll;
     height: 70vh;
-    padding: 1%;
 }
 
 .quiz {
     width: 32%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    margin: .25em;
+    border: 2px solid var(--border-color);
     margin-bottom: 2%;
     border-radius: 0.85em;
 
@@ -141,7 +138,7 @@
 .bottom_left{
     width: 48.6%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     height: auto;
     border-radius: 0.75em;
 
@@ -154,7 +151,7 @@
 .bottom_right{
     width: 48.6%;
     background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     height: auto;
     border-radius: 0.75em;
 
@@ -201,7 +198,7 @@
     display: flex;
     // width: 32%;
     background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     margin-bottom: 1%;
     border-radius: 0.85em;
 }
@@ -250,7 +247,7 @@
 .user{
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: .5em;
     display: flex;
@@ -289,7 +286,7 @@
 .your_quiz{
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: .5em;
     display: flex;

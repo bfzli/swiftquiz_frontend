@@ -1,10 +1,10 @@
 import Dashlayout from "./Dashlayout";
-import AddQuiz from '../../components/pages/Dashboard/AddQuiz/AddQuiz'
+import Quiz from '../../components/pages/Dashboard/Quiz/Quiz'
 
 export default function Screen() {
     return (
         <Dashlayout>
-            <AddQuiz />
+            <Quiz />
         </Dashlayout>
     )
 }

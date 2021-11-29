@@ -14,21 +14,44 @@ import AdminPanel from "./pages/AdminDashboard/AdminPanel";
 import Quizzes from "./pages/Dashboard/Quizzes";
 import Screen from "./pages/Dashboard/Screen";
 import Play from "./pages/Play";
-import AddQuiz from "./pages/Dashboard/AddQuiz";
+import Quiz from "./pages/Dashboard/Quiz";
 import Community from "./pages/Dashboard/Community";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TestingLoaders from "./pages/TestingLoaders";
 import {ProtectedRoute} from "./pages/ProtectedRoute";
-import Welcome from "./components/pages/Dashboard/Welcome/Welcome";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchQuiz} from "./reduxComponents/actions/Questions";
+import * as CONST from "./reduxComponents/constants/index";
 import EditProfile from "./pages/EditProfil";
 
 export default function Routing() {
+   // const user = useSelector((state) => state.auth.auth);
+   const theme = useSelector((state) => state.ui.theme);
+
+   React.useEffect(() => {
+      console.log(theme);
+   }, [theme]);
+
+   React.useEffect(() => {
+      if (localStorage.getItem("theme") === null)
+         dispatch({type: CONST.SET_LIGHT_MODE});
+
+      localStorage.getItem("theme") === "lightmode"
+         ? dispatch({type: CONST.SET_LIGHT_MODE})
+         : dispatch({type: CONST.SET_DARK_MODE});
+   }, []);
+
+   const dispatch = useDispatch();
    AOS.init({
       duration: 800,
       disable: "mobile",
       once: true,
    });
+
+   React.useEffect(() => {
+      dispatch(fetchQuiz());
+   }, []);
 
    return (
       <Wrapper>
@@ -43,19 +66,20 @@ export default function Routing() {
             <ProtectedRoute path="/play" component={Play} />
             <ProtectedRoute
                path="/dashboard/quizzes/add-quiz"
-               component={AddQuiz}
+               component={Quiz}
             />
             <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
             <ProtectedRoute path="/dashboard/profile" component={Profile} />
             <ProtectedRoute path="/updateprofil" component={EditProfile} />
+
+            {/* {user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null} */}
+
             <NotProtected path="/dashboard">
-               {" "}
                <Redirect to="/dashboard/welcome" />
             </NotProtected>
             <NotProtected path="/dashboard/*">
-               {" "}
                <Redirect to="/dashboard/welcome" />
             </NotProtected>
             <NotProtected path="*" component={Error} />

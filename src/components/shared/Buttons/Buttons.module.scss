@@ -4,14 +4,14 @@
     padding: 0.775em 1.5em;
     background: #fff;
     border: .5px solid #fff;
-    color: var(--purple);
+    color: var(--background-less-important);
     border-radius: 100px;
     transition: all ease-in-out .5s;
     cursor: pointer;
 }
 
 .button_fill:hover {
-    background: var(--purple);
+    background: var(--background-less-important);
     color: #fff;
     border: .5px solid #fff;
 }
@@ -42,7 +42,7 @@
     font-size: 1.1em;
     padding: 1em 1.9em;
     background: #fff;
-    color: var(--purple);
+    color: var(--background-less-important);
     border: .5px solid #fff;
     border-radius: 100px;
     cursor: pointer;
@@ -56,7 +56,7 @@
 }
 
 .cta_hero:hover{
-    background: var(--purple);
+    background: var(--background-less-important);
     color: #fff;
     border: .5px solid #fff;
 }
@@ -65,9 +65,9 @@
     font-family: "Integral CF Demi Bold";
     font-size: 0.9em;
     padding: 0.775em 1.5em;
-    background: var(--purple);
+    background: var(--background-less-important);
     color: #fff;
-    border: .5px solid var(--purple);
+    border: .5px solid var(--background-less-important);
     border-radius: 100px;
     transition: all ease-in-out .5s;
     cursor: pointer;
@@ -75,6 +75,6 @@
 
 .button_fill_purple:hover {
     background: #fff;
-    color: var(--purple);
-    border: .5px solid var(--purple);
+    color: var(--background-less-important);
+    border: .5px solid var(--background-less-important);
 }

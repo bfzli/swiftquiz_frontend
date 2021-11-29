@@ -3,7 +3,6 @@ import {button_fill_purple} from '../../../shared/Buttons/Buttons.module.scss'
 import main_illustration from "../../../../assets/images/webp/toolkit.webp"
 import { Link } from 'react-router-dom'
 
-
 export default function Community() {
     return (
         <section className={container}>
