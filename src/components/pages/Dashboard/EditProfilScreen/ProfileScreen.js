@@ -2,9 +2,21 @@ import "../EditProfilScreen/ProfileScreen.scss";
 import "../../Form/Globals.module.scss";
 import React, {useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {updateUser} from "../../../../reduxComponents/actions/Auth";
+import {updateUser} from "../../../../reduxComponents/actions/User";
+
+// Importing toastify module
+import {toast} from "react-toastify";
+// Import toastify css file
+import "react-toastify/dist/ReactToastify.css";
+toast.configure();
 
 export default function ProfileScreen() {
+   const succeesUpdated = () => {
+      toast.success("successfully updated your profile", {
+         position: toast.POSITION.TOP_CENTER,
+         autoClose: 1600,
+      });
+   };
    const update = useSelector((state) => state.auth.auth);
    const userInfo = update;
 
@@ -80,8 +92,12 @@ export default function ProfileScreen() {
             </div>
 
             <div className="button-container">
-               {/* <button className="button">Save</button> */}
-               <input className="button" type="submit" value="Save" />
+               <input
+                  className="button"
+                  type="submit"
+                  value="Save"
+                  onClick={succeesUpdated}
+               />
             </div>
          </form>
       </div>
