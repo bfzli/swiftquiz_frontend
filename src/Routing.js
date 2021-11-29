@@ -16,6 +16,7 @@ import Screen from "./pages/Dashboard/Screen";
 import Play from "./pages/Play";
 import Quiz from "./pages/Dashboard/Quiz";
 import Community from "./pages/Dashboard/Community";
+import AboutUs from './pages/AboutUs'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TestingLoaders from "./pages/TestingLoaders";
@@ -60,6 +61,7 @@ export default function Routing() {
             <NotProtected path="/auth" component={FormView} />
             <NotProtected path="/contact" component={Contact} />
             <NotProtected path="/testing" component={TestingLoaders} />
+            <NotProtected path="/about-us" component={AboutUs} />
 
             <ProtectedRoute path="/dashboard/welcome" component={Screen} />
             <ProtectedRoute path="/invite/*" component={Play} />
