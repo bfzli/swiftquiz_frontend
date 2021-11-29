@@ -72,7 +72,7 @@ export default function Routing() {
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
             <ProtectedRoute path="/dashboard/profile" component={Profile} />
-            <ProtectedRoute path="/updateprofil" component={EditProfile} />
+            <ProtectedRoute path="" component={EditProfile} />
 
             {/* {user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null} */}
 
