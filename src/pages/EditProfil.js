@@ -1,7 +1,5 @@
 import ProfileScreen from "../components/pages/Dashboard/EditProfilScreen/ProfileScreen";
-
 import {Helmet} from "react-helmet";
-//import Header from "../components/shared/Header/Header";
 export default function EditProfile() {
    return (
       <>
