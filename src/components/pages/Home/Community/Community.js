@@ -1,5 +1,5 @@
-import {container, left, right, illustration, title, description} from './Community.module.scss'
-import {button_fill_purple} from '../../../shared/Buttons/Buttons.module.scss'
+import { container, left, right, illustration, title, description } from './Community.module.scss'
+import { button_fill_purple } from '../../../shared/Buttons/Buttons.module.scss'
 import main_illustration from "../../../../assets/images/webp/toolkit.webp"
 import { Link } from 'react-router-dom'
 
@@ -8,15 +8,15 @@ export default function Community() {
         <section className={container}>
 
             <div className={right} data-aos="fade-left">
-                <img src={main_illustration} className={illustration} alt="Illustration" />
+                <lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_pkibk91l.json" background="transparent" speed="1" style={{ width: '920px', height: '920px' }} loop autoplay></lottie-player>
             </div>
 
             <div className={left} data-aos="fade-right">
                 <h2 className={title}>
-                    COMMUNITY BUILD QUIZESS FOR ALL
+                    What is the Mission of our platform?
                 </h2>
                 <p className={description}>
-                    Yes, you heard right, a community of people who crafted different quizess for different life fields that you can play and seek knowledge for a better you.
+                    We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.
                 </p>
                 <Link to="/community">
                     <button className={button_fill_purple}>

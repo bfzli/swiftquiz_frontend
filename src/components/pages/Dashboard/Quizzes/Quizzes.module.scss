@@ -61,12 +61,12 @@
 .quiz_title {
     font-weight: 800;
     font-size: 1.3em;
-    padding: 0.5em 0.5em 0em 0.5em;
+    padding: 0.65em 0.65em 0em 0.65em;
     color: var(--text-color);
 }
 
 .quiz_description {
-    padding: 0.25em 0.5em 0.5em 0.6em;
+    padding: 0.3em 0.75em 0.75em 0.75em;
     color: var(--text-color);
 }
 
@@ -122,50 +122,10 @@
     height: 50vh;
 }
 
-.blog {
-    display: flex;
-    // width: 32%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
-    margin-bottom: 1%;
-    border-radius: 0.85em;
-}
-
-.blog_thumbnail {
-    width: 20%;
-    border-top-left-radius: 0.85em;
-    border-bottom-left-radius: 0.85em;
-}
-
-.blog_description {
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 100;
-}
-
-.blog_title {
-    font-family: "Integral CF Demi Bold";
-}
-.blog_info {
-    padding: 0.5em;
-}
-
-.leaderboard {
-    display: flex;
-    flex-direction: column;
-
-    overflow: scroll;
-    height: 50vh;
-}
-
-.medal {
-    width: 3.25em;
-    margin-right: 1em;
-    display: flex;
-}
-
 .user_wrapper {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .quizer_name {
@@ -276,8 +236,8 @@
 
 .search_input {
     font-size: 1.15em;
-    padding: 0.69em 0.8em;
-    border-radius: 0.75em 0em 0em 0.75em;
+    padding: 0.69em 1em;
+    border-radius: 5em 0em 0em 5em;
     background: var(--background-important);
     border: 2px solid var(--border-color);
     border-right: 0px transparent solid;
@@ -289,8 +249,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.69em 0.8em;
-    border-radius: 0em 0.75em 0.75em 0em;
+    padding: 0.69em 1em;
+    border-radius: 0em 5em 5em 0em;
     background: var(--background-important);
     border-top: 2px solid var(--border-color);
     border-right: 2px solid var(--border-color);
@@ -311,22 +271,22 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background: var(--button-bg);
     border-radius: 100px;
+    margin-left: 1em;
+    padding: .5em 1em;
+    background: var(--button-bg);
 
     &:hover {
-        background-color: #141414;
+        opacity: .8;
     }
 }
 
 .add_btn_icon {
-    padding: 0.5em;
-    fill: white;
+    width: 2em;
+    margin-right: .5em;
+    fill: var(--button-text);
     transition: 0.5s all ease-in-out;
     cursor: pointer;
-
-    &:hover {
-    }
 }
 
 .testingit {
@@ -336,13 +296,6 @@
     width: 100%;
     height: 10vh;
     background: green;
-}
-
-.button_action {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .actions_btn {
@@ -373,6 +326,7 @@
     font-size: 1.05em;
     margin-left: 0.5em;
     font-weight: 400;
+    color: var(--text-color)
 }
 
 .dots {
@@ -395,4 +349,12 @@
     background: var(--background-important);
     border-radius: 0.75em;
     box-shadow: -2px 2px 10px var(--button-bg);
+}
+
+.add_btn_txt{
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: .25em;
+    padding-right: .85em;
+    color: var(--button-text) !important;
 }
