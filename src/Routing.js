@@ -56,6 +56,7 @@ export default function Routing() {
             <NotProtected path="/auth" component={FormView} />
             <NotProtected path="/contact" component={Contact} />
             <NotProtected path="/testing" component={TestingLoaders} />
+            <NotProtected path="/about-us" component={AboutUs} />
 
             <ProtectedRoute path="/dashboard/welcome" component={Screen} />
             <ProtectedRoute path="/invite/*" component={Play} />
