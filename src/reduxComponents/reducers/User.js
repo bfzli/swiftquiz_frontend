@@ -5,7 +5,7 @@ export const userState = {
 	email: '',
 	username: '',
 	bio: '',
-	avatar: '',
+	avatar: '56a40ed882704900355010dd44e777ed.png',
 	isLoggedIn: false,
 	currentlyPlaying: {},
 	coins: 100

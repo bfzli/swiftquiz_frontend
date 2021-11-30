@@ -13,7 +13,7 @@ import Quiz from './pages/Dashboard/Quiz';
 import Community from './pages/Dashboard/Community';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import TestingLoaders from './pages/TestingLoaders';
+import Loaders from './pages/Loaders';
 import { ProtectedRoute } from './pages/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
@@ -21,7 +21,6 @@ import * as CONST from './reduxComponents/constants/index'
 
 
 export default function Routing() {
-	// const user = useSelector((state) => state.auth.auth);
 	const theme = useSelector(state => state.ui.theme)
 
 	React.useEffect(() => {
@@ -58,7 +57,7 @@ export default function Routing() {
 				<NotProtected path="/" component={Home} exact />
 				<NotProtected path="/auth" component={FormView} />
 				<NotProtected path="/contact" component={Contact} />
-				<NotProtected path="/testing" component={TestingLoaders} />
+				<NotProtected path="/loaders" component={Loaders} />
 
 				<ProtectedRoute path="/dashboard/welcome" component={Screen} />
 				<ProtectedRoute path="/invite/*" component={Play} />
@@ -69,7 +68,6 @@ export default function Routing() {
 				<ProtectedRoute path="/dashboard/community" component={Community} />
 				<ProtectedRoute path="/dashboard/profile" component={Profile} />
 
-				{/* {user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null} */}
 
 				<NotProtected path="/dashboard">
 					<Redirect to="/dashboard/welcome" />

@@ -3,7 +3,6 @@ import * as styles from './Community.module.scss'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-import benjamin from '../../../../assets/images/profiles/benjamin.webp'
 import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
 import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
@@ -38,8 +37,7 @@ export function Community({ userQuizes }) {
                             width="32"
                             viewBox="0 0 24 24"
                             fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
+                            xmlns="http://www.w3.org/2000/svg">
                             <path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.867 18 18 14.867 18 11C18 7.132 14.867 4 11 4C7.132 4 4 7.132 4 11C4 14.867 7.132 18 11 18ZM19.485 18.071L22.314 20.899L20.899 22.314L18.071 19.485L19.485 18.071Z" />
                         </svg>
                     </div>
@@ -60,7 +58,8 @@ export function Community({ userQuizes }) {
                                         {item.description}
                                     </p>
                                     <div className={styles.quizer_holder}>
-                                        <img src={benjamin} alt="Quiz Topic" className={styles.quizer_profile} />
+
+                                    <img src={`https://swiftapi.vercel.app/${item.created_by.profile[0]}`} alt={item.name} className={styles.quizer_profile} />
                                         <p className={styles.quizer_name}>{item.created_by.name}</p>
                                     </div>
                                     <Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>PLAY QUIZ</Link>

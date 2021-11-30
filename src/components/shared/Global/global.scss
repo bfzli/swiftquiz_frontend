@@ -39,10 +39,17 @@
 }
 
 body {
-  color: var(--secondary);
-  background: var(--priamry);
+  color: var(--text-color) !important;
+  background: var(--background-important) !important;
   font-family: "Poppins", sans-serif !important;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+}
+
+.body{
+  color: var(--text-color) !important;
+  background: var(--background-important) !important;
 }
 
 #view_active {
@@ -60,16 +67,8 @@ body {
   border: 0.5px solid #ffffff15;
 }
 
-#right {
-  background: red;
-}
-
-#left {
-  background-color: green;
-}
-
 ::-webkit-scrollbar {
-  width: .5em;
+  width: 0px;
   height: 0px;
 }
 
@@ -107,4 +106,7 @@ body {
   &:hover {
       background: var(--hover-color);
   }
+}
+svg{
+  z-index: 1 !important;
 }

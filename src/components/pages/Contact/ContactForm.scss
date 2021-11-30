@@ -4,17 +4,16 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 10vh 0vh;
 }
 
 .topContent {
-  background-color: var(--purple);
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
-  margin-top: 8.9vh;
-  border-top: 1px solid #ffffff50;
+  align-items: center;
+  color: var(--text-color);
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
 }
@@ -28,25 +27,26 @@
 
 #second {
   text-align: center;
-  margin-top: 3.5em;
-  margin-bottom: .75em;
+  font-size: 3em;
+  font-weight: 900;
 }
 
 #third {
   width: 40%;
   padding-bottom: 3rem;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
 }
 
 .mainContainer form .contactInputs {
+  font-family: 'Poppins';
   background: none;
-  border: .5px solid #33333315;
-  padding: .65em .9em;
+  border: 2px solid var(--border-color);
+  padding: .75em;
+  font-weight: 500;
   border-radius: 1em;
   margin: 8px 0;
   width: 100%;
-  font-family: "Space Grotesk", sans-serif;
   font-size: 1.05em;
   width: 40%;
   transition: all ease-in-out 0.3s;
@@ -54,12 +54,13 @@
   &.six {
     height: 250px;
     resize: none;
+    font-family: 'Poppins';
   }
   
   &:hover {
-    background-color: #f5f5f515;
-    border: 0.5px solid #5928e550;
+    background-color: var(--hover-color);
   }
+
   @media screen and (max-width: 900px) {
     width: 80%;
   }
@@ -69,7 +70,6 @@
 }
 
 .mainContainer form {
-  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,15 +90,6 @@
   }
 }
 
-#contactSubmit {
-  width: 150px;
-  margin-left: 26rem;
-  margin-bottom: 2rem;
-  @media screen and (max-width: 900px) {
-    margin: 0 auto;
-    margin: 5px 0 20px 0;
-  }
-}
 
 .errorContact {
   color: rgb(189, 51, 51);
@@ -107,11 +98,12 @@
   padding: 0.2em;
   width: 280px;
   text-align: left;
-  font-family: "Space Grotesk", sans-serif;
+
   @media screen and (max-width: 900px) {
     width: 80%;
     margin: 0 auto;
   }
+
   @media screen and (max-width: 1100px) {
     width: 80%;
     margin: 0 auto;

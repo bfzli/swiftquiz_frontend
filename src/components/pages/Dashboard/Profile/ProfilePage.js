@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector, connect, useDispatch } from 'react-redux';
 import profilebcg from '../../../../assets/images/profile/ProfileBcg.webp';
-import adnanAvatar from '../../../../assets/images/profiles/adnan.webp';
-import adnan from '../../../../assets/images/profile/adnan.webp';
 import quiz1 from '../../../../assets/images/profile/quiz1.webp';
 import './ProfilePage.scss';
 import * as styles from '../../../../components/shared/Buttons/Buttons.module.scss';
