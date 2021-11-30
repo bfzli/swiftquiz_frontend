@@ -26,7 +26,7 @@ export const fetchQuiz = () => async (dispatch) => {
 		//const response = await api.fetchQuizes();
 		const response = await api.fetchData('quizzes/my-quizzes');
 		const data = await response.data;
-		dispatch({ type: CONST.FETCH_QUIZES_SUCCEEDED, payload: data });
+		dispatch({ type: CONST.FETCH_QUIZES_SUCCEEDED, payload: data.quizzes });
 	} catch (error) {
 		dispatch({ type: CONST.FETCH_QUIZES_FAILED, payload: error });
 	}

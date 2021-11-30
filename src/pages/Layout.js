@@ -6,7 +6,7 @@ export default function Layout(props) {
 	const theme = useSelector(state => state.ui.theme)
 
     return (
-        <section id={theme === "lightmode" ? "lightmode" : "darkmode"}>
+        <section class="body" id={theme === "lightmode" ? "lightmode" : "darkmode"}>
             <Header />
                 {props.children}
             <Footer />

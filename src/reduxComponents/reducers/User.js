@@ -1,14 +1,14 @@
 import * as CONST from "../constants/index";
 
 export const userState = {
-   name: "",
-   email: "",
-   username: "",
-   bio: "",
-   avatar: "",
-   isLoggedIn: false,
-   currentlyPlaying: {},
-   coins: 100,
+	name: '',
+	email: '',
+	username: '',
+	bio: '',
+	avatar: '56a40ed882704900355010dd44e777ed.png',
+	isLoggedIn: false,
+	currentlyPlaying: {},
+	coins: 100
 };
 
 const userReducer = (state = userState, action) => {

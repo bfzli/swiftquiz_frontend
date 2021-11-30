@@ -6,15 +6,20 @@ import { useSelector } from 'react-redux';
 import CheckPath from '../../../utils/CheckPath';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { fetchUserData } from '../../../reduxComponents/actions/User';
 import * as CONST from '../../../reduxComponents/constants/index';
 
 export default function Dashbar({ page }) {
 	const dispatch = useDispatch();
-	const user = useSelector((state) => state.auth.auth);
-	const [ menu, setMenu ] = useState(false);
-	const [ dropdown, setDropdown ] = useState(false);
+	const user = useSelector((state) => state.user);
+	const [menu, setMenu] = useState(false);
+	const [dropdown, setDropdown] = useState(false);
 	const theme = useSelector((state) => state.ui.theme);
 	const current_url = document.URL;
+
+	useEffect(() => {
+		dispatch(fetchUserData());
+	}, []);
 
 	function handleTheme() {
 		theme === 'lightmode' ? dispatch({ type: CONST.SET_DARK_MODE }) : dispatch({ type: CONST.SET_LIGHT_MODE });
@@ -57,7 +62,7 @@ export default function Dashbar({ page }) {
 					<Link to="/dashboard/quizzes">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/quizzes') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/quizzes') === true || CheckPath(current_url, '/quizzes') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -115,7 +120,7 @@ export default function Dashbar({ page }) {
 					<Link to="/dashboard/leaderboard">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/add-quiz') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/ff') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -291,8 +296,8 @@ export default function Dashbar({ page }) {
 					</div>
 				</div>
 			</header>
-			<section>{page}</section>
-			{CheckPath(current_url, 'v2') === true ? null : (
+			<section className="body-dash">{page}</section>
+			{CheckPath(current_url, '/add-quiz') === true ? null : (
 				<section className={styles.acc_actions}>
 					<div className={styles.action_item}>
 						<p className={styles.action_item_acc_name}> {user.coins} Coins </p>
@@ -300,10 +305,11 @@ export default function Dashbar({ page }) {
 					</div>
 
 					<div onClick={() => setDropdown(!dropdown)} className={styles.action_item}>
-						<p className={styles.action_item_acc_name}> {user.name} </p>
+						<p className={styles.action_item_acc_name}>{user.name}</p>
 						<img
+							style={{ marginLeft: '.3em' }}
 							className={styles.actions_bar_icon}
-							src="https://bfzli.com/static/media/young.307397e9.jpg"
+							src={`https://swiftapi.vercel.app/${user.avatar}`}
 						/>
 					</div>
 
