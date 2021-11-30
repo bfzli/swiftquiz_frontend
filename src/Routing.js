@@ -18,38 +18,57 @@ import { ProtectedRoute } from './pages/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 import * as CONST from './reduxComponents/constants/index'
-
+import EditProfile from "./pages/EditProfil";
 
 export default function Routing() {
+   // const user = useSelector((state) => state.auth.auth);
+   const theme = useSelector((state) => state.ui.theme);
 	const theme = useSelector(state => state.ui.theme)
 
-	React.useEffect(() => {
-		console.log(theme)
-	}, [theme])
+   React.useEffect(() => {
+      console.log(theme);
+   }, [theme]);
 
+   React.useEffect(() => {
+      if (localStorage.getItem("theme") === null)
+         dispatch({type: CONST.SET_LIGHT_MODE});
 
-	React.useEffect(() => {
-		if (localStorage.getItem('theme') === null)
-			dispatch({ type: CONST.SET_LIGHT_MODE })
+      localStorage.getItem("theme") === "lightmode"
+         ? dispatch({type: CONST.SET_LIGHT_MODE})
+         : dispatch({type: CONST.SET_DARK_MODE});
+   }, []);
 
-		localStorage.getItem('theme') === 'lightmode'
-			?
-			dispatch({ type: CONST.SET_LIGHT_MODE })
-			:
-			dispatch({ type: CONST.SET_DARK_MODE })
-	}, [])
+   const dispatch = useDispatch();
+   AOS.init({
+      duration: 800,
+      disable: "mobile",
+      once: true,
+   });
 
+   React.useEffect(() => {
+      dispatch(fetchQuiz());
+   }, []);
 
-	const dispatch = useDispatch();
-	AOS.init({
-		duration: 800,
-		disable: 'mobile',
-		once: true
-	});
+   return (
+      <Wrapper>
+         <Switch>
+            <NotProtected path="/" component={Home} exact />
+            <NotProtected path="/auth" component={FormView} />
+            <NotProtected path="/contact" component={Contact} />
+            <NotProtected path="/testing" component={TestingLoaders} />
 
-	React.useEffect(() => {
-		dispatch(fetchQuiz());
-	}, []);
+            <ProtectedRoute path="/dashboard/welcome" component={Screen} />
+            <ProtectedRoute path="/invite/*" component={Play} />
+            <ProtectedRoute path="/play" component={Play} />
+            <ProtectedRoute
+               path="/dashboard/quizzes/add-quiz"
+               component={Quiz}
+            />
+            <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
+            <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
+            <ProtectedRoute path="/dashboard/community" component={Community} />
+            <ProtectedRoute path="/dashboard/profile" component={Profile} />
+            <ProtectedRoute path="" component={EditProfile} />
 
 	return (
 		<Wrapper>
@@ -67,8 +86,6 @@ export default function Routing() {
 				<ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
 				<ProtectedRoute path="/dashboard/community" component={Community} />
 				<ProtectedRoute path="/dashboard/profile" component={Profile} />
-
-
 				<NotProtected path="/dashboard">
 					<Redirect to="/dashboard/welcome" />
 				</NotProtected>
@@ -79,4 +96,6 @@ export default function Routing() {
 			</Switch>
 		</Wrapper>
 	);
+
+
 }
