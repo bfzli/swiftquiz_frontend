@@ -1,6 +1,6 @@
 const initialState = {
     text: '',
-    difficulty: 'easy'
+    difficulty: 1
 };
 
 
@@ -11,13 +11,13 @@ const filterReducer = (state = initialState, action) => {
         case 'SET_TEXT_FILTER':
             return {
                 ...state,
-                text: payload.text
+                text: payload
             }
 
         case 'SORT_BY_DIFFICULTY':
             return {
                 ...state,
-                difficulty: payload.difficulty
+                difficulty: payload
             }
 
         default:

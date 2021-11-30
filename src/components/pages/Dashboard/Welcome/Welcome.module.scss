@@ -1,11 +1,8 @@
 .container {
-    padding: 2.5% 4%;
+    width: 100%;
+    padding: 1em;
     display: flex;
     flex-direction: column;
-
-    @media screen and (max-width: 1000px) {
-        padding: 2.5%;
-    }
 }
 
 .mobile_only{
@@ -22,7 +19,8 @@
 }
 
 .welcome_text {
-    font-family: "Integral CF Demi Bold";
+    font-weight: 800;
+    color: var(--text-color);
 }
 
 .breadcrumb {
@@ -48,8 +46,7 @@
 
 .top_left {
     width: 49%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     height: auto;
     border-radius: 0.75em;
 
@@ -62,48 +59,43 @@
 
 .top_right {
     width: 49%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    border: 2px solid var(--border-color);
     border-radius: 0.75em;
-
-    @media screen and (max-width: 1000px) {
-        width: 100%;
-        margin-bottom: 2em;
-    }
 }
 
 .top_right_title {
     font-size: 1.2em;
     padding: 0.35em 0.5em;
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
-    font-family: "Integral CF Demi Bold";
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    font-weight: 800;
 }
 
 .quizess {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     overflow: scroll;
     height: 70vh;
-    padding: 1%;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .5em;
+    padding: .5em;
 }
 
 .quiz {
-    width: 32%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--border-color);
     margin-bottom: 2%;
     border-radius: 0.85em;
-
 }
 
 .quiz_play {
     width: 93.5%;
-    font-family: "Integral CF Demi Bold";
+    font-weight: 600;
     font-size: 0.85em;
     padding: 0.6em 1.5em;
-    background: #5928e5;
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     border-radius: 100px;
     border: 0;
     transition: all ease-in-out 0.3s;
@@ -118,54 +110,20 @@
 .quiz_image{
     max-width:100%;
     height: auto;
+    border-radius: 0.85em 0.85em 0em 0em;
 }
 
 .quiz_title{
-    font-family: "Integral CF Demi Bold";
-    font-size: 1.3em;
+    font-weight: 800;
+    font-size: .85em;
     padding: .5em .5em 0em .5em;
-}
-
-.main_bottom{
-    margin-top: 2.5em;
-    display: flex;
-    justify-content: space-between;
-    padding: .5em;
-
-    @media screen and (max-width: 1000px) {
-        margin-top: 0em;
-        flex-direction: column;
-    }
-}
-
-.bottom_left{
-    width: 48.6%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
-    height: auto;
-    border-radius: 0.75em;
-
-    @media screen and (max-width: 1000px) {
-        width: 100%;
-        margin-bottom: 2em;
-    }
-}
-
-.bottom_right{
-    width: 48.6%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
-    height: auto;
-    border-radius: 0.75em;
-
-    @media screen and (max-width: 1000px) {
-        width: 100%;
-        margin-bottom: 1.2em;
-    }
+    color: var(--text-color)
 }
 
 .quiz_description{
+    font-size: .85em;
     padding: .25em .5em .5em .6em;
+    color: var(--text-color)
 }
 
 .quizer_holder{
@@ -175,9 +133,10 @@
 }
 
 .quizer_name{
-    font-size: 1em;
+    font-size: .85em;
     margin-left: .5em;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 
@@ -185,61 +144,6 @@
     width: 32px;
     border-radius: 100px;
     border: 2px solid var(--purple)
-}
-
-.news{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 1%;
-
-    overflow: scroll;
-    height: 50vh;
-}
-
-.blog{
-    display: flex;
-    // width: 32%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
-    margin-bottom: 1%;
-    border-radius: 0.85em;
-}
-
-.blog_thumbnail{
-    width: 20%;
-    border-top-left-radius: 0.85em;
-    border-bottom-left-radius: 0.85em;
-
-}
-
-.blog_description{
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight:100;
-}
-
-.blog_title{
-    font-family: "Integral CF Demi Bold";
-}
-.blog_info{
-    padding: .5em;
-}
-
-
-.leaderboard{
-    display: flex;
-    flex-direction: column;
-
-    overflow: scroll;
-    height: 50vh;
-}
-
-
-.medal{
-    width: 3.25em;
-    margin-right: 1em;
-    display: flex;
-
 }
 
 .user_wrapper{
@@ -250,7 +154,7 @@
 .user{
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: .5em;
     display: flex;
@@ -269,9 +173,10 @@
 }
 
 .user_name{
-    font-family: "Integral CF Demi Bold";
+    font-weight: 500;
     font-size: 1.1em
 }
+
 .user_points{
     font-style: italic;
     font-size: .95em;
@@ -289,7 +194,7 @@
 .your_quiz{
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: .5em;
     display: flex;
@@ -335,6 +240,7 @@
     }
 }
 
-.end{
-    font-family: "Integral CF Demi Bold";
+.page_info {
+    display: flex;
+    align-items: center;
 }

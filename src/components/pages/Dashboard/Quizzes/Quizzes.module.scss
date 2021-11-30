@@ -1,40 +1,13 @@
 .container {
-    padding: 2.5% 4%;
+    width: 100%;
+    padding: 1em;
     display: flex;
     flex-direction: column;
-
-    @media screen and (max-width: 1000px) {
-        padding: 2.5%;
-    }
-}
-
-.mobile_only {
-    display: none;
-    @media screen and (max-width: 1000px) {
-        width: 100%;
-        height: 20vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2.5%;
-        margin-bottom: 15%;
-    }
 }
 
 .welcome_text {
-    font-family: "Integral CF Demi Bold";
-}
-
-.breadcrumb {
-    margin-top: 0.5em;
-    margin-left: 0.1em;
-    font-size: 1.15em;
-}
-
-.main {
-    margin-top: 2.5em;
-    display: flex;
-    flex-direction: column;
+    font-weight: 800;
+    color: var(--text-color);
 }
 
 .main_top {
@@ -49,7 +22,6 @@
 
 .top_right {
     width: 100%;
-    background: rgba(245, 245, 245, 0.15);
     border-radius: 0.75em;
 
     @media screen and (max-width: 1000px) {
@@ -59,31 +31,43 @@
 }
 
 .quizess {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width: 100%;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1em;
 }
 
 .quiz {
-    width: 23%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    width: 100%;
+    border: 2px solid var(--border-color);
     margin-bottom: 2%;
     border-radius: 0.85em;
     display: flex;
+    margin-right: 2%;
     flex-direction: column;
     justify-content: space-between;
+    background: var(--background-important);
+    position: relative;
 }
 
 .quiz_image {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 25vh;
+    object-fit: cover;
+    border-radius: 0.85em 0.85em 0em 0em;
 }
 
 .quiz_title {
-    font-family: "Integral CF Demi Bold";
+    font-weight: 800;
     font-size: 1.3em;
-    padding: 0.5em 0.5em 0em 0.5em;
+    padding: 0.65em 0.65em 0em 0.65em;
+    color: var(--text-color);
+}
+
+.quiz_description {
+    padding: 0.3em 0.75em 0.75em 0.75em;
+    color: var(--text-color);
 }
 
 .main_bottom {
@@ -100,7 +84,6 @@
 
 .bottom_left {
     width: 48.6%;
-    background: rgba(245, 245, 245, 0.15);
     border: 0.25px solid rgba(141, 141, 141, 0.085);
     height: auto;
     border-radius: 0.75em;
@@ -109,23 +92,6 @@
         width: 100%;
         margin-bottom: 2em;
     }
-}
-
-.bottom_right {
-    width: 48.6%;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
-    height: auto;
-    border-radius: 0.75em;
-
-    @media screen and (max-width: 1000px) {
-        width: 100%;
-        margin-bottom: 1.2em;
-    }
-}
-
-.quiz_description {
-    padding: 0.25em 0.5em 0.5em 0.6em;
 }
 
 .quizer_holder {
@@ -156,45 +122,23 @@
     height: 50vh;
 }
 
-.blog {
-    display: flex;
-    // width: 32%;
-    background: rgba(245, 245, 245, 0.2);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
-    margin-bottom: 1%;
-    border-radius: 0.85em;
-}
-
-.blog_thumbnail {
-    width: 20%;
-    border-top-left-radius: 0.85em;
-    border-bottom-left-radius: 0.85em;
-}
-
-.blog_description {
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 100;
-}
-
-.blog_title {
-    font-family: "Integral CF Demi Bold";
-}
-.blog_info {
-    padding: 0.5em;
-}
-
-.leaderboard {
+.user_wrapper {
     display: flex;
     flex-direction: column;
-
-    overflow: scroll;
-    height: 50vh;
+    cursor: pointer;
 }
 
-.medal {
-    width: 3.25em;
-    margin-right: 1em;
-    display: flex;
+.quizer_name {
+    font-size: 1em;
+    margin-left: 0.5em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.quizer_profile {
+    width: 32px;
+    border-radius: 100px;
+    border: 2px solid var(--border-color);
 }
 
 .user_wrapper {
@@ -205,7 +149,7 @@
 .user {
     width: 100%;
     background: rgba(245, 245, 245, 0.2);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 1%;
     padding: 0.5em;
     display: flex;
@@ -219,18 +163,13 @@
     width: 2.75em;
     height: 2.75em;
     border-radius: 99px;
-    border: 3px solid var(--purple);
+    border: 3px solid var(--border-color);
     margin-right: 0.5em;
 }
 
 .user_name {
-    font-family: "Integral CF Demi Bold";
+    font-weight: 500;
     font-size: 1.1em;
-}
-.user_points {
-    font-style: italic;
-    font-size: 0.95em;
-    color: rgb(133, 133, 133);
 }
 
 .your_quizzes {
@@ -291,65 +230,63 @@
 }
 
 .search {
-    margin-top: 2.5em;
     display: flex;
+    margin-left: 1em;
 }
 
 .search_input {
     font-size: 1.15em;
-    padding: 0.69em 0.8em;
-    border-radius: 0.75em 0em 0em 0.75em;
-    background: rgba(245, 245, 245, 0.15);
-    border: 0.25px solid rgba(141, 141, 141, 0.085);
+    padding: 0.69em 1em;
+    border-radius: 5em 0em 0em 5em;
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
     border-right: 0px transparent solid;
     font-family: "Space Grotesk", sans-serif;
+    color: var(--text-color);
 }
 
 .search_wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.69em 0.8em;
-    border-radius: 0em 0.75em 0.75em 0em;
-    background: rgba(245, 245, 245, 0.15);
-    border-top: 0.25px solid rgba(141, 141, 141, 0.085);
-    border-right: 0.25px solid rgba(141, 141, 141, 0.085);
-    border-bottom: 0.25px solid rgba(141, 141, 141, 0.085);
+    padding: 0.69em 1em;
+    border-radius: 0em 5em 5em 0em;
+    background: var(--background-important);
+    border-top: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-color);
 }
 
 .search_icon {
-    fill: rgba(51, 51, 51, 0.3);
+    fill: var(--icon-inside);
+}
+
+.page_info {
+    display: flex;
+    align-items: center;
 }
 
 .add_btn {
-    position: fixed;
-    bottom: 2em;
-    right: 2em;
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: var(--purple);
-    z-index: 123123123;
-    border-radius: 999px;
+    border-radius: 100px;
+    margin-left: 1em;
+    padding: .5em 1em;
+    background: var(--button-bg);
 
     &:hover {
-        background-color: #6939ec;
+        opacity: .8;
     }
 }
 
 .add_btn_icon {
-    width: 3.5em;
-    padding: 0.5em;
-    fill: white;
+    width: 2em;
+    margin-right: .5em;
+    fill: var(--button-text);
     transition: 0.5s all ease-in-out;
     cursor: pointer;
-
-    &:hover {
-        &:hover {
-            width: 4.5em;
-            padding: 0.55em;
-        }
-    }
 }
 
 .testingit {
@@ -361,38 +298,63 @@
     background: green;
 }
 
-.button_action {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .actions_btn {
-    width: 2.8em;
-    padding: 0.3em;
-    fill: white;
+    width: 1.7em;
+    fill: var(--icon-border);
 }
 
 .quiz_play {
-    width: 100%;
-    height: auto;
-    font-family: "Integral CF Demi Bold";
-    color: #fff;
-    background: var(--purple);
-    margin-top: 0.75em;
+    padding: 0.15em;
+    border-radius: 100px;
     transition: all ease-in-out 0.3s;
     cursor: pointer;
-    border: 0;
+    display: flex;
+    align-items: center;
 
-    &:first-child {
-        border-bottom-left-radius: 0.85em;
-    }
-    &:last-child {
-        border-bottom-right-radius: 0.85em;
-    }
+    margin-bottom: 0.75em;
 
     &:hover {
-        opacity: 0.85;
+        opacity: 0.7;
     }
+
+    &:last-child {
+        margin-bottom: 0em;
+    }
+}
+
+.actions_txt {
+    font-size: 1.05em;
+    margin-left: 0.5em;
+    font-weight: 400;
+    color: var(--text-color)
+}
+
+.dots {
+    width: 2.1em;
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    background: var(--background-important);
+    padding: 0.25em;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.dots_dropdown {
+    position: absolute;
+    top: 9.5%;
+    width: 65%;
+    right: 0.5em;
+    padding: 0.5em;
+    background: var(--background-important);
+    border-radius: 0.75em;
+    box-shadow: -2px 2px 10px var(--button-bg);
+}
+
+.add_btn_txt{
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: .25em;
+    padding-right: .85em;
+    color: var(--button-text) !important;
 }
