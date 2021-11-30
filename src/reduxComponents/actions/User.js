@@ -1,6 +1,7 @@
 import * as api from "../api/index";
 import * as CONST from "../constants/index";
 import axios from "axios";
+
 export const fetchUserData = () => async (dispatch) => {
    try {
       const response = await api.fetchUserProfile();
