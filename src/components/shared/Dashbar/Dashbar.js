@@ -296,7 +296,7 @@ export default function Dashbar({ page }) {
 					</div>
 				</div>
 			</header>
-			<section>{page}</section>
+			<section className="body-dash">{page}</section>
 			{CheckPath(current_url, '/add-quiz') === true ? null : (
 				<section className={styles.acc_actions}>
 					<div className={styles.action_item}>
@@ -305,7 +305,7 @@ export default function Dashbar({ page }) {
 					</div>
 
 					<div onClick={() => setDropdown(!dropdown)} className={styles.action_item}>
-						<p className={styles.action_item_acc_name}> {user.name} </p>
+						<p className={styles.action_item_acc_name}>{user.name}</p>
 						<img
 							style={{ marginLeft: '.3em' }}
 							className={styles.actions_bar_icon}

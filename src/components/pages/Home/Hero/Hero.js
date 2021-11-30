@@ -19,7 +19,7 @@ export default function Hero() {
             </div>
 
             <div className={styles.right} data-aos="fade-left">
-                <lottie-player className={styles.test} src="https://assets4.lottiefiles.com/packages/lf20_kdtvzhjt/MetovoViralConsultingMarketing.json" background="transparent" speed="1" style={{ width: '1350px', height: '600px', marginBottom: '12vh' }} loop autoplay></lottie-player>
+                <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_kdtvzhjt/MetovoViralConsultingMarketing.json" background="transparent" speed="1" style={{ width: '1350px', height: '600px', marginBottom: '12vh' }} loop autoplay></lottie-player>
             </div>
         </section>
     )

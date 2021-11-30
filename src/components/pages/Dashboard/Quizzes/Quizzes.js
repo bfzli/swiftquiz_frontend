@@ -1,8 +1,6 @@
 import * as styles from './Quizzes.module.scss'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react';
-import { fetchQuiz } from '../../../../reduxComponents/actions/Questions';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { searchSelectedQuizzes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
@@ -17,10 +15,6 @@ function Quizzes({ userQuizes }) {
 		const text = e.target.value;
 		dispatch(setTextFilter(text));
 	}
-
-	useEffect(() => {
-		dispatch(fetchQuiz());
-	}, []);
 
 	return (
 		<div className={styles.container}>

@@ -9,6 +9,7 @@ import AdminPanel from './pages/AdminDashboard/AdminPanel';
 import Quizzes from './pages/Dashboard/Quizzes';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play';
+import About from './pages/AboutUs'
 import Quiz from './pages/Dashboard/Quiz';
 import Community from './pages/Dashboard/Community';
 import AOS from 'aos';
@@ -21,9 +22,7 @@ import * as CONST from './reduxComponents/constants/index'
 import EditProfile from "./pages/EditProfil";
 
 export default function Routing() {
-   // const user = useSelector((state) => state.auth.auth);
    const theme = useSelector((state) => state.ui.theme);
-	const theme = useSelector(state => state.ui.theme)
 
    React.useEffect(() => {
       console.log(theme);
@@ -31,11 +30,11 @@ export default function Routing() {
 
    React.useEffect(() => {
       if (localStorage.getItem("theme") === null)
-         dispatch({type: CONST.SET_LIGHT_MODE});
+         dispatch({ type: CONST.SET_LIGHT_MODE });
 
       localStorage.getItem("theme") === "lightmode"
-         ? dispatch({type: CONST.SET_LIGHT_MODE})
-         : dispatch({type: CONST.SET_DARK_MODE});
+         ? dispatch({ type: CONST.SET_LIGHT_MODE })
+         : dispatch({ type: CONST.SET_DARK_MODE });
    }, []);
 
    const dispatch = useDispatch();
@@ -55,48 +54,29 @@ export default function Routing() {
             <NotProtected path="/" component={Home} exact />
             <NotProtected path="/auth" component={FormView} />
             <NotProtected path="/contact" component={Contact} />
-            <NotProtected path="/testing" component={TestingLoaders} />
-            <NotProtected path="/about-us" component={AboutUs} />
+            <NotProtected path="/about-us" component={About} />
+            <NotProtected path="/loaders" component={Loaders} />
 
             <ProtectedRoute path="/dashboard/welcome" component={Screen} />
             <ProtectedRoute path="/invite/*" component={Play} />
             <ProtectedRoute path="/play" component={Play} />
-            <ProtectedRoute
-               path="/dashboard/quizzes/add-quiz"
-               component={Quiz}
-            />
+            <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={Quiz} />
             <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
             <ProtectedRoute path="/dashboard/profile" component={Profile} />
-            <ProtectedRoute path="" component={EditProfile} />
+            <ProtectedRoute path="/dashboard/profile/edit" component={EditProfile} />
 
-	return (
-		<Wrapper>
-			<Switch>
-				<NotProtected path="/" component={Home} exact />
-				<NotProtected path="/auth" component={FormView} />
-				<NotProtected path="/contact" component={Contact} />
-				<NotProtected path="/loaders" component={Loaders} />
-
-				<ProtectedRoute path="/dashboard/welcome" component={Screen} />
-				<ProtectedRoute path="/invite/*" component={Play} />
-				<ProtectedRoute path="/play" component={Play} />
-				<ProtectedRoute path="/dashboard/quizzes/add-quiz" component={Quiz} />
-				<ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
-				<ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
-				<ProtectedRoute path="/dashboard/community" component={Community} />
-				<ProtectedRoute path="/dashboard/profile" component={Profile} />
-				<NotProtected path="/dashboard">
-					<Redirect to="/dashboard/welcome" />
-				</NotProtected>
-				<NotProtected path="/dashboard/*">
-					<Redirect to="/dashboard/welcome" />
-				</NotProtected>
-				<NotProtected path="*" component={Error} />
-			</Switch>
-		</Wrapper>
-	);
+            <NotProtected path="/dashboard">
+               <Redirect to="/dashboard/welcome" />
+            </NotProtected>
+            <NotProtected path="/dashboard/*">
+               <Redirect to="/dashboard/welcome" />
+            </NotProtected>
+            <NotProtected path="/*" component={Error} />
+         </Switch>
+      </Wrapper>
+   );
 
 
 }
