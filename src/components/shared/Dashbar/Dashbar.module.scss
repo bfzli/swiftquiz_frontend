@@ -97,22 +97,22 @@
     top: 1em; right: 1em;
     background: var(--background-important);
     border: 2px solid var(--border-color);
-    border-radius: .75em;
+    border-radius: 10em;
     display: flex;
     align-items: center;
-    padding: .25em;
+    padding: .42em;
 }
 
 .acc_actions_dropwdown{
     width: auto;
     position: absolute;
-    margin-top: 50%;
+    margin-top: 56%;
     right: 0;
     background: var(--background-important);
     border: 2px solid var(--border-color);
     border-radius: .75em;
     display: flex;
-    padding: .25em;
+    padding: .35em;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
@@ -125,6 +125,7 @@
     align-items: center;
     transition: var(--animate);
     border-radius: .75em;
+    cursor: pointer;
 
     &:hover{
 
@@ -144,6 +145,7 @@
     padding: .4em .75em;
     border-radius: .75em;
     transition: var(--animate);
+    cursor: pointer;
 
 
     &:first-child{

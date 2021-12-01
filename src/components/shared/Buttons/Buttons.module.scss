@@ -2,79 +2,51 @@
     font-family: "Integral CF Demi Bold";
     font-size: 0.9em;
     padding: 0.775em 1.5em;
-    background: #fff;
-    border: .5px solid #fff;
-    color: var(--background-less-important);
+    background: var(--button-bg);
+    border: 0.5px solid var(--button-text);
+    color: var(--button-text);
     border-radius: 100px;
-    transition: all ease-in-out .5s;
+    transition: all ease-in-out 0.5s;
     cursor: pointer;
-}
 
-.button_fill:hover {
-    background: var(--background-less-important);
-    color: #fff;
-    border: .5px solid #fff;
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
 .button_faded {
     font-family: "Integral CF Demi Bold";
     font-size: 0.9em;
     padding: 0.775em 1.5em;
-    background: #ffffff25;
-    border: .5px solid #ffffff25;
-    color: #fff;
+    background: red;
+    border: 0.5px solid red; //check this
+    color: var(--button-text);
     border-radius: 100px;
-    transition: all ease-in-out .5s;
+    transition: all ease-in-out 0.5s;
     cursor: pointer;
     margin-right: 1em;
-}
 
-.button_faded:hover {
-    background: #ffffff50;
-    color: var(--white);
-    border: .5px solid #fff;
-}
-
-
-.cta_hero{
-    font-family: 'Integral CF Demi Bold';
-    width: 50%;
-    font-size: 1.1em;
-    padding: 1em 1.9em;
-    background: #fff;
-    color: var(--background-less-important);
-    border: .5px solid #fff;
-    border-radius: 100px;
-    cursor: pointer;
-    text-align: center;
-    transition: all ease-in-out .5s;
-
-    @media screen and (max-width: 900px) {
-        width: 100%;
-        text-align: center;
+    &:hover {
+        background: var(--border-color); //check this
+        color: var(--white);
+        border: 0.5px solid var(--button-text);
     }
-}
-
-.cta_hero:hover{
-    background: var(--background-less-important);
-    color: #fff;
-    border: .5px solid #fff;
 }
 
 .button_fill_purple {
     font-family: "Integral CF Demi Bold";
     font-size: 0.9em;
     padding: 0.775em 1.5em;
-    background: var(--background-less-important);
-    color: #fff;
-    border: .5px solid var(--background-less-important);
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 0.5px solid var(--button-bg);
     border-radius: 100px;
-    transition: all ease-in-out .5s;
+    transition: all ease-in-out 0.5s;
     cursor: pointer;
-}
 
-.button_fill_purple:hover {
-    background: #fff;
-    color: var(--background-less-important);
-    border: .5px solid var(--background-less-important);
+    &:hover {
+        background: var(--button-text);
+        color: var(--button-bg);
+        border: 0.5px solid var(--button-bg);
+    }
 }

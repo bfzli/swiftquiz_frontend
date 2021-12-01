@@ -7,7 +7,7 @@
 
 .welcome_text {
     font-weight: 800;
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 .top_right {
@@ -22,13 +22,14 @@
 
 .quizess {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1em;
 }
 
 .quiz {
-    width: 23%;
+    width: 100%;
     border: 2px solid var(--border-color);
     margin-bottom: 2%;
     border-radius: 0.85em;
@@ -37,10 +38,10 @@
     flex-direction: column;
     justify-content: space-between;
     background: var(--background-important);
+    position: relative;
 }
 
 .quiz_play {
-    font-family: "Integral CF Demi Bold";
     font-size: 1em;
     padding: 0.6em 1.5em;
     background: var(--button-bg);
@@ -49,9 +50,10 @@
     transition: all ease-in-out 0.3s;
     cursor: pointer;
     margin: 0.5em;
+    font-weight: 700;
 
     &:hover {
-        opacity: .7;
+        opacity: 0.7;
     }
 }
 
@@ -65,12 +67,12 @@
 .quiz_title {
     font-weight: 800;
     font-size: 1.3em;
-    padding: 0.5em 0.5em 0em 0.5em;
+    padding: 0.65em 0.65em 0em 0.65em;
     color: var(--text-color);
 }
 
 .quiz_description {
-    padding: 0.25em 0.5em 0.5em 0.6em;
+    padding: 0.3em 0.75em 0.75em 0.75em;
     color: var(--text-color);
 }
 
@@ -85,12 +87,14 @@
     margin-left: 0.5em;
     font-weight: bold;
     color: var(--text-color);
+    cursor: pointer;
 }
 
 .quizer_profile {
     width: 32px;
     border-radius: 100px;
     border: 2px solid var(--border-color);
+    cursor: pointer;
 }
 
 .user_wrapper {
@@ -142,21 +146,21 @@
 
 .search_input {
     font-size: 1.15em;
-    padding: 0.69em 0.8em;
-    border-radius: 0.75em 0em 0em 0.75em;
+    padding: 0.69em 1em;
+    border-radius: 5em 0em 0em 5em;
     background: var(--background-important);
     border: 2px solid var(--border-color);
     border-right: 0px transparent solid;
     font-family: "Space Grotesk", sans-serif;
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 .search_wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.69em 0.8em;
-    border-radius: 0em 0.75em 0.75em 0em;
+    padding: 0.69em 1em;
+    border-radius: 0em 5em 5em 0em;
     background: var(--background-important);
     border-top: 2px solid var(--border-color);
     border-right: 2px solid var(--border-color);
@@ -168,7 +172,7 @@
     fill: var(--icon-inside);
 }
 
-.page_info{
+.page_info {
     display: flex;
     align-items: center;
 }

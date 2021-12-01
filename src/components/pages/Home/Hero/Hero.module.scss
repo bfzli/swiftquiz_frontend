@@ -2,53 +2,43 @@
     width: 100%;
     height: 100vh;
     padding: 1em 3em;
-    background: var(--purple);
     display: flex;
-
-    @media screen and (max-width: 900px) {
-        padding: 10% 0;
-        height: auto;
-        flex-direction: column;
-    }
 }
 
-.left{
-    height: 92vh;
+.left {
+    height: 85vh;
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
-
-    @media screen and (max-width: 900px) {
-        width: 100%;
-        align-items: center;
-    }
-
+    align-items: flex-start;
 }
 
-.right{
-    height: 90vh;
-    width: 50%;
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    overflow-x: hidden;
-
-    @media screen and (max-width: 900px) {
-        display: none;
-      }
+.right {
+    height: 85vh !important;
+    width: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
 }
 
-.title{
-    font-family: 'Integral CF Extra';
+.lottie{
+    display: absolute !important;
+    flex-shrink: 0 !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    z-index: 1 !important;
+}
+
+.title {
+    font-family: "Integral CF Extra";
     font-size: 5.5em;
     letter-spacing: 1px;
     line-height: 1.15em;
-    color: #fff;
+    color: var(--text-color);
     z-index: 2;
 
     @media screen and (max-width: 900px) {
@@ -70,12 +60,12 @@
     }
 }
 
-.description{
+.description {
     width: 80%;
-    font-size: 1.2em;
-    font-family: 'Space Grotesk', sans-serif;
-    color: #fff;
-    margin: .6em 0em .9em 0em;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    margin: 0.6em 0em 0.9em 0em;
 
     @media screen and (max-width: 900px) {
         font-size: 1.3em;
@@ -84,21 +74,24 @@
     }
 }
 
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-17.5px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
-}
+.hero_cta {
+    font-family: "Integral CF Demi Bold";
+    font-size: 1.1em;
+    padding: 1em 1.9em;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 0.5px solid var(--button-text);
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease-in-out 0.5s;
 
-.illustration{
-    width: 650px;
-    position: absolute;
-    bottom: 0;
-	animation: float 5s ease-in-out infinite;
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        text-align: center;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
 }
