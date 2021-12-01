@@ -1,7 +1,7 @@
 .our_team {
     &_container {
       padding: 45px 0 74px;
-      max-width: calc(1920px - 2 * -150px);
+      max-width: calc(1920px - 2 * 150px);
       margin: 0 auto;
       @media (max-width: 1300px) {
         max-width: calc(1300px - 2 * 210px);
@@ -68,6 +68,8 @@
         grid-template-columns: repeat(5, 1fr);
         column-gap: 30px;
         svg {
+          width: 280px;
+          height: 280px;
           border-radius: 350px;
           &:hover {
               border-radius: 10px;
