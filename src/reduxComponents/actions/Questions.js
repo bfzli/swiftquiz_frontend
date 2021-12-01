@@ -13,11 +13,11 @@ export const removeQuiz = (id) => async (dispatch) => {
 };
 
 //Edit a Question action
-export const editQuiz = (id, updates) => ({
-	type: 'EDIT_QUESTION',
-	id,
-	updates
-});
+// export const editQuiz = (id, updates) => ({
+// 	type: 'EDIT_QUESTION',
+// 	id,
+// 	updates
+// });
 
 export const fetchQuiz = () => async (dispatch) => {
 	dispatch({ type: CONST.FETCH_QUIZES_STARTED });
@@ -57,5 +57,25 @@ export const playQuiz = (redeemCode) => async (dispatch) => {
 		dispatch({ type: CONST.PLAY_QUIZ_SUCCEEDED, payload: data });
 	} catch (error) {
 		dispatch({ type: CONST.PLAY_QUIZ_FAILED, payload: error });
+	}
+};
+
+//Find quiz for update
+const findQuiz = (id, quizzes) => {
+    return quizzes.find((quiz) => quiz._id === id);
+};
+
+//Edit a Quiz action
+export const editQuiz = (id, body) => async (dispatch, getState) => {
+    const quizzes = getState().quizes.quizes;
+    const quiz = findQuiz(id, quizzes);
+    try {
+        const response = await api.editQuiz(id, body);
+        const data = await response.data;
+        const editedQuiz = { ...quiz, ...data };
+        console.log(data);
+        dispatch({ type: CONST.EDIT_QUIZ_SUCCEEDED, payload: editedQuiz });
+    } catch (error) {
+        dispatch({ type: CONST.EDIT_QUIZ_FAILED, payload: error });
 	}
 };

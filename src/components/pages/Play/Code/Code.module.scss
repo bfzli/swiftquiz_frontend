@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     padding: 1em 3em;
-    background: var(--purple);
+    background: var(--background-less-important);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,19 +35,14 @@
     font-size: 1.7em;
     padding: 0.4em 1em;
     border-radius: 99px;
-    color: var(--white);
+    color: var(--text-color);
     background: none;
     font-family: "Integral CF Extra";
-    border: 0.7px solid #ffffff40;
+    border: 2px solid var(--border-color);
     transition: all ease-in-out .3s;
 
-    &:hover{
-        border: 0.7px solid #ffffff;
-        color: #ffffff;
-    }
-
     &::placeholder{
-        color: #ffffff80;
+        color: var(--text-color);
     }
 }
 
@@ -56,7 +51,7 @@
     font-size: 5.5em;
     letter-spacing: 1px;
     line-height: 1.15em;
-    color: #fff;
+    color: var(--text-color);
     z-index: 2;
 
     @media screen and (max-width: 900px) {
@@ -82,7 +77,8 @@
     width: 80%;
     font-size: 1.2em;
     font-family: "Space Grotesk", sans-serif;
-    color: #fff;
+    color: var(--text-color);
+
     margin: 0.6em 0em 0.9em 0em;
 
     @media screen and (max-width: 900px) {
@@ -96,7 +92,8 @@
     width: 50%;
     font-size: .95em;
     font-family: "Space Grotesk", sans-serif;
-    color: rgb(202, 198, 198);
+    color: var(--text-color);
+
     margin: 0.6em 0em 0.9em 0em;
     margin-left: .25em;
 
@@ -117,8 +114,8 @@
     margin-left: 1em;
     font-size: 1.1em;
     padding: 1em 1.9em;
-    background: #fff;
-    color: #5928e5;
+    background: var(--button-bg);
+    color: var(--button-text);
     border-radius: 100px;
     border: 0;
     cursor: pointer;
@@ -133,14 +130,4 @@
     &:hover{
         letter-spacing: 2px;
     }
-}
-
-.logo {
-    display: flex;
-    position: absolute;
-    align-items: center;
-    height: 3em;
-    margin-right: 1.25em;
-    top: 4%;
-    fill: #fff;
 }

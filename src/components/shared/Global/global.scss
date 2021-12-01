@@ -61,18 +61,22 @@ body {
 }
 
 #view_active {
-  border-radius: 1.4em;
-  border: 0.5px solid #ffffff15;
   transition: all ease-in-out 0.3s;
+  border: 2px solid var(--border-color);
 
   &:hover {
-    background: #ffffff10;
+    background: var(--hover-color);
   }
 }
 
 #view_inactive {
-  background: #ffffff10;
-  border: 0.5px solid #ffffff15;
+  transition: all ease-in-out 0.3s;
+  // border: 2px solid var(--border-color);
+  background: transparent;
+
+  &:hover {
+    background: var(--hover-color);
+  }
 }
 
 ::-webkit-scrollbar {
@@ -92,14 +96,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #5928e570;
 }
-
-// #global {
-//   width: 100%;
-//   top: 0;
-//   right: 0;
-//   position: absolute;
-//   z-index: 192349234239492394923432;
-// }
 
 #nav-item {
   display: flex;

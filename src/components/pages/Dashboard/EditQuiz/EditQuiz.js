@@ -1,7 +1,7 @@
 import * as styles from './EditQuiz.module.scss'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { createQuiz } from "../../../../reduxComponents/actions/Questions";
+import { editQuiz } from "../../../../reduxComponents/actions/Questions";
 // import Comploader from '../../../shared/Loaders/Comploader';
 import Pagloader from '../../../shared/Loaders/Pagloader';
 import { useParams } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 export default function Quiz() {
     const _quizzes = useSelector(state => state.quizes.quizes);
     const params = useParams();
-    const [isFetching, setIsFetching] = useState(true);
+    const [isFetching, setIsFetching] = useState(false);
     const dispatch = useDispatch();
     const [sidebarView, setSidebarView] = useState('question_operations')
     const [mode, setMode] = useState("add");
@@ -21,9 +21,6 @@ export default function Quiz() {
     const [notification, setNotification] = useState(false);
     // const url = /[^/]*$/.exec(window.location.href)[0];
     // console.log(url)
-
-
-
 
     useEffect(() => {
         const selected_quiz = _quizzes.find(quiz => quiz._id === params.id)
@@ -62,7 +59,8 @@ export default function Quiz() {
         )
 
         if (isEmpty(errors) === true || isEmpty(errors) === null) {
-            dispatch(createQuiz(quiz))
+            dispatch(editQuiz(params.id, quiz))
+            console.log(quiz)
             message.title = "Yay! 🎉"
             message.description = "The quiz was succesfully published, you can now play it or share with friends."
             setNotification(true);

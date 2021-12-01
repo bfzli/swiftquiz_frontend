@@ -23,7 +23,7 @@ export const playQuiz = (redeemCode) => client.get(`/${user_id}/quizzes/my-quizz
 export const createQuiz = (params) => client.post(`/${user_id}/quizzes/create-quiz`, params);
 
 //Edit quiz request
-export const editQuiz = (id, params) => axios.put(`${API_BASE_URL}/...add end point here`, params);
+export const editQuiz = (quiz_id, body) => client.put(`/${user_id}/quizzes/update-quiz/${quiz_id}`, body);
 
 //Delete a single quiz request
 export const deleteQuiz = (id) => client.delete(`/${user_id}/quizzes/my-quizzes/${id}`);
