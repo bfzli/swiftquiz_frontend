@@ -11,6 +11,7 @@ import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play';
 import About from './pages/AboutUs'
 import Quiz from './pages/Dashboard/Quiz';
+import EditQuiz from './pages/Dashboard/EditQuiz';
 import Community from './pages/Dashboard/Community';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -61,6 +62,7 @@ export default function Routing() {
             <ProtectedRoute path="/invite/*" component={Play} />
             <ProtectedRoute path="/play" component={Play} />
             <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={Quiz} />
+            <ProtectedRoute path="/dashboard/quizzes/edit-quiz/:id" component={EditQuiz} />
             <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />

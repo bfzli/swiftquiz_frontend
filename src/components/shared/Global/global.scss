@@ -4,6 +4,7 @@
   --white: #fff;
   --background-less-important: #fcfcfc;
   --background-important: #ffffff;
+  --background-auth: #111b25 !important;
   --border-color: #f3f3f3;
   --hover-color: #f3f3f3;
   --icon-inside: #a4adb7;
@@ -47,13 +48,13 @@ body {
   flex-direction: column;
 }
 
-.body{
+.body {
   color: var(--text-color) !important;
   background: var(--background-important) !important;
   width: 100vw;
 }
 
-.body-dash{
+.body-dash {
   width: 100vw !important;
   height: 100vh !important;
   overflow-y: scroll;
@@ -100,7 +101,7 @@ body {
 //   z-index: 192349234239492394923432;
 // }
 
-#nav-item{
+#nav-item {
   display: flex;
   align-items: center;
   padding: 0.75em;
@@ -111,10 +112,6 @@ body {
   cursor: pointer;
 
   &:hover {
-      background: var(--hover-color);
+    background: var(--hover-color);
   }
-}
-
-svg{
-  z-index: 1 !important;
 }

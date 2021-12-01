@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import * as styles from './Loaders.module.scss'
 
 export default function Comploader() {
     const theme = useSelector((state) => state.ui.theme);
