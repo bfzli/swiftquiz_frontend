@@ -1,11 +1,12 @@
 .aboutcontainer {
-    padding: 45px 0 74px;
+    padding: 45px 0 2px;
     max-width: calc(1920px - 2 * 278px);
     margin: 0 auto;
-    .about-title {
-      margin: 150px auto;
-      margin-bottom: 20px;
-      text-align: center;
+    .about_title {
+      font-size: 40px;
+      font-family: 'Integral CF Demi Bold';
+        text-align: center;
+        margin: 0px 0 18px;
     }
     p {
       margin-top: 50px;
@@ -15,7 +16,7 @@
     .divider {
       margin: auto;
       background-color: #5928e5;
-      width: 10%;
+      width: 15%;
       height: 2px;
       border-radius: 5px;
     }

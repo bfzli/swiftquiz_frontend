@@ -7,12 +7,12 @@ const Links = [
     {
         id: 2,
         name: 'About',
-        link: '/about'
+        link: '/about-us'
     },
     {
         id: 3,
         name: 'Pricing',
-        link: '/about-us'
+        link: '/about'
     },
     {
         id: 4,

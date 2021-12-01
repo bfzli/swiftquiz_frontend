@@ -1,0 +1,107 @@
+.our_team {
+    &_container {
+      padding: 45px 0 74px;
+      max-width: calc(1920px - 2 * -150px);
+      margin: 0 auto;
+      @media (max-width: 1300px) {
+        max-width: calc(1300px - 2 * 210px);
+        // padding-bottom: 75px;
+      }
+      @media (max-width: 880px) {
+        max-width: calc(880px - 2 * 100px);
+        padding: 30px 0 50px;
+        // padding-bottom: 40px;
+      }
+      @media (max-width: 767px) {
+        padding: 20px 0 35px;
+        max-width: 100%;
+        margin: 0 100px;
+        // padding-bottom: 30px;
+      }
+      &_header {
+        font-family: 'Integral CF Demi Bold';
+        text-align: center;
+        margin: 0px 0 60px;
+  
+        .divider {
+          margin: auto;
+          background-color: #5928e5;
+          width: 15%;
+          height: 2px;
+          border-radius: 5px;
+        }
+        h2 {
+          font-size: 40px;
+          margin-bottom: 20px;
+          font-weight: 500;
+          @media (max-width: 767px) {
+            font-size: 25px;
+            // padding-bottom: 30px;
+          }
+        }
+        h4 {
+          margin: 15px 0 auto;
+          font-size: 25px;
+          font-weight: 600;
+          @media (max-width: 767px) {
+            font-size: 25px;
+            // padding-bottom: 30px;
+          }
+        }
+        p{
+          margin: 15px 0 auto;
+
+            color:gray;
+        }
+      }
+      .inactive {
+        filter: grayscale(1);
+        &:hover {
+          filter: grayscale(0);
+        }
+      }
+      .inactive1 {
+        display: none;
+      }
+      &_members {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 30px;
+        svg {
+          border-radius: 350px;
+          &:hover {
+              border-radius: 10px;
+              transition: all 0.6s ease-in-out;
+            box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+            6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+            12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+            22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+            41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+            100px 100px 80px rgba(0, 0, 0, 0.07);
+            animation:shadow-pop-tr .3s cubic-bezier(.47,0.000,.745,.715) both;
+            @-webkit-keyframes shadow-pop-tr{0%{-webkit-box-shadow:0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e;box-shadow:0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e;-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0)}100%{-webkit-box-shadow:1px -1px #3e3e3e,2px -2px #3e3e3e,3px -3px #3e3e3e,4px -4px #3e3e3e,5px -5px #3e3e3e,6px -6px #3e3e3e,7px -7px #3e3e3e,8px -8px #3e3e3e;box-shadow:1px -1px #3e3e3e,2px -2px #3e3e3e,3px -3px #3e3e3e,4px -4px #3e3e3e,5px -5px #3e3e3e,6px -6px #3e3e3e,7px -7px #3e3e3e,8px -8px #3e3e3e;-webkit-transform:translateX(-8px) translateY(8px);transform:translateX(-8px) translateY(8px)}}@keyframes shadow-pop-tr{0%{-webkit-box-shadow:0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e;box-shadow:0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e,0 0 #3e3e3e;-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0)}100%{-webkit-box-shadow:1px -1px #3e3e3e,2px -2px #3e3e3e,3px -3px #3e3e3e,4px -4px #3e3e3e,5px -5px #3e3e3e,6px -6px #3e3e3e,7px -7px #3e3e3e,8px -8px #3e3e3e;box-shadow:1px -1px #3e3e3e,2px -2px #3e3e3e,3px -3px #3e3e3e,4px -4px #3e3e3e,5px -5px #3e3e3e,6px -6px #3e3e3e,7px -7px #3e3e3e,8px -8px #3e3e3e;-webkit-transform:translateX(-8px) translateY(8px);transform:translateX(-8px) translateY(8px)}}
+          }
+        }
+        @media (max-width: 880px) {
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 30px;
+        }
+        &_member {
+          border-radius: 5px;
+          padding: 30px 20px;
+          background-color: #fff;
+          text-align: left;
+          align-items: flex-start;
+  
+          h4 {
+            margin: 0 auto;
+            font-size: 17px;
+            font-weight: 600;
+          }
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }

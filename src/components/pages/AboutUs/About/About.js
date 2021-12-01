@@ -11,7 +11,6 @@ const About = () => {
             key={i}
             title={a.tittle}
             desc={a.paragraph}
-            styles="aboutcontainer"
           />
         );
       })}
