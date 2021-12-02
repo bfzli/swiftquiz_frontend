@@ -1,16 +1,16 @@
 import Dashlayout from './Dashlayout'
-import ProfilePage from '../../components/pages/Dashboard/Profile/ProfilePage'
+import LeaderboardComponent from '../../components/pages/Dashboard/Leaderboard/Leaderboard'
 import { Helmet } from 'react-helmet'
 
-export default function Profile() {
+export default function Leaderboard() {
     return (
         <Dashlayout>
             <Helmet>
-                <title>Profile - Swiftquiz</title>
+                <title>Leaderboard - Swiftquiz</title>
                 <meta name="description" content="Your saved Quizzes here, come here to play." />
             </Helmet>
-
-            <ProfilePage />
+            
+            <LeaderboardComponent />
         </Dashlayout>
     )
 }

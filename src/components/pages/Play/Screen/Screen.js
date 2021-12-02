@@ -71,7 +71,6 @@ export default function Screen({ quiz }) {
             setRunTimer(false)
             setModal(true)
             var coins = 0;
-            console.log('youve finished call it')
         }
     }
 
@@ -142,7 +141,7 @@ export default function Screen({ quiz }) {
         top: '.75em',
         left: '0',
         width: `${prg}%`,
-        backgroundColor: 'white',
+        backgroundColor: 'red',
         transform: 'width 0.45s ease-in-out',
     }
 
@@ -156,7 +155,8 @@ export default function Screen({ quiz }) {
                         <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
                     </Helmet>
                     <header className={styles.header} data-aos="fade-right">
-                        <p className={styles.stats_title}>Information Area</p>
+                        <p className={styles.stats_title}>{questions.title}</p>
+
                         {
                             menuView === 'stats'
 
@@ -182,9 +182,10 @@ export default function Screen({ quiz }) {
                                         </div>
                                     </div>
                                     <div className={styles.general_stats}>
-                                        <div className={styles.stats_boxes}>
+                                        <div  className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{minutes}:{seconds}</h3>
                                             <p className={styles.stats_description}>Time to Answer</p>
+                                            <div style={timeprogress} />
                                         </div>
 
                                         <div className={styles.stats_boxes}>
@@ -345,11 +346,11 @@ export default function Screen({ quiz }) {
                         }
                     </header>
                     <div className={styles.play_area}>
-                        <div className={styles.bar}>
+                        {/* <div className={styles.bar}>
                             <div className={styles.bar_value}>
                                 {questions.title}
                             </div>
-                        </div>
+                        </div> */}
 
                         {
                             modal === false
@@ -357,9 +358,6 @@ export default function Screen({ quiz }) {
                                 ?
                                 <>
                                     <div className={styles.question} data-aos="fade-left">
-
-                                        <div style={timeprogress} />
-
                                         {questions.questions[currentQuestion].question}
                                     </div>
 

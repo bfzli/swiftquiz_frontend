@@ -4,7 +4,7 @@ export default function EditProfile() {
    return (
       <>
          <Helmet>
-            <title>User Profil Updating!</title>
+            <title>Edit Profile - SwiftQuiz</title>
             <meta name="Edit Profil" content="Welcome, Editing Profil" />
          </Helmet>
          <ProfileScreen />

@@ -1,5 +1,12 @@
 import * as React from 'react';
 import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
+import * as CONST from './reduxComponents/constants/index'
+import { ProtectedRoute } from './pages/ProtectedRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchQuiz } from './reduxComponents/actions/Questions';
+import { fetchUserData } from './reduxComponents/actions/User';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Home from './pages/Home';
 import Error from './pages/Error';
 import FormView from './pages/FormView';
@@ -11,25 +18,21 @@ import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play';
 import About from './pages/AboutUs'
 import Quiz from './pages/Dashboard/Quiz';
+import DashboardContact from './pages/Dashboard/Contact';
 import EditQuiz from './pages/Dashboard/EditQuiz';
 import Community from './pages/Dashboard/Community';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import Leaderboard from './pages/Dashboard/Leaderboard';
 import Loaders from './pages/Loaders';
-import { ProtectedRoute } from './pages/ProtectedRoute';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchQuiz } from './reduxComponents/actions/Questions';
-import * as CONST from './reduxComponents/constants/index'
 import EditProfile from "./pages/EditProfil";
+import Bookmarks from './pages/Dashboard/Bookmarks';
 
 export default function Routing() {
    const theme = useSelector((state) => state.ui.theme);
+   const dispatch = useDispatch();
 
    React.useEffect(() => {
-      console.log(theme);
-   }, [theme]);
+      dispatch(fetchUserData());
 
-   React.useEffect(() => {
       if (localStorage.getItem("theme") === null)
          dispatch({ type: CONST.SET_LIGHT_MODE });
 
@@ -38,16 +41,15 @@ export default function Routing() {
          : dispatch({ type: CONST.SET_DARK_MODE });
    }, []);
 
-   const dispatch = useDispatch();
+   React.useEffect(() => {
+      dispatch(fetchQuiz());
+   }, []);
+
    AOS.init({
       duration: 800,
       disable: "mobile",
       once: true,
    });
-
-   React.useEffect(() => {
-      dispatch(fetchQuiz());
-   }, []);
 
    return (
       <Wrapper>
@@ -68,6 +70,9 @@ export default function Routing() {
             <ProtectedRoute path="/dashboard/community" component={Community} />
             <ProtectedRoute path="/dashboard/profile" component={Profile} />
             <ProtectedRoute path="/dashboard/profile/edit" component={EditProfile} />
+            <ProtectedRoute path="/dashboard/leaderboard" component={Leaderboard} />
+            <ProtectedRoute path="/dashboard/support" component={DashboardContact} />
+            <ProtectedRoute path="/dashboard/bookmarks" component={Bookmarks} />
 
             <NotProtected path="/dashboard">
                <Redirect to="/dashboard/welcome" />
@@ -79,6 +84,4 @@ export default function Routing() {
          </Switch>
       </Wrapper>
    );
-
-
 }

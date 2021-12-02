@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import {useSelector, connect, useDispatch} from "react-redux";
-import quiz1 from "../../../../assets/images/profile/quiz1.webp";
 import "./ProfilePage.scss";
 import {selectQuizesOfUsers} from "../../../../reduxComponents/selectors/selectorsUserQuizzes";
 import {fetchUserData} from "../../../../reduxComponents/actions/User";
 import EditProfil from "../../../../pages/EditProfil";
-import Popup from "../../../../components/popup/popup";
+import Popup from "../../../shared/Popup/popup";
 
 function ProfilePage(props) {
    const [isOpen, setIsOpen] = useState(false);

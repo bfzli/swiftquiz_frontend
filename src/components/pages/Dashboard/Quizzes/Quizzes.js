@@ -1,5 +1,4 @@
 import * as styles from './Quizzes.module.scss'
-import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
@@ -18,10 +17,6 @@ function Quizzes({ userQuizes }) {
 
 	return (
 		<div className={styles.container}>
-			<Helmet>
-				<title>Dashboard - SwiftQuiz</title>
-			</Helmet>
-
 			<div className={styles.page_info} data-aos="fade-down">
 				<h2 className={styles.welcome_text}>Quizzes</h2>
 

@@ -26,7 +26,6 @@ export default function Quiz() {
     }
 
     function checkValidation() {
-        console.log(quiz)
         if (quiz.title === '') errors.title = 'The Quiz must have a title to be published.'
         if (quiz.description === '') errors.description = 'Description is required for each quiz.'
         // if (quiz.thumbnail === '') errors.thumbnail = 'A Quiz thumbnail is required to begin with.';
