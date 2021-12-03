@@ -144,7 +144,7 @@
     display: flex;
     align-items: center;
     padding: 0.4em 0.75em;
-    border-radius: 0.75em;
+    border-radius: 100em;
     transition: var(--animate);
     cursor: pointer;
 
@@ -160,6 +160,7 @@
 .action_item_acc_name {
     font-family: "Poppins", sans-serif;
     margin-right: 0.3em;
+    font-size: 1.15em;
 
     &:last-child {
         margin-right: 0.75em;
