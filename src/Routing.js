@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Home from './pages/Home';
 import Error from './pages/Error';
+import UserProfile from './pages/Dashboard/User'
 import FormView from './pages/FormView';
 import Contact from './pages/Contact';
 import Profile from './pages/Dashboard/Profile';
@@ -67,8 +68,9 @@ export default function Routing() {
             <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
-            <ProtectedRoute path="/dashboard/profile" component={Profile} />
             <ProtectedRoute path="/dashboard/profile/edit" component={EditProfile} />
+            <ProtectedRoute path="/dashboard/profile/:id" component={UserProfile} />
+            <ProtectedRoute path="/dashboard/profile" component={Profile} />
             <ProtectedRoute path="/dashboard/leaderboard" component={Leaderboard} />
             <ProtectedRoute path="/dashboard/support" component={DashboardContact} />
             <ProtectedRoute path="/dashboard/bookmarks" component={Bookmarks} />

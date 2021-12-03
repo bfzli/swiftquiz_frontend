@@ -261,7 +261,7 @@ export default function Dashbar({ page }) {
 			</header>
 			<section className="body-dash">{page}</section>
 			{
-				CheckPath(current_url, '/add-quiz') === true ? null : (
+				CheckPath(current_url, '/add-quiz') === true ||  CheckPath(current_url, '/profile') === true? null : (
 					<section className={styles.acc_actions}>
 						<div className={styles.action_item}>
 							<p className={styles.action_item_acc_name}> {user.coins} Coins </p>

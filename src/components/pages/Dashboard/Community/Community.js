@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { connect } from "react-redux";
 import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
+import { setCategoryFilter } from '../../../../reduxComponents/actions/Filters';
 
 export function Community({ userQuizes }) {
     const dispatch = useDispatch();
@@ -34,8 +35,12 @@ export function Community({ userQuizes }) {
                             <path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.867 18 18 14.867 18 11C18 7.132 14.867 4 11 4C7.132 4 4 7.132 4 11C4 14.867 7.132 18 11 18ZM19.485 18.071L22.314 20.899L20.899 22.314L18.071 19.485L19.485 18.071Z" />
                         </svg>
                     </div>
-                    <select className={styles.search_input}>
-                        <option>All Categories</option>
+                    <select className={styles.category_filter} onChange={(e) => {
+                        const get_value = e.target.value;
+                        console.log(get_value)
+                        dispatch(setCategoryFilter(get_value));
+                    }}>
+                        <option value="">All Categories</option>
                         <option value="61a49f18da82d9000993e281">Religion</option>
                         <option value="61961bd788d1b5058807904c">Programming</option>
                         <option value="61961c6488d1b50588079058">Mathematics</option>
