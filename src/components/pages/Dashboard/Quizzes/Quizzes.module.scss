@@ -358,3 +358,17 @@
     padding-right: .85em;
     color: var(--button-text) !important;
 }
+
+.emptystate{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    // background: red;
+}
+
+.emptystatelottie{
+    width: 320px !important;
+}

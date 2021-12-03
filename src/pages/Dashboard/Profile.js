@@ -1,5 +1,5 @@
 import Dashlayout from './Dashlayout'
-import ProfilePage from '../../components/pages/Dashboard/Profile/ProfilePage'
+import ProfilePage from '../../components/pages/Dashboard/Profile/Profile'
 import { Helmet } from 'react-helmet'
 
 export default function Profile() {

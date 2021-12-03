@@ -1,16 +1,21 @@
 import * as styles from './Leaderboard.module.scss'
-import {fetchAllUsersAction} from '../../../../reduxComponents/actions/Admin'
+import { allUsersLeaderboard } from '../../../../reduxComponents/actions/User'
+import { sortLeaderboardUsers } from '../../../../reduxComponents/selectors/selectorsUserQuizzes'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-export default function Leaderboard() {
+function Leaderboard({ leaderboardRank }) {
     const dispatch = useDispatch();
 
-    useEffect(() =>{
-        dispatch(fetchAllUsersAction())
+    const ranking = leaderboardRank.slice(0, 5);
+
+    useEffect(() => {
+        dispatch(allUsersLeaderboard());
     }, [])
 
     const profile = "https://scontent.fskp1-2.fna.fbcdn.net/v/t39.30808-6/241109043_144164544562523_407886122530123291_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=sOudlO5tSHMAX9T4hox&_nc_ht=scontent.fskp1-2.fna&oh=006778ab37fd14a6083784348607dd17&oe=61AD6B3C"
+
     return (
         <div className={styles.container}>
             <div className={styles.page_info} data-aos="fade-down">
@@ -41,8 +46,8 @@ export default function Leaderboard() {
                         <div className={styles.leftleftPinned}>
                             <div className={styles.profilePinnedDown}>
                                 <img src={profile} className={styles.avatarPinned} />
-                                <h3>Benjamin Fazli</h3>
-                                <p>102 coins</p>
+                                <h3 className={styles.hallusername}>Benjamin Fazli</h3>
+                                <p className={styles.hallcoins}>102 coins</p>
                             </div>
                             <div className={styles.leftleftScene}>
                                 4
@@ -51,8 +56,8 @@ export default function Leaderboard() {
                         <div className={styles.leftPinned}>
                             <div className={styles.profilePinnedCenter}>
                                 <img src={profile} className={styles.avatarPinned} />
-                                <h3>Benjamin Fazli</h3>
-                                <p>102 coins</p>
+                                <h3 className={styles.hallusername}>Benjamin Fazli</h3>
+                                <p className={styles.hallcoins}>102 coins</p>
                             </div>
                             <div className={styles.leftScene}>
                                 2
@@ -61,8 +66,8 @@ export default function Leaderboard() {
                         <div className={styles.centerPinned}>
                             <div className={styles.profilePinnedTop}>
                                 <img src={profile} className={styles.avatarPinned} />
-                                <h3>Benjamin Fazli</h3>
-                                <p>102 coins</p>
+                                <h3 className={styles.hallusername}></h3>
+                                <p className={styles.hallcoins}>102 coins</p>
                             </div>
                             <div className={styles.centerScene}>
                                 1
@@ -71,8 +76,8 @@ export default function Leaderboard() {
                         <div className={styles.rightPinned}>
                             <div className={styles.profilePinnedCenter}>
                                 <img src={profile} className={styles.avatarPinned} />
-                                <h3>Benjamin Fazli</h3>
-                                <p>102 coins</p>
+                                <h3 className={styles.hallusername}>Benjamin Fazli</h3>
+                                <p className={styles.hallcoins}>102 coins</p>
                             </div>
                             <div className={styles.rightScene}>
                                 3
@@ -81,8 +86,8 @@ export default function Leaderboard() {
                         <div className={styles.rightrightPinned}>
                             <div className={styles.profilePinnedDown}>
                                 <img src={profile} className={styles.avatarPinned} />
-                                <h3>Benjamin Fazli</h3>
-                                <p>102 coins</p>
+                                <h3 className={styles.hallusername}>Benjamin Fazli</h3>
+                                <p className={styles.hallcoins}>102 coins</p>
                             </div>
                             <div className={styles.rightrightScene}>
                                 5
@@ -91,25 +96,37 @@ export default function Leaderboard() {
                     </div>
                 </div>
                 <div className={styles.top_right}>
-
                     <div className={styles.ranking}>
-                        <div className={styles.rank}>
-                            <div className={styles.rank_count}>
-                                <p className={styles.rank_count_text}>3</p>
-                            </div>
+                        {
+                            ranking.map(item =>
+                                <div className={styles.rank}>
+                                    <div className={styles.rank_count}>
+                                        <p className={styles.rank_count_text}></p>
+                                    </div>
 
-                            <div className={styles.rank_avatar}>
-                            <img src={profile} className={styles.rank_avatar_image} />
-                            </div>
+                                    <div className={styles.rank_avatar}>
+                                        <img src={profile} className={styles.rank_avatar_image} />
+                                    </div>
 
-                            <div className={styles.rank_name}>
-                                <p className={styles.rank_name_text}>dbsdsd</p>
-                            </div>
-                        </div>
+                                    <div className={styles.rank_name}>
+                                        <h3 className={styles.hallusername}>{item.name}</h3>
+                                    </div>
+
+                                    <div className={styles.rank_count}>
+                                        <p>{item.coins}</p>
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
-
                 </div>
             </main >
         </div >
     )
 }
+
+const mapStateToProps = (state) => ({
+    leaderboardRank: sortLeaderboardUsers(state)
+});
+
+export default connect(mapStateToProps)(Leaderboard);

@@ -4,6 +4,7 @@ export const selectUser = (state) => state.auth.auth;
 export const selectQuizes = (state) => state.quizes.quizes;
 const searchTerm = (state) => state.filters.text;
 const setCategory = (state) => state.filters.category;
+const setLeaderboard = (state) => state.user.leaderboard;
 
 //
 export const selectQuizesOfUsers = createSelector([ selectUser, selectQuizes ], (user, quizes) => {
@@ -26,4 +27,9 @@ export const searchAllQuizes = createSelector([ selectQuizes, searchTerm, setCat
         const categoryMatch = category ? quiz.category === category : true;
         return textMatch && categoryMatch;
     });
+});
+
+//sort leaderboard from high to low
+export const sortLeaderboardUsers = createSelector([ setLeaderboard ], (leaderboard) => {
+    return leaderboard.sort((a, b) => b.coins - a.coins);
 });

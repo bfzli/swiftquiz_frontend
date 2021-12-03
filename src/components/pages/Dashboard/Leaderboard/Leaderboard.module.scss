@@ -80,6 +80,7 @@
     font-size: 2.15em;
     position: absolute;
     top: .65em;
+    color: var(--text-color)
 }
 
 .leftleftPinned {
@@ -230,6 +231,7 @@
     width: 6.5em;
     height: 6.5em;
     border-radius: 100%;
+    border: 2px solid var(--border-color)
 }
 
 .ranking {
@@ -286,4 +288,17 @@
     width: 3em;
     height: 3em;
     border-radius: 100%;
+    border: 2px solid var(--border-color)
+}
+
+.hallusername{
+    color: var(--text-color);
+    margin-top: .375em;
+}
+
+.hallcoins{
+    color: var(--text-color);
+    margin-top: -.3em;
+    margin-bottom: .75em;
+
 }

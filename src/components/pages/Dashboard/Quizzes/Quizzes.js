@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { searchSelectedQuizzes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
-
 import QuizCard from './QuizCard';
 
 function Quizzes({ userQuizes }) {
@@ -40,8 +39,21 @@ function Quizzes({ userQuizes }) {
 			<main style={{ marginTop: '2.5em' }}>
 				<div className={styles.top_right} data-aos="fade-left">
 					<div className={styles.quizess}>
-						{userQuizes.map(item => <QuizCard item={item} />)}
+						{userQuizes !== null &&
+							userQuizes.map(item => <QuizCard item={item} />)
+						}
 					</div>
+					{userQuizes === null || userQuizes.length === 0
+
+						&&
+
+						<div className={styles.emptystate}>
+							<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_EMTsq1.json" background="transparent" speed="1" style={{width: "320px"}} loop autoplay></lottie-player>
+							<h2></h2>
+							<p>go to and add</p>
+						</div>
+					}
+
 				</div>
 			</main >
 		</div >

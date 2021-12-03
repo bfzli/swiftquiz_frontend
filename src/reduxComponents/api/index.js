@@ -37,6 +37,9 @@ export const deleteUser = (userId) => client.delete(`/${userId}`);
 // Edit Profil Information
 export const editprofil = (id, params) => client.put(`${id}`, params);
 
+// Leaderboard Coins
+export const leaderboardCoins = () => client.get(`/user-collection`);
+
 export const signUp = (name, email, username, password) => {
 	const postData = {
 		name,

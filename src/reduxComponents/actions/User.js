@@ -49,6 +49,17 @@ export const updateUser = (name, username, email, password, about) => {
    };
 };
 
+// Get all users
+export const allUsersLeaderboard = () => async (dispatch) => {
+   try {
+       const response = await api.leaderboardCoins();
+       const data = await response.data;
+       dispatch({ type: 'ALL_USERS_LEADERBOARDS', payload: data });
+   } catch (error) {
+       dispatch({ type: 'ALL_USERS_LEADERBOARDS_FAILED', payload: error });
+   }
+};
+
 //Get User Profile Action  (Get)
 export const getUserProfileAction = () => {
    return async (dispatch, getState) => {

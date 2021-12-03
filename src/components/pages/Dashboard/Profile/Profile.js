@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useSelector, connect, useDispatch} from "react-redux";
-import "./ProfilePage.scss";
+import * as styles from './Profile.module.scss'
 import {selectQuizesOfUsers} from "../../../../reduxComponents/selectors/selectorsUserQuizzes";
 import {fetchUserData} from "../../../../reduxComponents/actions/User";
 import EditProfil from "../../../../pages/EditProfil";
@@ -20,12 +20,12 @@ function ProfilePage(props) {
    }, []);
 
    return (
-      <div className="mainProfileCont">
-         <div className="topProfileCont">
+      <div className={styles.mainProfileCont}>
+         <div className={styles.topProfileCont}>
             <h2>Your Account</h2>
          </div>
-         <div className="bottomProfileCont">
-            <div className="leftBottomProfileCont">
+         <div className={styles.bottomProfileCont}>
+            <div className={styles.leftBottomProfileCont}>
                <img src={`https://swiftapi.vercel.app/${user.avatar}`} />
                <h1>{user.name}</h1>
                <h4>@{user.username}</h4>
@@ -42,24 +42,24 @@ function ProfilePage(props) {
                   />
                )}
             </div>
-            <div className="rightBottomProfileCont">
+            <div className={styles.rightBottomProfileCont}>
                <h2>{user.name}'s Quizes</h2>
-               <div className="profileQuizes">
+               <div className={styles.profileQuizes}>
                   {props.userQuizes.map((quiz) => {
                      const {title, description} = quiz;
                      return (
-                        <div className="QuizBody">
+                        <div className={styles.QuizBody}>
                            <img
                               id="quizImage"
                               src={`https://swiftapi.vercel.app/${quiz.thumbnail}`}
                            />
                            <h3>{title}</h3>
                            <p>{description}</p>
-                           <div className="quizBottom">
+                           <div className={styles.quizBottom}>
                               <img
                                  src={`https://swiftapi.vercel.app/${user.avatar}`}
                               />
-                              <div className="quizBottomRight">
+                              <div className={styles.quizBottomRight}>
                                  <h5 id="quizMadeBy">MADE BY</h5>
                                  <h5>{user.name}</h5>
                               </div>

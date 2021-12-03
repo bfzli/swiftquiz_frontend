@@ -247,7 +247,7 @@ export default function Dashbar({ page }) {
 							{menu === true ? <p className={styles.sidebar_item_text}>Settings</p> : null}
 						</div>
 					</div>
-					<div id="nav-item-profile">
+					<Link to="/dashboard/profile" id="nav-item-profile">
 						<img
 							className={styles.profile_nav}
 							src={`https://swiftapi.vercel.app/${user.avatar}`}
@@ -256,7 +256,7 @@ export default function Dashbar({ page }) {
 						{menu === true ? (
 							<p className={styles.sidebar_item_text}>{user.name}</p>
 						) : null}
-					</div>
+					</Link>
 				</div>
 			</header>
 			<section className="body-dash">{page}</section>
