@@ -27,7 +27,6 @@ import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
 
 export default function Routing() {
-   const theme = useSelector((state) => state.ui.theme);
    const dispatch = useDispatch();
 
    React.useEffect(() => {

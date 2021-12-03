@@ -34,6 +34,16 @@ export function Community({ userQuizes }) {
                             <path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.867 18 18 14.867 18 11C18 7.132 14.867 4 11 4C7.132 4 4 7.132 4 11C4 14.867 7.132 18 11 18ZM19.485 18.071L22.314 20.899L20.899 22.314L18.071 19.485L19.485 18.071Z" />
                         </svg>
                     </div>
+                    <select className={styles.search_input}>
+                        <option>All Categories</option>
+                        <option value="61a49f18da82d9000993e281">Religion</option>
+                        <option value="61961bd788d1b5058807904c">Programming</option>
+                        <option value="61961c6488d1b50588079058">Mathematics</option>
+                        <option value="61961c1788d1b50588079052">Physics</option>
+                        <option value="617bf1df3b7012bee6d4056d">Sport</option>
+                        <option value="61961c1b88d1b50588079055">Art</option>
+                        <option value="61961be088d1b5058807904f">Other</option>
+                    </select>
                 </div>
             </div>
 
@@ -52,7 +62,7 @@ export function Community({ userQuizes }) {
                                     </p>
                                     <div className={styles.quizer_holder}>
 
-                                    <img src={`https://swiftapi.vercel.app/${item.created_by.profile[0]}`} alt={item.name} className={styles.quizer_profile} />
+                                        <img src={`https://swiftapi.vercel.app/${item.created_by.profile[0]}`} alt={item.name} className={styles.quizer_profile} />
                                         <p className={styles.quizer_name}>{item.created_by.name}</p>
                                     </div>
                                     <Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>PLAY QUIZ</Link>
