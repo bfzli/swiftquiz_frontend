@@ -30,6 +30,10 @@ export const deleteQuiz = (id) => client.delete(`/${user_id}/quizzes/my-quizzes/
 
 //Fetch all users only for admin request
 export const fetchAllUsers = () => client.get(`/all-users`);
+
+// Fetch Single User from Database
+export const fetchUserById = (username) => client.get(`/${username}`);
+
 //Delete single user request
 export const deleteUser = (userId) => client.delete(`/${userId}`);
 

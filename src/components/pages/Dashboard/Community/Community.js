@@ -51,7 +51,6 @@ export function Community({ userQuizes }) {
                     </select>
                 </div>
             </div>
-
             <main style={{ marginTop: '2.5em' }}>
                 <div className={styles.top_right} data-aos="fade-left">
                     <div className={styles.quizess}>
@@ -59,17 +58,20 @@ export function Community({ userQuizes }) {
                             userQuizes.map(item =>
                                 <div className={styles.quiz}>
                                     <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftapi.vercel.app/${item.thumbnail}`} />
+
                                     <h3 className={styles.quiz_title}>
                                         {item.title}
                                     </h3>
+
                                     <p className={styles.quiz_description}>
                                         {item.description}
                                     </p>
-                                    <div className={styles.quizer_holder}>
 
-                                        <img src={`https://swiftapi.vercel.app/${item.created_by.profile[0]}`} alt={item.name} className={styles.quizer_profile} />
+                                    <Link to={`/dashboard/profile/${item.created_by.username}`} className={styles.quizer_holder}>
+                                        <img src={`https://swiftapi.vercel.app/${item.created_by.profile}`} alt={item.name} className={styles.quizer_profile} />
                                         <p className={styles.quizer_name}>{item.created_by.name}</p>
-                                    </div>
+                                    </Link>
+
                                     <Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>PLAY QUIZ</Link>
                                 </div>
                             )

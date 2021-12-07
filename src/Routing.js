@@ -26,9 +26,30 @@ import Leaderboard from './pages/Dashboard/Leaderboard';
 import Loaders from './pages/Loaders';
 import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
+import Dashauth from './pages/Dashboard/Auth';
+import { useTranslation } from 'react-i18next';
 
 export default function Routing() {
    const dispatch = useDispatch();
+
+   const language = useSelector(state => state.user.language)
+
+   const { t, i18n } = useTranslation()
+
+   const changeLang = (lang) => {
+      i18n.changeLanguage(lang)
+   }
+
+   useEffect(() => {
+      switch (language) {
+         case 'english': changeLang('en'); break;
+         case 'shqip': changeLang('sq'); break;
+         case 'arabic': changeLang('ar'); break;
+         case 'german': changeLang('de'); break;
+         case 'french': changeLang('fr'); break;
+      }
+   }, [])
+
 
    React.useEffect(() => {
       dispatch(fetchUserData());
@@ -59,8 +80,6 @@ export default function Routing() {
             <NotProtected path="/contact" component={Contact} />
             <NotProtected path="/about" component={About} />
             <NotProtected path="/loaders" component={Loaders} />
-
-            <ProtectedRoute path="/dashboard/welcome" component={Screen} />
             <ProtectedRoute path="/invite/*" component={Play} />
             <ProtectedRoute path="/play" component={Play} />
             <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={Quiz} />
@@ -69,19 +88,15 @@ export default function Routing() {
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
             <ProtectedRoute path="/dashboard/profile/edit" component={EditProfile} />
-            <ProtectedRoute path="/dashboard/profile/:id" component={UserProfile} />
+            <ProtectedRoute path="/dashboard/profile/:username" component={UserProfile} />
             <ProtectedRoute path="/dashboard/profile" component={Profile} />
             <ProtectedRoute path="/dashboard/leaderboard" component={Leaderboard} />
             <ProtectedRoute path="/dashboard/support" component={DashboardContact} />
             <ProtectedRoute path="/dashboard/bookmarks" component={Bookmarks} />
-
-            <NotProtected path="/dashboard">
-               <Redirect to="/dashboard/welcome" />
-            </NotProtected>
-            <NotProtected path="/dashboard/*">
-               <Redirect to="/dashboard/welcome" />
-            </NotProtected>
+            <NotProtected path="/dashboard/auth" component={Dashauth} />
+            <ProtectedRoute path="/dashboard" component={Screen} />
             <NotProtected path="/*" component={Error} />
+            <NotProtected path="/dashboard/*" component={Error} />
          </Switch>
       </Wrapper>
    );

@@ -1,0 +1,26 @@
+{
+    "header": {
+        "logo": "Swift Quiz",
+        "mission": "Mission",
+        "pricing": "Pricing",
+        "about": "About",
+        "support": "Support",
+        "team": "Team",
+        "login": "Login",
+        "get_started": "Get Started"
+    },
+
+    "homepage": {
+        "section_one": {
+            "title": "Making learning fun with Quizzes"
+        },
+        "section_two": {}
+    },
+
+    "contact": {
+        "section_one": {
+            "title": "Making learning fun with Quizzes"
+        },
+        "section_two": {}
+    }
+}

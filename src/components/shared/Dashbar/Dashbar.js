@@ -8,15 +8,20 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUserData } from '../../../reduxComponents/actions/User';
 import * as CONST from '../../../reduxComponents/constants/index';
+import Console from './components/Console'
+import Auth from '../../../pages/Dashboard/Auth'
 
 export default function Dashbar({ page }) {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user);
+	const auth = useSelector((state) => state.auth);
+
 	const [menu, setMenu] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
 	const theme = useSelector((state) => state.ui.theme);
 	const current_url = document.URL;
 	const [isModal, setIsModal] = useState(false);
+	const [adminConsole, setAdminConsole] = useState(false);
 
 	useEffect(() => {
 		dispatch(fetchUserData());
@@ -24,6 +29,9 @@ export default function Dashbar({ page }) {
 
 	return (
 		<main className={styles.container}>
+			{
+				adminConsole === true ? <Console console={adminConsole} setConsole={setAdminConsole} /> : null
+			}
 			{
 				isModal === true ?
 					<div className={styles.modal_container}>
@@ -58,13 +66,15 @@ export default function Dashbar({ page }) {
 			}
 			<header onMouseLeave={() => setMenu(false)} onMouseEnter={() => setMenu(true)} className={styles.sidebar}>
 				<div className={menu === true ? styles.sidebar_top : styles.sidebar_top_small}>
-					<Logo />
+					<div className={styles.logocontainer}>
+						<Logo />
+					</div>
 					<div className={styles.spacer} />
 
-					<Link to="/dashboard/welcome">
+					<Link to="/dashboard">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/welcome') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/dashboard') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -252,24 +262,40 @@ export default function Dashbar({ page }) {
 							className={styles.profile_nav}
 							src={`https://swiftapi.vercel.app/${user.avatar}`}
 						/>
-
+						{console.log(user)}
 						{menu === true ? (
-							<p className={styles.sidebar_item_text}>{user.name}</p>
+							<p className={styles.sidebar_item_text}>{user.name === '' || user.name === null ? 'Guest' : user.name}</p>
 						) : null}
 					</Link>
 				</div>
 			</header>
-			<section className="body-dash">{page}</section>
+			<section className="body-dash">
+				{/* {
+					auth.is_loggedin === false ?
+					<Auth /> : 
+				} */}
+				{page}
+			</section>
 			{
-				CheckPath(current_url, '/add-quiz') === true ||  CheckPath(current_url, '/profile') === true? null : (
+				CheckPath(current_url, '/add-quiz') === true || CheckPath(current_url, '/profile') === true || CheckPath(current_url, '/auth') === true ? null : (
 					<section className={styles.acc_actions}>
+
+						<div onClick={() => setAdminConsole(!adminConsole)} className={styles.action_item}>
+							<p className={styles.action_item_acc_name}> {adminConsole === false ? 'Open' : 'Close'} Terminal </p>
+							
+							<svg style={{marginLeft: '.3em'}} width="24" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M29.7143 0.571411H2.28571C1.02321 0.571411 0 1.59462 0 2.85713V25.7143C0 26.9768 1.02321 28 2.28571 28H29.7143C30.9768 28 32 26.9768 32 25.7143V2.85713C32 1.59462 30.9768 0.571411 29.7143 0.571411ZM4.57143 16.5714L9.14286 12L4.57143 7.42855L6.85714 5.14284L13.7143 12L6.85714 18.8571L4.57143 16.5714ZM22.8571 18.8571H13.7143V16.5714H22.8571V18.8571V18.8571Z" fill="black" />
+							</svg>
+
+						</div>
+
 						<div className={styles.action_item}>
 							<p className={styles.action_item_acc_name}> {user.coins} Coins </p>
 							<img className={styles.actions_bar_icon} src={coin} />
 						</div>
 
 						<div onClick={() => setDropdown(!dropdown)} className={styles.action_item}>
-							<p className={styles.action_item_acc_name}>{user.name}</p>
+							<p className={styles.action_item_acc_name}>{user.name === '' || user.name === null ? 'Guest' : user.name}</p>
 							<img
 								style={{ marginLeft: '.3em' }}
 								className={styles.actions_bar_icon}

@@ -6,8 +6,8 @@ export default function ContactPage() {
     return (
         <Dashlayout>
             <Helmet>
-                <title>Contact - Swiftquiz</title>
-                <meta name="description" content="Your saved Quizzes here, come here to play." />
+                <title>Support - Swiftquiz</title>
+                <meta name="description" content="You can get personalized support here if you need to." />
             </Helmet>
             
             <Contact />
