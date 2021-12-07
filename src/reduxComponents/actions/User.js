@@ -11,44 +11,42 @@ export const fetchUserData = () => async (dispatch) => {
       dispatch({ type: CONST.SET_USER_DATA_FAILED, payload: error });
    }
 };
+
 // Update Profil
 
 export const updateUser = (name, username, email, password, about) => {
-   return async (dispatch, getState) => {
-      try {
-         dispatch({
-            type: CONST.USER_UPDATE_REQUEST,
-         });
-         const userInfo = getState().auth.auth;
-         const config = {
-            headers: {
-               "Content-Type": "application/json",
-               authorization: `Bearer ${userInfo.token}`,
-            },
-         };
-         const getdata = await api.editprofil("/profile/update", {
-            name,
-            email,
-            username,
-            password,
-            about,
-         });
-         const data = await getdata.data;
-         api.saveToLocalStorage(JSON.stringify(data));
-         dispatch({
-            type: CONST.USER_UPDATE_SUCCESS,
-            payload: data,
-         });
-      } catch (error) {
-         dispatch({
-            type: CONST.USER_UPDATE_FAIL,
-            payload:
-               error.response && error.response.data.message
-                  ? error.response.data.message
-                  : error.message,
-         });
-      }
-   };
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: CONST.USER_UPDATE_REQUEST
+			});
+			const userInfo = getState().auth.auth;
+			const config = {
+				headers: {
+					'Content-Type': 'application/json',
+					authorization: `Bearer ${userInfo.token}`
+				}
+			};
+			const getdata = await api.editprofil('/profile/update', {
+				name,
+				email,
+				username,
+				password,
+				about
+			});
+			const data = await getdata.data;
+			api.saveToLocalStorage(JSON.stringify(data));
+			dispatch({
+				type: CONST.USER_UPDATE_SUCCESS,
+				payload: data
+			});
+		} catch (error) {
+			dispatch({
+				type: CONST.USER_UPDATE_FAIL,
+				payload: error.response && error.response.data.message ? error.response.data.message : error.message
+			});
+		}
+	};
 };
 
 // Get All Users
