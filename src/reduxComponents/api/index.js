@@ -84,4 +84,4 @@ export const removeFromLocalStorage = () => localStorage.removeItem('user');
 //Update user request
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
 
-export const fetchUserProfile = () => client.get(`/${user_id}/my-profile`);
+export const fetchUserProfile = () => client.get('/profile');

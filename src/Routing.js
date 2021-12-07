@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
-import * as CONST from './reduxComponents/constants/index';
+import * as CONST from './reduxComponents/constants/index'
 import { ProtectedRoute } from './pages/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
@@ -17,21 +17,21 @@ import AdminPanel from './pages/AdminDashboard/AdminPanel';
 import Quizzes from './pages/Dashboard/Quizzes';
 import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play';
-import About from './pages/AboutUs';
+import About from './pages/AboutUs'
 import Quiz from './pages/Dashboard/Quiz';
 import DashboardContact from './pages/Dashboard/Contact';
 import EditQuiz from './pages/Dashboard/EditQuiz';
 import Community from './pages/Dashboard/Community';
 import Leaderboard from './pages/Dashboard/Leaderboard';
 import Loaders from './pages/Loaders';
-import EditProfile from './pages/EditProfil';
+import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
-import { documentVisibility, inActive } from './utils/inActivity';
 import Dashauth from './pages/Dashboard/Auth';
+import { documentVisibility, inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 
 export default function Routing() {
-	const dispatch = useDispatch();
+   const dispatch = useDispatch();
 
    const language = useSelector(state => state.user.language)
 
@@ -41,7 +41,7 @@ export default function Routing() {
       i18n.changeLanguage(lang)
    }
 
-   useEffect(() => {
+   React.useEffect(() => {
       switch (language) {
          case 'english': changeLang('en'); break;
          case 'shqip': changeLang('sq'); break;
@@ -51,31 +51,36 @@ export default function Routing() {
       }
    }, [])
 
+   if (JSON.parse(localStorage.getItem('user'))) {
+      //Tracks the mouse, keyboard ect. activity on the application,
+      //Only change the number, and use miliseconds
+      inActive(600000, dispatch);
+
+      //Check if the user is on the quiz page
+      documentVisibility();
+   }
+
 
    React.useEffect(() => {
       dispatch(fetchUserData());
-	//If the user is LoggedIn Only then apply these functions
-	if (JSON.parse(localStorage.getItem('user'))) {
-		//Tracks the mouse, keyboard ect. activity on the application,
-		//Only change the number, and use miliseconds
-		inActive(600000, dispatch);
 
-		//Check if the user is on the quiz page
-		documentVisibility();
-	}
+      if (localStorage.getItem("theme") === null)
+         dispatch({ type: CONST.SET_LIGHT_MODE });
 
-	React.useEffect(() => {
-		dispatch(fetchUserData());
-		if (localStorage.getItem('theme') === null) dispatch({ type: CONST.SET_LIGHT_MODE });
+      localStorage.getItem("theme") === "lightmode"
+         ? dispatch({ type: CONST.SET_LIGHT_MODE })
+         : dispatch({ type: CONST.SET_DARK_MODE });
+   }, []);
 
-		localStorage.getItem('theme') === 'lightmode'
-			? dispatch({ type: CONST.SET_LIGHT_MODE })
-			: dispatch({ type: CONST.SET_DARK_MODE });
-	}, []);
+   React.useEffect(() => {
+      dispatch(fetchQuiz());
+   }, []);
 
-	React.useEffect(() => {
-		dispatch(fetchQuiz());
-	}, []);
+   AOS.init({
+      duration: 800,
+      disable: "mobile",
+      once: true,
+   });
 
    return (
       <Wrapper>
@@ -83,7 +88,7 @@ export default function Routing() {
             <NotProtected path="/" component={Home} exact />
             <NotProtected path="/auth" component={FormView} />
             <NotProtected path="/contact" component={Contact} />
-            <NotProtected path="/about-us" component={About} />
+            <NotProtected path="/about" component={About} />
             <NotProtected path="/loaders" component={Loaders} />
             <ProtectedRoute path="/invite/*" component={Play} />
             <ProtectedRoute path="/play" component={Play} />

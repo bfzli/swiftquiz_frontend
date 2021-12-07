@@ -20,7 +20,7 @@ export default function User() {
             .then(data => {
                 setUser(data[0]);
                 setLoading(false)
-                console.log("QWew", user)
+                console.log("user", user)
             })
             .catch(error => {
                 console.log("something went wrong", error)

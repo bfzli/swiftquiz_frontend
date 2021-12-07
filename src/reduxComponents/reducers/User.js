@@ -18,14 +18,10 @@ const userReducer = (state = userState, action) => {
 
    switch (action.type) {
       case CONST.SET_USER_DATA:
-         const { username, avatar, bio } = payload;
+         // const { username, avatar, bio } = payload;
          return {
             ...state,
-            email: username.email,
-            username: username.username,
-            name: username.name,
-            avatar,
-            bio,
+            ...payload,
             isLoggedIn: true,
          };
 
