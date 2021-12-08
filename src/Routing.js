@@ -27,21 +27,15 @@ import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
 import Dashauth from './pages/Dashboard/Auth';
 import { documentVisibility, inActive } from './utils/inActivity';
-import useVisibility from './utils/customHooks/useVisibility';
-import Modal from './components/shared/Modal/modal';
 import { useTranslation } from 'react-i18next';
 import Support from "./pages/Dashboard/Support";
 
 export default function Routing() {
-	const { visibility, setVisibility } = useVisibility();
 	const dispatch = useDispatch();
 
-   const language = useSelector(state => state.user.language)
-
    const { t, i18n } = useTranslation();
-	//If the user is LoggedIn Only then apply this functions
+
 	if (JSON.parse(localStorage.getItem('user'))) {
-		//Tracks the mouse, keyboard ect. activity on the application,
 		inActive(600000, dispatch);
 	}
 
@@ -65,19 +59,6 @@ export default function Routing() {
             case 'fr': changeLang('fr'); break;
          }
    }, [])
-
-   if (JSON.parse(localStorage.getItem('user'))) {
-      inActive(600000, dispatch);
-      documentVisibility();
-   }
-			{!visibility && (
-				//TEST CASE, REMOVE THIS MODAL
-				<Modal
-					onClose={() => setVisibility(true)}
-					text="BE CAREFUL, WE CONSIDER CHEATING LEAVING WHILE PLAYING"
-				/>
-			)}
-
 
    React.useEffect(() => {
       dispatch(fetchUserData());

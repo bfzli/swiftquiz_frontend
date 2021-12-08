@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react'
 import wrong_choice from '../../../../assets/voices/isWrong.mp3'
 import correct_choice from '../../../../assets/voices/isCorrect.mp3'
 import coin from '../../../../assets/images/Coin.png';
-import avatar from '../../../../assets/images/profile.jpg'
 import Helmet from 'react-helmet'
-import { useSelector,useDispatch } from 'react-redux';
-import {updateUserScore} from '../../../../reduxComponents/actions/User'
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUserScore } from '../../../../reduxComponents/actions/User'
 import { useTranslation } from 'react-i18next';
-
+import Modal from '../../../shared/Modal/Modal'
+import useVisibility from '../../../../utils/customHooks/useVisibility';
 
 export default function Screen({ quiz }) {
     const user = useSelector(state => state.user)
@@ -23,9 +23,11 @@ export default function Screen({ quiz }) {
     const [countDown, setCountDown] = useState(0);
     const [runTimer, setRunTimer] = useState(true);
     const [sounds, setSounds] = useState(true);
-    const dispatch =useDispatch();
+    const dispatch = useDispatch();
+    const { visibility, setVisibility } = useVisibility();
 
-    const {t} = useTranslation(); 
+
+    const { t } = useTranslation();
 
     let [all, setAll] = useState([])
 
@@ -163,6 +165,14 @@ export default function Screen({ quiz }) {
                     <header className={styles.header} data-aos="fade-right">
                         <p className={styles.stats_title}>{questions.title}</p>
 
+                        {!visibility && (
+                            //TEST CASE, REMOVE THIS MODAL
+                            <Modal
+                                onClose={() => setVisibility(true)}
+                                text="BE CAREFUL, WE CONSIDER CHEATING LEAVING WHILE PLAYING"
+                            />
+                        )}
+
                         {
                             menuView === 'stats'
 
@@ -188,7 +198,7 @@ export default function Screen({ quiz }) {
                                         </div>
                                     </div>
                                     <div className={styles.general_stats}>
-                                        <div  className={styles.stats_boxes}>
+                                        <div className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{minutes}:{seconds}</h3>
                                             <p className={styles.stats_description}>{t("play_enter.timeleft")}</p>
                                             <div style={timeprogress} />

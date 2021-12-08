@@ -15,7 +15,7 @@ const useVisibility = () => {
 				if (document.hidden) {
 					timeOutId = setTimeout(() => {
 						setVisibility(false);
-					}, 20000);
+					}, 100);
 				} else if (document.isConnected) {
 					removeTimer();
 				}
