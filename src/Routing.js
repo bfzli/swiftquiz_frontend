@@ -24,6 +24,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchQuiz} from "./reduxComponents/actions/Questions";
 import * as CONST from "./reduxComponents/constants/index";
 import EditProfile from "./pages/EditProfil";
+import Support from "./pages/Dashboard/Support";
 
 export default function Routing() {
    // const user = useSelector((state) => state.auth.auth);
@@ -72,7 +73,8 @@ export default function Routing() {
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
             <ProtectedRoute path="/dashboard/profile" component={Profile} />
-            <ProtectedRoute path="" component={EditProfile} />
+            <ProtectedRoute path="/dashboard/messenger" component={Support}/>
+            <ProtectedRoute path="/dashboard/profile/edit" component={EditProfile} />
 
             {/* {user.role === 'user' ? <ProtectedRoute path="/dashboard/v2" component={Dashbar2} /> : null} */}
 
