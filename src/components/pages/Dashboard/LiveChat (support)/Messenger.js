@@ -23,7 +23,7 @@ export default function Messenger() {
 
   //call socket server
   useEffect(() => {
-    socket.current = io("ws://https://swiftapi.vercel.app:8900");
+    socket.current = io("ws://https://swiftapi.vercel.app");
     //get message
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
