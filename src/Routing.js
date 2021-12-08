@@ -107,6 +107,7 @@ export default function Routing() {
                <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
                <Route path="/dashboard/support" element={<DashboardContact />} />
                <Route path="/dashboard/bookmarks" element={<Bookmarks />} />
+               <Route path="/dashboard/messenger" element={<Support />} />
                <Route path="/dashboard" element={<Screen />} />
             </Route>
 
