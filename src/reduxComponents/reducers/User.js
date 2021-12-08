@@ -9,6 +9,7 @@ export const userState = {
    isLoggedIn: false,
    leaderboard: [],
    currentlyPlaying: {},
+   currentylViewing: {},
    coins: 100
 };
 
@@ -17,7 +18,7 @@ const userReducer = (state = userState, action) => {
 
    switch (action.type) {
       case CONST.SET_USER_DATA:
-         const { username, avatar, bio } = payload;
+         // const { username, avatar, bio } = payload;
          return {
             ...state,
             ...payload,
@@ -33,6 +34,7 @@ const userReducer = (state = userState, action) => {
             avatar: "",
             coins: 0,
             currentlyPlaying: {},
+            currentylViewing: {},
             isLoggedIn: false,
          };
 
@@ -75,6 +77,20 @@ const userReducer = (state = userState, action) => {
          return {
             ...state,
             leaderboard: []
+         };
+
+      case CONST.USER_GET_PROFILE_SUCCESS:
+         return {
+            ...state,
+            currentylViewing: payload
+         };
+
+      case CONST.USER_GET_PROFILE_FAIL:
+         return {
+            ...state,
+            currentlyViewing: {
+               error: payload,
+            },
          };
 
       default:

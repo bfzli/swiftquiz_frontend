@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { createQuiz } from "../../../../reduxComponents/actions/Questions";
 import FileBase64 from 'react-file-base64';
+import { useTranslation } from 'react-i18next';
 
 export default function Quiz() {
     const dispatch = useDispatch();
@@ -14,6 +15,9 @@ export default function Quiz() {
     var [errors, setErrors] = useState({});
     var [message, setMessage] = useState({});
     const [notification, setNotification] = useState(false);
+    const {t} = useTranslation();
+
+    const test = t("quiz.quizbuilder");
 
     function isEmpty(obj) {
         for (var prop in obj) {
@@ -252,7 +256,7 @@ export default function Quiz() {
                             <div className={styles.current_question}>
                                 <input
                                     className={styles.current_question_input}
-                                    placeholder="Start typing your question..."
+                                    placeholder={(t("quiz.question"))}
                                     onChange={(e) => setField("question", e)}
                                     value={fields.question}
                                 />
@@ -262,7 +266,7 @@ export default function Quiz() {
                                 <div className={trueQ === "anwser1" ? styles.option_active : styles.option}>
                                     <input
                                         className={styles.option_input}
-                                        placeholder="Your anwser here..."
+                                        placeholder={t("quiz.answer")}
                                         type="text"
                                         onChange={(e) => setField("answer1", e)}
                                         value={fields.answer1}
@@ -279,7 +283,7 @@ export default function Quiz() {
                                 <div className={trueQ === "anwser2" ? styles.option_active : styles.option}>
                                     <input
                                         className={styles.option_input}
-                                        placeholder="Your anwser here..."
+                                        placeholder={t("quiz.answer")}
                                         type="text"
                                         onChange={(e) => setField("answer2", e)}
                                         value={fields.answer2}
@@ -295,7 +299,7 @@ export default function Quiz() {
                                 <div className={trueQ === "anwser3" ? styles.option_active : styles.option}>
                                     <input
                                         className={styles.option_input}
-                                        placeholder="Your anwser here..."
+                                        placeholder={t("quiz.answer")}
                                         type="text"
                                         onChange={(e) => setField("answer3", e)}
                                         value={fields.answer3}
@@ -313,7 +317,7 @@ export default function Quiz() {
                                 >
                                     <input
                                         className={styles.option_input}
-                                        placeholder="Your anwser here..."
+                                        placeholder={t("quiz.answer")}
                                         type="text"
                                         onChange={(e) => setField("answer4", e)}
                                         value={fields.answer4}
@@ -332,7 +336,7 @@ export default function Quiz() {
                 <h3 className={styles._modal_title}>
                     {
                         {
-                            'question_operations': 'Quiz Builder',
+                            'question_operations': `${test}`,
                             'quiz_edit':
                                 <div className={styles.goback} onClick={() => setSidebarView('question_operations')}>
 
@@ -340,7 +344,7 @@ export default function Quiz() {
                                         <path d="M7.828 11H20V13H7.828L13.192 18.364L11.778 19.778L4 12L11.778 4.22198L13.192 5.63598L7.828 11Z" fill="#333333" />
                                     </svg>
 
-                                    <p>Quiz Edit</p>
+                                    <p>{(t("quiz.quizedit"))}</p>
                                 </div>,
                             'quiz-publish':
                                 <div className={styles.goback} onClick={() => setSidebarView('question_operations')}>
@@ -349,7 +353,7 @@ export default function Quiz() {
                                         <path d="M7.828 11H20V13H7.828L13.192 18.364L11.778 19.778L4 12L11.778 4.22198L13.192 5.63598L7.828 11Z" fill="#333333" />
                                     </svg>
 
-                                    <p>Quiz Publish</p>
+                                    <p>{t("quiz.quizpublish")}</p>
                                 </div>,
                         }[sidebarView]
                     }
@@ -358,43 +362,43 @@ export default function Quiz() {
                     sidebarView === 'quiz_edit' ?
                         <div class={styles.header_container}>
                             <div className={styles._form_wrapper}>
-                                <label className={styles._form_label_name} htmFor="l-quiz-name">Title</label>
+                                <label className={styles._form_label_name} htmFor="l-quiz-name">{(t("quiz.title"))}</label>
                                 <input
                                     className={styles._form_input}
                                     type="text"
                                     id="l-quiz-name"
-                                    placeholder="Title"
+                                    placeholder={(t("quiz.title"))}
                                     onChange={(e) => setParent("title", e)}
                                     value={quiz.title} />
                             </div>
 
                             <div className={styles._form_wrapper}>
-                                <label className={styles._form_label_name} htmFor="l-quiz-name">Description</label>
+                                <label className={styles._form_label_name} htmFor="l-quiz-name">{(t("quiz.description"))}</label>
                                 <textarea
                                     className={styles._form_input}
                                     type="text"
                                     id="l-quiz-name"
-                                    placeholder="Description"
+                                    placeholder={(t("quiz.description"))}
                                     onChange={(e) => setParent("description", e)}
                                     value={quiz.description}
                                 />
                             </div>
 
                             <div className={styles._form_wrapper}>
-                                <label className={styles._form_label_name} htmFor="l-quiz-name">Category</label>
-                                <select className={styles._form_input} value={quiz.category} id="l-quiz-name" placeholder="Category" onChange={(e) => setCategory("category", e)}>
-                                    <option value="61a49f18da82d9000993e281">Religion</option>
-                                    <option value="61961bd788d1b5058807904c">Programming</option>
-                                    <option value="61961c6488d1b50588079058">Mathematics</option>
-                                    <option value="61961c1788d1b50588079052">Physics</option>
-                                    <option value="617bf1df3b7012bee6d4056d">Sport</option>
-                                    <option value="61961c1b88d1b50588079055">Art</option>
-                                    <option value="61961be088d1b5058807904f">Other</option>
+                                <label className={styles._form_label_name} htmFor="l-quiz-name">{(t("quiz.category"))}</label>
+                                <select className={styles._form_input} value={quiz.category} id="l-quiz-name" placeholder={(t("quiz.category"))} onChange={(e) => setCategory("category", e)}>
+                                    <option value="61a49f18da82d9000993e281">{(t("quiz.religion"))}</option>
+                                    <option value="61961bd788d1b5058807904c">{(t("quiz.programming"))}</option>
+                                    <option value="61961c6488d1b50588079058">{(t("quiz.mathematics"))}</option>
+                                    <option value="61961c1788d1b50588079052">{(t("quiz.physics"))}</option>
+                                    <option value="617bf1df3b7012bee6d4056d">{(t("quiz.sport"))}</option>
+                                    <option value="61961c1b88d1b50588079055">{(t("quiz.art"))}</option>
+                                    <option value="61961be088d1b5058807904f">{(t("quiz.others"))}</option>
                                 </select>
                             </div>
                             <div className={styles._form_wrapper}>
-                                <label className={styles._form_label_name} htmFor="l-quiz-name">Thumbnail</label>
-                                {/* <input className={styles._form_input} type="file" id="l-quiz-name" name="thumbnail" placeholder="Quiz Name" onChange={(e) => {
+                                <label className={styles._form_label_name} htmFor="l-quiz-name">{(t("quiz.thumbnail"))}</label>
+                                <input className={styles._form_input} type="file" id="l-quiz-name" name="thumbnail" placeholder="Quiz Name" onChange={(e) => {
 
                                     // let new_file = new FormData();
                                     // new_file.append('thumbnail', e.target.files[0], e.target.files[0].name)
@@ -413,15 +417,7 @@ export default function Quiz() {
 
                                     newData["thumbnail"] = file;
                                     setQuiz(newData);
-                                }} /> */}
-                                <FileBase64
-                                    className={styles._form_input} type="file" id="l-quiz-name" name="thumbnail" placeholder="Quiz Name"
-                                    multiple={false}
-                                    onDone={(base64) => {
-                                        let newData = { ...quiz };
-                                        newData["thumbnail"] = base64.base64;
-                                        setQuiz(newData);
-                                    }} />
+                                }} />
                             </div>
                         </div>
                         : null
@@ -441,7 +437,7 @@ export default function Quiz() {
                         <div class={styles.header_container}>
                             <div className={styles.publish_options}>
                                 <button onClick={() => checkValidation()} className={styles.publish_cta}>
-                                    <p>Publish</p>
+                                    <p>{(t("quiz.publish"))}</p>
 
                                     <svg style={{ marginLeft: '.75em' }} width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9014 1.25002L15.9869 1.25003L18.5986 1.25003L18.6276 1.25003C19.0229 1.25002 19.364 1.25001 19.6449 1.27296C19.9414 1.29718 20.2363 1.35067 20.5201 1.49527C20.9435 1.71098 21.2877 2.05519 21.5034 2.47855C21.648 2.76234 21.7015 3.05725 21.7257 3.35376C21.7487 3.63466 21.7487 3.9757 21.7486 4.37101V4.37111V4.40003L21.7487 7.01181L21.7487 7.09727C21.7489 7.74883 21.749 8.19983 21.645 8.63281C21.5532 9.01545 21.4017 9.38124 21.1961 9.71676C20.9634 10.0964 20.6444 10.4152 20.1835 10.8758L20.1231 10.9362L16.9783 14.0811C17.286 14.5133 17.5412 14.8793 17.7376 15.2033C17.9865 15.6138 18.1703 16.0024 18.2576 16.4358C18.3973 17.1295 18.3379 17.8486 18.0863 18.51C17.929 18.9231 17.684 19.2763 17.3711 19.6404C17.0685 19.9925 16.6685 20.3925 16.1751 20.8859L16.1545 20.9065L15.5307 21.5303C15.3748 21.6862 15.1582 21.7656 14.9385 21.7474C14.7188 21.7293 14.5182 21.6153 14.39 21.4359L12.3916 18.6381C12.3601 18.6659 12.3292 18.6927 12.2987 18.7186C12.0081 18.9653 11.7084 19.17 11.3484 19.287C10.7961 19.4665 10.2012 19.4665 9.64886 19.287C9.28886 19.17 8.98921 18.9653 8.69865 18.7186C8.42006 18.4821 8.10482 18.1669 7.72715 17.7892L7.70558 17.7676L5.23106 15.2931L5.20953 15.2716C4.83183 14.8939 4.51656 14.5786 4.28005 14.3C4.03338 14.0095 3.82864 13.7098 3.71167 13.3498C3.53221 12.7975 3.53221 12.2026 3.71167 11.6502C3.82864 11.2902 4.03338 10.9906 4.28005 10.7C4.30584 10.6697 4.33256 10.6389 4.36019 10.6076L1.56406 8.61026C1.38467 8.48211 1.27074 8.28153 1.25256 8.06181C1.23438 7.8421 1.31379 7.62552 1.46968 7.46963L2.09378 6.84555L2.11433 6.825C2.60774 6.33159 3.00768 5.93166 3.35973 5.62912C3.72381 5.31625 4.07696 5.07122 4.49011 4.914C5.15144 4.66234 5.87048 4.60291 6.56415 4.7426C6.9975 4.82987 7.38608 5.01359 7.79658 5.26245C8.12016 5.45861 8.48576 5.7134 8.91737 6.02065L12.0624 2.87559L12.1229 2.81515C12.5834 2.35429 12.9023 2.03529 13.2819 1.80263C13.6174 1.59702 13.9832 1.44551 14.3659 1.35365C14.7988 1.2497 15.2499 1.24983 15.9014 1.25002ZM15.4683 13.4698L19.0624 9.87559C19.6065 9.33149 19.7887 9.14247 19.9171 8.93301C20.0405 8.7317 20.1314 8.51222 20.1865 8.28264C20.2438 8.04377 20.2487 7.78128 20.2487 7.01181L20.2486 4.40003C20.2486 3.96762 20.2481 3.68841 20.2307 3.47591C20.2141 3.27216 20.1858 3.19662 20.1669 3.15954C20.095 3.01842 19.9803 2.90368 19.8391 2.83178C19.8021 2.81288 19.7265 2.78462 19.5228 2.76798C19.3103 2.75061 19.0311 2.75003 18.5986 2.75003L15.9869 2.75003C15.2174 2.75003 14.9549 2.75485 14.716 2.8122C14.4865 2.86732 14.267 2.95823 14.0657 3.08159C13.8562 3.20995 13.6672 3.39215 13.1231 3.93625L8.56505 8.4943L6.03048 11.0303C6.02391 11.0368 6.01725 11.0432 6.0105 11.0495C5.75537 11.3065 5.56731 11.5015 5.42356 11.6708C5.23712 11.8904 5.16967 12.0171 5.13826 12.1138C5.05669 12.3648 5.05669 12.6353 5.13826 12.8863C5.16967 12.983 5.23712 13.1097 5.42356 13.3293C5.61569 13.5556 5.88696 13.8277 6.29172 14.2324L6.99902 14.9397L8.46902 13.4698C8.76191 13.1769 9.23678 13.1769 9.52968 13.4698C9.82257 13.7626 9.82257 14.2375 9.52968 14.5304L8.05968 16.0004L8.76624 16.707C9.17101 17.1117 9.4431 17.383 9.66941 17.5751C9.88903 17.7616 10.0157 17.829 10.1124 17.8604C10.3634 17.942 10.6339 17.942 10.8849 17.8604C10.9816 17.829 11.1083 17.7616 11.3279 17.5751C11.5542 17.383 11.8263 17.1117 12.2311 16.707L15.4683 13.4698ZM5.41813 9.51989L7.50369 7.43433L7.84132 7.09652C7.51231 6.86426 7.24947 6.68489 7.01898 6.54516C6.68431 6.34227 6.46423 6.25259 6.26803 6.21308C5.85183 6.12927 5.4204 6.16492 5.02361 6.31592C4.83656 6.3871 4.63418 6.5117 4.33736 6.76677C4.03377 7.02766 3.67415 7.38651 3.15636 7.90428L5.41813 9.51989ZM15.096 19.8436L13.4798 17.5809L15.9025 15.1572C16.1353 15.4869 16.315 15.7501 16.455 15.981C16.6579 16.3157 16.7476 16.5358 16.7871 16.732C16.871 17.1482 16.8353 17.5796 16.6843 17.9765C16.6131 18.1635 16.4885 18.3659 16.2334 18.6628C15.9726 18.9663 15.6137 19.3259 15.096 19.8436ZM12.752 8.99957C12.752 8.30921 13.3116 7.74957 14.002 7.74957C14.6923 7.74957 15.252 8.30921 15.252 8.99957C15.252 9.68992 14.6923 10.2496 14.002 10.2496C13.3116 10.2496 12.752 9.68992 12.752 8.99957ZM14.002 6.24957C12.4832 6.24957 11.252 7.48078 11.252 8.99957C11.252 10.5184 12.4832 11.7496 14.002 11.7496C15.5207 11.7496 16.752 10.5184 16.752 8.99957C16.752 7.48078 15.5207 6.24957 14.002 6.24957Z" fill="var(--icon-border)" />
@@ -449,7 +445,7 @@ export default function Quiz() {
                                 </button>
 
                                 <button onClick={() => setSidebarView('quiz_edit')} className={styles.publish_cta}>
-                                    <p>Settings</p>
+                                    <p>{(t("quiz.settings"))}</p>
 
 
                                     <svg style={{ marginLeft: '.75em' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -469,7 +465,7 @@ export default function Quiz() {
                                         </svg>
                                     </div>
                                     <div className={styles.navicon_text}>
-                                        <p>{quiz.questions.length} Questions</p>
+                                        <p>{quiz.questions.length} {t("quiz.questions")}</p>
                                     </div>
 
                                 </div>
@@ -487,7 +483,7 @@ export default function Quiz() {
                                                     </svg>
                                                 </div>
                                                 <div className={styles.navicon_text}>
-                                                    <p>Add Question</p>
+                                                    <p>{(t("quiz.addquestion"))}</p>
                                                 </div>
                                             </div>
                                         </>

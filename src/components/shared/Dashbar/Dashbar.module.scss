@@ -6,8 +6,7 @@
     flex-direction: row;
     position: relative;
     overflow: hidden;
-    transition: all ease-in-out .3s;
-
+    transition: all ease-in-out 0.3s;
 }
 
 .sidebar {
@@ -20,7 +19,7 @@
     background: var(--background-important);
     border-right: 2px solid var(--border-color);
     padding: 0.75em;
-    transition: all ease-in-out .3s;
+    transition: all ease-in-out 0.3s;
 }
 
 .sidebar_top {
@@ -54,8 +53,7 @@
     transition: var(--animate);
     position: relative;
     cursor: pointer;
-    transition: .3s ease-in-out all;
-
+    transition: 0.3s ease-in-out all;
 
     &:hover {
         background: var(--hover-color);
@@ -225,7 +223,7 @@
 }
 
 .modal_body {
-    padding: 0.5em 1em;
+    padding: 1em 1em;
 }
 
 .modal_title {
@@ -240,10 +238,16 @@
 
 ._form_label_name {
     margin-top: 1em;
-    font-size: 1.15em;
-    letter-spacing: .1px;
+    margin-left: 0.25em;
+    font-size: 0.8em;
+    letter-spacing: 0.1px;
     font-weight: 400;
     color: var(--text-color);
+    text-transform: uppercase;
+
+    &:last-child {
+        margin-top: 0.5em;
+    }
 }
 
 ._form_input {
@@ -269,15 +273,21 @@
     }
 }
 
-
-.closemodal{
+.closemodal {
     width: 2.15em;
-    padding: .3em;
-    transition: all ease-in-out .3s;
+    padding: 0.3em;
+    transition: all ease-in-out 0.3s;
     border-radius: 100%;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         background: var(--hover-color);
     }
+}
+
+.logocontainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

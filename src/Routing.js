@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { BrowserRouter as Wrapper, Switch, Route as NotProtected, Redirect } from 'react-router-dom';
+import { BrowserRouter as Wrapper, Routes as Switch, Route, Redirect } from 'react-router-dom';
 import * as CONST from './reduxComponents/constants/index'
-import { ProtectedRoute } from './pages/ProtectedRoute';
+import Auth from './pages/Auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 import { fetchUserData } from './reduxComponents/actions/User';
@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Home from './pages/Home';
 import Error from './pages/Error';
+import UserProfile from './pages/Dashboard/User'
 import FormView from './pages/FormView';
 import Contact from './pages/Contact';
 import Profile from './pages/Dashboard/Profile';
@@ -22,13 +23,46 @@ import DashboardContact from './pages/Dashboard/Contact';
 import EditQuiz from './pages/Dashboard/EditQuiz';
 import Community from './pages/Dashboard/Community';
 import Leaderboard from './pages/Dashboard/Leaderboard';
-import Loaders from './pages/Loaders';
 import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
+import Dashauth from './pages/Dashboard/Auth';
+import { documentVisibility, inActive } from './utils/inActivity';
+import { useTranslation } from 'react-i18next';
+import Support from "./pages/Dashboard/Support";
 
 export default function Routing() {
-   const theme = useSelector((state) => state.ui.theme);
    const dispatch = useDispatch();
+
+   const language = useSelector(state => state.user.language)
+
+   const { t, i18n } = useTranslation();
+
+   const changeLang = (lang) => {
+      i18n.changeLanguage(lang)
+      localStorage.setItem('i18nextLng', lang)
+   }
+
+   React.useEffect(() => {
+
+      if (localStorage.getItem('i18nextLng') === null) {
+         localStorage.setItem('i18nextLng', 'en')
+      }
+
+      else
+         switch (localStorage.getItem('i18nextLng')) {
+            case 'en': changeLang('en'); break;
+            case 'sq': changeLang('sq'); break;
+            case 'ar': changeLang('ar'); break;
+            case 'de': changeLang('de'); break;
+            case 'fr': changeLang('fr'); break;
+         }
+   }, [])
+
+   if (JSON.parse(localStorage.getItem('user'))) {
+      inActive(600000, dispatch);
+      documentVisibility();
+   }
+
 
    React.useEffect(() => {
       dispatch(fetchUserData());
@@ -54,33 +88,33 @@ export default function Routing() {
    return (
       <Wrapper>
          <Switch>
-            <NotProtected path="/" component={Home} exact />
-            <NotProtected path="/auth" component={FormView} />
-            <NotProtected path="/contact" component={Contact} />
-            <NotProtected path="/about-us" component={About} />
-            <NotProtected path="/loaders" component={Loaders} />
+            <Route path="/" element={<Home />} exact /> {/*not*/}
+            <Route path="/auth" element={<FormView />} /> {/*not*/}
+            <Route path="/contact" element={<Contact />} /> {/*not*/}
+            <Route path="/about" element={<About />} /> {/*not*/}
 
-            <ProtectedRoute path="/dashboard/welcome" component={Screen} />
-            <ProtectedRoute path="/invite/*" component={Play} />
-            <ProtectedRoute path="/play" component={Play} />
-            <ProtectedRoute path="/dashboard/quizzes/add-quiz" component={Quiz} />
-            <ProtectedRoute path="/dashboard/quizzes/edit-quiz/:id" component={EditQuiz} />
-            <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
-            <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
-            <ProtectedRoute path="/dashboard/community" component={Community} />
-            <ProtectedRoute path="/dashboard/profile" component={Profile} />
-            <ProtectedRoute path="/dashboard/profile/edit" component={EditProfile} />
-            <ProtectedRoute path="/dashboard/leaderboard" component={Leaderboard} />
-            <ProtectedRoute path="/dashboard/support" component={DashboardContact} />
-            <ProtectedRoute path="/dashboard/bookmarks" component={Bookmarks} />
+            <Route exact path='/' element={<Auth />}> {/*not*/}
+               <Route path="/invite/*" element={<Play />} /> {/*not*/}
+               <Route path="/play" element={<Play />} /> {/*not*/} 
+               <Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} /> {/*not*/}
+               <Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} /> {/*not*/}
+               <Route path="/dashboard/admin" element={<AdminPanel />} /> {/*not*/}
+               <Route path="/dashboard/quizzes" element={<Quizzes />} /> {/*yes*/}
+               <Route path="/dashboard/community" element={<Community />} /> {/*yes*/}
+               <Route path="/dashboard/profile/edit" element={<EditProfile />} /> {/*not*/}
+               <Route path="/dashboard/profile/:username" element={<UserProfile />} /> {/*not*/}
+               <Route path="/dashboard/profile" element={<Profile />} /> {/*not*/}
+               <Route path="/dashboard/leaderboard" element={<Leaderboard />} /> {/*not*/}
+               <Route path="/dashboard/support" element={<DashboardContact />} /> {/*not*/}
+               <Route path="/dashboard/bookmarks" element={<Bookmarks />} /> {/*not*/}
+               <Route path="/dashboard/messenger" element={<Support />} /> {/*not*/}
+               <Route path="/dashboard" element={<Screen />} /> {/*not*/}
+            </Route>
 
-            <NotProtected path="/dashboard">
-               <Redirect to="/dashboard/welcome" />
-            </NotProtected>
-            <NotProtected path="/dashboard/*">
-               <Redirect to="/dashboard/welcome" />
-            </NotProtected>
-            <NotProtected path="/*" component={Error} />
+            <Route path="/dashboard/auth" element={<Dashauth />} /> {/*not*/}
+            <Route path="/*" element={<Error />} /> {/*ok*/}
+            <Route path="/dashboard/*" element={<Error />} /> {/*ok*/}
+
          </Switch>
       </Wrapper>
    );

@@ -8,15 +8,30 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUserData } from '../../../reduxComponents/actions/User';
 import * as CONST from '../../../reduxComponents/constants/index';
+import Console from './components/Console'
+import Auth from '../../../pages/Dashboard/Auth'
+import { useTranslation } from 'react-i18next';
 
 export default function Dashbar({ page }) {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user);
+	const auth = useSelector((state) => state.auth);
+	const [lang, setLang] = useState(localStorage.getItem('i18nextLng') || 'en')
+
+	const {t, i18n} = useTranslation();
+
+	const changeLang = (lang) => {
+		i18n.changeLanguage(lang);
+		localStorage.setItem('i18nextLng', lang)
+	 }
+
+
 	const [menu, setMenu] = useState(false);
 	const [dropdown, setDropdown] = useState(false);
 	const theme = useSelector((state) => state.ui.theme);
 	const current_url = document.URL;
 	const [isModal, setIsModal] = useState(false);
+	const [adminConsole, setAdminConsole] = useState(false);
 
 	useEffect(() => {
 		dispatch(fetchUserData());
@@ -25,11 +40,14 @@ export default function Dashbar({ page }) {
 	return (
 		<main className={styles.container}>
 			{
+				adminConsole === true ? <Console console={adminConsole} setConsole={setAdminConsole} /> : null
+			}
+			{
 				isModal === true ?
 					<div className={styles.modal_container}>
 						<div className={styles.modal_box}>
 							<div className={styles.modal_header}>
-								<p className={styles.modal_title}>Settings</p>
+								<p className={styles.modal_title}>{t("dashbar.settings")}</p>
 
 								<svg onClick={() => setIsModal(false)} className={styles.closemodal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="var(--icon-border)" />
@@ -37,20 +55,24 @@ export default function Dashbar({ page }) {
 							</div>
 
 							<div className={styles.modal_body}>
-								<label className={styles._form_label_name} htmFor="thememode">Theme</label>
+								<label className={styles._form_label_name} htmFor="thememode">{t("dashbar.theme")}</label>
 								<select className={styles._form_input} defaultValue={theme === "lightmode" ? "lightmode" : "darkmode"} onChange={(e) => { const selected = e.target.value; selected === 'darkmode' ? dispatch({ type: CONST.SET_DARK_MODE }) : dispatch({ type: CONST.SET_LIGHT_MODE }) }} id="thememode" placeholder="Category">
-									<option value="lightmode">Lightmode</option>
-									<option value="darkmode">Darkmode</option>
+									<option value="lightmode">{t("dashbar.lightmode")}</option>
+									<option value="darkmode">{t("dashbar.darkmode")}</option>
 								</select>
 							</div>
 
-							<div className={styles.modal_body}>
-								<label className={styles._form_label_name} htmFor="languagechoser">Language</label>
-								<select className={styles._form_input} id="languagechoser" placeholder="Category">
-									<option value="61961c1788d1b50588079052">English</option>
-									<option value="617bf1df3b7012bee6d4056d">Albanian</option>
-									<option value="61961c1b88d1b50588079055">Turkish</option>
-									<option value="61961be088d1b5058807904f">German</option>
+							<div style={{marginTop: '-1em'}} className={styles.modal_body}>
+								<label className={styles._form_label_name} htmFor="languagechoser">{t("dashbar.language")}</label>
+								<select value={localStorage.getItem('i18nextLng')} onChange={(e) => {
+									setLang(e.target.value)
+									changeLang(e.target.value)
+								}} className={styles._form_input} value={lang} id="languagechoser" placeholder="Category">
+									<option value="sq">{t("dashbar.sq")}</option>
+									<option value="ar">{t("dashbar.ar")}</option>
+									<option value="en">{t("dashbar.en")}</option>
+									<option value="de">{t("dashbar.de")}</option>
+									<option value="fr">{t("dashbar.fr")}</option>
 								</select>
 							</div>
 						</div>
@@ -58,13 +80,15 @@ export default function Dashbar({ page }) {
 			}
 			<header onMouseLeave={() => setMenu(false)} onMouseEnter={() => setMenu(true)} className={styles.sidebar}>
 				<div className={menu === true ? styles.sidebar_top : styles.sidebar_top_small}>
-					<Logo />
+					<div className={styles.logocontainer}>
+						<Logo />
+					</div>
 					<div className={styles.spacer} />
 
-					<Link to="/dashboard/welcome">
+					<Link to="/dashboard">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/welcome') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/dashboard') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -84,7 +108,7 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Homepage</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.home")}</p> : null}
 						</div>
 					</Link>
 
@@ -115,7 +139,7 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>My Quizzes</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.myquizzes")}</p> : null}
 						</div>
 					</Link>
 
@@ -142,7 +166,7 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Community</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.community")}</p> : null}
 						</div>
 					</Link>
 
@@ -171,7 +195,7 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Leaderboard</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.leaderboard")}</p> : null}
 						</div>
 					</Link>
 
@@ -198,7 +222,7 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Bookmarks</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.bookmarks")}</p> : null}
 						</div>
 					</Link>
 
@@ -229,7 +253,7 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Support</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.support")}</p> : null}
 						</div>
 					</Link>
 				</div>
@@ -244,7 +268,7 @@ export default function Dashbar({ page }) {
 								<path fillRule="evenodd" clipRule="evenodd" fill="var(--icon-border)" d="M10.25 7C10.25 4.92893 11.9289 3.25 14 3.25C15.8142 3.25 17.3275 4.53832 17.675 6.25H21C21.4142 6.25 21.75 6.58579 21.75 7C21.75 7.41421 21.4142 7.75 21 7.75H17.675C17.3275 9.46168 15.8142 10.75 14 10.75C11.9289 10.75 10.25 9.07107 10.25 7ZM14 4.75C15.2426 4.75 16.25 5.75736 16.25 7C16.25 8.24264 15.2426 9.25 14 9.25C12.7574 9.25 11.75 8.24264 11.75 7C11.75 5.75736 12.7574 4.75 14 4.75ZM2 6.25C1.58579 6.25 1.25 6.58579 1.25 7C1.25 7.41421 1.58579 7.75 2 7.75H8C8.41421 7.75 8.75 7.41421 8.75 7C8.75 6.58579 8.41421 6.25 8 6.25H2ZM2 16.25C1.58579 16.25 1.25 16.5858 1.25 17C1.25 17.4142 1.58579 17.75 2 17.75H5.32501C5.67247 19.4617 7.18578 20.75 9 20.75C11.0711 20.75 12.75 19.0711 12.75 17C12.75 14.9289 11.0711 13.25 9 13.25C7.18578 13.25 5.67247 14.5383 5.32501 16.25H2ZM6.75 17C6.75 18.2426 7.75736 19.25 9 19.25C10.2426 19.25 11.25 18.2426 11.25 17C11.25 15.7574 10.2426 14.75 9 14.75C7.75736 14.75 6.75 15.7574 6.75 17ZM15 16.25C14.5858 16.25 14.25 16.5858 14.25 17C14.25 17.4142 14.5858 17.75 15 17.75H21C21.4142 17.75 21.75 17.4142 21.75 17C21.75 16.5858 21.4142 16.25 21 16.25H15Z" />
 							</svg>
 
-							{menu === true ? <p className={styles.sidebar_item_text}>Settings</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.settings")}</p> : null}
 						</div>
 					</div>
 					<Link to="/dashboard/profile" id="nav-item-profile">
@@ -252,24 +276,37 @@ export default function Dashbar({ page }) {
 							className={styles.profile_nav}
 							src={`https://swiftapi.vercel.app/${user.avatar}`}
 						/>
-
+						{console.log(user)}
 						{menu === true ? (
-							<p className={styles.sidebar_item_text}>{user.name}</p>
+							<p className={styles.sidebar_item_text}>{user.name === '' || user.name === null ? 'Guest' : user.name}</p>
 						) : null}
 					</Link>
 				</div>
 			</header>
-			<section className="body-dash">{page}</section>
+			<section className="body-dash">
+				{/* {
+					auth.is_loggedin === false ?
+					<Auth /> : 
+				} */}
+				{page}
+			</section>
 			{
-				CheckPath(current_url, '/add-quiz') === true ? null : (
+				CheckPath(current_url, '/add-quiz') === true || CheckPath(current_url, '/profile') === true || CheckPath(current_url, '/auth') === true ? null : (
 					<section className={styles.acc_actions}>
+
+						<div onClick={() => setAdminConsole(!adminConsole)} className={styles.action_item}>
+							<svg width="24" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M29.7143 0.571411H2.28571C1.02321 0.571411 0 1.59462 0 2.85713V25.7143C0 26.9768 1.02321 28 2.28571 28H29.7143C30.9768 28 32 26.9768 32 25.7143V2.85713C32 1.59462 30.9768 0.571411 29.7143 0.571411ZM4.57143 16.5714L9.14286 12L4.57143 7.42855L6.85714 5.14284L13.7143 12L6.85714 18.8571L4.57143 16.5714ZM22.8571 18.8571H13.7143V16.5714H22.8571V18.8571V18.8571Z" fill="black" />
+							</svg>
+						</div>
+
 						<div className={styles.action_item}>
-							<p className={styles.action_item_acc_name}> {user.coins} Coins </p>
+							<p className={styles.action_item_acc_name}> {user.coins} {t("dashbar.coins")}</p>
 							<img className={styles.actions_bar_icon} src={coin} />
 						</div>
 
 						<div onClick={() => setDropdown(!dropdown)} className={styles.action_item}>
-							<p className={styles.action_item_acc_name}>{user.name}</p>
+							<p className={styles.action_item_acc_name}>{user.name === '' || user.name === null ? 'Guest' : user.name}</p>
 							<img
 								style={{ marginLeft: '.3em' }}
 								className={styles.actions_bar_icon}
@@ -280,7 +317,7 @@ export default function Dashbar({ page }) {
 						{dropdown === true ? (
 							<div className={styles.acc_actions_dropwdown}>
 								<div className={styles.action_dropdown_item}>
-									<p className={styles.action_dropdown_item_name}>Profile</p>
+									<p className={styles.action_dropdown_item_name}>{t("dashbar.profile")}</p>
 									<svg
 										className={styles.action_item_icon}
 										viewBox="0 0 24 24"
@@ -296,7 +333,7 @@ export default function Dashbar({ page }) {
 									</svg>
 								</div>
 								<div className={styles.action_dropdown_item}>
-									<p className={styles.action_dropdown_item_name}> Logout </p>
+									<p className={styles.action_dropdown_item_name}>{t("dashbar.logout")}</p>
 									<svg
 										className={styles.action_item_icon}
 										viewBox="0 0 24 24"
