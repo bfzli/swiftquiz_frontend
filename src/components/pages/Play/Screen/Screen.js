@@ -5,11 +5,13 @@ import correct_choice from '../../../../assets/voices/isCorrect.mp3'
 import coin from '../../../../assets/images/Coin.png';
 import avatar from '../../../../assets/images/profile.jpg'
 import Helmet from 'react-helmet'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import {updateUserScore} from '../../../../reduxComponents/actions/User'
 import { useTranslation } from 'react-i18next';
 
+
 export default function Screen({ quiz }) {
-    const user = useSelector(state => state.auth.auth)
+    const user = useSelector(state => state.user)
     const [menuView, setMenuView] = useState('stats');
     const [questions] = useState(quiz);
     let [currentQuestion, setCurrentQuestion] = useState(0)
@@ -21,6 +23,7 @@ export default function Screen({ quiz }) {
     const [countDown, setCountDown] = useState(0);
     const [runTimer, setRunTimer] = useState(true);
     const [sounds, setSounds] = useState(true);
+    const dispatch =useDispatch();
 
     const {t} = useTranslation(); 
 
@@ -72,6 +75,8 @@ export default function Screen({ quiz }) {
             setRunTimer(false)
             setModal(true)
             var coins = 0;
+            console.log(newPoints)
+            dispatch(updateUserScore(newPoints));
         }
     }
 
@@ -372,12 +377,12 @@ export default function Screen({ quiz }) {
                                 :
                                 <div className={styles.modal} data-aos="fade-top">
                                     <div className={styles.profile}>
-                                        <img className={styles.profile_img} src={avatar} />
+                                        <img className={styles.profile_img} src={user.avatar} />
                                         <p className={styles.profile_name}>
                                             {user.name}
                                         </p>
                                         <div className={styles.coinsw}>
-                                            <p className={styles.pointers}>10.399 </p>
+                                            <p className={styles.pointers}>{user.coins}</p>
                                             <img src={coin} width="42px" height="42px" />
 
                                             <sup style={{ display: 'flex' }}>

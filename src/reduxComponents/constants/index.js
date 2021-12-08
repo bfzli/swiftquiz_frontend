@@ -59,9 +59,13 @@ export const USER_PROFIL_FAILED = 'USER_PROFIL_FAILED';
 export const USER_PROFIL_SUCCESS = 'USER_PROFIL_SUCCESS';
 
 // Update (Edit a Profile User)
-export const USER_UPDATE_REQUEST = 'USER_UPDATE_REQUEST';
-export const USER_UPDATE_SUCCESS = 'USER_UPDATE_SUCCESS';
-export const USER_UPDATE_FAIL = 'USER_UPDATE_FAIL';
+export const USER_UPDATE_REQUEST = "USER_UPDATE_REQUEST";
+export const USER_UPDATE_SUCCESS = "USER_UPDATE_SUCCESS";
+export const USER_UPDATE_FAIL = "USER_UPDATE_FAIL";
+
+//Update (Save user coins)
+export const USER_SCORE_UPDATE = "USER_SCORE_REQUEST";
+export const USER_SCORE_FAILED='USER_SCORE_FAILED';
 
 // Get Single Profile from Database
 export const USER_GET_PROFILE_SUCCESS = 'USER_GET_PROFILE_SUCCESS'

@@ -44,6 +44,10 @@ export const deleteUser = (userId) => client.delete(`/${userId}`);
 // Edit Profil Information
 export const editprofil = (id, params) => client.put(`${id}`, params);
 
+
+//Saving user coins after playing quiz
+export const userScore = (coins) => client.put(`${user_id}/saving-new-score`,{coins});
+
 // Leaderboard Coins
 export const leaderboardCoins = () => client.get(`/user-collection`);
 
