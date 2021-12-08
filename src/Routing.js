@@ -28,6 +28,7 @@ import Bookmarks from './pages/Dashboard/Bookmarks';
 import Dashauth from './pages/Dashboard/Auth';
 import { documentVisibility, inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
+import Support from "./pages/Dashboard/Support";
 
 export default function Routing() {
    const dispatch = useDispatch();

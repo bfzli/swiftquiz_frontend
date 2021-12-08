@@ -1,0 +1,83 @@
+.messenger {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.chatMenu {
+  flex: 2.5;
+}
+
+.chatBox {
+  flex: 5;
+  margin-bottom: 5px;
+}
+
+.chatOnline {
+  flex: 2.5;
+}
+.chatMenuWrapper,
+.chatBoxWrapper,
+.chatOnlineWrapper {
+  padding: 10px;
+  height: 100%;
+}
+
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.chatBoxTop {
+  height: 100vh;
+  overflow-y: scroll;
+  padding-right: 10px;
+}
+
+.chatMenuInput {
+  width: 90%;
+  border: none;
+  padding: 10px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.chatBoxBottom {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & textarea {
+    width: 80%;
+    height: 35px;
+    padding: 6px;
+    resize: none;
+    font-family: "Poppins";
+    background-color: rgb(231, 231, 231);
+    border: none;
+    border-radius: 10px;
+  }
+  & img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #5928e5;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.1) rotate(45deg);
+    }
+  }
+}
+
+.noConversationText {
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(223, 213, 213);
+  cursor: default;
+}
