@@ -6,6 +6,7 @@ import coin from '../../../../assets/images/Coin.png';
 import avatar from '../../../../assets/images/profile.jpg'
 import Helmet from 'react-helmet'
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 export default function Screen({ quiz }) {
     const user = useSelector(state => state.auth.auth)
@@ -21,7 +22,7 @@ export default function Screen({ quiz }) {
     const [runTimer, setRunTimer] = useState(true);
     const [sounds, setSounds] = useState(true);
 
-    console.log(questions);
+    const {t} = useTranslation(); 
 
     let [all, setAll] = useState([])
 
@@ -71,7 +72,6 @@ export default function Screen({ quiz }) {
             setRunTimer(false)
             setModal(true)
             var coins = 0;
-            console.log('youve finished call it')
         }
     }
 
@@ -142,7 +142,7 @@ export default function Screen({ quiz }) {
         top: '.75em',
         left: '0',
         width: `${prg}%`,
-        backgroundColor: 'white',
+        backgroundColor: 'red',
         transform: 'width 0.45s ease-in-out',
     }
 
@@ -156,7 +156,8 @@ export default function Screen({ quiz }) {
                         <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
                     </Helmet>
                     <header className={styles.header} data-aos="fade-right">
-                        <p className={styles.stats_title}>Information Area</p>
+                        <p className={styles.stats_title}>{questions.title}</p>
+
                         {
                             menuView === 'stats'
 
@@ -182,36 +183,37 @@ export default function Screen({ quiz }) {
                                         </div>
                                     </div>
                                     <div className={styles.general_stats}>
-                                        <div className={styles.stats_boxes}>
+                                        <div  className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{minutes}:{seconds}</h3>
-                                            <p className={styles.stats_description}>Time to Answer</p>
+                                            <p className={styles.stats_description}>{t("play_enter.timeleft")}</p>
+                                            <div style={timeprogress} />
                                         </div>
 
                                         <div className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{points}</h3>
-                                            <p className={styles.stats_description}>Coins Collected</p>
+                                            <p className={styles.stats_description}>{t("play_enter.coinscollected")}</p>
                                         </div>
 
                                         <div className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{correctAnswersCount}</h3>
-                                            <p className={styles.stats_description}>Correct Answers</p>
+                                            <p className={styles.stats_description}>{t("play_enter.correcta")}</p>
                                         </div>
 
                                         <div className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{wrongAnswersCount}</h3>
-                                            <p className={styles.stats_description}>Wrong Answers</p>
+                                            <p className={styles.stats_description}>{t("play_enter.wronga")}</p>
                                         </div>
 
                                         <div className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{TotalQuestions - wrongAnswersCount - correctAnswersCount}</h3>
-                                            <p className={styles.stats_description}>Left Questions</p>
+                                            <p className={styles.stats_description}>{t("play_enter.leftquestions")}</p>
                                         </div>
 
                                         <div className={styles.stats_boxes}>
                                             <h3 className={styles.stats_icon}>{TotalQuestions}</h3>
-                                            <p className={styles.stats_description}>Total Questions</p>
+                                            <p className={styles.stats_description}>{t("play_enter.totalquestions")}</p>
                                         </div>
-                                        <p style={{ marginTop: '12px' }} className={styles.stats_title}>Settings</p>
+                                        <p style={{ marginTop: '12px' }} className={styles.stats_title}>{t("play_enter.settings")}</p>
                                         {
                                             sounds === true ?
 
@@ -249,7 +251,7 @@ export default function Screen({ quiz }) {
                                                 <svg className={styles.view_icon} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fillRule="evenodd" clipRule="evenodd" d="M10.3264 0.209663C10.4861 0.0663223 10.6973 -0.00881318 10.9135 0.000824899C15.4843 0.137655 19.3044 3.4558 19.9967 7.89063C20.0011 7.91711 20.0011 7.94411 19.9967 7.97059C20.0116 8.18043 19.9407 8.38745 19.7996 8.54585C19.6586 8.70425 19.459 8.80099 19.2451 8.81466L11.5656 9.3211C11.3116 9.34362 11.0597 9.26005 10.8718 9.09092C10.6839 8.92179 10.5774 8.68278 10.5785 8.43261L10.0623 0.889316V0.764928C10.0717 0.552776 10.1667 0.353003 10.3264 0.209663ZM9.79965 11.2936L16.4297 10.8848H16.5011C16.7869 10.8895 17.0591 11.0054 17.2579 11.207C17.4566 11.4087 17.5655 11.6795 17.5606 11.9599C17.2984 15.782 14.4962 18.9755 10.6828 19.7982C6.86938 20.621 2.96017 18.8754 1.08778 15.5139C0.537217 14.5457 0.189303 13.4794 0.064454 12.3775C0.0160313 12.051 -0.0051696 11.7212 0.00106199 11.3913C0.0136824 7.32706 2.90728 3.81907 6.95607 2.9595C7.4462 2.86776 7.93762 3.11248 8.15146 3.55479C8.25711 3.71408 8.28448 3.9091 8.29693 4.09983C8.36702 5.17389 8.43928 6.23903 8.51126 7.30004C8.57317 8.2127 8.63488 9.1223 8.69482 10.0319C8.69173 10.2462 8.7254 10.4594 8.79444 10.6627C8.95695 11.0627 9.36136 11.3165 9.79965 11.2936Z" />
                                                 </svg>
-                                                <p className={styles.view_item_text}>Anwsers<span className={styles.notification}>{all.length - 1}</span></p>
+                                                <p className={styles.view_item_text}>{t("play_enter.anwsers")}<span className={styles.notification}>{all.length - 1}</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -345,11 +347,11 @@ export default function Screen({ quiz }) {
                         }
                     </header>
                     <div className={styles.play_area}>
-                        <div className={styles.bar}>
+                        {/* <div className={styles.bar}>
                             <div className={styles.bar_value}>
                                 {questions.title}
                             </div>
-                        </div>
+                        </div> */}
 
                         {
                             modal === false
@@ -357,9 +359,6 @@ export default function Screen({ quiz }) {
                                 ?
                                 <>
                                     <div className={styles.question} data-aos="fade-left">
-
-                                        <div style={timeprogress} />
-
                                         {questions.questions[currentQuestion].question}
                                     </div>
 
@@ -389,7 +388,7 @@ export default function Screen({ quiz }) {
                                         </div>
                                         <button className={styles.button}
                                             onClick={() => resetQuiz()}>
-                                            <p style={{ marginRight: '.35em' }}>Play again with 200</p> <img src={coin} width="32px" height="32px" />
+                                            <p style={{ marginRight: '.35em' }}>{t("play_enter.play_again")} 200</p> <img src={coin} width="32px" height="32px" />
                                         </button>
                                     </div>
                                 </div>

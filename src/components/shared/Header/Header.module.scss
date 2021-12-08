@@ -155,7 +155,7 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    z-index: 100;
+    z-index: 100 !important;
 }
 
 .action_dropdown_item {
@@ -166,7 +166,7 @@
     transition: var(--animate);
     border-radius: 10em;
     cursor: pointer;
-    z-index: 100;
+    z-index: 100 !important;
 
     &:hover {
         background: var(--hover-color);

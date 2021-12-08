@@ -151,8 +151,26 @@
     background: var(--background-important);
     border: 2px solid var(--border-color);
     border-right: 0px transparent solid;
-    font-family: "Space Grotesk", sans-serif;
+    font-family: "Poppins";
     color: var(--text-color);
+}
+
+
+.category_filter {
+    margin-left: .5em;
+    font-size: 1.15em;
+    padding: 0.69em 1em;
+    width: 125%;
+    border-radius: 5em 0em 0em 5em;
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
+    border-right: 0px transparent solid;
+    font-family: "Poppins";
+    color: var(--text-color);
+}
+
+.category_select{
+    width: 125%;
 }
 
 .search_wrapper {

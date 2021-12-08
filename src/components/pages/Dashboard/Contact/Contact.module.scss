@@ -1,0 +1,226 @@
+.container {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome_text {
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+.bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quizess {
+    width: 100%;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1em;
+}
+
+.contact_info_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    background: var(--hover-color);
+    margin-bottom: 3em;
+    border-radius: 0.75em;
+}
+
+.contact_title {
+    font-size: 2.5em;
+    color: var(--text-color);
+}
+
+.contact_description {
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+.contact_features_wrapper {
+    width: 100%;
+    margin-bottom: 3em;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1em;
+}
+
+.contact_feature_box_wrapper {
+    width: 100%;
+    height: auto;
+    background: var(--hover-color);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+    border-radius: .75em;
+}
+
+.contact_feature_title{
+    margin-bottom: .5em;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: var(--text-color)
+}
+
+.contact_feature_description{
+    font-size: 1.1em;
+    width: 75%;
+    letter-spacing: -.1px;
+    text-align: center;
+    color: var(--text-color)
+}
+
+.all_tickets_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket_title {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5em;
+    color: var(--text-color)
+}
+
+.askedby {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.25em;
+    color: var(--text-color)
+}
+
+.activity {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em;
+    color: var(--text-color)
+}
+
+.priority {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.state {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em;
+    color: var(--text-color)
+
+}
+
+.ticket_wrapper {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    background: var(--hover-color);
+    margin-bottom: 0.5em;
+    border-radius: 0.75em;
+}
+
+.ticket_wrapper_info {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+    font-size: .75em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.your_quizzes {
+    display: flex;
+    flex-direction: column;
+}
+
+.search {
+    display: flex;
+    margin-left: 1em;
+}
+
+.search_input {
+    font-size: 1.15em;
+    padding: 0.69em 1em;
+    border-radius: 5em 0em 0em 5em;
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
+    border-right: 0px transparent solid;
+    font-family: "Poppins";
+    color: var(--text-color);
+}
+
+.search_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.69em 1em;
+    border-radius: 0em 5em 5em 0em;
+    background: var(--background-important);
+    border-top: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.search_icon {
+    fill: var(--icon-inside);
+}
+
+.page_info {
+    display: flex;
+    align-items: center;
+}
+
+.add_btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    margin-left: 1em;
+    padding: 0.5em 1em;
+    background: var(--button-bg);
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.add_btn_icon {
+    width: 2em;
+    margin-right: 0.5em;
+    fill: var(--button-text);
+    transition: 0.5s all ease-in-out;
+    cursor: pointer;
+}
+
+.add_btn_txt {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-left: 0.25em;
+    padding-right: 0.85em;
+    color: var(--button-text) !important;
+}
