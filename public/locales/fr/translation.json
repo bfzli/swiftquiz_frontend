@@ -71,15 +71,15 @@
         "enter": "Entrer"
     },
     "play_enter": {
-        "timeleft": "Time to Answer",
-        "coinscollected": "Coins Collected",
-        "correcta": "Correct Answers",
-        "wronga": "Wrong Answers",
-        "leftquestions": "Left Questions",
-        "totalquestions": "Total Questions",
-        "settings": "Settings",
-        "analytics": "Analytics",
-        "anwsers": "AAnswers",
-        "play_again": "Play again with"
+        "timeleft": "Temps de réponse",
+        "coinscollected": "Pièces collectées",
+        "correcta": "Réponses correctes",
+        "wronga": "Mauvaises réponses",
+        "leftquestions": "Questions de gauche",
+        "totalquestions": "Nombre total de questions",
+        "settings": "Paramètres",
+        "analytics": "Analytique",
+        "anwsers": "Réponses",
+        "play_again": "Rejouer avec"
     }
 }

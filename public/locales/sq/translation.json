@@ -71,15 +71,15 @@
         "enter": "Hyrë"
     },
     "play_enter": {
-        "timeleft": "Time to Answer",
-        "coinscollected": "Coins Collected",
-        "correcta": "Correct Anwsers",
-        "wronga": "Wrong Anwsers",
-        "leftquestions": "Left Questions",
-        "totalquestions": "Total Questions",
-        "settings": "Settings",
-        "analytics": "Analytics",
-        "anwsers": "Anwsers",
-        "play_again": "Play again with"
+        "timeleft": "Koha",
+        "coinscollected": "Monedhat e mbledhura",
+        "correcta": "Përjigjet e sakta",
+        "wronga": "Përgjigjet gabim",
+        "leftquestions": "Pyetjet e mbetura",
+        "totalquestions": "Pyetjet totale",
+        "settings": "Preferencat",
+        "analytics": "Analtika",
+        "anwsers": "Përgjigjet",
+        "play_again": "Luaj përsëri me"
     }
 }
