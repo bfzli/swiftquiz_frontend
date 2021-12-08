@@ -20,11 +20,7 @@ const userReducer = (state = userState, action) => {
          const { username, avatar, bio } = payload;
          return {
             ...state,
-            email: username.email,
-            username: username.username,
-            name: username.name,
-            avatar,
-            bio,
+            ...payload,
             isLoggedIn: true,
          };
 
@@ -62,6 +58,12 @@ const userReducer = (state = userState, action) => {
                error: payload,
             },
          };
+      
+         case CONST.USER_SCORE_UPDATE:
+            return {
+               ...state,
+               coins: payload
+            };
 
       case 'ALL_USERS_LEADERBOARDS':
          return {
