@@ -1,14 +1,15 @@
 import * as styles from './Code.module.scss'
+import { useTranslation } from 'react-i18next';
 
 export default function Screen({ code, setCode, play_quiz }) {
-
+    const {t} = useTranslation()
     return (
         <>
             <div data-aos="fade-top" className={styles.container}>
                 <div data-aos="fade-right" className={styles.left}>
                     <h1 className={styles.title}>be an einstein, play now!</h1>
                     <p className={styles.description}>
-                        Playing a quiz is simple easly, play by entering a code or through a link that someone invited you to do so.
+                        {t("play_screen.title")}
                     </p>
                     <div style={{ display: 'flex' }}>
                         <input value={code} onChange={(e) => { e.preventDefault(); setCode(e.target.value) }} className={styles.codebox} placeholder="SWIFT2991" type="text" />

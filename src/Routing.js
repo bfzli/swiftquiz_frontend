@@ -88,32 +88,32 @@ export default function Routing() {
    return (
       <Wrapper>
          <Switch>
-            <Route path="/" element={<Home />} exact />
-            <Route path="/auth" element={<FormView />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/" element={<Home />} exact /> {/*not*/}
+            <Route path="/auth" element={<FormView />} /> {/*not*/}
+            <Route path="/contact" element={<Contact />} /> {/*not*/}
+            <Route path="/about" element={<About />} /> {/*not*/}
 
-            <Route exact path='/' element={<Auth />}>
-               <Route path="/invite/*" element={<Play />} />
-               <Route path="/play" element={<Play />} />
-               <Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} />
-               <Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} />
-               <Route path="/dashboard/admin" element={<AdminPanel />} />
-               <Route path="/dashboard/quizzes" element={<Quizzes />} />
-               <Route path="/dashboard/community" element={<Community />} />
-               <Route path="/dashboard/profile/edit" element={<EditProfile />} />
-               <Route path="/dashboard/profile/:username" element={<UserProfile />} />
-               <Route path="/dashboard/profile" element={<Profile />} />
-               <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
-               <Route path="/dashboard/support" element={<DashboardContact />} />
-               <Route path="/dashboard/bookmarks" element={<Bookmarks />} />
-               <Route path="/dashboard/messenger" element={<Support />} />
-               <Route path="/dashboard" element={<Screen />} />
+            <Route exact path='/' element={<Auth />}> {/*not*/}
+               <Route path="/invite/*" element={<Play />} /> {/*not*/}
+               <Route path="/play" element={<Play />} /> {/*not*/} 
+               <Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} /> {/*not*/}
+               <Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} /> {/*not*/}
+               <Route path="/dashboard/admin" element={<AdminPanel />} /> {/*not*/}
+               <Route path="/dashboard/quizzes" element={<Quizzes />} /> {/*yes*/}
+               <Route path="/dashboard/community" element={<Community />} /> {/*yes*/}
+               <Route path="/dashboard/profile/edit" element={<EditProfile />} /> {/*not*/}
+               <Route path="/dashboard/profile/:username" element={<UserProfile />} /> {/*not*/}
+               <Route path="/dashboard/profile" element={<Profile />} /> {/*not*/}
+               <Route path="/dashboard/leaderboard" element={<Leaderboard />} /> {/*not*/}
+               <Route path="/dashboard/support" element={<DashboardContact />} /> {/*not*/}
+               <Route path="/dashboard/bookmarks" element={<Bookmarks />} /> {/*not*/}
+               <Route path="/dashboard/messenger" element={<Support />} /> {/*not*/}
+               <Route path="/dashboard" element={<Screen />} /> {/*not*/}
             </Route>
 
-            <Route path="/dashboard/auth" element={<Dashauth />} />
-            <Route path="/*" element={<Error />} />
-            <Route path="/dashboard/*" element={<Error />} />
+            <Route path="/dashboard/auth" element={<Dashauth />} /> {/*not*/}
+            <Route path="/*" element={<Error />} /> {/*ok*/}
+            <Route path="/dashboard/*" element={<Error />} /> {/*ok*/}
 
          </Switch>
       </Wrapper>

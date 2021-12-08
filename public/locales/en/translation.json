@@ -64,5 +64,8 @@
         "art": "Art",
         "others": "Others",
         "physics": "Physics"
+    },
+    "play_screen": {
+        "title": "Playing a quiz is simple easly, play by entering a code or through a link that someone invited you to do so."
     }
 }
