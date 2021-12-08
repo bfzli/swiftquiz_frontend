@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
 import { setCategoryFilter } from '../../../../reduxComponents/actions/Filters';
+import { useTranslation } from 'react-i18next';
 
 export function Community({ userQuizes }) {
     const dispatch = useDispatch();
@@ -14,15 +15,17 @@ export function Community({ userQuizes }) {
         dispatch(setTextFilter(text));
     }
 
+    const {t} = useTranslation()
+
     return (
         <div className={styles.container}>
             <div className={styles.page_info} data-aos="fade-down">
-                <h2 className={styles.welcome_text}>Community</h2>
+                <h2 className={styles.welcome_text}>{t("community.title")}</h2>
                 <div className={styles.search}>
                     <input
                         className={styles.search_input}
                         type="text"
-                        placeholder="Search community..."
+                        placeholder={t("community.search")}
                         onChange={handleOnChange}
                     />
                     <div className={styles.search_wrapper}>
@@ -40,14 +43,14 @@ export function Community({ userQuizes }) {
                         console.log(get_value)
                         dispatch(setCategoryFilter(get_value));
                     }}>
-                        <option value="">All Categories</option>
-                        <option value="61a49f18da82d9000993e281">Religion</option>
-                        <option value="61961bd788d1b5058807904c">Programming</option>
-                        <option value="61961c6488d1b50588079058">Mathematics</option>
-                        <option value="61961c1788d1b50588079052">Physics</option>
-                        <option value="617bf1df3b7012bee6d4056d">Sport</option>
-                        <option value="61961c1b88d1b50588079055">Art</option>
-                        <option value="61961be088d1b5058807904f">Other</option>
+                        <option value="">{t("community.categories")}</option>
+                        <option value="61a49f18da82d9000993e281">{t("community.religion")}</option>
+                        <option value="61961bd788d1b5058807904c">{t("community.programming")}</option>
+                        <option value="61961c6488d1b50588079058">{t("community.mathematics")}</option>
+                        <option value="61961c1788d1b50588079052">{t("community.physics")}</option>
+                        <option value="617bf1df3b7012bee6d4056d">{t("community.sport")}</option>
+                        <option value="61961c1b88d1b50588079055">{t("community.art")}</option>
+                        <option value="61961be088d1b5058807904f">{t("community.others")}</option>
                     </select>
                 </div>
             </div>
@@ -72,7 +75,7 @@ export function Community({ userQuizes }) {
                                         <p className={styles.quizer_name}>{item.created_by.name}</p>
                                     </Link>
 
-                                    <Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>PLAY QUIZ</Link>
+                                    <Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>{t("community.play")}</Link>
                                 </div>
                             )
                         }

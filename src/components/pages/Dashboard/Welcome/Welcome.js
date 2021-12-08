@@ -1,11 +1,14 @@
 import * as styles from './Welcome.module.scss'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 export default function Welcome() {
+	const {t} = useTranslation();
+
     return (
         <div className={styles.container}>
             <div className={styles.page_info} data-aos="fade-down">
-                <h2 className={styles.welcome_text}>Homepage</h2>
+                <h2 className={styles.welcome_text}>{t("quizzes.title")}</h2>
 
                 <div className={styles.search}>
                     <input className={styles.search_input} type="text" placeholder='Search your quizzes...' />

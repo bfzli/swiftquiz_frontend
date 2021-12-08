@@ -1,8 +1,8 @@
-import { container, title, button, description, illustration } from './Error.module.scss'
-import { useHistory } from 'react-router-dom';
+import { container, button, description, illustration } from './Error.module.scss'
+import { useNavigate } from 'react-router-dom';
 export default function Error() {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     return (
         <div className={container} data-aos="fade-down">
