@@ -12,6 +12,25 @@ export const fetchUserData = () => async (dispatch) => {
    }
 };
 
+//Update and save user score
+export const updateUserScore =(coins)=>{
+   return async (dispatch) => {
+      try {
+         const response = await api.userScore(coins);
+         console.log(response)
+         dispatch({
+            type: CONST.USER_SCORE_UPDATE,
+            payload: response.data.newCoins.coins
+         })
+      } catch (error) {
+         dispatch({
+            type: CONST.USER_SCORE_FAILED,
+            payload: error
+         })
+      }
+   }
+}
+
 // Update Profil
 
 export const updateUser = (name, username, email, password, about) => {

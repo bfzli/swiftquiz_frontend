@@ -60,6 +60,12 @@ const userReducer = (state = userState, action) => {
                error: payload,
             },
          };
+      
+         case CONST.USER_SCORE_UPDATE:
+            return {
+               ...state,
+               coins: payload
+            };
 
       case 'ALL_USERS_LEADERBOARDS':
          return {
