@@ -64,5 +64,22 @@
         "art": "Artë",
         "others": "Të tjera",
         "physics": "Fizikë"
+    },
+    "play_screen": {
+        "title": "Bëhu një Ajnshtajn, luaj tani!",
+        "description": "Të luash një kuiz është e thjeshtë dhe lehtësisht, luani duke futur një kod ose nëpërmjet një lidhjeje që dikush ju ka ftuar ta bëni këtë.",
+        "enter": "Hyrë"
+    },
+    "play_enter": {
+        "timeleft": "Time to Answer",
+        "coinscollected": "Coins Collected",
+        "correcta": "Correct Anwsers",
+        "wronga": "Wrong Anwsers",
+        "leftquestions": "Left Questions",
+        "totalquestions": "Total Questions",
+        "settings": "Settings",
+        "analytics": "Analytics",
+        "anwsers": "Anwsers",
+        "play_again": "Play again with"
     }
 }

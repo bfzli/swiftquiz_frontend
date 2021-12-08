@@ -7,13 +7,13 @@ export default function Screen({ code, setCode, play_quiz }) {
         <>
             <div data-aos="fade-top" className={styles.container}>
                 <div data-aos="fade-right" className={styles.left}>
-                    <h1 className={styles.title}>be an einstein, play now!</h1>
+                    <h1 className={styles.title}>{t("play_screen.title")}</h1>
                     <p className={styles.description}>
-                        {t("play_screen.title")}
+                        {t("play_screen.description")}
                     </p>
                     <div style={{ display: 'flex' }}>
                         <input value={code} onChange={(e) => { e.preventDefault(); setCode(e.target.value) }} className={styles.codebox} placeholder="SWIFT2991" type="text" />
-                        <button title="By entering a code you agree to our Terms of Service and Privacy Policy." onClick={() => play_quiz()} className={styles.cta}>Enter</button>
+                        <button onClick={() => play_quiz()} className={styles.cta}>{t("play_screen.enter")}</button>
                     </div>
                 </div>
                 <div data-aos="fade-left" className={styles.right}>

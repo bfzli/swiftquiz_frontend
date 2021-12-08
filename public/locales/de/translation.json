@@ -64,5 +64,22 @@
         "art": "Kunst",
         "others": "Andere",
         "physics": "Physik"
+    },
+    "play_screen": {
+        "title": "Sei ein Einstein, spiele jetzt!",
+        "description": "Ein Quiz zu spielen ist ganz einfach. Spielen Sie durch Eingabe eines Codes oder über einen Link, zu dem Sie jemand eingeladen hat.",
+        "enter": "Eingeben"
+    },
+    "play_enter": {
+        "timeleft": "Time to Answer",
+        "coinscollected": "Coins Collected",
+        "correcta": "Correct Anwsers",
+        "wronga": "Wrong Anwsers",
+        "leftquestions": "Left Questions",
+        "totalquestions": "Total Questions",
+        "settings": "Settings",
+        "analytics": "Analytics",
+        "anwsers": "Anwsers",
+        "play_again": "Play again with"
     }
 }

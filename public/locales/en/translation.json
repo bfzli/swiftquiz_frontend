@@ -66,6 +66,20 @@
         "physics": "Physics"
     },
     "play_screen": {
-        "title": "Playing a quiz is simple easly, play by entering a code or through a link that someone invited you to do so."
+        "title": "Be an einstein, play now!",
+        "description": "Playing a quiz is simple easily, play by entering a code or through a link that someone invited you to do so.",
+        "enter": "Enter"
+    },
+    "play_enter": {
+        "timeleft": "Time to Answer",
+        "coinscollected": "Coins Collected",
+        "correcta": "Correct Answers",
+        "wronga": "Wrong Answers",
+        "leftquestions": "Left Questions",
+        "totalquestions": "Total Questions",
+        "settings": "Settings",
+        "analytics": "Analytics",
+        "anwsers": "Answers",
+        "play_again": "Play again with"
     }
 }
