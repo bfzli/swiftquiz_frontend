@@ -26,18 +26,17 @@ import Loaders from './pages/Loaders';
 import EditProfile from './pages/EditProfil';
 import Bookmarks from './pages/Dashboard/Bookmarks';
 import { documentVisibility, inActive } from './utils/inActivity';
+import useVisibility from './utils/customHooks/useVisibility';
+import Modal from './components/shared/Modal/modal';
 
 export default function Routing() {
 	const dispatch = useDispatch();
+	const { visibility, setVisibility } = useVisibility();
 
-	//If the user is LoggedIn Only then apply these functions
+	//If the user is LoggedIn Only then apply this functions
 	if (JSON.parse(localStorage.getItem('user'))) {
 		//Tracks the mouse, keyboard ect. activity on the application,
-		//Only change the number, and use miliseconds
 		inActive(600000, dispatch);
-
-		//Check if the user is on the quiz page
-		documentVisibility();
 	}
 
 	React.useEffect(() => {
@@ -61,6 +60,13 @@ export default function Routing() {
 
 	return (
 		<Wrapper>
+			{!visibility && (
+				//TEST CASE, REMOVE THIS MODAL
+				<Modal
+					text="BE CAREFUL, WE CONSIDER CHEATING LEAVING WHILE PLAYING"
+					onClose={() => setVisibility(true)}
+				/>
+			)}
 			<Switch>
 				<NotProtected path="/" component={Home} exact />
 				<NotProtected path="/auth" component={FormView} />

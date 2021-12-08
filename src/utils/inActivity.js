@@ -34,13 +34,18 @@ export const inActive = (timeOutInMiliseconds = 30000, dispatch) => {
 };
 
 export const documentVisibility = () => {
+	let message = 'BE CAREFUL, WE CONSIDER CHEATING LEAVING FOR TO LONG';
+
 	document.addEventListener('visibilitychange', (e) => {
 		if (document.hidden) {
 			setTimeout(() => {
-				console.log('BE CAREFUL, WE CONSIDER CHEATING LEAVING THIS PAGE FOR TO LONG');
+				//alert('BE CAREFUL, WE CONSIDER CHEATING LEAVING THIS PAGE FOR TO LONG');
+				//return message;
+				//setVisibility(false);
 			}, 1000);
 		} else {
-			console.log('is visible');
+			//console.log('is visible');
+			//setVisibility(true);
 		}
 	});
 };
