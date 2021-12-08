@@ -8,7 +8,7 @@ export default function Features() {
         <section className={container}>
             <div className={head} data-aos="fade-down">
                 <h1 className={title}>
-                    Our Features
+                    WE GOT YOU WITH OUR FEATURES!
                 </h1>
                 <p className={description}>
                     Different features for knoweldge seekers, nonetheless always makeing it fun for you.
@@ -17,9 +17,9 @@ export default function Features() {
 
             <div className={cards}>
                 <div className={card} data-aos="fade-left">
-                    <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_hi95bvmx/WebdesignBg.json" background="transparent" speed="1" style={{ width: '300px', height: '300px' }} loop autoplay></lottie-player>
+                    <img className={card_figure} src={One} alt="" of the name />
                     <h3 className={card_title}>
-                        Build Quizzes
+                        BUILD QUIZESS
                     </h3>
                     <p className={card_description}>
                         Build quizess of different kinds with our platoform with all the tools you need.
@@ -27,10 +27,9 @@ export default function Features() {
                 </div>
 
                 <div className={card} data-aos="fade-up">
-                    <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_tcwozhzv/MarketingCampaignsViralMethods.json" background="transparent" speed="1" style={{ width: '300px', height: '300px' }} loop autoplay></lottie-player>
-
+                    <img className={card_figure} src={Two} alt="" of the name />
                     <h3 className={card_title}>
-                        Share Quizzes
+                        SHARE QUIZESS
                     </h3>
                     <p className={card_description}>
                         Quizess that can be played by others are the fun of our platform, share them now.
@@ -38,10 +37,9 @@ export default function Features() {
                 </div>
 
                 <div className={card} data-aos="fade-right">
-                    <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_5nfzewj1/MarketingAutomationViralMethods.json" background="transparent" speed="1" style={{ width: '300px', height: '300px' }} loop autoplay></lottie-player>
-
+                    <img className={card_figure} src={Three} alt="" of the name />
                     <h3 className={card_title}>
-                        Browse Community
+                        BROWSE COMMUNITY
                     </h3>
                     <p className={card_description}>
                         Our community of quizess with different categories for you to search and learn.

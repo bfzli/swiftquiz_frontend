@@ -10,12 +10,12 @@ export default function Home() {
         <Layout>
             <Helmet>
                 <title>The land of Quizzes - Swiftquiz</title>
-                <meta name="description" content="The land of Quizzes to play." />
+                <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
             </Helmet>
 
             <Hero />
             <Features />
-            {/* <Started /> */}
+            <Started />
             <Community />
         </Layout>
     )

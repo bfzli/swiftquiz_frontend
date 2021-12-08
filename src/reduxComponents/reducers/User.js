@@ -1,27 +1,29 @@
 import * as CONST from "../constants/index";
 
 export const userState = {
-   name: '',
-   email: '',
-   username: '',
-   bio: '',
-   avatar: '56a40ed882704900355010dd44e777ed.png',
+   name: "",
+   email: "",
+   username: "",
+   bio: "",
+   avatar: "",
    isLoggedIn: false,
-   leaderboard: [],
    currentlyPlaying: {},
-   currentylViewing: {},
-   coins: 100
+   coins: 100,
 };
 
 const userReducer = (state = userState, action) => {
-   const { payload } = action;
+   const {payload} = action;
 
    switch (action.type) {
       case CONST.SET_USER_DATA:
-         // const { username, avatar, bio } = payload;
+         const {username, avatar, bio} = payload;
          return {
             ...state,
-            ...payload,
+            email: username.email,
+            username: username.username,
+            name: username.name,
+            avatar,
+            bio,
             isLoggedIn: true,
          };
 
@@ -34,7 +36,6 @@ const userReducer = (state = userState, action) => {
             avatar: "",
             coins: 0,
             currentlyPlaying: {},
-            currentylViewing: {},
             isLoggedIn: false,
          };
 
@@ -61,37 +62,10 @@ const userReducer = (state = userState, action) => {
             },
          };
 
-      case 'ALL_USERS_LEADERBOARDS':
-         return {
-            ...state,
-            leaderboard: [...payload]
-         };
-
-      case 'ALL_USERS_LEADERBOARDS_FAILED':
-         return {
-            ...state,
-            leaderboard: []
-         };
-
-      case CONST.USER_GET_PROFILE_SUCCESS:
-         return {
-            ...state,
-            currentylViewing: payload
-         };
-
-      case CONST.USER_GET_PROFILE_FAIL:
-         return {
-            ...state,
-            currentlyViewing: {
-               error: payload,
-            },
-         };
-
       default:
          return state;
    }
 };
-
 
 export default userReducer;
 
@@ -102,9 +76,8 @@ const updateState = {
       success: "",
    },
 };
-
-export const updateUserProfil = (state = { updateState }, action) => {
-   const { payload } = action;
+export const updateUserProfil = (state = {updateState}, action) => {
+   const {payload} = action;
    switch (action.type) {
       case CONST.USER_UPDATE_REQUEST:
          return {

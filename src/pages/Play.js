@@ -3,8 +3,7 @@ import { Helmet } from 'react-helmet';
 import Code from '../components/pages/Play/Code/Code'
 import Screen from "../components/pages/Play/Screen/Screen";
 import { useSelector, useDispatch } from 'react-redux';
-import { playQuiz } from '../reduxComponents/actions/Questions'
-import Dashlayout from './Dashboard/Dashlayout';
+import { fetchQuiz, playQuiz } from '../reduxComponents/actions/Questions'
 
 export default function Play() {
     const dispatch = useDispatch()
@@ -32,7 +31,7 @@ export default function Play() {
       }
 
     return (
-        <Dashlayout>
+        <>
             <Helmet>
                 <title>Let's see what do you know! - Swiftquiz</title>
                 <meta name="description" content="Ops something went wrong with the page, if you think this is a mistake contact the team." />
@@ -50,6 +49,6 @@ export default function Play() {
                     <Code code={typing} setCode={setTyping} play_quiz={() => play_quiz()} />
 
             }
-        </Dashlayout>
+        </>
     )
 }

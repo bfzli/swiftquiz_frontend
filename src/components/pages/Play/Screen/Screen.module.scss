@@ -1,16 +1,23 @@
 .container {
     width: 100%;
     height: 100vh;
-    background: var(--background-important);
+    background: var(--purple);
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 900px) {
+        // padding: 10% 0;
+        // height: auto;
+        // flex-direction: column;
+    }
 }
 
 .header {
     width: 25%;
     height: 100vh;
-    border-right: 2px solid var(--border-color);
+    border-right: 0.5px solid #ffffff20;
     overflow: scroll;
 }
 
@@ -18,27 +25,28 @@
     width: 85%;
     height: 100vh;
     position: relative;
-    background: var(--background-less-important);
+    background: var(--purple);
 }
 
 .question {
     width: 95%;
     height: 65%;
     display: flex;
-    font-size: 3em;
+    font-size: 2.5em;
     justify-content: center;
     align-items: center;
-    font-weight: 900;
-    padding: 0% 14%;
+    font-weight: 800;
+    padding: 0% 7%;
     position: relative;
     text-align: center;
-    color: var(--text-color);
+    font-family: "Integral CF Extra";
+    color: #fff;
 }
 
 
 
 .anwsers {
-    border-top: 2px solid var(--border-color);
+    border-top: 0.5px solid #ffffff15;
     width: 100%;
     height: 35%;
     display: flex;
@@ -50,22 +58,24 @@
 .anwser {
     width: 47.5%;
     height: 40%;
-    color: var(--text-color);
+    color: var(--purple);
     font-weight: 700;
     font-size: 1.5em;
+    font-family: "Integral CF Extra";
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all ease-in-out 0.4s;
-    border-radius: 2222px;
-    color: var(--text-color);
-    background: var(--hover-color);
-    border: 2px solid var(--border-color);
     cursor: pointer;
+    border-radius: 2222px;
+    border: 0.5px solid #ffffff20;
+    color: #fff;
+    background: #ffffff10;
 
     &:hover {
-        background: var(--hover-color);
-        border: 2px solid (--icon-border);
+        background: #ffffff30;
+        color: white;
+        border: 0.5px solid #ffffff;
     }
 }
 
@@ -74,15 +84,16 @@
     top: 0%;
     width: 100%;
     height: 2em;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 0.5px solid #ffffff15;
 }
 
 .bar_value {
     position: absolute;
     width: 100%;
     height: 100%;
+    font-family: "Integral CF Extra";
     display: flex;
-    color: var(--text-color);
+    color: white;
     align-items: center;
     justify-content: center;
 }
@@ -96,18 +107,19 @@
     flex-direction: column;
     font-weight: 900;
     font-size: 2.75em;
-    color: var(--text-color);
+    color: white;
 }
 
 .button {
+    font-family: "Space Grotesk", sans-serif;
     margin-top: 1.5em;
     font-size: .5em;
     padding: 0.75em 1.25em;
-    border: 2px solid var(--border-color);
+    border: 0.35px solid #ffffff;
     transition: all ease-in-out 0.3s;
-    background: var(--button-bg);
+    background: #5928e5;
     font-weight: 500em;
-    color: var(--button-text);
+    color: white;
     border-radius: 1000px;
     display: flex;
     align-items: center;
@@ -115,20 +127,21 @@
 }
 
 .button:hover {
-    background: var(--hover-color)
+    border: 0.35px solid #ffffff50;
+    background: #ffffff10;
 }
 
 .stats_title {
     height: 2em;
-    color: var(--text-color);
+    font-family: "Integral CF Extra";
+    color: var(--white);
     display: flex;
-    font-weight: 600;
     justify-content: center;
     align-items: center;
     width: 100%;
     vertical-align: center;
     text-align: center;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 0.5px solid #ffffff15;
 }
 
 .general_stats {
@@ -150,17 +163,20 @@
 .stats_boxes {
     position: relative;
     width: 45.75%;
-    height: 42%;
+    height: 45.75%;
     display: flex;
     justify-content: center;
     border-radius: 1.4em;
     align-items: center;
     flex-direction: column;
+    background: #ffffff10;
     margin-bottom: 0.75em;
     cursor: pointer;
     transition: 0.4s ease-in-out all;
-    border: 2px solid var(--border-color);
-    background: var(--hover-color);
+
+    &:hover {
+        background: #ffffff20;
+    }
 }
 
 .questions_boxes {
@@ -171,8 +187,7 @@
     border-radius: 1.4em;
     padding: 1em;
     flex-direction: column;
-    border: 2px solid var(--border-color);
-    background: var(--hover-color);
+    background: #ffffff10;
     margin-bottom: 0.75em;
 
     &:last-child {
@@ -181,7 +196,7 @@
 }
 
 .question_box {
-    color: var(--text-color);
+    color: white;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -195,21 +210,24 @@
 }
 
 .stats_icon {
+    font-family: "Integral CF Extra";
     font-size: 2em;
-    color: var(--text-color);
+    color: white;
 }
 
 .question_which {
+    font-family: "Integral CF Extra";
     font-size: 1.25em;
-    color: var(--text-color);
+    color: white;
 }
 
 .stats_description {
     font-size: 0.95em;
-    color: var(--text-color);
+    color: white;
     width: 90%;
     text-align: center;
     font-size: 0.95em;
+    color: white;
 }
 
 .view_container {
@@ -231,7 +249,6 @@
     padding: 0.65em 1em;
     border-radius: 1.4em;
     cursor: pointer;
-    border: 2px solid var(--border-color);
 
     &:first-child {
         margin-right: 0.2em;
@@ -243,40 +260,45 @@
 }
 
 .view_icon {
-    fill: var(--icon-border);
+    fill: var(--white);
     height: 1em;
     margin-right: 0.65em;
 }
 
 .view_item_text {
     font-size: 1.1em;
-    color: var(--text-color);
+    color: var(--white);
     position: relative;
 }
 
 .question_current {
+    font-family: "Integral CF Extra";
     font-size: 1.2em;
-    color: var(--text-color);
+    color: var(--white);
     margin-bottom: .5em;
 }
 
 .mute {
+    background: #ffffff10;
     border-radius: 100%;
     margin-top: 1em;
     padding: 0.5em;
     width: 3em;
     height: 3em;
+    border: 0.5px solid transparent;
     transition: all ease-in-out 0.4s;
     cursor: pointer;
-    fill: var(--icon-border);
-    border: 2px solid var(--border-color);
+    fill: #ffffff;
 
     &:hover {
-        background: var(--hover-color);
+        background: #ffffff30;
+        color: white;
+        border: 0.5px solid #ffffff;
     }
 }
 
 .notification {
+    font-family: "Integral CF Extra";
     display: flex;
     justify-content: center;
     align-items: center;
@@ -284,8 +306,8 @@
     height: 28px;
     position: absolute;
     right: -8px;
-    background: var(--button-bg);
-    color: var(--button-text);
+    background: white;
+    color: var(--purple);
     border-radius: 100%;
     top: -26px;
     font-size: 0.9em;
@@ -294,7 +316,8 @@
 .nothing {
     width: 90%;
     text-align: center;
-    color: var(--text-color);
+    font-family: "Integral CF Extra";
+    color: white;
     font-size: 1.65em;
     margin-top: -1em;
     margin-right: 0.5em;
@@ -309,6 +332,7 @@
 }
 
 .profile_name{
+    font-family: "Integral CF Extra";
     font-size: 1.25em;
 }
 

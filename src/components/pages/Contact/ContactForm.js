@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import './ContactForm.scss'
 import emailjs from "emailjs-com"
 import '../../shared/../../components/pages/Form/shared/LoginRegister.scss'
+import * as styles from '../Form/Globals.module.scss'
 import ContactValidation from '../../../utils/ContactValidation'
 
 export default function ContactForm() {
@@ -32,10 +33,12 @@ export default function ContactForm() {
         <>
             <div className="mainContainer">
                 <div className="topContent">
-                    <h1 id="second">Get in Touch</h1>
-                    <h4 id="third">Our team is here to help you out for anything related to our platform. If you need help, don't hesitate to send us a message.</h4>
+                    <h1 className={styles.h1} id="topTitle">Contact Us</h1>
                 </div>
-                <form ref={form} className="Contactforma" onSubmit={ContactHandler}>
+                <form ref={form}
+                    className="Contactforma" onSubmit={ContactHandler}>
+                    <h1 className={styles.h1} id="second">Get in Touch with our Team?</h1>
+                    <h4 id="third">Our team is here to help you out for anything related to our platform. If you need help, don't hesitate to send us a message.</h4>
                     <input spellCheck="false" className="contactInputs one" type="text" name="name" placeholder="Name" onChange={(e) => setValues({ ...values, name: e.target.value })} value={values.name} />
                     {errors.name ? <p className="errorContact">{errors.name}</p> : null}
                     <input spellCheck="false" className="contactInputs two" type="email" name="email" placeholder="Email" onChange={(e) => setValues({ ...values, email: e.target.value })} value={values.email} />
@@ -46,7 +49,7 @@ export default function ContactForm() {
                     {errors.subject ? <p className="errorContact">{errors.subject}</p> : null}
                     <textarea spellCheck="false" className="contactInputs six" type="text" name="description" placeholder="Description" onChange={(e) => setValues({ ...values, description: e.target.value })} value={values.description} />
                     {errors.description ? <p className="errorContact">{errors.description}</p> : null}
-                    <button className="butonat" id="contactSubmit" type="submit">Send</button>
+                    <input className="butonat" id="contactSubmit" type="submit" value="Submit" />
                 </form>
             </div>
         </>

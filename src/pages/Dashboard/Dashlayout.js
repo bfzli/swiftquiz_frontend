@@ -5,7 +5,7 @@ export default function Dashlayout(props) {
     const theme = useSelector(state => state.ui.theme)
 
     return (
-        <div className="body-dash" id={theme === "lightmode" ? "lightmode" : "darkmode"}>
+        <div id={theme === "lightmode" ? "lightmode" : "darkmode"}>
             <Dashbar page={props.children} />
         </div>
     )

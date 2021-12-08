@@ -111,24 +111,31 @@
 
 .butonat {
   border: 0;
-  border-radius: 100px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  font-size: 1.1em;
-  font-weight: 900;
+  border-radius: 20px;
+  background-color: #5928e5;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Integral CF;
   padding: 12px 45px;
-  margin-top: .5em;
-  letter-spacing: .1px;
-  transition: transform all ease-in-out .3s;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
   transition: 0.4s all ease;
 
   &:active {
     transform: scale(0.95);
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &:hover {
     cursor: pointer;
-    opacity: .7;
+    background-color: #8159ee;
+    transition: 0.4s ease;
+    letter-spacing: 2px;
   }
 }
 

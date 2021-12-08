@@ -1,31 +1,27 @@
-import * as styles from './Hero.module.scss'
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next';
+import {container, left, title, description, right, illustration} from './Hero.module.scss'
+import {cta_hero} from '../../../shared/Buttons/Buttons.module.scss'
+import hero_illustration from '../../../../assets/images/webp/illustration.webp'
+import {Link} from 'react-router-dom'
 
 export default function Hero() {
-   const {t} = useTranslation();
-
- 
-
     return (
-        <section className={styles.container}>
-            <div className={styles.left} data-aos="fade-right">
-                <h1 className={styles.title}>
+        <section className={container}>
+            <div className={left} data-aos="fade-right">
+                <h1 className={title}>
                     MAKING LEARNING FUN WITH QUIZESS
-                    {t("title")}
                 </h1>
-                <p className={styles.description}>
+                <p className={description}>
                     With our platform learning is awesome and fun with community made quizes of different fields.
                 </p>
                 <Link to="/randomizer">
-                    <button className={styles.hero_cta}>
+                    <button className={cta_hero}>
                         PLAY A RANDOM QUIZ
                     </button>
                 </Link>
             </div>
 
-            <div className={styles.right} data-aos="fade-left">
-                <lottie-player className={styles.lottie} src="https://assets4.lottiefiles.com/packages/lf20_kdtvzhjt/MetovoViralConsultingMarketing.json" background="transparent" speed="1" loop autoplay></lottie-player>
+            <div className={right} data-aos="fade-left">
+                <img className={illustration} src={hero_illustration} alt="Illustration" />
             </div>
         </section>
     )

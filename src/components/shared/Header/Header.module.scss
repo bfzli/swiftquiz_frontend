@@ -1,47 +1,60 @@
 .header {
+    display: block;
     width: 100%;
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em 3em;
-    border-bottom: 2px solid var(--border-color);
+    background: var(--purple);
+    position: absolute;
+    z-index: 1022223422;
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
 }
 
 .right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    z-index: 2321;
 }
 
 .left {
     display: flex;
     align-items: center;
+    z-index: 2321;
 }
 
 .link {
     display: flex;
     align-items: center;
-    font-weight: 500;
-    font-size: 1.1em;
-    color: var(--text-color);
-    padding: 0.55em 0.75em;
+    font-family: "Integral CF Extra";
+    font-size: 1em;
+    color: #fff;
+    padding: .55em .75em;
     margin-right: 0.25em;
     transition: all ease-in-out 0.5s;
     cursor: pointer;
     border-radius: 100px;
 
-    &:hover {
-        background: var(--hover-color);
+    @media screen and (max-width: 900px) {
+        margin-bottom: 1em;
+        font-size: 1.85em;
     }
+}
+
+.link:hover {
+    background: #ffffff40;
 }
 
 .logo {
     display: flex;
     align-items: center;
     height: 2.75em;
-    fill: var(--text-color);
-    margin-right: 1em;
+    margin-right: 1.25em;
+    fill: #fff;
 }
 
 .mobile {
@@ -52,6 +65,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1em 1em;
+    background: var(--purple);
     z-index: 9;
 
     @media screen and (min-width: 900px) {
@@ -62,27 +76,28 @@
 .menu_icon {
     margin-top: 0.085em;
     height: 1.6em;
-    fill: var(--icon-border);
+    fill: white;
     cursor: pointer;
     margin-left: 1em;
-
-    &:hover {
-        opacity: 0.9;
-    }
 }
 
 .close_icon {
     position: absolute;
     top: 1em;
     right: 1em;
-    fill: var(--icon-border);
+    fill: white;
     height: 1em;
+}
+
+.menu_icon:hover {
+    opacity: 0.8;
 }
 
 .screen {
     width: 100%;
     height: 100vh;
     position: absolute;
+    background: var(--purple);
     top: 0;
     right: 0;
     z-index: 1;
@@ -95,184 +110,39 @@
 .acc_holder {
     display: flex;
     align-items: center;
-    color: var(--text-color);
 }
 
 .username {
-    margin-left: 0.5em;
-    font-weight: 500;
+    margin-left: .5em;
+    font-family: "Integral CF Extra";
+    color: var(--white);
     font-size: 0.89em;
-    color: var(--text-color);
 }
 
 .icon {
     width: 1.5em;
-    fill: var(--icon-border);
+    fill: white;
 }
 
 .single_action {
     display: flex;
     align-items: center;
-    padding: 0.5em 0.75em;
+    padding: 0.5em .75em;
     justify-content: center;
     text-align: center;
     border-radius: 100px;
     transition: all ease-in-out 0.3s;
 
+
     &:hover {
         background: #ffffff40;
     }
 
-    &:first-child {
-        margin-right: 0.35em;
+    &:first-child{
+        margin-right: .35em;
     }
 
-    &:last-child {
+    &:last-child{
         margin-right: 1em;
-    }
-}
-
-.acc_actions {
-    background: var(--background-important);
-    border: 2px solid var(--border-color);
-    border-radius: 10em;
-    display: flex;
-    align-items: center;
-    padding: 0.42em;
-    position: relative;
-}
-
-.acc_actions_dropwdown {
-    width: auto;
-    position: absolute;
-    margin-top: 73%;
-    right: 0;
-    background: var(--background-important);
-    border: 2px solid var(--border-color);
-    border-radius: 0.75em;
-    display: flex;
-    padding: 0.35em;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    z-index: 100 !important;
-}
-
-.action_dropdown_item {
-    width: auto;
-    padding: 0.5em 0.75em;
-    display: flex;
-    align-items: center;
-    transition: var(--animate);
-    border-radius: 10em;
-    cursor: pointer;
-    z-index: 100 !important;
-
-    &:hover {
-        background: var(--hover-color);
-    }
-
-    &:first-child {
-        margin-bottom: 0.35em;
-    }
-}
-
-.action_item {
-    display: flex;
-    align-items: center;
-    padding: 0.4em 0.75em;
-    border-radius: 0.75em;
-    transition: var(--animate);
-    cursor: pointer;
-    z-index: 100;
-
-    &:first-child {
-        margin-right: 0.25em;
-    }
-}
-
-.action_item_acc_name {
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-right: 0.3em;
-
-    color: var(--text-color);
-
-    &:last-child {
-        margin-right: 0.75em;
-    }
-}
-
-.actions_bar_icon {
-    width: 1.75em;
-    border-radius: 100%;
-}
-
-.action_item_icon {
-    width: auto;
-    width: 1.5em;
-
-    &:first-child {
-        margin-left: 0.75em;
-    }
-}
-
-.action_dropdown_item_name {
-    color: var(--text-color);
-    font-size: 1.05em;
-    margin-right: 0.5em;
-}
-
-.get_started {
-    display: flex;
-    align-items: center;
-    font-weight: 900;
-    font-size: 1.1em;
-    color: var(--text-color);
-    padding: 0.55em 1.5em;
-    transition: all ease-in-out 0.5s;
-    cursor: pointer;
-    border-radius: 100px;
-    background: var(--button-bg);
-    border: 2px solid var(--button-bg);
-    color: var(--button-text);
-
-    &:hover {
-        background: transparent;
-        color: var(--button-bg);
-    }
-}
-
-.login_btn {
-    display: flex;
-    align-items: center;
-    font-weight: 900;
-    font-size: 1.1em;
-    color: var(--text-color);
-    padding: 0.55em 1.5em;
-    margin-right: 0.25em;
-    transition: all ease-in-out 0.5s;
-    cursor: pointer;
-    background: transparent;
-    border-radius: 100px;
-    border: 2px solid transparent;
-
-    &:hover {
-        background: var(--hover-color);
-    }
-}
-
-.modeicon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2em;
-    fill: var(--icon-border);
-    transition: all ease-in-out .3s;
-    cursor: pointer;
-    margin-right: .85em;
-    
-    &:hover{
-        opacity: .7;
     }
 }

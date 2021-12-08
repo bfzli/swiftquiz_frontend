@@ -1,28 +1,23 @@
 const Links = [
     {   
         id: 1,
-        name: 'Mission',
-        link: '/mission'
+        name: 'PLAY WITH A CODE',
+        link: '/play'
     },
     {
         id: 2,
-        name: 'About',
-        link: '/about'
+        name: 'COMMUNITY',
+        link: '/community'
     },
     {
         id: 3,
-        name: 'Pricing',
-        link: '/about'
+        name: 'ABOUT US',
+        link: '/about-us'
     },
     {
         id: 4,
-        name: 'Support',
+        name: 'GET IN TOUCH',
         link: '/contact'
-    },
-    {
-        id: 5,
-        name: 'Team',
-        link: '/team'
     }
 ]
 

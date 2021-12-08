@@ -1,7 +1,7 @@
 import axios from "axios";
 import { authState } from "../reducers/Auth";
 
-const API_BASE_URL = "https://swiftapi.vercel.app/api/user";
+const API_BASE_URL = "http://localhost:5001/api/user";
 
 const { user_id, token } = authState.auth;
 
@@ -25,7 +25,8 @@ export const createQuiz = (params) =>
   client.post(`/${user_id}/quizzes/create-quiz`, params);
 
 //Edit quiz request
-export const editQuiz = (quiz_id, body) => client.put(`/${user_id}/quizzes/update-quiz/${quiz_id}`, body);
+export const editQuiz = (id, params) =>
+  axios.put(`${API_BASE_URL}/...add end point here`, params);
 
 //Delete a single quiz request
 export const deleteQuiz = (id) =>
@@ -33,19 +34,12 @@ export const deleteQuiz = (id) =>
 
 //Fetch all users only for admin request
 export const fetchAllUsers = () => client.get(`/all-users`);
-
-// Fetch Single User from Database
-export const fetchUserById = (username) => client.get(`/${username}`);
-
 //Delete single user request
 export const deleteUser = (userId) => client.delete(`/${userId}`);
 
 //Signup request
 // Edit Profil Information
 export const editprofil = (id, params) => client.put(`${id}`, params);
-
-// Leaderboard Coins
-export const leaderboardCoins = () => client.get(`/user-collection`);
 
 export const signUp = (name, email, username, password) => {
   const postData = {
@@ -87,4 +81,4 @@ export const removeFromLocalStorage = () => localStorage.removeItem("user");
 //Update user request
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
 
-export const fetchUserProfile = () => client.get('/profile');
+export const fetchUserProfile = () => client.get(`/${user_id}/my-profile`);
