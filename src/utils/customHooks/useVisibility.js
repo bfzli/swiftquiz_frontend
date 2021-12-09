@@ -1,7 +1,8 @@
 import React from 'react';
 
 const useVisibility = () => {
-	const [ visibility, setVisibility ] = React.useState(true);
+	const [visibility, setVisibility] = React.useState(true);
+	const [firstTime, setFirstTime] = React.useState(true);
 	let timeOutId;
 
 	const removeTimer = () => {
@@ -13,15 +14,27 @@ const useVisibility = () => {
 		() => {
 			document.addEventListener('visibilitychange', (e) => {
 				if (document.hidden) {
-					timeOutId = setTimeout(() => {
-						setVisibility(false);
-					}, 100);
+					switch (firstTime) {
+						case true:
+							setFirstTime(false)
+
+							timeOutId = setTimeout(() => {
+								setVisibility(false);
+							}, 0);
+							break;
+
+						default:
+							timeOutId = setTimeout(() => {
+								setVisibility('closed');
+							}, 0);
+						break;
+					}
 				} else if (document.isConnected) {
 					removeTimer();
 				}
 			});
 		},
-		[ visibility ]
+		[visibility]
 	);
 
 	return { visibility, setVisibility };

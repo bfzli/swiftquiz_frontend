@@ -81,5 +81,36 @@
         "analytics": "Analytik",
         "anwsers": "Antworten",
         "play_again": "Spielen Sie wieder mit"
+    },
+    "auth": {
+        "logindesc": "If do you have an account, then come back let's learn together by playing quizes and bee a like Einstein.",
+        "logintitle": "Do you have an Account?",
+        "loginbtn": "Sign In",
+        "joinnow": "Join Now",
+        "o": "Or use your email for registration",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmpassword": "Confrim Password",
+        "username": "Username",
+        "signupbtn": "Regjistrohu"
+    },
+    "header": {
+        "mission": "Mission",
+        "pricing": "Preis",
+        "support": "Unterstützung",
+        "team": "Team",
+        "about": "Über uns",
+        "logincta": "Anmelden",
+        "registercta": "Erste Schritte",
+        "logout": "Abmelden",
+        "profile": "Profil"
+    },
+    "home": {
+        "section_1": {
+            "title": "",
+            "description": "",
+            "cta": ""
+        }
     }
 }

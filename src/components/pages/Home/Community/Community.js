@@ -1,9 +1,12 @@
 import { container, left, right, illustration, title, description } from './Community.module.scss'
 import { button_fill_purple } from '../../../shared/Buttons/Buttons.module.scss'
-import main_illustration from "../../../../assets/images/webp/toolkit.webp"
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export default function Community() {
+
+    const {t} = useTranslation() 
+
     return (
         <section className={container}>
 

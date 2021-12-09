@@ -117,6 +117,14 @@ export default function Screen({ quiz }) {
         }
     }
 
+    function cheatingPrevent() {
+        setPoints(0)
+        setModal(true);
+        setCountDown(0);
+        setRunTimer(false);
+        // dispatch(updateUserScore(0));
+    }
+
     useEffect(() => {
         let timerId;
 
@@ -165,13 +173,23 @@ export default function Screen({ quiz }) {
                     <header className={styles.header} data-aos="fade-right">
                         <p className={styles.stats_title}>{questions.title}</p>
 
-                        {!visibility && (
-                            //TEST CASE, REMOVE THIS MODAL
+                        {visibility === false ?
                             <Modal
                                 onClose={() => setVisibility(true)}
-                                text="BE CAREFUL, WE CONSIDER CHEATING LEAVING WHILE PLAYING"
-                            />
-                        )}
+                                title="Cheating Warning"
+                                text="You've been warned for leaving the Quiz window while playing, doing this another time you will lose the points and the Quiz will end immediately."
+                            /> : null}
+                        {
+                            visibility === 'closed' ?
+                                <>
+                                    {cheatingPrevent()}
+                                    <Modal
+                                        onClose={() => setVisibility(true)}
+                                        title="Quiz Ended"
+                                        text="Because you've again moved to another tab we assume you did cheat and ended the quiz and reset everything to empty."
+                                    />
+                                </> : null
+                        }
 
                         {
                             menuView === 'stats'

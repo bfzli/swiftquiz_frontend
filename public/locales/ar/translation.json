@@ -81,5 +81,36 @@
         "analytics": "تحليلات",
         "anwsers": "الإجابات",
         "play_again": "Pالعب مرة أخرى مع"
+    },
+    "auth": {
+        "logindesc": "If do you have an account, then come back let's learn together by playing quizes and bee a like Einstein.",
+        "logintitle": "Do you have an Account?",
+        "loginbtn": "Sign In",
+        "joinnow": "Join Now",
+        "o": "Or use your email for registration",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmpassword": "Confrim Password",
+        "username": "Username",
+        "signupbtn": "Regjistrohu"
+    },
+    "header": {
+        "mission": "بعثة",
+        "pricing": "التسعير",
+        "support": "الدعم",
+        "team": "فريق",
+        "about": "معلومات عنا",
+        "logincta": "تسجيل الدخول",
+        "registercta": "البدء",
+        "logout": "تسجيل خروج",
+        "profile": "الملف الشخصي"
+    },
+    "home": {
+        "section_1": {
+            "title": "",
+            "description": "",
+            "cta": ""
+        }
     }
 }
