@@ -98,7 +98,7 @@
     "header": {
         "mission": "بعثة",
         "pricing": "التسعير",
-        "support": "الدعم",
+        "contact": "الدعم",
         "team": "فريق",
         "about": "معلومات عنا",
         "logincta": "تسجيل الدخول",
@@ -108,9 +108,34 @@
     },
     "home": {
         "section_1": {
-            "title": "",
-            "description": "",
-            "cta": ""
+            "title": "Making Learning Fun with Quizzes",
+            "description": "With our platform learning is awesome and fun with community made quizzes of different fields.",
+            "cta": "Play a Random Quiz"
+        },
+        "section_2": {
+            "title": "Our Features",
+            "description": "Different features for knoweldge seekers, nonetheless always makeing it fun for you.            ",
+            "feature_one": {
+                "title": "Build Quizzes",
+                "description": "Build quizess of different kinds with our platoform with all the tools you need."
+            },
+            "feature_two": {
+                "title": "Share Quizzes",
+                "description": "Quizess that can be played by others are the fun of our platform, share them now."
+            },
+            "feature_three": {
+                "title": "Browse Community",
+                "description": "Our community of quizess with different categories for you to search and learn."
+            }
+        },
+        "section_3": {
+            "title": "What is the Mission of our platform?",
+            "description": "We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.",
+            "cta": "Explore Quizzes"
         }
+    },
+    "error": {
+        "description": "Page was not found, if you think this is a mistake then please contact our team.",
+        "cta": "Go Back Home"
     }
 }

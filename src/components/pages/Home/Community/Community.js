@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 export default function Community() {
 
-    const {t} = useTranslation() 
+    const { t } = useTranslation()
 
     return (
         <section className={container}>
@@ -16,18 +16,17 @@ export default function Community() {
 
             <div className={left} data-aos="fade-right">
                 <h2 className={title}>
-                    What is the Mission of our platform?
+                    {t("home.section_3.title")}
                 </h2>
                 <p className={description}>
-                    We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.
+                    {t("home.section_3.description")}
                 </p>
                 <Link to="/community">
                     <button className={button_fill_purple}>
-                        EXPLORE QUIZESS
+                        {t("home.section_3.cta")}
                     </button>
                 </Link>
             </div>
-
         </section>
     )
 }

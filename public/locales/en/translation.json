@@ -98,7 +98,7 @@
     "header": {
         "mission": "Mission",
         "pricing": "Pricing",
-        "support": "Support",
+        "contact": "Support",
         "team": "Team",
         "about": "About",
         "logincta": "Login",
@@ -109,7 +109,7 @@
     "home": {
         "section_1": {
             "title": "Making Learning Fun with Quizzes",
-            "description": "With our platform learning is awesome and fun with community made quizes of different fields.",
+            "description": "With our platform learning is awesome and fun with community made quizzes of different fields.",
             "cta": "Play a Random Quiz"
         },
         "section_2": {
@@ -133,5 +133,9 @@
             "description": "We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.",
             "cta": "Explore Quizzes"
         }
+    },
+    "error": {
+        "description": "Page was not found, if you think this is a mistake then please contact our team.",
+        "cta": "Go Back Home"
     }
 }

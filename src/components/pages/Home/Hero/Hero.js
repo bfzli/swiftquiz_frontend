@@ -14,7 +14,7 @@ export default function Hero() {
                     {t("home.section_1.title")}
                 </h1>
                 <p className={styles.description}>
-
+                    {t("home.section_1.description")}
                 </p>
                 <Link to="/randomizer">
                     <button className={styles.hero_cta}>

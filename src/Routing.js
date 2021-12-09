@@ -90,8 +90,8 @@ export default function Routing() {
             <Route path="/about" element={<About />} /> {/*not*/}
 
             <Route exact path='/' element={<Auth />}> {/*not*/}
-               <Route path="/invite/*" element={<Play />} /> {/*not*/}
-               <Route path="/play" element={<Play />} /> {/*not*/} 
+               <Route path="/invite/*" element={<Play />} /> {/*yet*/}
+               <Route path="/play" element={<Play />} /> {/*yes*/} 
                <Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} /> {/*not*/}
                <Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} /> {/*not*/}
                <Route path="/dashboard/admin" element={<AdminPanel />} /> {/*not*/}

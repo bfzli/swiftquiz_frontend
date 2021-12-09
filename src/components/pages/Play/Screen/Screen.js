@@ -117,12 +117,14 @@ export default function Screen({ quiz }) {
         }
     }
 
-    function cheatingPrevent() {
+
+    function preventCheating() {
         setPoints(0)
         setModal(true);
         setCountDown(0);
         setRunTimer(false);
-        // dispatch(updateUserScore(0));
+        dispatch(updateUserScore(0));
+        // setVisibility(true)
     }
 
     useEffect(() => {
@@ -174,7 +176,7 @@ export default function Screen({ quiz }) {
                         <p className={styles.stats_title}>{questions.title}</p>
 
                         {visibility === false ?
-                            <Modal
+                            <Modal 
                                 onClose={() => setVisibility(true)}
                                 title="Cheating Warning"
                                 text="You've been warned for leaving the Quiz window while playing, doing this another time you will lose the points and the Quiz will end immediately."
@@ -182,9 +184,8 @@ export default function Screen({ quiz }) {
                         {
                             visibility === 'closed' ?
                                 <>
-                                    {cheatingPrevent()}
                                     <Modal
-                                        onClose={() => setVisibility(true)}
+                                        onClose={() => {preventCheating(); setVisibility(true)}}
                                         title="Quiz Ended"
                                         text="Because you've again moved to another tab we assume you did cheat and ended the quiz and reset everything to empty."
                                     />
