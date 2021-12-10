@@ -26,6 +26,7 @@ import Leaderboard from './pages/Dashboard/Leaderboard';
 import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
 import Dashauth from './pages/Dashboard/Auth';
+import Store from './pages/Dashboard/Store'
 import { documentVisibility, inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from "./pages/Dashboard/Support";
@@ -103,6 +104,7 @@ export default function Routing() {
                <Route path="/dashboard/leaderboard" element={<Leaderboard />} /> {/*not*/}
                <Route path="/dashboard/support" element={<DashboardContact />} /> {/*not*/}
                <Route path="/dashboard/bookmarks" element={<Bookmarks />} /> {/*not*/}
+               <Route path="/dashboard/store" element={<Store />} /> {/*not*/}
                <Route path="/dashboard/messenger" element={<Support />} /> {/*not*/}
                <Route path="/dashboard" element={<Screen />} /> {/*not*/}
             </Route>
