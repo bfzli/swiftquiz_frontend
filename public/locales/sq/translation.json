@@ -17,6 +17,7 @@
         "fr": "Frengjisht",
         "de": "Gjermanisht",
         "coins": "Monedha",
+        "score":"Pikët",
         "profile": "Llogaria",
         "logout": "Shkyçu"
     },
@@ -33,7 +34,7 @@
     "community": {
         "title": "Komuniteti",
         "search": "Kërko kuize...",
-        "play": "Luaje Kuizin",
+        "play": "Paguaj per te luajtur",
         "categories": "Katogoritë",
         "religion": "Religjion",
         "programming": "Programim",
