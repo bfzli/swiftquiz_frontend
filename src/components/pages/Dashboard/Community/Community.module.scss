@@ -74,6 +74,9 @@
                 background: var(--background-important);
                 border-radius: 1em;
                 border: 2px solid var(--border-color);
+                @media (max-width: 767px) {
+                    width: 100vw;
+                  }
             }
             &_header{
                 width: 100%;
