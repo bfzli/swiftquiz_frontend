@@ -1,7 +1,8 @@
 import * as styles from './Dashbar.module.scss';
 import Logo from './Logo';
 import { useState, useEffect } from 'react';
-import coin from './components/coin.png';
+import coins from './components/coin.svg';
+import score from './components/score.svg';
 import { useSelector } from 'react-redux';
 import CheckPath from '../../../utils/CheckPath';
 import { Link } from 'react-router-dom';
@@ -316,7 +317,13 @@ export default function Dashbar({ page }) {
 
 						<div className={styles.action_item}>
 							<p className={styles.action_item_acc_name}> {user.coins} {t("dashbar.coins")}</p>
-							<img className={styles.actions_bar_icon} src={coin} />
+							<img className={styles.actions_bar_icon} src={coins} />
+							
+						</div>
+						<div className={styles.action_item}>
+							
+							<p className={styles.action_item_acc_name}> {user.score} {t("dashbar.score")}</p>
+							<img className={styles.actions_bar_icon} src={score} />
 						</div>
 
 						<div onClick={() => setDropdown(!dropdown)} className={styles.action_item}>

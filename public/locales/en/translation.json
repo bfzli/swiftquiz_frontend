@@ -17,6 +17,7 @@
         "fr": "French",
         "de": "German",
         "coins": "Coins",
+        "score":"Score",
         "profile": "Profile",
         "logout": "Logout"
     },
@@ -31,9 +32,13 @@
         "delete": "Delete"
     },
     "community": {
+        "confirm":"Are you sure you want to purchase this quiz ?",
+        "confirmation":"Yes",
+        "deny":"No",
+        "purchase":"Purchase confirmation",
         "title": "Community",
         "search": "Search community...",
-        "play": "Play Quiz",
+        "play": "Purchase to play",
         "categories": "All Categories",
         "religion": "Relegion",
         "programming": "Programming",
