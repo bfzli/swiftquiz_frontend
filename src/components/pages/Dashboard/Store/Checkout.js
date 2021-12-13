@@ -3,6 +3,7 @@ import * as styles from './Checkout.module.scss'
 import { useState } from 'react';
 import Comploader from '../../../../components/shared/Loaders/Comploader'
 import c2 from '../../../../assets/images/coins-medium.png'
+import ReactDOM from 'react-dom'
 
 export default function Checkout({ setCheckout, currentPackage }) {
 
@@ -65,7 +66,7 @@ export default function Checkout({ setCheckout, currentPackage }) {
         },
     };
 
-    return (
+    return ReactDOM.createPortal(
         <div className={styles.modal_container}>
             <div className={styles.modal_box}>
                 <div className={styles.modal_header}>
@@ -80,8 +81,8 @@ export default function Checkout({ setCheckout, currentPackage }) {
                     {
                         {
                             'loading': <Comploader />,
-                            'completed': <div>
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            'completed': <div className={styles.coinsWrapper}>
+                                <svg width="1" height="" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.4" d="M14.3402 -0.000198364H5.67024C2.28024 -0.000198364 0.000244141 2.3798 0.000244141 5.9198V14.0898C0.000244141 17.6198 2.28024 19.9998 5.67024 19.9998H14.3402C17.7302 19.9998 20.0002 17.6198 20.0002 14.0898V5.9198C20.0002 2.3798 17.7302 -0.000198364 14.3402 -0.000198364Z" fill="#130F26" />
                                     <path d="M8.81332 13.2479C8.58932 13.2479 8.36532 13.1629 8.19432 12.9919L5.82132 10.6189C5.47932 10.2769 5.47932 9.7229 5.82132 9.3819C6.16332 9.0399 6.71632 9.0389 7.05832 9.3809L8.81332 11.1359L12.9413 7.0079C13.2833 6.6659 13.8363 6.6659 14.1783 7.0079C14.5203 7.3499 14.5203 7.9039 14.1783 8.2459L9.43232 12.9919C9.26132 13.1629 9.03732 13.2479 8.81332 13.2479Z" fill="#130F26" />
                                 </svg>
@@ -98,8 +99,8 @@ export default function Checkout({ setCheckout, currentPackage }) {
                             </div>
                         }[state]
                     }
-                    <div id={state !== 'none' ? 'none' : 'show'}>
-                        <img className={styles.quiz_image} alt="Quiz Image" width="222px" src={c2} />
+                    <div id={state !== 'none' ? 'none' : 'show'} className={styles.center}>
+                        <img className={styles.quiz_image} alt="Quiz Image" width="200px" src={c2} />
                         <h3>You Are buying {currentPackage} coins.</h3>
                         <div className={styles.card}>
                             <CardElement options={{ hidePostalCode: true, style: style }} />
@@ -108,6 +109,6 @@ export default function Checkout({ setCheckout, currentPackage }) {
                     </div>
                 </div>
             </div>
-        </div >
+        </div >, document.getElementById("portal")
     )
 }

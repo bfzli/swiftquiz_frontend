@@ -18,9 +18,9 @@ export default function User() {
     useEffect(() => {
         getUserById(params.username)
             .then(data => {
-                setUser(data[0]);
-                setLoading(false)
-                console.log("user", user)
+                // setUser(data[0]);
+                console.log(data)
+                setLoading(true)
             })
             .catch(error => {
                 console.log("something went wrong", error)
