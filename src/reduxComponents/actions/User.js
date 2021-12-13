@@ -100,11 +100,11 @@ export const closeAccount = () => async (dispatch) => {
       const response = await api.closeAccount();
       const data = await response.data;
       dispatch({ type: 'ACCOUNT_CLOSED_SUCCESS', payload: data });
-
+      localStorage.removeItem("user");
+      window.location.href = '/';
    } catch (error) {
       dispatch({ type: 'ACCOUNT_CLOSED_FAIL', payload: error });
       return error;
-
    }
 };
 

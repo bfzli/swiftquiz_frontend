@@ -30,6 +30,7 @@ export const logInAction = (username, password) => async (dispatch) => {
    try {
       const response = await api.logIn(username, password);
       const data = await response.data;
+      console.table(data)
       api.saveToLocalStorage(JSON.stringify(data));
 
       dispatch(confirmedLogIn(data));

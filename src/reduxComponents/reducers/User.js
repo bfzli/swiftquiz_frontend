@@ -94,9 +94,7 @@ const userReducer = (state = userState, action) => {
 			};
 
 		case CONST.ACCOUNT_CLOSED_FAIL:
-			return {
-				...state
-			}
+			return state;
 
 		default:
 			return state;

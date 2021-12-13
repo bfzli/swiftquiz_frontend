@@ -12,7 +12,7 @@ import * as CONST from '../../../reduxComponents/constants/index';
 import Console from './components/Console'
 import Auth from '../../../pages/Dashboard/Auth'
 import { useTranslation } from 'react-i18next';
-
+import { closeAccount } from '../../../reduxComponents/actions/User';
 export default function Dashbar({ page }) {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user);
@@ -62,6 +62,9 @@ export default function Dashbar({ page }) {
 									<option value="darkmode">{t("dashbar.darkmode")}</option>
 								</select>
 							</div>
+
+							<button onClick={() => dispatch(closeAccount())}>close account</button>
+
 
 							<div style={{ marginTop: '-1em' }} className={styles.modal_body}>
 								<label className={styles._form_label_name} htmFor="languagechoser">{t("dashbar.language")}</label>
