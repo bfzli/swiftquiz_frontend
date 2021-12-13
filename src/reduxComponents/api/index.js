@@ -34,9 +34,6 @@ export const deleteQuiz = (id) =>
 //Fetch all users only for admin request
 export const fetchAllUsers = () => client.get(`/all-users`);
 
-// Buy Coins and Add to Redux
-// export const buyCoins = (userId) => client.post(`/pay/coins`, body);
-
 // Fetch Single User from Database
 export const fetchUserById = (username) => client.get(`/${username}`);
 
@@ -48,7 +45,7 @@ export const deleteUser = (userId) => client.delete(`/${userId}`);
 export const editprofil = (id, params) => client.put(`${id}`, params);
 
 
-//Saving user coins after playing quiz
+// Saving user coins after playing quiz
 export const userScore = (coins) => client.put(`${user_id}/saving-new-score`,{coins});
 
 // Leaderboard Coins
@@ -94,4 +91,8 @@ export const removeFromLocalStorage = () => localStorage.removeItem("user");
 //Update user request
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
 
+// Fetch user profile from DB
 export const fetchUserProfile = () => client.get('/profile');
+
+// Close accout call
+export const closeAccount = () => client.delete(`/${user_id}`)
