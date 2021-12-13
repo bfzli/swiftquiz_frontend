@@ -45,7 +45,7 @@ export const deleteUser = (userId) => client.delete(`/${userId}`);
 export const editprofil = (id, params) => client.put(`${id}`, params);
 
 
-//Saving user coins after playing quiz
+// Saving user coins after playing quiz
 export const userScore = (coins) => client.put(`${user_id}/saving-new-score`,{coins});
 
 // Leaderboard Coins
@@ -91,4 +91,8 @@ export const removeFromLocalStorage = () => localStorage.removeItem("user");
 //Update user request
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
 
+// Fetch user profile from DB
 export const fetchUserProfile = () => client.get('/profile');
+
+// Close accout call
+export const closeAccount = () => client.delete(`/${user_id}`)

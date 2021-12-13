@@ -17,6 +17,7 @@
         "fr": "Frengjisht",
         "de": "Gjermanisht",
         "coins": "Monedha",
+        "score":"Pikët",
         "profile": "Llogaria",
         "logout": "Shkyçu"
     },
@@ -33,7 +34,7 @@
     "community": {
         "title": "Komuniteti",
         "search": "Kërko kuize...",
-        "play": "Luaje Kuizin",
+        "play": "Paguaj per te luajtur",
         "categories": "Katogoritë",
         "religion": "Religjion",
         "programming": "Programim",
@@ -81,5 +82,61 @@
         "analytics": "Analtika",
         "anwsers": "Përgjigjet",
         "play_again": "Luaj përsëri me"
+    },
+    "auth": {
+        "logindesc": "Nese keni ndonjë llogari atëhere ju mund te kyceni në platform pa problem.",
+        "logintitle": "Keni llogari?",
+        "loginbtn": "Kycu",
+        "joinnow": "Regjistrou Tani",
+        "oremail": "Ose përdor adres elektronike për regjistrim?",
+        "name": "Emri i plotë",
+        "email": "Adresa Elektronike",
+        "password": "Fjalëkalimi",
+        "confirmpassword": "Konfirmo Fjalëkalimin",
+        "username": "Niknejmi",
+        "signupbtn": "Regjistrohu"
+    },
+    "header": {
+        "mission": "Misioni",
+        "pricing": "Cmimorja",
+        "contact": "Na Kontaktoni",
+        "team": "Ekipi",
+        "about": "Rreth Nesh",
+        "logincta": "Kycu",
+        "registercta": "Regjsitrohu",
+        "logout": "Dil nga llogaria",
+        "profile": "Llogaria ime"
+    },
+    "home": {
+        "section_1": {
+            "title": "Mësim të lehtë me Kuize",
+            "description": "Me platformën tonë ju mundë të mësoni duke u argëtuar dhe kërkuar kuize në komunitet për lëmin tuaj.",
+            "cta": "Luaj një Kuiz të randomtë"
+        },
+        "section_2": {
+            "title": "Shërbimet e Tona",
+            "description": "Karakteristika të ndryshme për kërkuesit e njohurive, megjithatë gjithmonë duke e bërë atë argëtuese për ju.",
+            "feature_one": {
+                "title": "Ndërto Kuize",
+                "description": "Ndërtoni kuize të llojeve të ndryshme me platformën tonë me të gjitha mjetet që ju nevojiten."
+            },
+            "feature_two": {
+                "title": "Shpërnda Kuize",
+                "description": "Kuizet që mund të luhen nga të tjerët janë kënaqësia e platformës sonë, ndajini ato tani."
+            },
+            "feature_three": {
+                "title": "Kërko në Komunitet",
+                "description": "Komuniteti ynë i kuizes me kategori të ndryshme për të kërkuar dhe mësuar"
+            }
+        },
+        "section_3": {
+            "title": "Cili është misioni i platformës sonë?",
+            "description": "Ne jemi shumë të pasionuar për të ndihmuar komunitetin të mësojë, kështu që për këtë arsye ne kemi ndërtuar Swift Quiz për t'i ndihmuar njerëzit të njohin lehtësisht në një mënyrë argëtuese për temën e tyre që shikojnë dhe duan, kjo platformë është e ndërtuar e gjitha nga komuniteti.",
+            "cta": "Eksploro Kuize"
+        }
+    },
+    "error": {
+        "description": "Faqja nuk u gjend nëse mendoni kjo ështa gabim atëherë kontaktoni ekipin tonë.",
+        "cta": "Ktheu tek Ballina"
     }
 }

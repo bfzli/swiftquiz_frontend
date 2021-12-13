@@ -81,5 +81,61 @@
         "analytics": "Analytik",
         "anwsers": "Antworten",
         "play_again": "Spielen Sie wieder mit"
+    },
+    "auth": {
+        "logindesc": "Wenn du ein Konto hast, dann komm zurück, lass uns gemeinsam Quizspiele spielen und bienen wie Einstein.",
+        "logintitle": "Haben Sie ein Konto?",
+        "loginbtn": "Anmelden",
+        "joinnow": "Jetzt beitreten",
+        "o": "Oder verwenden Sie Ihre E-Mail für die Registrierung",
+        "name": "Vollständiger Name",
+        "email": "E-mail Adresse",
+        "password": "Passwort",
+        "confirmpassword": "Passwort bestätigen",
+        "username": "Benutzername",
+        "signupbtn": "Regjistrohu"
+    },
+    "header": {
+        "mission": "Mission",
+        "pricing": "Preis",
+        "contact": "Unterstützung",
+        "team": "Team",
+        "about": "Über uns",
+        "logincta": "Anmelden",
+        "registercta": "Erste Schritte",
+        "logout": "Abmelden",
+        "profile": "Profil"
+    },
+    "home": {
+        "section_1": {
+            "title": "Lernen mit Quiz zum Spaß machen",
+            "description": "Mit unserer Plattform ist das Lernen großartig und macht Spaß mit von der Community erstellten Quiz aus verschiedenen Bereichen.",
+            "cta": "Spiele ein Zufallsquiz"
+        },
+        "section_2": {
+            "title": "Unsere Funktionen",
+            "description": "Verschiedene Features für Wissenssuchende, aber trotzdem immer Spaß für dich.",
+            "feature_one": {
+                "title": "Quiz Erstellen",
+                "description": "Erstellen Sie Quizes verschiedener Art mit unserer Plattform mit allen Tools, die Sie benötigen."
+            },
+            "feature_two": {
+                "title": "Quiz Teilen",
+                "description": "Quizes, die von anderen gespielt werden können, sind der Spaß unserer Plattform, teile sie jetzt."
+            },
+            "feature_three": {
+                "title": "Community Durchsuchen",
+                "description": "Unsere Quiz-Community mit verschiedenen Kategorien zum Suchen und Lernen."
+            }
+        },
+        "section_3": {
+            "title": "Was ist die Mission unserer Plattform?",
+            "description": "Wir sind sehr leidenschaftlich daran interessiert, der Community beim Lernen zu helfen. Aus diesem Grund haben wir Swift Quiz entwickelt, um den Leuten zu helfen, sich auf spielerische Weise Wissen für ihr Thema zu verschaffen, das sie sehen und lieben. Diese Plattform wird von der Community erstellt.",
+            "cta": "Quiz Erkunden"
+        }
+    },
+    "error": {
+        "description": "Die Seite wurde nicht gefunden, wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich bitte an unser Team.",
+        "cta": "Zurück nach Hause"
     }
 }

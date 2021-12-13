@@ -31,8 +31,12 @@ export const updateUserScore =(coins)=>{
    }
 }
 
-// Update Profil
+// Buy Coins Action and Update State
+// export const purchaseCoins = () =>{
+  
+// }
 
+// Update Profil
 export const updateUser = (name, username, email, password, about) => {
 	return async (dispatch, getState) => {
 		try {
@@ -79,17 +83,6 @@ export const allUsersLeaderboard = () => async (dispatch) => {
    }
 };
 
-// export const getUserById = (username) => async (dispatch) => {
-//    try {
-//       const response = await api.fetchUserById(username)();
-//       const data = await response.data;
-//       dispatch({ type: 'USER_GET_PROFILE_SUCCESS', payload: data });
-//    } catch (error) {
-//       dispatch({ type: 'USER_GET_PROFILE_FAIL', payload: error });
-//       return error;
-//    }
-// };
-
 // Get User by Id
 export const getUserById = async (username) => {
    try {
@@ -101,6 +94,19 @@ export const getUserById = async (username) => {
    }
 };
 
+// Close the account of the current user
+export const closeAccount = () => async (dispatch) => {
+   try {
+      const response = await api.closeAccount();
+      const data = await response.data;
+      dispatch({ type: 'ACCOUNT_CLOSED_SUCCESS', payload: data });
+
+   } catch (error) {
+      dispatch({ type: 'ACCOUNT_CLOSED_FAIL', payload: error });
+      return error;
+
+   }
+};
 
 //Get User Profile Action  (Get)
 export const getUserProfileAction = () => {

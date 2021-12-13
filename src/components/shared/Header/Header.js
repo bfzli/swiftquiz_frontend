@@ -1,12 +1,11 @@
 import * as styles from './Header.module.scss'
-import { button_fill, button_faded } from '../Buttons/Buttons.module.scss'
-import Links from './Links'
 import Logo from './Logo'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { logOutAction } from '../../../reduxComponents/actions/Auth';
 import * as CONST from '../../../reduxComponents/constants/index';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
     const theme = useSelector((state) => state.ui.theme);
@@ -15,6 +14,7 @@ export default function Header() {
     const auth = useSelector((state) => state.auth.auth);
     const user = useSelector((state) => state.user);
     const [dropdown, setDropdown] = useState(false);
+    const { t } = useTranslation()
 
     function handleTheme() {
         theme === 'lightmode' ? dispatch({ type: CONST.SET_DARK_MODE }) : dispatch({ type: CONST.SET_LIGHT_MODE });
@@ -29,18 +29,22 @@ export default function Header() {
             <header className={styles.header}>
                 <div className={styles.left}>
                     <Logo />
-                    {
-                        Links.map(
-                            item =>
-                                <Link key={item.id} className={styles.link}
-                                    to={item.link}>
-                                    {item.name}
-                                </Link>
-                        )
-                    }
+                    <Link className={styles.link} to="/mission">
+                        {t("header.mission")}
+                    </Link>
+                    <Link className={styles.link} to="/about">
+                        {t("header.about")}
+                    </Link>
+                    <Link className={styles.link} to="/pricing">
+                        {t("header.pricing")}
+                    </Link>
+                    <Link className={styles.link} to="/contact">
+                        {t("header.contact")}
+                    </Link>
+                    <Link className={styles.link} to="/team">
+                        {t("header.team")}
+                    </Link>
                 </div>
-
-
 
                 {
                     auth.token !== undefined ?
@@ -125,11 +129,11 @@ export default function Header() {
 
                         <div className={styles.right}>
                             <Link to="/auth">
-                                <button className={styles.login_btn} styles={{ marginRight: '16px' }}>LOGIN</button>
+                                <button className={styles.login_btn} styles={{ marginRight: '16px' }}>{t("header.logincta")}</button>
                             </Link>
 
                             <Link to="/auth">
-                                <button className={styles.get_started}>GET STARTED</button>
+                                <button className={styles.get_started}>{t("header.registercta")}</button>
                             </Link>
                         </div>
                 }
@@ -161,16 +165,20 @@ export default function Header() {
                                     <path d="M6.99999 5.58599L11.95 0.635986L13.364 2.04999L8.41399 6.99999L13.364 11.95L11.95 13.364L6.99999 8.41399L2.04999 13.364L0.635986 11.95L5.58599 6.99999L0.635986 2.04999L2.04999 0.635986L6.99999 5.58599Z" />
                                 </svg>
 
-                                {Links.map(
-                                    item =>
-                                        <Link key={item.id} className={styles.link}
-                                            to={item.link}>
-                                            {item.name}
-                                        </Link>
-                                )}
-                                <Link to="/auth" className={styles.link}
-                                    to="/login">
-                                    LOGIN
+                                <Link className={styles.link} to="/mission">
+                                    {t("header.mission")}
+                                </Link>
+                                <Link className={styles.link} to="/about">
+                                    {t("header.about")}
+                                </Link>
+                                <Link className={styles.link} to="/pricing">
+                                    {t("header.pricing")}
+                                </Link>
+                                <Link className={styles.link} to="/contact">
+                                    {t("header.contact")}
+                                </Link>
+                                <Link className={styles.link} to="/team">
+                                    {t("header.team")}
                                 </Link>
                             </div>
                     }

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.21.2",
     "aos": "^2.3.4",
     "axios": "^0.24.0",
     "emailjs-com": "^3.2.0",
@@ -25,9 +27,9 @@
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.5",
     "sass": "^1.44.0",
+    "socket.io-client": "^4.4.0",
     "styled-components": "^5.3.3",
-    "timeago.js": "^4.0.2",
-    "socket.io-client": "^4.4.0"
+    "timeago.js": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

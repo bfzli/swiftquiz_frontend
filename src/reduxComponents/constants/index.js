@@ -70,3 +70,7 @@ export const USER_SCORE_FAILED='USER_SCORE_FAILED';
 // Get Single Profile from Database
 export const USER_GET_PROFILE_SUCCESS = 'USER_GET_PROFILE_SUCCESS'
 export const USER_GET_PROFILE_FAIL = 'USER_GET_PROFILE_FAIL'
+
+// Get Single Profile from Database
+export const ACCOUNT_CLOSED_SUCCESS = 'ACCOUNT_CLOSED_SUCCESS'
+export const ACCOUNT_CLOSED_FAIL = 'ACCOUNT_CLOSED_FAIL'

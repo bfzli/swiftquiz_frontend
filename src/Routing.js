@@ -26,16 +26,19 @@ import Leaderboard from './pages/Dashboard/Leaderboard';
 import EditProfile from "./pages/EditProfil";
 import Bookmarks from './pages/Dashboard/Bookmarks';
 import Dashauth from './pages/Dashboard/Auth';
+import Store from './pages/Dashboard/Store'
 import { documentVisibility, inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from "./pages/Dashboard/Support";
 
 export default function Routing() {
-   const dispatch = useDispatch();
-
-   const language = useSelector(state => state.user.language)
+	const dispatch = useDispatch();
 
    const { t, i18n } = useTranslation();
+
+	if (JSON.parse(localStorage.getItem('user'))) {
+		inActive(600000, dispatch);
+	}
 
    const changeLang = (lang) => {
       i18n.changeLanguage(lang)
@@ -57,12 +60,6 @@ export default function Routing() {
             case 'fr': changeLang('fr'); break;
          }
    }, [])
-
-   if (JSON.parse(localStorage.getItem('user'))) {
-      inActive(600000, dispatch);
-      documentVisibility();
-   }
-
 
    React.useEffect(() => {
       dispatch(fetchUserData());
@@ -94,8 +91,8 @@ export default function Routing() {
             <Route path="/about" element={<About />} /> {/*not*/}
 
             <Route exact path='/' element={<Auth />}> {/*not*/}
-               <Route path="/invite/*" element={<Play />} /> {/*not*/}
-               <Route path="/play" element={<Play />} /> {/*not*/} 
+               <Route path="/invite/*" element={<Play />} /> {/*yet*/}
+               <Route path="/play" element={<Play />} /> {/*yes*/} 
                <Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} /> {/*not*/}
                <Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} /> {/*not*/}
                <Route path="/dashboard/admin" element={<AdminPanel />} /> {/*not*/}
@@ -107,6 +104,7 @@ export default function Routing() {
                <Route path="/dashboard/leaderboard" element={<Leaderboard />} /> {/*not*/}
                <Route path="/dashboard/support" element={<DashboardContact />} /> {/*not*/}
                <Route path="/dashboard/bookmarks" element={<Bookmarks />} /> {/*not*/}
+               <Route path="/dashboard/store" element={<Store />} /> {/*not*/}
                <Route path="/dashboard/messenger" element={<Support />} /> {/*not*/}
                <Route path="/dashboard" element={<Screen />} /> {/*not*/}
             </Route>
