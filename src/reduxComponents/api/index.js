@@ -34,6 +34,9 @@ export const deleteQuiz = (id) =>
 //Fetch all users only for admin request
 export const fetchAllUsers = () => client.get(`/all-users`);
 
+// Buy Coins and Add to Redux
+// export const buyCoins = (userId) => client.post(`/pay/coins`, body);
+
 // Fetch Single User from Database
 export const fetchUserById = (username) => client.get(`/${username}`);
 

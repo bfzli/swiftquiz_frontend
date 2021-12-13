@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import * as styles from './Checkout.module.scss'
 import { useState } from 'react';
 import Comploader from '../../../../components/shared/Loaders/Comploader'
+import c2 from '../../../../assets/images/coins-medium.png'
 
 export default function Checkout({ setCheckout, currentPackage }) {
 
@@ -33,6 +34,7 @@ export default function Checkout({ setCheckout, currentPackage }) {
             const { paymentIntent } = confirmPayment;
             if (paymentIntent.status === "succeeded") {
                 setState('completed')
+                window.location.reload()
             }
             else {
                 setState('error');
@@ -50,19 +52,16 @@ export default function Checkout({ setCheckout, currentPackage }) {
             iconColor: 'var(--icon-color)',
             color: 'var(--text-color)',
             fontWeight: '500',
-            fontFamily: 'consolas',
+            fontFamily: 'Poppins',
             fontSize: '1.1em',
             fontSmoothing: 'antialiased',
-            ':-webkit-autofill': {
-                color: '#fce883',
-            },
             '::placeholder': {
-                color: '#87BBFD',
+                color: 'var(--text-color)',
             },
         },
         invalid: {
-            iconColor: '#FFC7EE',
-            color: '#FFC7EE',
+            iconColor: 'red',
+            color: 'red',
         },
     };
 
@@ -99,10 +98,13 @@ export default function Checkout({ setCheckout, currentPackage }) {
                             </div>
                         }[state]
                     }
-
-                    <div id={state !== 'none' ? 'none' : 'show'} className={styles.card}>
-                        <CardElement options={{ hidePostalCode: true, style: style }} />
-                        <button className={styles.button} onClick={() => pay()}>Purchase</button>
+                    <div id={state !== 'none' ? 'none' : 'show'}>
+                        <img className={styles.quiz_image} alt="Quiz Image" width="222px" src={c2} />
+                        <h3>You Are buying {currentPackage} coins.</h3>
+                        <div className={styles.card}>
+                            <CardElement options={{ hidePostalCode: true, style: style }} />
+                            <button className={styles.button} onClick={() => pay()}>Purchase</button>
+                        </div>
                     </div>
                 </div>
             </div>

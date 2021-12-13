@@ -31,8 +31,12 @@ export const updateUserScore =(coins)=>{
    }
 }
 
-// Update Profil
+// Buy Coins Action and Update State
+// export const purchaseCoins = () =>{
+  
+// }
 
+// Update Profil
 export const updateUser = (name, username, email, password, about) => {
 	return async (dispatch, getState) => {
 		try {
