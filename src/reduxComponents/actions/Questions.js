@@ -68,8 +68,14 @@ export const purchaseQuiz = (purchaseCoins)=>async (dispatch) => {
 		const data = await response.data;
 		console.log(data);
 		dispatch({ type: CONST.PURCHASE_SUCCESS, payload: data });
+		if(data.success ){
+			alert(data.message);
+		}
 	} catch (error) {
-		
+		dispatch({ type: CONST.PURCHASE_FAILED, payload: error });
+		if(error.success){
+			alert(error.message);
+		}
 	}
 }
 
