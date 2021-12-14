@@ -8,6 +8,7 @@ const setLeaderboard = (state) => state.user.leaderboard;
 
 //
 export const selectQuizesOfUsers = createSelector([ selectUser, selectQuizes ], (user, quizes) => {
+    console.table(quizes)
 	let userQuizes = quizes.filter((quiz) => quiz.created_by._id === user.user_id);
 	return userQuizes;
 });

@@ -1,42 +1,42 @@
 import * as CONST from '../constants/index';
 
 export const userState = {
-   name: '',
-   email: '',
-   username: '',
-   bio: '',
-   avatar: '56a40ed882704900355010dd44e777ed.png',
-   isLoggedIn: false,
-   leaderboard: [],
-   currentlyPlaying: {},
-   currentylViewing: {},
-   coins: 100
+	name: '',
+	email: '',
+	username: '',
+	bio: '',
+	avatar: '56a40ed882704900355010dd44e777ed.png',
+	isLoggedIn: false,
+	leaderboard: [],
+	currentlyPlaying: {},
+	currentylViewing: {},
+	coins: 100
 };
 
 const userReducer = (state = userState, action) => {
 	const { payload } = action;
 
-   switch (action.type) {
-      case CONST.SET_USER_DATA:
-         // const { username, avatar, bio } = payload;
-         return {
-            ...state,
-            ...payload,
-            isLoggedIn: true,
-         };
+	switch (action.type) {
+		case CONST.SET_USER_DATA:
+			// const { username, avatar, bio } = payload;
+			return {
+				...state,
+				...payload,
+				isLoggedIn: true,
+			};
 
-      case CONST.REMOVE_USER_DATA:
-         return {
-            name: "",
-            email: "",
-            username: "",
-            bio: "",
-            avatar: "",
-            coins: 0,
-            currentlyPlaying: {},
-            currentylViewing: {},
-            isLoggedIn: false,
-         };
+		case CONST.REMOVE_USER_DATA:
+			return {
+				name: "",
+				email: "",
+				username: "",
+				bio: "",
+				avatar: "",
+				coins: 0,
+				currentlyPlaying: {},
+				currentylViewing: {},
+				isLoggedIn: false,
+			};
 
 		case CONST.UPDATE_USER:
 			return {
@@ -75,10 +75,16 @@ const userReducer = (state = userState, action) => {
 			}	
 			
 
+		case CONST.USER_SCORE_UPDATE:
+			return {
+				...state,
+				coins: payload
+			};
+
 		case 'ALL_USERS_LEADERBOARDS':
 			return {
 				...state,
-				leaderboard: [ ...payload ]
+				leaderboard: [...payload]
 			};
 
 		case 'ALL_USERS_LEADERBOARDS_FAILED':
@@ -87,23 +93,26 @@ const userReducer = (state = userState, action) => {
 				leaderboard: []
 			};
 
-      case CONST.USER_GET_PROFILE_SUCCESS:
-         return {
-            ...state,
-            currentylViewing: payload
-         };
+		case CONST.ACCOUNT_CLOSED_SUCCESS:
+			return {
+				name: '',
+				email: '',
+				username: '',
+				bio: '',
+				avatar: '56a40ed882704900355010dd44e777ed.png',
+				isLoggedIn: false,
+				leaderboard: [],
+				currentlyPlaying: {},
+				currentylViewing: {},
+				coins: 100,
+			};
 
-      case CONST.USER_GET_PROFILE_FAIL:
-         return {
-            ...state,
-            currentlyViewing: {
-               error: payload,
-            },
-         };
+		case CONST.ACCOUNT_CLOSED_FAIL:
+			return state;
 
-      default:
-         return state;
-   }
+		default:
+			return state;
+	}
 };
 
 export default userReducer;

@@ -3,9 +3,9 @@ import {useSelector, connect, useDispatch} from "react-redux";
 import * as styles from './Profile.module.scss'
 import {selectQuizesOfUsers} from "../../../../reduxComponents/selectors/selectorsUserQuizzes";
 import {fetchUserData} from "../../../../reduxComponents/actions/User";
+import { closeAccount } from "../../../../reduxComponents/actions/User";
 import EditProfil from "../../../../pages/EditProfil";
 import Popup from "../../../shared/Popup/popup";
-
 function ProfilePage(props) {
    const [isOpen, setIsOpen] = useState(false);
 
@@ -30,6 +30,7 @@ function ProfilePage(props) {
                <h1>{user.name}</h1>
                <h4>@{user.username}</h4>
                <p>{user.bio}</p>
+               <button onClick={() => dispatch(closeAccount())}>close account</button>
                <button onClick={togglePopup}>EDIT PROFILE</button>
                {isOpen && (
                   <Popup

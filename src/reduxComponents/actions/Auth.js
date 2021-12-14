@@ -1,6 +1,5 @@
 import * as CONST from "../constants/index";
 import * as api from "../api/index";
-import axios from "axios";
 
 const confirmedLogIn = (data) => {
    return {
@@ -20,7 +19,7 @@ export const signUpAction =
             const newData = await response.data;
             api.saveToLocalStorage(JSON.stringify(newData));
             dispatch(confirmedLogIn(newData));
-            window.location.href = "/dashboard/welcome";
+            window.location.href = "/dashboard";
          }
       } catch (error) {
          dispatch({type: CONST.SIGN_UP_FAILED, payload: error});
@@ -31,12 +30,13 @@ export const logInAction = (username, password) => async (dispatch) => {
    try {
       const response = await api.logIn(username, password);
       const data = await response.data;
+      console.table(data)
       api.saveToLocalStorage(JSON.stringify(data));
 
       dispatch(confirmedLogIn(data));
 
       //redirecting user to welcome page
-      window.location.href = "/dashboard/welcome";
+      window.location.href = "/dashboard";
    } catch (error) {
       if (error) {
          const response = await api.logIn_admin(username, password);

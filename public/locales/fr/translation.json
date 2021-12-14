@@ -137,5 +137,9 @@
     "error": {
         "description": "Page was not found, if you think this is a mistake then please contact our team.",
         "cta": "Go Back Home"
+    },
+    "leaderboard": {
+        "title": "Ledearboard",
+        ""
     }
 }

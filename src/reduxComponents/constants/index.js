@@ -74,3 +74,7 @@ export const USER_GET_PROFILE_FAIL = 'USER_GET_PROFILE_FAIL'
 //Quiz Purchase
 export const QUIZ_PURCHASE = 'QUIZ_PURCHASE';
 export const PURCHASE_SUCCESS="PURCHASE_SUCCESS";
+
+// Get Single Profile from Database
+export const ACCOUNT_CLOSED_SUCCESS = 'ACCOUNT_CLOSED_SUCCESS'
+export const ACCOUNT_CLOSED_FAIL = 'ACCOUNT_CLOSED_FAIL'

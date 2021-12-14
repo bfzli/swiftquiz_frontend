@@ -8,7 +8,7 @@ import Helmet from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserScore } from "../../../../reduxComponents/actions/User";
 import { useTranslation } from "react-i18next";
-import Modal from "../../../shared/Modal/modal";
+import Modal from "../../../shared/Modal/Modal";
 import useVisibility from "../../../../utils/customHooks/useVisibility";
 
 export default function Screen({ quiz }) {
