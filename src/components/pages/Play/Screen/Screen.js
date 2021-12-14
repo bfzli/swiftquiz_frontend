@@ -2,7 +2,8 @@ import * as styles from "./Screen.module.scss";
 import { useState, useEffect } from "react";
 import wrong_choice from "../../../../assets/voices/isWrong.mp3";
 import correct_choice from "../../../../assets/voices/isCorrect.mp3";
-import coin from "../../../../assets/images/Coin.png";
+import coin from "../../../shared/Dashbar/components/coin.svg";
+import score from "../../../shared/Dashbar/components/score.svg";
 import Helmet from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserScore } from "../../../../reduxComponents/actions/User";
@@ -16,7 +17,8 @@ export default function Screen({ quiz }) {
   const [questions] = useState(quiz);
   let [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswersCount, setCorrectAnwsersCount] = useState(0);
-  const [points, setPoints] = useState(0);
+  const [coins, setCoins] = useState(0);
+  const [score,setScore]=useState(0);
   const [wrongAnswersCount, setWrongAnwsersCount] = useState(0);
   const [modal, setModal] = useState(false);
   let TotalQuestions = questions.questions.length;
@@ -43,23 +45,30 @@ export default function Screen({ quiz }) {
       {
         sounds && correct_choice_run.play();
       }
-      var newScore = correctAnswersCount + 1;
-      var newPoints = points + 10;
-      setPoints(newPoints);
-      setCorrectAnwsersCount(newScore);
+      var correctCount = correctAnswersCount + 1;
+      var newCoins = coins + 10;
+      var newScore = score +10;
+      setCoins(newCoins);
+      setScore(newScore);
+      setCorrectAnwsersCount(correctCount);
     }
 
     if (isCorrect === null) {
       {
         sounds && wrong_choice_run.play();
       }
-      var newScore = wrongAnswersCount + 1;
-      if (points === 0) var newPoints = points - 0;
+      var wrongCount = wrongAnswersCount + 1;
+      if (coins === 0) var newCoins = coins - 0;
 
-      if (points !== 0) var newPoints = points - 5;
+      if (coins !== 0) var newCoins = coins - 5;
 
-      setPoints(newPoints);
-      setWrongAnwsersCount(newScore);
+      if (score === 0) var newScore = score - 0;
+
+      if (score !== 0) var newScore = score - 0;
+
+      setCoins(newCoins); ///coins
+      setScore(newScore);   ///score
+      setWrongAnwsersCount(wrongCount);
     }
 
     var nextQuestion = currentQuestion + 1;
@@ -69,9 +78,9 @@ export default function Screen({ quiz }) {
       setTimeout(0);
       setRunTimer(false);
       setModal(true);
-      var coins = 0;
-      console.log(newPoints);
-      dispatch(updateUserScore(newPoints));
+      dispatch(updateUserScore(newCoins,newScore));
+      console.log(newCoins);
+      console.log(newScore);
     }
   };
 
@@ -79,7 +88,8 @@ export default function Screen({ quiz }) {
     setCorrectAnwsersCount(0);
     setCurrentQuestion(0);
     setWrongAnwsersCount(0);
-    setPoints(0);
+    setCoins(0);
+    setScore(0);
     setCountDown(60 * 0.25);
     setRunTimer(true);
     setModal(false);
@@ -108,7 +118,8 @@ export default function Screen({ quiz }) {
   };
 
   function preventCheating() {
-    setPoints(0);
+    setCoins(0);
+    setScore(0);
     setModal(true);
     setCountDown(0);
     setRunTimer(false);
@@ -253,7 +264,7 @@ export default function Screen({ quiz }) {
                   </div>
 
                   <div className={styles.stats_boxes}>
-                    <h3 className={styles.stats_icon}>{points}</h3>
+                    <h3 className={styles.stats_icon}>{coins}</h3>
                     <p className={styles.stats_description}>
                       {t("play_enter.coinscollected")}
                     </p>
@@ -675,6 +686,7 @@ export default function Screen({ quiz }) {
                   <p className={styles.profile_name}>{user.name}</p>
                   <div className={styles.coinsw}>
                     <p className={styles.pointers}>{user.coins}</p>
+
                     <img src={coin} width="42px" height="42px" />
 
                     <sup style={{ display: "flex" }}>
@@ -683,9 +695,25 @@ export default function Screen({ quiz }) {
                         style={{ fontSize: ".75em" }}
                       >
                         {" "}
-                        + {points}{" "}
+                        + {coins}{" "}
                       </p>
                       <img src={coin} width="26px" height="26px" />
+                    </sup>
+                  </div>
+                  <div className={styles.coinsw}>
+                    <p className={styles.pointers}>{user.score}</p>
+
+                    <img src={score} width="42px" height="42px" />
+
+                    <sup style={{ display: "flex" }}>
+                      <p
+                        className={styles.pointers}
+                        style={{ fontSize: ".75em" }}
+                      >
+                        {" "}
+                        + {score}{" "}
+                      </p>
+                      <img src={score} width="26px" height="26px" />
                     </sup>
                   </div>
                   <button className={styles.button} onClick={() => resetQuiz()}>

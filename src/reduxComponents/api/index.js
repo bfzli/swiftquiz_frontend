@@ -20,6 +20,9 @@ export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 export const playQuiz = (redeemCode) =>
   client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
 
+//Quiz purchasing
+export const purchaseQuiz = (quizId) => client.put(`/${user_id}/quiz-purchasing/${quizId}`);
+
 //Create a quiz request
 export const createQuiz = (params) =>
   client.post(`/${user_id}/quizzes/create-quiz`, params);
@@ -46,7 +49,7 @@ export const editprofil = (id, params) => client.put(`${id}`, params);
 
 
 //Saving user coins after playing quiz
-export const userScore = (coins) => client.put(`${user_id}/saving-new-score`,{coins});
+export const userScore = (coins,score) => client.put(`${user_id}/saving-new-score`,{coins,score});
 
 // Leaderboard Coins
 export const leaderboardCoins = () => client.get(`/user-collection`);

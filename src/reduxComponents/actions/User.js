@@ -13,14 +13,13 @@ export const fetchUserData = () => async (dispatch) => {
 };
 
 //Update and save user score
-export const updateUserScore =(coins)=>{
+export const updateUserScore =(coins,score)=>{
    return async (dispatch) => {
       try {
-         const response = await api.userScore(coins);
-         console.log(response)
+         const response = await api.userScore(coins,score);
          dispatch({
             type: CONST.USER_SCORE_UPDATE,
-            payload: response.data.newCoins.coins
+            payload: response.data.newCoins
          })
       } catch (error) {
          dispatch({

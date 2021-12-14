@@ -64,7 +64,8 @@ const userReducer = (state = userState, action) => {
          case CONST.USER_SCORE_UPDATE:
             return {
                ...state,
-               coins: payload
+               coins: payload.coins,
+			   score: payload.score
             };
 
 		case 'ALL_USERS_LEADERBOARDS':

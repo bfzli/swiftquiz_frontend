@@ -35,6 +35,7 @@ export function Community({ userQuizes }) {
                                             </div>
                                             <div className={styles.quiz_modal_body}>
                                                 <p>{t("community.confirm")}</p>
+                                                
                                                 <div className={styles.quiz_modal_body_confirm}>
                                                 <Link style={{ textAlign: 'center' }} to={`/invite`} className={styles.quiz_modal_body_confirm_yes}>{t("community.confirmation")}</Link>
                                                 <Link style={{ textAlign: 'center' }} to={''} onClick={() => setIsModal(false)} className={styles.quiz_modal_body_confirm_no}>{t("community.deny")}</Link>
@@ -82,32 +83,34 @@ export function Community({ userQuizes }) {
                 <div className={styles.top_right} data-aos="fade-left">
                     <div className={styles.quizess}>
                         {
-                            userQuizes.map(item => {
-                                return <>
+                            userQuizes.map((item,i) => {
+                                return <div key={i}>
                                  <div className={styles.quiz}>
+                                     <div className={styles.quiz_price}>
+                                     <p > {t("community.price")} :<b>{item.purchaseCoins}</b> </p>
+                                     <img className={styles.quiz_priceicon} alt="Quiz Price" src={coin} />
+                                     </div>
                                     <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftapi.vercel.app/${item.thumbnail}`} />
-
                                     <h3 className={styles.quiz_title}>
                                         {item.title}
                                     </h3>
-
                                     <p className={styles.quiz_description}>
                                         {item.description}
                                     </p>
-
                                     <Link to={`/dashboard/profile/${item.created_by.username}`} className={styles.quizer_holder}>
                                         <img src={`https://swiftapi.vercel.app/${item.created_by.profile}`} alt={item.name} className={styles.quizer_profile} />
                                         <p className={styles.quizer_name}>{item.created_by.name}</p>
                                     </Link>
-                                    <button  className={styles.quiz_play}  onClick={() => setIsModal(true)}>
-                                         <p style={{ textAlign: 'center' }}>
-                                             {t("community.play")}
-                                        </p>{" "}
-                                     </button>
-                                     
-                                   {/*<Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>{t("community.play")}</Link> */} 
+                                       <Link onClick={() => setIsModal(true)} style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>{t("community.play")}</Link> 
+                                   {/*
+                                      <button  className={styles.quiz_play}  onClick={() => setIsModal(true)}>
+                                           <p style={{ textAlign: 'center' }}>
+                                               {t("community.play")}
+                                          </p>{" "}
+                                       </button>
+                                     */}         
                                 </div>
-                                </>
+                                </div>
                                 
                             }
                                
