@@ -8,6 +8,7 @@ import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectors
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
 import { setCategoryFilter } from '../../../../reduxComponents/actions/Filters';
 import { useTranslation } from 'react-i18next';
+import { purchaseQuiz } from '../../../../reduxComponents/actions/Questions';
 
 export function Community({ userQuizes }) {
     const dispatch = useDispatch();
@@ -18,6 +19,9 @@ export function Community({ userQuizes }) {
         dispatch(setTextFilter(text));
     }
 
+    const handlePurchase = (e)=>{
+        
+    }
 
     const {t} = useTranslation()
 
@@ -101,13 +105,13 @@ export function Community({ userQuizes }) {
                                         <img src={`https://swiftapi.vercel.app/${item.created_by.profile}`} alt={item.name} className={styles.quizer_profile} />
                                         <p className={styles.quizer_name}>{item.created_by.name}</p>
                                     </Link>
-                                       <Link onClick={() => setIsModal(true)} style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>{t("community.play")}</Link> 
+                                       <button  className={styles.quiz_play}  onClick={() => setIsModal(true)}>
+                                            <p style={{ textAlign: 'center' }}>
+                                                {t("community.play")}
+                                           </p>{" "}
+                                        </button>
                                    {/*
-                                      <button  className={styles.quiz_play}  onClick={() => setIsModal(true)}>
-                                           <p style={{ textAlign: 'center' }}>
-                                               {t("community.play")}
-                                          </p>{" "}
-                                       </button>
+                                       <Link onClick={() => setIsModal(true)} style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>{t("community.play")}</Link> 
                                      */}         
                                 </div>
                                 </div>
