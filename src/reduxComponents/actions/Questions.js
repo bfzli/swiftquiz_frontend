@@ -60,6 +60,25 @@ export const playQuiz = (redeemCode) => async (dispatch) => {
 	}
 };
 
+export const purchaseQuiz = (purchaseCoins)=>async (dispatch) => {
+	dispatch({ type: CONST.QUIZ_PURCHASE});
+
+	try {
+		const response = await api.purchaseQuiz(purchaseCoins);
+		const data = await response.data;
+		console.log(data);
+		dispatch({ type: CONST.PURCHASE_SUCCESS, payload: data });
+		if(data.success ){
+			alert(data.message);
+		}
+	} catch (error) {
+		dispatch({ type: CONST.PURCHASE_FAILED, payload: error });
+		if(error.success){
+			alert(error.message);
+		}
+	}
+}
+
 //Find quiz for update
 const findQuiz = (id, quizzes) => {
     return quizzes.find((quiz) => quiz._id === id);
