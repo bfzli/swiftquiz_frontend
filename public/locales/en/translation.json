@@ -32,9 +32,10 @@
         "delete": "Delete"
     },
     "community": {
-        "confirm": "Are you sure you want to purchase this quiz ?",
-        "confirmation": "Yes",
-        "deny": "No",
+        "price":"Price",
+        "confirm":"Are you sure you want to purchase this quiz ?",
+        "confirmation":"Yes",
+        "deny":"No",
         "purchase":"Purchase confirmation",
         "title": "Community",
         "search": "Search community...",

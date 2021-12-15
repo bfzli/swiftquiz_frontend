@@ -1,7 +1,7 @@
 import axios from "axios";
 import { authState } from "../reducers/Auth";
 
-const API_BASE_URL = "https://swiftapi.vercel.app/api/user";
+const API_BASE_URL = "http://localhost:5000/api/user";
 
 const { user_id, token } = authState.auth;
 
@@ -19,6 +19,9 @@ export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 //Fetch single quiz to play request
 export const playQuiz = (redeemCode) =>
   client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
+
+//Quiz purchasing
+export const purchaseQuiz = (quizId) => client.put(`/${user_id}/quiz-purchasing/${quizId}`);
 
 //Create a quiz request
 export const createQuiz = (params) =>
@@ -45,8 +48,8 @@ export const deleteUser = (userId) => client.delete(`/${userId}`);
 export const editprofil = (id, params) => client.put(`${id}`, params);
 
 
-// Saving user coins after playing quiz
-export const userScore = (coins) => client.put(`${user_id}/saving-new-score`,{coins});
+//Saving user coins after playing quiz
+export const userScore = (coins,score) => client.put(`${user_id}/saving-new-score`,{coins,score});
 
 // Leaderboard Coins
 export const leaderboardCoins = () => client.get(`/user-collection`);
