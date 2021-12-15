@@ -140,7 +140,7 @@ export default function Routing() {
           {/*not*/}
           <Route path="/dashboard/store" element={<Store />} /> {/*not*/}
           <Route path="/dashboard/messenger" element={<Support />} /> {/*not*/}
-          <Route path="/dashboard" element={<Screen />} /> {/*not*/}
+          <Route path="/dashboard/welcome" element={<Screen />} /> {/*not*/}
           <Route path="/dashboard/help" element={<Help />} />
         </Route>
         <Route path="/dashboard/auth" element={<Dashauth />} /> {/*not*/}
