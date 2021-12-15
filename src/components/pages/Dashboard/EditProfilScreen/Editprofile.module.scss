@@ -500,3 +500,30 @@
 		opacity: 0.9;
 	}
 }
+
+.inputi {
+	width: 40%;
+	font-size: 1.1em;
+	padding: 0.65em 1em;
+	font-weight: 500;
+	border-radius: 100px;
+	font-family: "Poppins";
+	background: transparent;
+	border: 2px solid var(--border-color);
+	margin-right: 0.25em;
+	transition: all ease-in-out 0.3s;
+	cursor: pointer;
+	color: var(--text-color);
+
+	&:active {
+		border: 2px solid var(--hover-color);
+	}
+
+	&:hover {
+		background: var(--hover-color);
+	}
+}
+
+.inwrapper{
+	margin-bottom: 2em
+}
