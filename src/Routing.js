@@ -33,13 +33,13 @@ import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
 
 export default function Routing() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 	const { t, i18n } = useTranslation();
 
-	if (JSON.parse(localStorage.getItem('user'))) {
-		inActive(600000, dispatch);
-	}
+  if (JSON.parse(localStorage.getItem("user"))) {
+    inActive(600000, dispatch);
+  }
 
 	const changeLang = (lang) => {
 		i18n.changeLanguage(lang);
