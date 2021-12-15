@@ -15,6 +15,7 @@ export default function User() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
     const [dropdown, setDropdown] = useState(false);
+    const [Img, setImg] = useState(null)
 
     useEffect(() => {
         getUserById(params.username)
@@ -26,7 +27,14 @@ export default function User() {
             .catch(error => {
                 console.log("something went wrong", error)
             });
+
+      renderGalleryItem();
     }, []);
+
+    function renderGalleryItem(randomNumber) {
+        fetch(`https://source.unsplash.com/collection/76748652/?sig=${randomNumber}`)
+           .then((response) => setImg(response.url))
+     }
 
     return (
         <>
@@ -37,7 +45,7 @@ export default function User() {
                             <title>{user === null ? 'loading' : user.name} - Swiftquiz</title>
                             <meta name="description" content="Your saved Quizzes here, come here to play." />
                         </Helmet>
-                        <div style={{ background: 'url("https://source.unsplash.com/random")' }} className={styles.cover}>
+                        <div style={{ background: `url(${Img})` }} className={styles.cover}>
                             <img src={`https://swiftapi.vercel.app/${user.avatar}`} className={styles.avatar} />
                         </div>
                         <div className={styles.semicontainer}>

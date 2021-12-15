@@ -11,9 +11,11 @@
     background: red;
     border-radius: 0.75em;
     position: relative;
-    background: var(--border-color);
-    background-position: center;
-    background-size: cover;
+    object-fit: cover;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: 50% 50%;
+    background: var(--hover-color);
 }
 
 .avatar {

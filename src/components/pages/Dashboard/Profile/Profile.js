@@ -10,14 +10,19 @@ import moment from 'moment'
 
 function Profile(props) {
    const dispatch = useDispatch()
-   const [loading, setLoading] = useState(true)
    const user = useSelector((state) => state.user);
+   const [Img, setImg] = useState(null)
 
    useEffect(() => {
       dispatch(fetchUserData());
+      renderGalleryItem();
    }, []);
 
-   useEffect(() => setTimeout(() => setLoading(false), 3000), [])
+
+   function renderGalleryItem(randomNumber) {
+      fetch(`https://source.unsplash.com/collection/76748652/?sig=${randomNumber}`)
+         .then((response) => setImg(response.url))
+   }
 
    return (
       <>
@@ -27,7 +32,7 @@ function Profile(props) {
                   <title>{user === null ? 'loading' : user.name} - Swiftquiz</title>
                   <meta name="description" content="Your saved Quizzes here, come here to play." />
                </Helmet>
-               <div style={{ background: 'url("https://source.unsplash.com/random")' }} className={styles.cover}>
+               <div style={{ background: `url(${Img})` }} className={styles.cover}>
                   <Link to="/dashboard/profile/edit" className={styles.editbutton}>
                      <p style={{ marginRight: '.5em' }}>Edit Profile</p>
 
