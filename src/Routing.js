@@ -31,61 +31,62 @@ import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
 
 export default function Routing() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-	if (JSON.parse(localStorage.getItem('user'))) {
-		inActive(600000, dispatch);
-	}
+  if (JSON.parse(localStorage.getItem("user"))) {
+    inActive(600000, dispatch);
+  }
 
-	const changeLang = (lang) => {
-		i18n.changeLanguage(lang);
-		localStorage.setItem('i18nextLng', lang);
-	};
+  const changeLang = (lang) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("i18nextLng", lang);
+  };
 
-	React.useEffect(() => {
-		if (localStorage.getItem('i18nextLng') === null) {
-			localStorage.setItem('i18nextLng', 'en');
-		} else
-			switch (localStorage.getItem('i18nextLng')) {
-				case 'en':
-					changeLang('en');
-					break;
-				case 'sq':
-					changeLang('sq');
-					break;
-				case 'ar':
-					changeLang('ar');
-					break;
-				case 'de':
-					changeLang('de');
-					break;
-				case 'fr':
-					changeLang('fr');
-					break;
-			}
-	}, []);
+  React.useEffect(() => {
+    if (localStorage.getItem("i18nextLng") === null) {
+      localStorage.setItem("i18nextLng", "en");
+    } else
+      switch (localStorage.getItem("i18nextLng")) {
+        case "en":
+          changeLang("en");
+          break;
+        case "sq":
+          changeLang("sq");
+          break;
+        case "ar":
+          changeLang("ar");
+          break;
+        case "de":
+          changeLang("de");
+          break;
+        case "fr":
+          changeLang("fr");
+          break;
+      }
+  }, []);
 
-	React.useEffect(() => {
-		dispatch(fetchUserData());
+  React.useEffect(() => {
+    dispatch(fetchUserData());
 
-		if (localStorage.getItem('theme') === null) dispatch({ type: CONST.SET_LIGHT_MODE });
+    if (localStorage.getItem("theme") === null)
+      dispatch({ type: CONST.SET_LIGHT_MODE });
 
-		localStorage.getItem('theme') === 'lightmode'
-			? dispatch({ type: CONST.SET_LIGHT_MODE })
-			: dispatch({ type: CONST.SET_DARK_MODE });
-	}, []);
+    localStorage.getItem("theme") === "lightmode"
+      ? dispatch({ type: CONST.SET_LIGHT_MODE })
+      : dispatch({ type: CONST.SET_DARK_MODE });
+  }, []);
 
-	React.useEffect(() => {
-		dispatch(fetchQuiz());
-	}, []);
+  React.useEffect(() => {
+    dispatch(fetchQuiz());
+  }, []);
 
-	AOS.init({
-		duration: 800,
-		disable: 'mobile',
-		once: true
-	});
+  AOS.init({
+    duration: 800,
+    disable: "mobile",
+    once: true,
+  });
 
 	return (
 		<Wrapper>

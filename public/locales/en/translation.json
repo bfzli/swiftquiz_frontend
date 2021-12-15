@@ -21,15 +21,21 @@
         "profile": "Profile",
         "logout": "Logout"
     },
-    "quizzes": {
-        "title": "Quizzes",
-        "search": "Search your quizzes...",
-        "addquiz": "Add new Quiz",
-        "emptyone": "You don't have any Quizzes",
-        "emptytwo": "Why you don't add one now?",
-        "share": "Share",
-        "edit": "Edit",
-        "delete": "Delete"
+    "section_2": {
+      "title": "Our Features",
+      "description": "Different features for knoweldge seekers, nonetheless always makeing it fun for you.            ",
+      "feature_one": {
+        "title": "Build Quizzes",
+        "description": "Build quizess of different kinds with our platoform with all the tools you need."
+      },
+      "feature_two": {
+        "title": "Share Quizzes",
+        "description": "Quizess that can be played by others are the fun of our platform, share them now."
+      },
+      "feature_three": {
+        "title": "Browse Community",
+        "description": "Our community of quizess with different categories for you to search and learn."
+      }
     },
     "community": {
         "price":"Price",
@@ -145,4 +151,9 @@
         "description": "Page was not found, if you think this is a mistake then please contact our team.",
         "cta": "Go Back Home"
     }
+  },
+  "error": {
+    "description": "Page was not found, if you think this is a mistake then please contact our team.",
+    "cta": "Go Back Home"
+  }
 }
