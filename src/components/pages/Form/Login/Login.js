@@ -33,10 +33,6 @@ export default function Login({ login }) {
     e.preventDefault();
     window.open("http://localhost:5001/auth/google", "_self");
   };
-  // const linkedInHandle = (e) => {
-  //   e.preventDefault();
-  //   window.open("http://localhost:5001/auth/linkedin", "_self");
-  // };
   const githubHandle = (e) => {
     e.preventDefault();
     window.open("http://localhost:5001/auth/github", "_self");
