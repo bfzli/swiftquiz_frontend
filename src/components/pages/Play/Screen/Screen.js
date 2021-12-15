@@ -2,7 +2,7 @@ import * as styles from "./Screen.module.scss";
 import { useState, useEffect } from "react";
 import wrong_choice from "../../../../assets/voices/isWrong.mp3";
 import correct_choice from "../../../../assets/voices/isCorrect.mp3";
-import coin from "../../../../assets/images/Coin.png";
+import coin from "../../../../assets/images/coin.png";
 import Helmet from "react-helmet";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserScore } from "../../../../reduxComponents/actions/User";

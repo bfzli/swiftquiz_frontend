@@ -18,9 +18,9 @@ export default function User() {
     useEffect(() => {
         getUserById(params.username)
             .then(data => {
-                // setUser(data[0]);
+                setUser(data[0]);
                 console.log(data)
-                setLoading(true)
+                setLoading(false)
             })
             .catch(error => {
                 console.log("something went wrong", error)
@@ -37,7 +37,7 @@ export default function User() {
                             <meta name="description" content="Your saved Quizzes here, come here to play." />
                         </Helmet>
                         <div className={styles.cover}>
-                            <img src={`https://swiftapi.vercel.app/${user.profile}`} className={styles.avatar} />
+                            <img src={`https://swiftapi.vercel.app/${user.avatar}`} className={styles.avatar} />
                         </div>
                         <div className={styles.semicontainer}>
                             <div className={styles.info}>

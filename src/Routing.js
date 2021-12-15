@@ -103,7 +103,6 @@ export default function Routing() {
                <Route path="/dashboard/profile" element={<Profile />} /> {/*not*/}
                <Route path="/dashboard/leaderboard" element={<Leaderboard />} /> {/*not*/}
                <Route path="/dashboard/support" element={<DashboardContact />} /> {/*not*/}
-               <Route path="/dashboard/bookmarks" element={<Bookmarks />} /> {/*not*/}
                <Route path="/dashboard/store" element={<Store />} /> {/*not*/}
                <Route path="/dashboard/messenger" element={<Support />} /> {/*not*/}
                <Route path="/dashboard" element={<Screen />} /> {/*not*/}
@@ -112,7 +111,6 @@ export default function Routing() {
             <Route path="/dashboard/auth" element={<Dashauth />} /> {/*not*/}
             <Route path="/*" element={<Error />} /> {/*ok*/}
             <Route path="/dashboard/*" element={<Error />} /> {/*ok*/}
-
          </Switch>
       </Wrapper>
    );

@@ -4,7 +4,7 @@
   --white: #fff;
   --background-less-important: #fcfcfc;
   --background-important: #ffffff;
-  --background-auth: #111b25 !important;
+  --background-auth: # !important;
   --border-color: #f3f3f3;
   --hover-color: #f3f3f3;
   --icon-inside: #a4adb7;
@@ -37,6 +37,7 @@
   text-decoration: none;
   outline: none;
   box-sizing: border-box;
+  list-style-type: none;
 }
 
 body {
@@ -140,5 +141,14 @@ body {
 
 #none{
   display: none !important;
+}
 
+#isOpen{
+  transition: ease-in-out all 1s;
+  width: 22.5% !important;
+}
+
+#notOpen{
+  transition: ease-in-out all 1s;
+  width: auto;
 }

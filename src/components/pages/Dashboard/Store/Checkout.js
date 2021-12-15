@@ -4,23 +4,24 @@ import { useState } from 'react';
 import Comploader from '../../../../components/shared/Loaders/Comploader'
 import c2 from '../../../../assets/images/coins-medium.png'
 import ReactDOM from 'react-dom'
-
+import { useSelector } from "react-redux";
 export default function Checkout({ setCheckout, currentPackage }) {
 
     const stripe = useStripe();
     const elements = useElements();
     const [state, setState] = useState('none')
-
+    const { user_id, token } = useSelector(state => state.auth.auth)
     const pay = async () => {
         setState('loading')
         try {
-            const response = await fetch("http://localhost:5001/api/user/pay/coins", {
+            const response = await fetch("https://swiftapi.vercel.app//api/user/pay/coins", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: "Bearer " + token,
                 },
                 body: JSON.stringify({
-                    userId: '61b1bfe057e557000845fc78',
+                    userId: user_id,
                     coins: currentPackage
                 })
             }

@@ -1,8 +1,8 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import * as styles from './Community.module.scss';
 import coin from '../../../shared/Dashbar/components/coin.svg'
 import { Link } from 'react-router-dom'
-import { useDispatch,useSelector, } from 'react-redux'
+import { useDispatch, useSelector, } from 'react-redux'
 import { connect } from "react-redux";
 import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
 import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
@@ -19,30 +19,30 @@ export function Community({ userQuizes }) {
     }
 
 
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
     return (
         <div className={styles.container}>
-             {isModal === true ?
-                                     <div className={styles.quiz_modal}>
-                                        <div className={styles.quiz_modal_box}>
-                                            <div className={styles.quiz_modal_header}>
-                                                <p className={styles.quiz_modal_title}>{t("community.purchase")}</p>
+            {isModal === true ?
+                <div className={styles.quiz_modal}>
+                    <div className={styles.quiz_modal_box}>
+                        <div className={styles.quiz_modal_header}>
+                            <p className={styles.quiz_modal_title}>{t("community.purchase")}</p>
 
-                                                <svg onClick={() => setIsModal(false)} className={styles.closemodal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="var(--icon-border)" />
-                                                </svg>
-                                            </div>
-                                            <div className={styles.quiz_modal_body}>
-                                                <p>{t("community.confirm")}</p>
-                                                <div className={styles.quiz_modal_body_confirm}>
-                                                <Link style={{ textAlign: 'center' }} to={`/invite`} className={styles.quiz_modal_body_confirm_yes}>{t("community.confirmation")}</Link>
-                                                <Link style={{ textAlign: 'center' }} to={''} onClick={() => setIsModal(false)} className={styles.quiz_modal_body_confirm_no}>{t("community.deny")}</Link>
-                                                </div>
-							                </div>
-                                        </div>
-                                     </div> :null
-                                     }
+                            <svg onClick={() => setIsModal(false)} className={styles.closemodal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="var(--icon-border)" />
+                            </svg>
+                        </div>
+                        <div className={styles.quiz_modal_body}>
+                            <p>{t("community.confirm")}</p>
+                            <div className={styles.quiz_modal_body_confirm}>
+                                <Link style={{ textAlign: 'center' }} to={`/invite`} className={styles.quiz_modal_body_confirm_yes}>{t("community.confirmation")}</Link>
+                                <Link style={{ textAlign: 'center' }} to={''} onClick={() => setIsModal(false)} className={styles.quiz_modal_body_confirm_no}>{t("community.deny")}</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div> : null
+            }
             <div className={styles.page_info} data-aos="fade-down">
                 <h2 className={styles.welcome_text}>{t("community.title")}</h2>
                 <div className={styles.search}>
@@ -84,34 +84,33 @@ export function Community({ userQuizes }) {
                         {
                             userQuizes.map(item => {
                                 return <>
-                                 <div className={styles.quiz}>
-                                    <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftapi.vercel.app/${item.thumbnail}`} />
+                                    <div className={styles.quiz}>
+                                        <img className={styles.quiz_image} alt="Quiz Image" src={`https://swiftapi.vercel.app/${item.thumbnail}`} />
 
-                                    <h3 className={styles.quiz_title}>
-                                        {item.title}
-                                    </h3>
+                                        <h3 className={styles.quiz_title}>
+                                            {item.title}
+                                        </h3>
 
-                                    <p className={styles.quiz_description}>
-                                        {item.description}
-                                    </p>
+                                        <p className={styles.quiz_description}>
+                                            {item.description}
+                                        </p>
 
-                                    <Link to={`/dashboard/profile/${item.created_by.username}`} className={styles.quizer_holder}>
-                                        <img src={`https://swiftapi.vercel.app/${item.created_by.profile}`} alt={item.name} className={styles.quizer_profile} />
-                                        <p className={styles.quizer_name}>{item.created_by.name}</p>
-                                    </Link>
-                                    <button  className={styles.quiz_play}  onClick={() => setIsModal(true)}>
-                                         <p style={{ textAlign: 'center' }}>
-                                             {t("community.play")}
-                                        </p>{" "}
-                                     </button>
-                                     
-                                   {/*<Link style={{ textAlign: 'center' }} to={`/invite/${item.redeem_code}`} className={styles.quiz_play}>{t("community.play")}</Link> */} 
-                                </div>
+                                        <Link to={`/dashboard/profile/${item.created_by.username}`} className={styles.quizer_holder}>
+                                            <img src={`https://swiftapi.vercel.app/${item.created_by.profile}`} alt={item.name} className={styles.quizer_profile} />
+                                            <p className={styles.quizer_name}>{item.created_by.name}</p>
+                                        </Link>
+
+                                        <Link to={`/invite/${item.redeem_code}`} className={styles.quiz_play} onClick={() => setIsModal(true)}>
+                                            <p style={{ textAlign: 'center' }}>
+                                                {t("community.play")} {item.purchaseCoins} {t("community.coins")}
+                                            </p>
+                                        </Link>
+                                    </div>
                                 </>
-                                
+
                             }
-                               
-                            ) }
+
+                            )}
                     </div>
                 </div>
             </main >
