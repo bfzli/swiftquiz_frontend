@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { BrowserRouter as Wrapper, Routes as Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Wrapper, Routes as Switch, Route } from 'react-router-dom';
 import * as CONST from './reduxComponents/constants/index';
 import Auth from './pages/Auth';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchQuiz } from './reduxComponents/actions/Questions';
 import { fetchUserData } from './reduxComponents/actions/User';
 import AOS from 'aos';
@@ -15,7 +15,6 @@ import Contact from './pages/Contact';
 import Profile from './pages/Dashboard/Profile';
 import AdminPanel from './pages/AdminDashboard/AdminPanel';
 import Quizzes from './pages/Dashboard/Quizzes';
-import Screen from './pages/Dashboard/Screen';
 import Play from './pages/Play';
 import About from './pages/AboutUs';
 import Quiz from './pages/Dashboard/Quiz';
@@ -24,10 +23,9 @@ import EditQuiz from './pages/Dashboard/EditQuiz';
 import Community from './pages/Dashboard/Community';
 import Leaderboard from './pages/Dashboard/Leaderboard';
 import EditProfile from './pages/EditProfil';
-import Bookmarks from './pages/Dashboard/Bookmarks';
 import Dashauth from './pages/Dashboard/Auth';
 import Store from './pages/Dashboard/Store';
-import { documentVisibility, inActive } from './utils/inActivity';
+import { inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
@@ -89,5 +87,35 @@ export default function Routing() {
 		once: true
 	});
 
+	return (
+		<Wrapper>
+			<Switch>
+				<Route path="/" element={<Home />} exact />
+				<Route path="/auth" element={<FormView />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/about" element={<About />} />
+				<Route exact path='/' element={<Auth />}>
+					<Route path="/invite/*" element={<Play />} />
+					<Route path="/play" element={<Play />} />
+					<Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} />
+					<Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} />
+					<Route path="/dashboard/admin" element={<AdminPanel />} />
+					<Route path="/dashboard/community" element={<Community />} />
+					<Route path="/dashboard/profile/edit" element={<EditProfile />} />
+					<Route path="/dashboard/profile/:username" element={<UserProfile />} />
+					<Route path="/dashboard/profile" element={<Profile />} />
+					<Route path="/dashboard/quizzes" element={<Quizzes />} />
+					<Route path="/dashboard/leaderboard" element={<Leaderboard />} />
+					<Route path="/dashboard/support" element={<DashboardContact />} />
+					<Route path="/dashboard/store" element={<Store />} />
+					<Route path="/dashboard/messenger" element={<Support />} />
 					<Route path="/dashboard/help" element={<Help />} />
+					<Route path="/dashboard"></Route> {/* should be fixed to redirect*/}
+					<Route path="/dashboard/auth" element={<Dashauth />} />
+					<Route path="/*" element={<Error />} />
+					<Route path="/dashboard/*" element={<Error />} />
+				</Route>
+			</Switch>
+		</Wrapper>
+	);
 }

@@ -1,7 +1,9 @@
 import * as styles from './Contact.module.scss'
-import { Link } from 'react-router-dom'
+import {useState} from 'react'
 
 export default function Contact() {
+    const [view, setView] = useState('start') // middle, end
+
     return (
         <div className={styles.container}>
             <div className={styles.page_info} data-aos="fade-down">
@@ -19,56 +21,55 @@ export default function Contact() {
 
             <main style={{ marginTop: '2.5em' }}>
                 <div className={styles.bottom} data-aos="fade-left">
-
-                    <div className={styles.contact_info_wrapper}>
-                        <h1 className={styles.contact_title}>The help you do deserve!</h1>
-                        <p className={styles.contact_description}>Do you have something in mind, here you can find the answers to your questions.</p>
+                    <div>
+                        <h1 className={styles.imtitle}>With what do you need help?</h1>
                     </div>
-
-                    <div className={styles.contact_features_wrapper}>
-                        <div className={styles.contact_feature_box_wrapper}>
-                            <p className={styles.contact_feature_title}>24 / 7 Support</p>
-                            <p className={styles.contact_feature_description}>Our Team works hard to anwser all tickets 24 hours 7 day a week, so don't hesitate to open an ticket.</p>
-                        </div>
-
-                        <div className={styles.contact_feature_box_wrapper}>
-                            <p className={styles.contact_feature_title}>Kind Team</p>
-                            <p className={styles.contact_feature_description}>Our Team works hard to anwser all tickets 24 hours 7 day a week, so don't hesitate to open an ticket.</p>
-                        </div>
-
-                        <div className={styles.contact_feature_box_wrapper}>
-                            <p className={styles.contact_feature_title}>Free of Charge</p>
-                            <p className={styles.contact_feature_description}>Our Team works hard to anwser all tickets 24 hours 7 day a week, so don't hesitate to open an ticket.</p>
-                        </div>
-                    </div>
-
+                    {
+                        {
+                            "fiew" : "Af"
+                        }[view]
+                    }
                     <div className={styles.all_tickets_wrapper}>
 
                         <div className={styles.anwsers_container}>
-                            <h2>title of the</h2>
-                            <hr />
-                            <ul>
-                                <li>sdfsdfsdf</li>
-                                <li>eqjnenqjwe</li>
-                            </ul>
+                            <p className={styles.answers_topic}>Rules</p>
+                            <div className={styles.breakline}></div>
+                            <p className={styles.answer_topic}>Everything related to our platform rules and how you should behave with our platform.</p>
+                        </div>
+
+                        
+                        <div className={styles.anwsers_container}>
+                            <p className={styles.answers_topic}>Rules</p>
+                            <div className={styles.breakline}></div>
+                            <p className={styles.answer_topic}>Why swearing is not allowed?</p>
                         </div>
 
                         <div className={styles.anwsers_container}>
-                            <h2>title of the</h2>
-                            <hr />
-                            <ul>
-                                <li>sdfsdfsdf</li>
-                                <li>eqjnenqjwe</li>
-                            </ul>
-                        </div><div className={styles.anwsers_container}>
-                            <h2>title of the</h2>
-                            <hr />
-                            <ul>
-                                <li>sdfsdfsdf</li>
-                                <li>eqjnenqjwe</li>
-                            </ul>
+                            <p className={styles.answers_topic}>Rules</p>
+                            <div className={styles.breakline}></div>
+                            <p className={styles.answer_topic}>Why swearing is not allowed?</p>
                         </div>
 
+                        <div className={styles.anwsers_container}>
+                            <p className={styles.answers_topic}>Rules</p>
+                            <div className={styles.breakline}></div>
+                            <p className={styles.answer_topic}>Why swearing is not allowed?</p>
+                        </div>
+
+                        <div className={styles.anwsers_container}>
+                            <p className={styles.answers_topic}>Rules</p>
+                            <div className={styles.breakline}></div>
+                            <p className={styles.answer_topic}>Why swearing is not allowed?</p>
+                        </div>
+
+                        <div className={styles.anwsers_container}>
+                            <p className={styles.answers_topic}>Rules</p>
+                            <div className={styles.breakline}></div>
+                            <p className={styles.answer_topic}>Why swearing is not allowed?</p>
+                        </div>
+                    </div>
+                    <div style={{textAlign: 'right'}}>
+                        <button>Next</button>
                     </div>
                 </div>
             </main >

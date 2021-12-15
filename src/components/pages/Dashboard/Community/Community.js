@@ -9,7 +9,6 @@ import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
 import { setCategoryFilter } from '../../../../reduxComponents/actions/Filters';
 import { useTranslation } from 'react-i18next';
 import { purchaseQuiz } from '../../../../reduxComponents/actions/Questions';
-import Modal from '../../../shared/Modal/Modal';
 
 export function Community({ userQuizes }) {
     const dispatch = useDispatch();
@@ -20,18 +19,24 @@ export function Community({ userQuizes }) {
         dispatch(setTextFilter(text));
     }
 
-    const handlePurchase = (e)=>{
-        console.log(e.target.id)
-        dispatch(purchaseQuiz(e.target.id))
+    const handlePurchase = (e) =>{
+        if(isModal === false) {
+            setIsModal(true)
+            return;
+        }
+
+        else {
+            setIsModal(false)
+            dispatch(purchaseQuiz(e.target.id))
+            return;
+        }
     }
 
     const { t } = useTranslation()
 
     return (
         <div className={styles.container}>
-            {isModal === true ?
-                                    <Modal  />:null
-                                     }
+            {isModal === true ? <button onClick={(e) => handlePurchase(e)}>hahah</button> : null }
             <div className={styles.page_info} data-aos="fade-down">
                 <h2 className={styles.welcome_text}>{t("community.title")}</h2>
                 <div className={styles.search}>
@@ -89,13 +94,13 @@ export function Community({ userQuizes }) {
                                             <p className={styles.quizer_name}>{item.created_by.name}</p>
                                         </Link>
 
-                                        <Link to={`/invite/${item.redeem_code}`} onClick={() => handlePurchase()} className={styles.quiz_play} onClick={() => setIsModal(true)}>
+                                        <button to={`/invite/${item.redeem_code}`} onClick={() => handlePurchase()} className={styles.quiz_play}>
                                             <p style={{ textAlign: 'center' }}>
                                                 {t("community.play")} {item.purchaseCoins} {t("community.coins")}
                                             </p>
-                                        </Link>
+                                        </button>
                                     </div>
-                                            <p style={{ textAlign: 'center' }} onClick={handlePurchase} id={item._id}>
+                                    
                                 </>
 
                             }

@@ -19,12 +19,11 @@
 #darkmode {
   --background-less-important: #0d151d !important;
   --background-important: #111b25 !important;
-  --border-color: #36424d !important; //#141d25
+  --border-color: #36424d !important;
   --hover-color: #263d5360 !important;
   --icon-inside: #9b9ea3 !important;
   --icon-border: #fff !important;
   --text-color: #f3f3f3;
-  --button-bg: red;
   --border-active: #f3f3f3;
   --button-bg: #f3f3f3;
   --button-text: #0d151d;
@@ -37,7 +36,6 @@
   text-decoration: none;
   outline: none;
   box-sizing: border-box;
-  list-style-type: none;
 }
 
 body {
