@@ -69,6 +69,12 @@ export const playQuiz = (redeemCode) => async (dispatch) => {
   }
 };
 
+export const clearPlayingQuiz = () => {
+  return {
+    type: CONST.CLEAR_PLAYING_QUIZ,
+  };
+};
+
 export const purchaseQuiz = (purchaseCoins) => async (dispatch) => {
   dispatch({ type: CONST.QUIZ_PURCHASE });
 
@@ -83,7 +89,7 @@ export const purchaseQuiz = (purchaseCoins) => async (dispatch) => {
   } catch (error) {
     dispatch({ type: CONST.PURCHASE_FAILED, payload: error });
     if (error.success) {
-      // alert(error.message);
+      alert(error.message);
     }
   }
 };

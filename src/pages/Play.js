@@ -4,7 +4,7 @@ import Code from "../components/pages/Play/Code/Code";
 import Screen from "../components/pages/Play/Screen/Screen";
 import { useSelector, useDispatch } from "react-redux";
 import { playQuiz } from "../reduxComponents/actions/Questions";
-import Dashlayout from "./Dashboard/Dashlayout";
+import Dashlayout from "./PlayLayout";
 
 export default function Play() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default function Play() {
 
   const currentQuiz = useSelector((state) => state.user.currentlyPlaying);
 
-  function play_quiz() {
+  async function play_quiz() {
     dispatch(playQuiz(typing));
     setQuiz(currentQuiz);
     setPlaying(true);
