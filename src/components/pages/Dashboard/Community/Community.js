@@ -1,14 +1,14 @@
+import * as styles from './Community.module.scss';
+import coin from '../../../shared/Dashbar/components/coin.svg'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { useState } from "react";
-import * as styles from "./Community.module.scss";
-import coin from "../../../shared/Dashbar/components/coin.svg";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { connect } from "react-redux";
-import { searchAllQuizes } from "../../../../reduxComponents/selectors/selectorsUserQuizzes";
-import { setTextFilter } from "../../../../reduxComponents/actions/Filters";
-import { setCategoryFilter } from "../../../../reduxComponents/actions/Filters";
-import { useTranslation } from "react-i18next";
-import { purchaseQuiz } from "../../../../reduxComponents/actions/Questions";
+import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
+import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
+import { setCategoryFilter } from '../../../../reduxComponents/actions/Filters';
+import { useTranslation } from 'react-i18next';
+import { purchaseQuiz } from '../../../../reduxComponents/actions/Questions';
 import PurchaseModal from "../../../shared/Modal/PurchaseModal";
 
 export function Community({ userQuizes }) {

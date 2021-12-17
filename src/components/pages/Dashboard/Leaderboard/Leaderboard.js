@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 function Leaderboard({ leaderboardRank }) {
     const dispatch = useDispatch();
 
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
     var count = 5;
 
@@ -22,7 +22,7 @@ function Leaderboard({ leaderboardRank }) {
     return (
         <div className={styles.container}>
             {
-                leaderboardRank === undefined || leaderboardRank === null || leaderboardRank.length === 0  ? <Loader /> :
+                leaderboardRank === undefined || leaderboardRank === null || leaderboardRank.length === 0 ? <Loader /> :
                     <>
                         <div className={styles.page_info} data-aos="fade-down">
                             <h2 className={styles.welcome_text}>Leaderboard</h2>
@@ -51,7 +51,7 @@ function Leaderboard({ leaderboardRank }) {
                                     <h2 className={styles.hallOfFameTitle}>Hall of Fame</h2>
                                     <div className={styles.leftleftPinned}>
                                         <div className={styles.profilePinnedDown}>
-                                            <img src={`https://swiftapi.vercel.app/${leaderboardRank[3].avatar}`} className={styles.avatarPinned} />
+                                            <Link to={`profile/${leaderboardRank[3].username}`}><img src={`https://swiftapi.vercel.app/${leaderboardRank[3].avatar}`} className={styles.avatarPinned} /></Link>
                                             <Link to={`profile/${leaderboardRank[3].username}`} className={styles.hallusername}>{leaderboardRank[3].name}</Link>
                                             <p className={styles.hallcoins}>{leaderboardRank[3].coins} coins</p>
                                         </div>
@@ -61,7 +61,7 @@ function Leaderboard({ leaderboardRank }) {
                                     </div>
                                     <div className={styles.leftPinned}>
                                         <div className={styles.profilePinnedCenter}>
-                                            <img src={`https://swiftapi.vercel.app/${leaderboardRank[1].avatar}`} className={styles.avatarPinned} />
+                                            <Link to={`profile/${leaderboardRank[1].username}`}><img src={`https://swiftapi.vercel.app/${leaderboardRank[1].avatar}`} className={styles.avatarPinned} /></Link>
                                             <Link to={`profile/${leaderboardRank[1].username}`} className={styles.hallusername}>{leaderboardRank[1].name}</Link>
                                             <p className={styles.hallcoins}>{leaderboardRank[1].coins} coins</p>
                                         </div>
@@ -71,7 +71,7 @@ function Leaderboard({ leaderboardRank }) {
                                     </div>
                                     <div className={styles.centerPinned}>
                                         <div className={styles.profilePinnedTop}>
-                                            <img src={`https://swiftapi.vercel.app/${leaderboardRank[0].avatar}`} className={styles.avatarPinned} />
+                                            <Link to={`profile/${leaderboardRank[0].username}`}><img src={`https://swiftapi.vercel.app/${leaderboardRank[0].avatar}`} className={styles.avatarPinned} /></Link>
                                             <Link to={`profile/${leaderboardRank[0].username}`} className={styles.hallusername}>{leaderboardRank[0].name}</Link>
                                             <p className={styles.hallcoins}>{leaderboardRank[0].coins} coins</p>
                                         </div>
@@ -81,7 +81,7 @@ function Leaderboard({ leaderboardRank }) {
                                     </div>
                                     <div className={styles.rightPinned}>
                                         <div className={styles.profilePinnedCenter}>
-                                            <img src={`https://swiftapi.vercel.app/${leaderboardRank[2].avatar}`} className={styles.avatarPinned} />
+                                            <Link to={`profile/${leaderboardRank[2].username}`}><img src={`https://swiftapi.vercel.app/${leaderboardRank[2].avatar}`} className={styles.avatarPinned} /></Link>
                                             <Link to={`profile/${leaderboardRank[2].username}`} className={styles.hallusername}>{leaderboardRank[2].name}</Link>
                                             <p className={styles.hallcoins}>{leaderboardRank[2].coins} coins</p>
                                         </div>
@@ -91,7 +91,7 @@ function Leaderboard({ leaderboardRank }) {
                                     </div>
                                     <div className={styles.rightrightPinned}>
                                         <div className={styles.profilePinnedDown}>
-                                            <img src={`https://swiftapi.vercel.app/${leaderboardRank[4].avatar}`} className={styles.avatarPinned} />
+                                            <Link to={`profile/${leaderboardRank[4].username}`}><img src={`https://swiftapi.vercel.app/${leaderboardRank[4].avatar}`} className={styles.avatarPinned} /></Link>
                                             <Link to={`profile/${leaderboardRank[4].username}`} className={styles.hallusername}>{leaderboardRank[4].name}</Link>
                                             <p className={styles.hallcoins}>{leaderboardRank[4].coins} coins</p>
                                         </div>
@@ -113,10 +113,14 @@ function Leaderboard({ leaderboardRank }) {
                                                 </div>
 
                                                 <div className={styles.rank_avatar}>
-                                                    <img src={`https://swiftapi.vercel.app/${item.avatar}`} className={styles.rank_avatar_image} />
+                                                    <Link to={`profile/${item.username}`}>
+                                                        <img src={`https://swiftapi.vercel.app/${item.avatar}`} className={styles.rank_avatar_image} />
+                                                    </Link>
                                                 </div>
                                                 <div className={styles.rank_name}>
-                                                    <h3 className={styles.hallusername}>{item.name}</h3>
+                                                    <Link to={`profile/${item.username}`}>
+                                                        <h3 className={styles.hallusername}>{item.name}</h3>
+                                                    </Link>
                                                 </div>
 
                                                 <div className={styles.rank_count}>

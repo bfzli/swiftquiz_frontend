@@ -1,47 +1,39 @@
 .container {
-  background: var(--background-less-important);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  overflow: hidden;
-  transition: all ease-in-out 0.3s;
+    background: var(--background-less-important);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    transition: all ease-in-out 1s;
 }
 
 .sidebar {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  top: 0;
-  left: 0;
-  background: var(--background-important);
-  border-right: 2px solid var(--border-color);
-  padding: 0.75em;
-  transition: all ease-in-out 0.3s;
-  @media (max-width: 767px) {
-    margin-top: 7rem;
-    //   width: 85%;
-  }
-}
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    background: var(--background-important);
+    border-right: 2px solid var(--border-color);
+    padding: 0.75em;
+    transition: all ease-in-out 1s;
 
-/*
-.sidebar_top {
-}*/
+    @media (max-width: 767px) {
+        margin-top: 7rem;
+     //   width: 85%;
+       
+      }
+}
 
 .sidebar_top_small {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all ease-in-out 1s;
 }
-
-/*
-.sidebar_bottom {
-}
-
-.sidebar_logo {
-}*/
 
 .spacer {
   background: var(--border-color);
