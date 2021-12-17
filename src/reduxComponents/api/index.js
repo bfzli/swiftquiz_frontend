@@ -21,14 +21,16 @@ export const playQuiz = (redeemCode) =>
   client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
 
 //Quiz purchasing
-export const purchaseQuiz = (quizId) => client.put(`/${user_id}/quiz-purchasing/${quizId}`);
+export const purchaseQuiz = (quizId) =>
+  client.put(`/${user_id}/quiz-purchasing/${quizId}`);
 
 //Create a quiz request
 export const createQuiz = (params) =>
   client.post(`/${user_id}/quizzes/create-quiz`, params);
 
 //Edit quiz request
-export const editQuiz = (quiz_id, body) => client.put(`/${user_id}/quizzes/update-quiz/${quiz_id}`, body);
+export const editQuiz = (quiz_id, body) =>
+  client.put(`/${user_id}/quizzes/update-quiz/${quiz_id}`, body);
 
 //Delete a single quiz request
 export const deleteQuiz = (id) =>
@@ -47,9 +49,9 @@ export const deleteUser = (userId) => client.delete(`/${userId}`);
 // Edit Profil Information
 export const editprofil = (id, params) => client.put(`${id}`, params);
 
-
 //Saving user coins after playing quiz
-export const userScore = (coins,score) => client.put(`${user_id}/saving-new-score`,{coins,score});
+export const userScore = (coins, score) =>
+  client.put(`${user_id}/saving-new-score`, { coins, score });
 
 // Leaderboard Coins
 export const leaderboardCoins = () => client.get(`/user-collection`);
@@ -95,7 +97,7 @@ export const removeFromLocalStorage = () => localStorage.removeItem("user");
 export const updateUser = (updates) => axios.put(`${API_BASE_URL}/`);
 
 // Fetch user profile from DB
-export const fetchUserProfile = () => client.get('/profile');
+export const fetchUserProfile = () => client.get("/profile");
 
 // Close accout call
-export const closeAccount = () => client.delete(`/${user_id}`)
+export const closeAccount = () => client.delete(`/${user_id}`);
