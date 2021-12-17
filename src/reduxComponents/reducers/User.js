@@ -10,6 +10,7 @@ export const userState = {
   leaderboard: [],
   currentlyPlaying: {},
   currentylViewing: {},
+  purchaseMessage: false,
   coins: 100,
 };
 
@@ -71,12 +72,14 @@ const userReducer = (state = userState, action) => {
     case CONST.PURCHASE_SUCCESS:
       return {
         ...state,
-        coins: state.coins - payload.purchaseCoins,
+        coins: payload.purchaseCoins,
+        purchaseMessage: payload.success,
       };
     case CONST.PURCHASE_FAILED:
       return {
         ...state,
         error: payload,
+        purchaseMessage: false,
       };
 
     case CONST.USER_SCORE_UPDATE:

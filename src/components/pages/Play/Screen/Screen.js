@@ -5,6 +5,7 @@ import correct_choice from "../../../../assets/voices/isCorrect.mp3";
 import coin from "../../../shared/Dashbar/components/coin.svg";
 import score from "../../../shared/Dashbar/components/score.svg";
 import Helmet from "react-helmet";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserScore } from "../../../../reduxComponents/actions/User";
 import { useTranslation } from "react-i18next";
@@ -18,7 +19,7 @@ export default function Screen({ quiz }) {
   let [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswersCount, setCorrectAnwsersCount] = useState(0);
   const [coins, setCoins] = useState(0);
-  const [score,setScore]=useState(0);
+  const [score, setScore] = useState(0);
   const [wrongAnswersCount, setWrongAnwsersCount] = useState(0);
   const [modal, setModal] = useState(false);
   let TotalQuestions = questions.questions.length;
@@ -47,7 +48,7 @@ export default function Screen({ quiz }) {
       }
       var correctCount = correctAnswersCount + 1;
       var newCoins = coins + 10;
-      var newScore = score +10;
+      var newScore = score + 10;
       setCoins(newCoins);
       setScore(newScore);
       setCorrectAnwsersCount(correctCount);
@@ -67,7 +68,7 @@ export default function Screen({ quiz }) {
       if (score !== 0) var newScore = score - 0;
 
       setCoins(newCoins); ///coins
-      setScore(newScore);   ///score
+      setScore(newScore); ///score
       setWrongAnwsersCount(wrongCount);
     }
 
@@ -78,7 +79,7 @@ export default function Screen({ quiz }) {
       setTimeout(0);
       setRunTimer(false);
       setModal(true);
-      dispatch(updateUserScore(newCoins,newScore));
+      dispatch(updateUserScore(newCoins, newScore));
       console.log(newCoins);
       console.log(newScore);
     }
@@ -716,12 +717,21 @@ export default function Screen({ quiz }) {
                       <img src={score} width="26px" height="26px" />
                     </sup>
                   </div>
+                  {/* 
                   <button className={styles.button} onClick={() => resetQuiz()}>
                     <p style={{ marginRight: ".35em" }}>
                       {t("play_enter.play_again")} 200
                     </p>{" "}
                     <img src={coin} width="32px" height="32px" />
                   </button>
+                 */}
+                  <Link
+                    to={"/dashboard/community"}
+                    className={styles.button}
+                    onClick={() => resetQuiz()}
+                  >
+                    Back to dashboard
+                  </Link>
                 </div>
               </div>
             )}

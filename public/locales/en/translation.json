@@ -73,9 +73,10 @@
     "physics": "Physics"
   },
   "play_screen": {
-    "title": "Be an einstein, play now!",
-    "description": "Playing a quiz is simple easily, play by entering a code or through a link that someone invited you to do so.",
-    "enter": "Enter"
+    "title": "Test your knoweldge, play now!",
+    "description": "If you came here via invitation link, type redeem code below!",
+    "enter": "Confirm purchase",
+    "backto": "Back to dashboard"
   },
   "play_enter": {
     "timeleft": "Time to Answer",

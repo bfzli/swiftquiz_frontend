@@ -4,7 +4,7 @@ import Code from "../components/pages/Play/Code/Code";
 import Screen from "../components/pages/Play/Screen/Screen";
 import { useSelector, useDispatch } from "react-redux";
 import { playQuiz } from "../reduxComponents/actions/Questions";
-import Dashlayout from "./Dashboard/Dashlayout";
+import Dashlayout from "./PlayLayout";
 
 export default function Play() {
   const dispatch = useDispatch();
