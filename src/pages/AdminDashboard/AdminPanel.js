@@ -5,7 +5,7 @@ import { fetchAllUsersAction } from '../../reduxComponents/actions/Admin';
 import * as styles from '../../components/pages/AdminPanel/AdminPanel.module.scss';
 import Dashlayout from '../Dashboard/Dashlayout'
 
-export default AdminPanel = () => {
+const AdminPanel = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -26,3 +26,5 @@ export default AdminPanel = () => {
 		</Dashlayout>
 	);
 };
+
+export default AdminPanel;
