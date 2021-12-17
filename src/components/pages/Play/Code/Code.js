@@ -6,18 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { purchaseQuiz } from "../../../../reduxComponents/actions/Questions";
 
 export default function Screen({ code, setCode, play_quiz }) {
-  {
-    /*
-    const purchaseConfirmation = useSelector(
+  const purchaseConfirmation = useSelector(
     (state) => state.user.purchaseMessage
   );
-*/
-  }
+
   const dispatch = useDispatch();
 
   const accessQuiz = () => {
     dispatch(purchaseQuiz(code));
-    setTimeout(() => play_quiz(), 2000);
+    if (purchaseConfirmation) {
+      setTimeout(() => play_quiz(), 2000);
+    }
   };
 
   const { t } = useTranslation();

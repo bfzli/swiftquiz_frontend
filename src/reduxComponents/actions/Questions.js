@@ -87,10 +87,9 @@ export const purchaseQuiz = (purchaseCoins) => async (dispatch) => {
       //	alert(data.message);
     }
   } catch (error) {
-    console.log(error.status);
     dispatch({ type: CONST.PURCHASE_FAILED, payload: error });
     if (error.success) {
-      // alert(error.message);
+      alert(error.message);
     }
   }
 };
