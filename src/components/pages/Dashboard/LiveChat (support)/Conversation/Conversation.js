@@ -11,7 +11,7 @@ export default function Conversation({ conversation, currentUser }) {
     const getUser = async () => {
       try {
         const res = await axios.get(
-          `https://swiftapi.vercel.app/api/user/${friendId}`
+          `http://localhost:5000/api/user/${friendId}`
         );
         await setUser(res.data);
       } catch (err) {
