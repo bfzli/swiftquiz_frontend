@@ -5,21 +5,19 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { purchaseQuiz } from "../../../../reduxComponents/actions/Questions";
 
-export default function Screen({ playing, code, setCode, play_quiz }) {
-  const purchaseConfirmation = useSelector(
+export default function Screen({ code, setCode, play_quiz }) {
+  {
+    /*
+    const purchaseConfirmation = useSelector(
     (state) => state.user.purchaseMessage
   );
-
-  console.log(purchaseConfirmation);
-
+*/
+  }
   const dispatch = useDispatch();
 
   const accessQuiz = () => {
     dispatch(purchaseQuiz(code));
-    console.log(purchaseConfirmation);
-    if (!purchaseConfirmation) {
-      setTimeout(() => play_quiz(), 2000);
-    }
+    setTimeout(() => play_quiz(), 2000);
   };
 
   const { t } = useTranslation();
@@ -43,7 +41,7 @@ export default function Screen({ playing, code, setCode, play_quiz }) {
             <button onClick={accessQuiz} className={styles.cta}>
               {t("play_screen.enter")}
             </button>
-            <Link to={"/dashboard"} className={styles.back}>
+            <Link to={"/dashboard/community"} className={styles.back}>
               {t("play_screen.backto")}
             </Link>
           </div>

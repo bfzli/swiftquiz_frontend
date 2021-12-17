@@ -69,6 +69,12 @@ export const playQuiz = (redeemCode) => async (dispatch) => {
   }
 };
 
+export const clearPlayingQuiz = () => {
+  return {
+    type: CONST.CLEAR_PLAYING_QUIZ,
+  };
+};
+
 export const purchaseQuiz = (purchaseCoins) => async (dispatch) => {
   dispatch({ type: CONST.QUIZ_PURCHASE });
 

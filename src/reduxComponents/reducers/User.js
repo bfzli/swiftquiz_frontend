@@ -69,10 +69,17 @@ const userReducer = (state = userState, action) => {
         score: payload.score,
       };
 
+    case CONST.CLEAR_PLAYING_QUIZ:
+      return {
+        ...state,
+        currentlyPlaying: {},
+      };
+
     case CONST.PURCHASE_SUCCESS:
       return {
         ...state,
-        coins: payload.purchaseCoins,
+        coins: payload.quiz.purchaseCoins,
+        currentlyPlaying: payload.quiz,
         purchaseMessage: payload.success,
       };
     case CONST.PURCHASE_FAILED:

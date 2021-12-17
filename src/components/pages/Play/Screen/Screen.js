@@ -15,7 +15,7 @@ import useVisibility from "../../../../utils/customHooks/useVisibility";
 export default function Screen({ quiz }) {
   const user = useSelector((state) => state.user);
   const [menuView, setMenuView] = useState("stats");
-  const [questions] = useState(quiz);
+  const [questions] = useState(() => quiz);
   let [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswersCount, setCorrectAnwsersCount] = useState(0);
   const [coins, setCoins] = useState(0);

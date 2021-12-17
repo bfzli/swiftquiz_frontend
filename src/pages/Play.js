@@ -15,7 +15,7 @@ export default function Play() {
 
   const currentQuiz = useSelector((state) => state.user.currentlyPlaying);
 
-  function play_quiz() {
+  async function play_quiz() {
     dispatch(playQuiz(typing));
     setQuiz(currentQuiz);
     setPlaying(true);
