@@ -1,15 +1,14 @@
-import * as styles from './Community.module.scss';
-import coin from '../../../shared/Dashbar/components/coin.svg'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import * as styles from "./Community.module.scss";
+import coin from "../../../shared/Dashbar/components/coin.svg";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { connect } from "react-redux";
-import { searchAllQuizes } from '../../../../reduxComponents/selectors/selectorsUserQuizzes';
-import { setTextFilter } from '../../../../reduxComponents/actions/Filters';
-import { setCategoryFilter } from '../../../../reduxComponents/actions/Filters';
-import { useTranslation } from 'react-i18next';
-import { purchaseQuiz } from '../../../../reduxComponents/actions/Questions';
-import PurchaseModal from "../../../shared/Modal/PurchaseModal";
+import { searchAllQuizes } from "../../../../reduxComponents/selectors/selectorsUserQuizzes";
+import { setTextFilter } from "../../../../reduxComponents/actions/Filters";
+import { setCategoryFilter } from "../../../../reduxComponents/actions/Filters";
+import { useTranslation } from "react-i18next";
+import { clearPlayingQuiz } from "../../../../reduxComponents/actions/Questions";
 
 export function Community({ userQuizes }) {
   const dispatch = useDispatch();
@@ -24,31 +23,13 @@ export function Community({ userQuizes }) {
   };
 
   const handlePurchase = (e) => {
-    // setIsModal(true);
-    //  setSelectedQuiz(e.target.title);
-    //  setRedeemCode(e.target.value);
-    //  console.log(e.target.value);
-    //  setQuizId(e.target.id);
-    dispatch(purchaseQuiz(e.target.value));
+    dispatch(clearPlayingQuiz());
   };
 
   const { t } = useTranslation();
 
   return (
     <div className={styles.container}>
-      {isModal === true ? (
-        <PurchaseModal
-          title={`${t("community.modaltitle")}  ${selectedQuiz}`}
-          onClose={() => setIsModal(false)}
-          text={t("community.modalquestion")}
-          link1={`${t("community.confirmation")}`}
-          link2={`${t("community.deny")}`}
-          dispatch={dispatch}
-          quiz={quizId}
-          purchaseQuiz={purchaseQuiz}
-          redeem={redeemCode}
-        />
-      ) : null}
       <div className={styles.page_info} data-aos="fade-down">
         <h2 className={styles.welcome_text}>{t("community.title")}</h2>
         <div className={styles.search}>
@@ -147,6 +128,7 @@ export function Community({ userQuizes }) {
                       style={{ textAlign: "center" }}
                       to={`/invite/${item.redeem_code}`}
                       className={styles.quiz_play}
+                      onClick={handlePurchase}
                     >
                       {t("community.play")}
                     </Link>

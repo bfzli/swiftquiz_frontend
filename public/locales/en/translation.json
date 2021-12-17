@@ -1,25 +1,130 @@
 {
-    "dashbar": {
-        "home": "Quizzes",
-        "myquizzes": "My Quizzes",
-        "community": "Community",
-        "leaderboard": "Leaderboard",
-        "bookmarks": "Bookmarks",
-        "support": "Support",
-        "settings": "Settings",
-        "theme": "Theme",
-        "language": "Language",
-        "lightmode": "Light Mode",
-        "darkmode": "Dark Mode",
-        "ar": "Arabic",
-        "en": "English",
-        "sq": "Albanian",
-        "fr": "French",
-        "de": "German",
-        "coins": "Coins",
-        "score":"Score",
-        "profile": "Profile",
-        "logout": "Logout"
+  "dashbar": {
+    "home": "Quizzes",
+    "myquizzes": "My Quizzes",
+    "community": "Community",
+    "leaderboard": "Leaderboard",
+    "bookmarks": "Bookmarks",
+    "support": "Support",
+    "settings": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+    "lightmode": "Light Mode",
+    "darkmode": "Dark Mode",
+    "ar": "Arabic",
+    "en": "English",
+    "sq": "Albanian",
+    "fr": "French",
+    "de": "German",
+    "coins": "Coins",
+    "score": "Score",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "section_2": {
+    "title": "Our Features",
+    "description": "Different features for knoweldge seekers, nonetheless always makeing it fun for you.            ",
+    "feature_one": {
+      "title": "Build Quizzes",
+      "description": "Build quizess of different kinds with our platoform with all the tools you need."
+    },
+    "feature_two": {
+      "title": "Share Quizzes",
+      "description": "Quizess that can be played by others are the fun of our platform, share them now."
+    },
+    "feature_three": {
+      "title": "Browse Community",
+      "description": "Our community of quizess with different categories for you to search and learn."
+    }
+  },
+  "community": {
+    "price": "Price",
+    "confirm": "Are you sure you want to purchase this quiz ?",
+    "confirmation": "Yes",
+    "deny": "No",
+    "purchase": "Purchase confirmation",
+    "title": "Community",
+    "search": "Search community...",
+    "play": "Play for",
+    "coins": "Coins",
+    "categories": "All Categories",
+    "religion": "Relegion",
+    "programming": "Programming",
+    "mathematics": "Mathematics",
+    "sport": "Sport",
+    "art": "Art",
+    "others": "Others",
+    "physics": "Physics"
+  },
+  "quiz": {
+    "question": "Start typing your question...",
+    "answer": "Your answer here",
+    "questions": "Questions",
+    "addquestion": "Add Question",
+    "publish": "Publish",
+    "title": "Title",
+    "settings": "Settings",
+    "quizbuilder": "Quiz Builder",
+    "quizpublish": "Quiz Publish",
+    "quizedit": "Quiz Edit",
+    "description": "Description",
+    "category": "Category",
+    "thumbnail": "Thumbnail",
+    "religion": "Relegion",
+    "programming": "Programming",
+    "mathematics": "Mathematics",
+    "sport": "Sport",
+    "art": "Art",
+    "others": "Others",
+    "physics": "Physics"
+  },
+  "play_screen": {
+    "title": "Test your knowledge, play now!",
+    "description": "If you came here by invitation code, write it down below!",
+    "enter": "Enter",
+    "backto": "Back to dashboard"
+  },
+  "play_enter": {
+    "timeleft": "Time to Answer",
+    "coinscollected": "Coins Collected",
+    "correcta": "Correct Answers",
+    "wronga": "Wrong Answers",
+    "leftquestions": "Left Questions",
+    "totalquestions": "Total Questions",
+    "settings": "Settings",
+    "analytics": "Analytics",
+    "anwsers": "Answers",
+    "play_again": "Play again with"
+  },
+  "auth": {
+    "logindesc": "If do you have an account, then come back let's learn together by playing quizes and bee a like Einstein.",
+    "logintitle": "Do you have an Account?",
+    "loginbtn": "Sign In",
+    "joinnow": "Join Now",
+    "o": "Or use your email for registration",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmpassword": "Confrim Password",
+    "username": "Username",
+    "signupbtn": "Regjistrohu"
+  },
+  "header": {
+    "mission": "Mission",
+    "pricing": "Pricing",
+    "contact": "Support",
+    "team": "Team",
+    "about": "About",
+    "logincta": "Login",
+    "registercta": "Get Started",
+    "logout": "Logout",
+    "profile": "Profile"
+  },
+  "home": {
+    "section_1": {
+      "title": "Making Learning Fun with Quizzes",
+      "description": "With our platform learning is awesome and fun with community made quizzes of different fields.",
+      "cta": "Play a Random Quiz"
     },
     "section_2": {
       "title": "Our Features",
@@ -37,118 +142,14 @@
         "description": "Our community of quizess with different categories for you to search and learn."
       }
     },
-    "community": {
-        "price":"Price",
-        "confirm":"Are you sure you want to purchase this quiz ?",
-        "confirmation":"Yes",
-        "deny":"No",
-        "purchase":"Purchase confirmation",
-        "title": "Community",
-        "search": "Search community...",
-        "play": "Play for",
-        "coins": "Coins",
-        "categories": "All Categories",
-        "religion": "Relegion",
-        "programming": "Programming",
-        "mathematics": "Mathematics",
-        "sport": "Sport",
-        "art": "Art",
-        "others": "Others",
-        "physics": "Physics"
-    },
-    "quiz": {
-        "question": "Start typing your question...",
-        "answer": "Your answer here",
-        "questions": "Questions",
-        "addquestion": "Add Question",
-        "publish": "Publish",
-        "title": "Title",
-        "settings": "Settings",
-        "quizbuilder": "Quiz Builder",
-        "quizpublish": "Quiz Publish",
-        "quizedit": "Quiz Edit",
-        "description": "Description",
-        "category": "Category",
-        "thumbnail": "Thumbnail",
-        "religion": "Relegion",
-        "programming": "Programming",
-        "mathematics": "Mathematics",
-        "sport": "Sport",
-        "art": "Art",
-        "others": "Others",
-        "physics": "Physics"
-    },
-    "play_screen": {
-        "title": "Be an einstein, play now!",
-        "description": "Playing a quiz is simple easily, play by entering a code or through a link that someone invited you to do so.",
-        "enter": "Enter"
-    },
-    "play_enter": {
-        "timeleft": "Time to Answer",
-        "coinscollected": "Coins Collected",
-        "correcta": "Correct Answers",
-        "wronga": "Wrong Answers",
-        "leftquestions": "Left Questions",
-        "totalquestions": "Total Questions",
-        "settings": "Settings",
-        "analytics": "Analytics",
-        "anwsers": "Answers",
-        "play_again": "Play again with"
-    },
-    "auth": {
-        "logindesc": "If do you have an account, then come back let's learn together by playing quizes and bee a like Einstein.",
-        "logintitle": "Do you have an Account?",
-        "loginbtn": "Sign In",
-        "joinnow": "Join Now",
-        "o": "Or use your email for registration",
-        "name": "Name",
-        "email": "Email",
-        "password": "Password",
-        "confirmpassword": "Confrim Password",
-        "username": "Username",
-        "signupbtn": "Regjistrohu"
-    },
-    "header": {
-        "mission": "Mission",
-        "pricing": "Pricing",
-        "contact": "Support",
-        "team": "Team",
-        "about": "About",
-        "logincta": "Login",
-        "registercta": "Get Started",
-        "logout": "Logout",
-        "profile": "Profile"
-    },
-    "home": {
-        "section_1": {
-            "title": "Making Learning Fun with Quizzes",
-            "description": "With our platform learning is awesome and fun with community made quizzes of different fields.",
-            "cta": "Play a Random Quiz"
-        },
-        "section_2": {
-            "title": "Our Features",
-            "description": "Different features for knoweldge seekers, nonetheless always makeing it fun for you.            ",
-            "feature_one": {
-                "title": "Build Quizzes",
-                "description": "Build quizess of different kinds with our platoform with all the tools you need."
-            },
-            "feature_two": {
-                "title": "Share Quizzes",
-                "description": "Quizess that can be played by others are the fun of our platform, share them now."
-            },
-            "feature_three": {
-                "title": "Browse Community",
-                "description": "Our community of quizess with different categories for you to search and learn."
-            }
-        },
-        "section_3": {
-            "title": "What is the Mission of our platform?",
-            "description": "We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.",
-            "cta": "Explore Quizzes"
-        }
-    },
-    "error": {
-        "description": "Page was not found, if you think this is a mistake then please contact our team.",
-        "cta": "Go Back Home"
+    "section_3": {
+      "title": "What is the Mission of our platform?",
+      "description": "We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.",
+      "cta": "Explore Quizzes"
     }
+  },
+  "error": {
+    "description": "Page was not found, if you think this is a mistake then please contact our team.",
+    "cta": "Go Back Home"
+  }
 }

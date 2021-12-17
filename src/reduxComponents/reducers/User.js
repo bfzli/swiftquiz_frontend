@@ -10,6 +10,7 @@ export const userState = {
   leaderboard: [],
   currentlyPlaying: {},
   currentylViewing: {},
+  purchaseMessage: false,
   coins: 100,
 };
 
@@ -68,15 +69,24 @@ const userReducer = (state = userState, action) => {
         score: payload.score,
       };
 
+    case CONST.CLEAR_PLAYING_QUIZ:
+      return {
+        ...state,
+        currentlyPlaying: {},
+      };
+
     case CONST.PURCHASE_SUCCESS:
       return {
         ...state,
-        coins: state.coins - payload.purchaseCoins,
+        coins: payload.quiz.purchaseCoins,
+        currentlyPlaying: payload.quiz,
+        purchaseMessage: payload.success,
       };
     case CONST.PURCHASE_FAILED:
       return {
         ...state,
         error: payload,
+        purchaseMessage: false,
       };
 
     case CONST.USER_SCORE_UPDATE:
