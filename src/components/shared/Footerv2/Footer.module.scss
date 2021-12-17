@@ -1,0 +1,74 @@
+.footer {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.foostart {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fooend {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--border-color);
+    width: 100%;
+    margin-top: 1em;
+    padding: .5em 0em;
+    font-family: "Markpro";
+    font-size: 1.1em;
+    align-items: center;
+}
+
+.fooone {
+    width: 33.3333%;
+    padding: 2em 0em;
+}
+
+.footwo {
+    width: 33.3333%;
+    padding: 2em 0em;
+}
+
+.foothree {
+    width: 33.3333%;
+    padding: 2em 0em;
+    display: flex;
+    flex-direction: column;
+    font-family: "Markpro";
+}
+
+.logo {
+    height: 2.75em;
+    fill: var(--text-color);
+}
+
+.description{
+    font-family: "Markpro";
+    font-size: 1.2em;
+    margin-top: .5em;
+    margin-left: 1px;
+}
+
+.footbox{
+    padding: .5em 1em;
+    font-size: 1.1em;
+    border-radius: 1000px;
+    border: 2px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color)
+}
+
+.footboxchild{
+    padding: .5em 1em;
+    font-size: 1.1em;
+    border-radius: 1000px;
+    border: 2px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color)
+}
+
+.linkthree{
+    margin-bottom: .3em;
+}

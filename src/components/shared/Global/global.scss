@@ -1,15 +1,14 @@
 :root,
 #lightmode {
-  --purple: #5928e5;
-  --white: #fff;
   --background-less-important: #fcfcfc;
   --background-important: #ffffff;
-  --background-auth: # !important;
   --border-color: #f3f3f3;
+  --line-color: #f3f3f3;
   --hover-color: #f3f3f3;
   --icon-inside: #a4adb7;
-  --icon-border: #151e28;
-  --text-color: #151e28;
+  --icon-border: #2B2A35;
+  --text-color: #2B2A35;
+  --text-color-less: #79787c;
   --border-active: #f3f3f3;
   --button-bg: #0d151d;
   --button-text: #f3f3f3;
@@ -20,10 +19,12 @@
   --background-less-important: #0d151d !important;
   --background-important: #111b25 !important;
   --border-color: #36424d !important;
+  --line-color: #36424d30;
   --hover-color: #263d5360 !important;
   --icon-inside: #9b9ea3 !important;
   --icon-border: #fff !important;
   --text-color: #f3f3f3;
+  --text-color-less: rgb(148, 147, 151);
   --border-active: #f3f3f3;
   --button-bg: #f3f3f3;
   --button-text: #0d151d;
@@ -149,4 +150,16 @@ body {
 #notOpen{
   transition: ease-in-out all 1s;
   width: auto;
+}
+
+#shadow{
+  box-shadow: 0 0 1.8rem rgb(0 0 0 / 15%) !important;
+  background: var(--background-important) !important;
+  transition: all ease-in-out .3s;
+  z-index: 5;
+}
+
+#isActiveBox{
+  border-bottom: 5px solid var(--border-color);
+  font-family: "Markprobold";
 }

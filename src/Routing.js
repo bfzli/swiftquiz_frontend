@@ -29,6 +29,7 @@ import { inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
+import Homev2 from './pages/Homev2'
 
 export default function Routing() {
   const dispatch = useDispatch();
@@ -95,6 +96,7 @@ export default function Routing() {
 				<Route path="/auth" element={<FormView />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/about" element={<About />} />
+				<Route path="/new" element={<Homev2 />} />
 				<Route exact path='/' element={<Auth />}>
 					<Route path="/invite/*" element={<Play />} />
 					<Route path="/play" element={<Play />} />
