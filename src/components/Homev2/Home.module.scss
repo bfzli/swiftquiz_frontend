@@ -33,9 +33,17 @@
 .section5 {
     width: 100%;
     height: auto;
-    background: #d67a99;
+    background: #e6f5f9;
     position: relative;
     display: flex;
+    z-index: 1;
+}
+
+.footerimg {
+    width: 97%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
 }
 
 .line1 {
@@ -168,6 +176,9 @@
     font-family: "Markpro";
     text-align: center;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--text-color-less);
 }
 
@@ -262,9 +273,35 @@
 .slidercontainer {
     width: 80%;
     height: 100%;
-    background: royalblue;
+    background: linear-gradient(30deg, #8d49f7, #6b53ff);
     border-radius: 10em;
     margin-bottom: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviewbody {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.reviewwho {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.reviewp{
+    color: white;
+    font-size: 1.75em;
+    font-family: 'Makrproemdium'
 }
 
 .goright {
@@ -277,4 +314,11 @@
     position: absolute;
     top: 50%;
     left: 1em;
+}
+
+.featureswrap {
+    display: flex;
+    margin: 2em 0em;
+    width: 70%;
+    justify-content: space-around;
 }

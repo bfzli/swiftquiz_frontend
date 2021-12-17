@@ -11,9 +11,13 @@ import f7 from '../../assets/images/v2/loom_aetyp2.svg'
 import f9 from '../../assets/images/v2/parsely_bztaeo.svg'
 import f10 from '../../assets/images/v2/frontify_vr3xme.svg'
 import f12 from '../../assets/images/v2/unsplash_wotp32.svg'
+import add_quiz_dark from '../../assets/images/homepage/add_quiz_dark.png'
+import add_quiz_light from '../../assets/images/homepage/add_quiz_light.png'
+import { useSelector } from 'react-redux'
 
 export default function Homev2() {
     const [s3view, setS3view] = useState('one')
+    const theme = useSelector(state => state.ui.theme)
 
     useEffect(() => {
         ContentSwitcher()
@@ -59,16 +63,16 @@ export default function Homev2() {
                     </p>
 
                     <div className={styles.brands}>
-                        <img className={styles.brand} alt="" src={f1} />
-                        <img className={styles.brand} alt="" src={f2} />
-                        <img className={styles.brand} alt="" src={f3} />
-                        <img className={styles.brand} alt="" src={f4} />
-                        <img className={styles.brand} alt="" src={f5} />
-                        <img className={styles.brand} alt="" src={f6} />
-                        <img className={styles.brand} alt="" src={f7} />
-                        <img className={styles.brand} alt="" src={f9} />
-                        <img className={styles.brand} alt="" src={f10} />
-                        <img className={styles.brand} alt="" src={f12} />
+                        <img id="brand" className={styles.brand} alt="Brand" src={f1} />
+                        <img className={styles.brand} alt="Brand" src={f2} />
+                        <img className={styles.brand} alt="Brand" src={f3} />
+                        <img className={styles.brand} alt="Brand" src={f4} />
+                        <img className={styles.brand} alt="Brand" src={f5} />
+                        <img className={styles.brand} alt="Brand" src={f6} />
+                        <img className={styles.brand} alt="Brand" src={f7} />
+                        <img className={styles.brand} alt="Brand" src={f9} />
+                        <img className={styles.brand} alt="Brand" src={f10} />
+                        <img className={styles.brand} alt="Brand" src={f12} />
                     </div>
 
                 </div>
@@ -105,8 +109,8 @@ export default function Homev2() {
                         </div>
                         <div>
                             {{
-                                "one": <><img src={web} width="100%" /> <p className={styles.currentContent}>Play quizzes of your wish, get one from your friends.</p></>,
-                                "two": <><img src={web} width="100%" /> <p className={styles.currentContent}>Make your own quizzes, that sounds good i know.</p></>,
+                                "one": <><img src={theme === "darkmode" ? add_quiz_dark : add_quiz_light} width="100%" /> <p className={styles.currentContent}>Play quizzes of your wish, get one from your friends.</p></>,
+                                "two": <><img src={theme === "darkmode" ? add_quiz_dark : add_quiz_light} width="100%" /> <p className={styles.currentContent}>Make your own quizzes, that sounds good i know.</p></>,
                                 "three": <><img src={web} width="100%" /> <p className={styles.currentContent}>Share quizzes to the community so they can play your quizzes.</p></>,
                             }[s3view]}
                         </div>
@@ -130,7 +134,14 @@ export default function Homev2() {
 
 
                     <div className={styles.slider}>
-                        <div className={styles.slidercontainer}></div>
+                        <div className={styles.slidercontainer}>
+                            <div className={styles.reviewbody}>
+                                <p className={styles.reviewp}>
+                                    “Our presentations have to live up to our high standards for product design. Pitch allows us to create internal and external assets that look amazing, without spending hours on it.”
+                                </p>
+                            </div>
+                            <div className={styles.reviewwho}>who reviewd</div>
+                        </div>
 
                         <div className={styles.goright}>go right</div>
                         <div className={styles.goleft}>go left</div>
@@ -152,14 +163,26 @@ export default function Homev2() {
 
                     <button className={styles.btn_primary}>Try Swiftquiz for Free</button>
 
-                    <div style={{ display: 'flex' }}>
+                    <div className={styles.featureswrap}>
                         <p className={styles.cta_description}>
+                            <svg style={{ marginRight: '.25em' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM11.003 16L6.76 11.757L8.174 10.343L11.003 13.172L16.659 7.515L18.074 8.929L11.003 16Z" fill="var(--icon-border)" />
+                            </svg>
+
                             Best quizzing tools
                         </p>
                         <p className={styles.cta_description}>
+                            <svg style={{ marginRight: '.25em' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM11.003 16L6.76 11.757L8.174 10.343L11.003 13.172L16.659 7.515L18.074 8.929L11.003 16Z" fill="var(--icon-border)" />
+                            </svg>
+
                             Community hand made
                         </p>
                         <p className={styles.cta_description}>
+                            <svg style={{ marginRight: '.25em' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20ZM11.003 16L6.76 11.757L8.174 10.343L11.003 13.172L16.659 7.515L18.074 8.929L11.003 16Z" fill="var(--icon-border)" />
+                            </svg>
+
                             Free 4 ever
                         </p>
                     </div>
