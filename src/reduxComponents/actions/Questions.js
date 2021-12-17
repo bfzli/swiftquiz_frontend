@@ -56,19 +56,6 @@ export const createQuiz = (data) => async (dispatch) => {
   }
 };
 
-export const playQuiz = (redeemCode) => async (dispatch) => {
-  dispatch({ type: CONST.PLAY_QUIZ_STARTED });
-
-  try {
-    const response = await api.playQuiz(redeemCode);
-    const data = await response.data;
-    console.log(data);
-    dispatch({ type: CONST.PLAY_QUIZ_SUCCEEDED, payload: data });
-  } catch (error) {
-    dispatch({ type: CONST.PLAY_QUIZ_FAILED, payload: error });
-  }
-};
-
 export const clearPlayingQuiz = () => {
   return {
     type: CONST.CLEAR_PLAYING_QUIZ,
@@ -77,14 +64,11 @@ export const clearPlayingQuiz = () => {
 
 export const purchaseQuiz = (purchaseCoins) => async (dispatch) => {
   dispatch({ type: CONST.QUIZ_PURCHASE });
-
   try {
     const response = await api.purchaseQuiz(purchaseCoins);
     const data = await response.data;
-    console.log(data);
-    dispatch({ type: CONST.PURCHASE_SUCCESS, payload: data });
     if (data.success) {
-      //	alert(data.message);
+      dispatch({ type: CONST.PURCHASE_SUCCESS, payload: data });
     }
   } catch (error) {
     dispatch({ type: CONST.PURCHASE_FAILED, payload: error });

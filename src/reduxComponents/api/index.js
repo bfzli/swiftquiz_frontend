@@ -16,9 +16,9 @@ const client = axios.create({
 //fetch data request
 export const fetchData = (endpoint) => client.get(`/${user_id}/${endpoint}`);
 
-//Fetch single quiz to play request
-export const playQuiz = (redeemCode) =>
-  client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
+// //Fetch single quiz to play request
+// export const playQuiz = (redeemCode) =>
+//   client.get(`/${user_id}/quizzes/my-quizzes/${redeemCode}`);
 
 //Quiz purchasing
 export const purchaseQuiz = (quizId) =>
