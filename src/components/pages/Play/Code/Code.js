@@ -1,20 +1,11 @@
 import * as styles from "./Code.module.scss";
-import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { purchaseQuiz } from "../../../../reduxComponents/actions/Questions";
 
-export default function Screen({ playing, code, setCode, play_quiz }) {
-  console.log(code);
-
-  const dispatch = useDispatch();
-
-  const accessQuiz = () => {
-    dispatch(purchaseQuiz(code));
-    setTimeout(() => play_quiz(), 5000);
-  };
+export default function Screen({ code, setCode, play_quiz }) {
 
   const { t } = useTranslation();
+
   return (
     <>
       <div data-aos="fade-top" className={styles.container}>
@@ -22,9 +13,22 @@ export default function Screen({ playing, code, setCode, play_quiz }) {
           <h1 className={styles.title}>{t("play_screen.title")}</h1>
           <p className={styles.description}>{t("play_screen.description")}</p>
           <div style={{ display: "flex" }}>
-            <button onClick={accessQuiz} className={styles.cta}>
+            <input
+              value={code}
+              onChange={(e) => {
+                e.preventDefault();
+                setCode(e.target.value);
+              }}
+              className={styles.codebox}
+              placeholder="Type redeem code"
+              type="text"
+            />
+            <button onClick={() => play_quiz()} className={styles.cta}>
               {t("play_screen.enter")}
             </button>
+            <Link to={"/dashboard/community"} className={styles.back}>
+              {t("play_screen.backto")}
+            </Link>
           </div>
         </div>
         <div data-aos="fade-left" className={styles.right}>

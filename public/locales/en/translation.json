@@ -1,6 +1,6 @@
 {
   "dashbar": {
-    "home": "Home",
+    "home": "Quizzes",
     "myquizzes": "My Quizzes",
     "community": "Community",
     "leaderboard": "Leaderboard",
@@ -21,26 +21,32 @@
     "profile": "Profile",
     "logout": "Logout"
   },
-  "quizzes": {
-    "title": "Quizzes",
-    "search": "Search your quizzes...",
-    "addquiz": "Add new Quiz",
-    "emptyone": "You don't have any Quizzes",
-    "emptytwo": "Why you don't add one now?",
-    "share": "Share",
-    "edit": "Edit",
-    "delete": "Delete"
+  "section_2": {
+    "title": "Our Features",
+    "description": "Different features for knoweldge seekers, nonetheless always makeing it fun for you.            ",
+    "feature_one": {
+      "title": "Build Quizzes",
+      "description": "Build quizess of different kinds with our platoform with all the tools you need."
+    },
+    "feature_two": {
+      "title": "Share Quizzes",
+      "description": "Quizess that can be played by others are the fun of our platform, share them now."
+    },
+    "feature_three": {
+      "title": "Browse Community",
+      "description": "Our community of quizess with different categories for you to search and learn."
+    }
   },
   "community": {
-    "modaltitle": "Purchase : ",
-    "modalquestion": "Are you sure you want to purchase this quiz?",
     "price": "Price",
+    "confirm": "Are you sure you want to purchase this quiz ?",
     "confirmation": "Yes",
     "deny": "No",
     "purchase": "Purchase confirmation",
     "title": "Community",
     "search": "Search community...",
-    "play": "Proceed to entry",
+    "play": "Play",
+    "coins": "Coins",
     "categories": "All Categories",
     "religion": "Relegion",
     "programming": "Programming",
@@ -73,9 +79,10 @@
     "physics": "Physics"
   },
   "play_screen": {
-    "title": "Be an einstein, play now!",
-    "description": "Playing a quiz is simple easily, play by entering a code or through a link that someone invited you to do so.",
-    "enter": "Enter"
+    "title": "Test your knowledge, play now!",
+    "description": "If you came here by invitation code, write it down below!",
+    "enter": "Enter",
+    "backto": "Back to dashboard"
   },
   "play_enter": {
     "timeleft": "Time to Answer",

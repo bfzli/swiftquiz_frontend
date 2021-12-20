@@ -23,7 +23,7 @@ export default function Messenger() {
 
   //call socket server
   useEffect(() => {
-    socket.current = io("ws://https://swiftapi.vercel.app");
+    socket.current = io("ws://localhost:8900");
     //get message
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
@@ -54,7 +54,7 @@ export default function Messenger() {
     const getConversations = async () => {
       try {
         const res = await axios.get(
-          "https://swiftapi.vercel.app/api/user/getConversations/" + user.user_id
+          "http://localhost:5000/api/user/getConversations/" + user.user_id
         );
         setConversation(res.data);
       } catch (err) {
@@ -69,7 +69,7 @@ export default function Messenger() {
     const getMessages = async () => {
       try {
         const res = await axios.get(
-          "https://swiftapi.vercel.app/api/user/getMessages/" + currentChat._id
+          "http://localhost:5000/api/user/getMessages/" + currentChat._id
         );
         setMessages(res.data);
       } catch (err) {
@@ -104,7 +104,7 @@ export default function Messenger() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/user/messages",
+        "http://localhost:5000/api/user/messages",
         message
       );
       setMessages([...messages, res.data]);

@@ -9,7 +9,7 @@ export const userState = {
   isLoggedIn: false,
   leaderboard: [],
   currentlyPlaying: {},
-  currentylViewing: {},
+  // purchaseMessage: false,
   coins: 100,
 };
 
@@ -34,7 +34,6 @@ const userReducer = (state = userState, action) => {
         avatar: "",
         coins: 0,
         currentlyPlaying: {},
-        currentylViewing: {},
         isLoggedIn: false,
       };
 
@@ -44,23 +43,6 @@ const userReducer = (state = userState, action) => {
         ...payload,
       };
 
-    case CONST.PLAY_QUIZ_STARTED:
-      return state;
-
-    case CONST.PLAY_QUIZ_SUCCEEDED:
-      return {
-        ...state,
-        currentlyPlaying: payload,
-      };
-
-    case CONST.PLAY_QUIZ_FAILED:
-      return {
-        ...state,
-        currentlyPlaying: {
-          error: payload,
-        },
-      };
-
     case CONST.USER_SCORE_UPDATE:
       return {
         ...state,
@@ -68,15 +50,24 @@ const userReducer = (state = userState, action) => {
         score: payload.score,
       };
 
+    case CONST.CLEAR_PLAYING_QUIZ:
+      return {
+        ...state,
+        currentlyPlaying: {},
+      };
+
     case CONST.PURCHASE_SUCCESS:
       return {
         ...state,
-        coins: state.coins - payload.purchaseCoins,
+        coins: payload.quiz.purchaseCoins,
+        currentlyPlaying: payload.quiz,
+        // purchaseMessage: payload.success,
       };
     case CONST.PURCHASE_FAILED:
       return {
         ...state,
         error: payload,
+        // purchaseMessage: false,
       };
 
     case CONST.USER_SCORE_UPDATE:
@@ -107,7 +98,6 @@ const userReducer = (state = userState, action) => {
         isLoggedIn: false,
         leaderboard: [],
         currentlyPlaying: {},
-        currentylViewing: {},
         coins: 100,
       };
 

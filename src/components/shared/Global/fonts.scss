@@ -89,3 +89,31 @@
   font-weight: 900;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Markprobold";
+  src: local("Markprobold"),
+    local("../../../assets/fonts/Markpro/Markprobold.ttf"),
+    url("../../../assets/fonts/Markpro/Markprobold.ttf")
+      format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Markpro";
+  src: local("Markpro"),
+    local("../../../assets/fonts/Markpro/Markpro.ttf"),
+    url("../../../assets/fonts/Markpro/Markpro.ttf")
+      format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Markpromedium";
+  src: local("Markpromedium"),
+    local("../../../assets/fonts/Markpro/Markpromedium.ttf"),
+    url("../../../assets/fonts/Markpro/Markpromedium.ttf")
+      format("truetype");
+  font-style: normal;
+}

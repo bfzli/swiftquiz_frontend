@@ -1,9 +1,9 @@
 import * as styles from './Store.module.scss'
 import { useState } from 'react'
-import c1 from '../../../../assets/images/coins-little.png'
-import c2 from '../../../../assets/images/coins-medium.png'
-import c3 from '../../../../assets/images/coins-bulk.png'
-import c4 from '../../../../assets/images/coins-wow.png'
+import c1 from '../../../../assets/images/store/small.svg'
+import c2 from '../../../../assets/images/store/medium.svg'
+import c3 from '../../../../assets/images/store/big.svg'
+import c4 from '../../../../assets/images/store/bigbig.svg'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import Checkout from './Checkout'
@@ -17,12 +17,9 @@ export default function Store() {
     return (
         <div className={styles.container}>
             <div className={styles.page_info} data-aos="fade-down">
-                <h2 className={styles.welcome_text}>Store</h2>
-                <div className={styles.search}>
-                    <input
-                        className={styles.search_input}
-                        type="text"
-                    />
+                <h2 className={styles.welcome_text}>Swift Store</h2>
+                <div style={{display: 'hidden'}} className={styles.search}>
+                    <input className={styles.search_input}/>
                     <div className={styles.search_wrapper}>
                         <svg
                             className={styles.search_icon}
@@ -43,53 +40,35 @@ export default function Store() {
                             <img className={styles.quiz_image} alt="Quiz Image" src={c1} />
 
                             <h3 className={styles.quiz_title}>
-                                1,000 Coins for $9.99
+                                1,000 Coins
                             </h3>
 
-                            <p className={styles.quiz_description}>
-                            
-                            </p>
-
-                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(1000); setCheckout(true)}} className={styles.quiz_play}>Buy</button>
+                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(1000); setCheckout(true)}} className={styles.quiz_play}>Get for $9.99</button>
                         </div>
                         <div className={styles.quiz}>
                             <img className={styles.quiz_image} alt="Quiz Image" src={c2} />
 
                             <h3 className={styles.quiz_title}>
-                                5,000 Coins for $29.99
+                                5,000 Coins
                             </h3>
 
-                            <p className={styles.quiz_description}>
-                            
-                            </p>
-
-                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(5000); setCheckout(true)}} className={styles.quiz_play}>Buy</button>
+                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(5000); setCheckout(true)}} className={styles.quiz_play}>Get for $29.99</button>
                         </div>
                         <div className={styles.quiz}>
                             <img className={styles.quiz_image} alt="Quiz Image" src={c3} />
 
                             <h3 className={styles.quiz_title}>
-                                10,000 Coins for $59.99
+                                10,000 Coins
                             </h3>
-
-                            <p className={styles.quiz_description}>
-                            
-                            </p>
-
-                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(10000); setCheckout(true)}} className={styles.quiz_play}>Buy</button>
+                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(10000); setCheckout(true)}} className={styles.quiz_play}>Get for $59.99</button>
                         </div>
                         <div className={styles.quiz}>
                             <img className={styles.quiz_image} alt="Quiz Image" src={c4} />
 
                             <h3 className={styles.quiz_title}>
-                                50,000 Coins for $99.99
+                                50,000 Coins
                             </h3>
-
-                            <p className={styles.quiz_description}>
-                            
-                            </p>
-
-                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(50000); setCheckout(true)}} className={styles.quiz_play}>Buy</button>
+                            <button style={{ textAlign: 'center' }} onClick={() => {setCurrentPackage(50000); setCheckout(true)}} className={styles.quiz_play}>Get for $99.99</button>
                         </div>
                         {
                             checkout && <Elements stripe={stripePromise}><Checkout currentPackage={currentPackage} setCheckout={setCheckout} /></Elements>
