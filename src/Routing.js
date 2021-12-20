@@ -29,67 +29,62 @@ import { inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
-import Homev2 from './pages/Homev2'
-import Redirect from './utils/Redirect'
-import AdminPass from './utils/AdminPass'
+import Homev2 from './pages/Homev2';
+import Redirect from './utils/Redirect';
+import AdminPass from './utils/AdminPass';
 
 export default function Routing() {
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-  const { t, i18n } = useTranslation();
+	const { t, i18n } = useTranslation();
 
-  if (JSON.parse(localStorage.getItem("user"))) {
-    inActive(600000, dispatch);
-  }
+	const changeLang = (lang) => {
+		i18n.changeLanguage(lang);
+		localStorage.setItem('i18nextLng', lang);
+	};
 
-  const changeLang = (lang) => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem("i18nextLng", lang);
-  };
+	React.useEffect(() => {
+		if (localStorage.getItem('i18nextLng') === null) {
+			localStorage.setItem('i18nextLng', 'en');
+		} else
+			switch (localStorage.getItem('i18nextLng')) {
+				case 'en':
+					changeLang('en');
+					break;
+				case 'sq':
+					changeLang('sq');
+					break;
+				case 'ar':
+					changeLang('ar');
+					break;
+				case 'de':
+					changeLang('de');
+					break;
+				case 'fr':
+					changeLang('fr');
+					break;
+			}
+	}, []);
 
-  React.useEffect(() => {
-    if (localStorage.getItem("i18nextLng") === null) {
-      localStorage.setItem("i18nextLng", "en");
-    } else
-      switch (localStorage.getItem("i18nextLng")) {
-        case "en":
-          changeLang("en");
-          break;
-        case "sq":
-          changeLang("sq");
-          break;
-        case "ar":
-          changeLang("ar");
-          break;
-        case "de":
-          changeLang("de");
-          break;
-        case "fr":
-          changeLang("fr");
-          break;
-      }
-  }, []);
+	React.useEffect(() => {
+		dispatch(fetchUserData());
+		dispatch(fetchQuiz());
+		if (JSON.parse(localStorage.getItem('user'))) {
+			inActive(10000, dispatch);
+		}
 
-  React.useEffect(() => {
-    dispatch(fetchUserData());
+		if (localStorage.getItem('theme') === null) dispatch({ type: CONST.SET_LIGHT_MODE });
 
-    if (localStorage.getItem("theme") === null)
-      dispatch({ type: CONST.SET_LIGHT_MODE });
+		localStorage.getItem('theme') === 'lightmode'
+			? dispatch({ type: CONST.SET_LIGHT_MODE })
+			: dispatch({ type: CONST.SET_DARK_MODE });
+	}, []);
 
-    localStorage.getItem("theme") === "lightmode"
-      ? dispatch({ type: CONST.SET_LIGHT_MODE })
-      : dispatch({ type: CONST.SET_DARK_MODE });
-  }, []);
-
-  React.useEffect(() => {
-    dispatch(fetchQuiz());
-  }, []);
-
-  AOS.init({
-    duration: 800,
-    disable: "mobile",
-    once: true,
-  });
+	AOS.init({
+		duration: 800,
+		disable: 'mobile',
+		once: true
+	});
 
 	return (
 		<Wrapper>
@@ -99,7 +94,7 @@ export default function Routing() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/new" element={<Homev2 />} />
-				<Route exact path='/' element={<Auth />}>
+				<Route exact path="/" element={<Auth />}>
 					<Route path="/invite/*" element={<Play />} />
 					<Route path="/play" element={<Play />} />
 					<Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} />
@@ -114,16 +109,15 @@ export default function Routing() {
 					<Route path="/dashboard/store" element={<Store />} />
 					<Route path="/dashboard/messenger" element={<Support />} />
 					<Route path="/dashboard/help" element={<Help />} />
-					<Route path="/dashboard" element={<Redirect to="/dashboard/quizzes"/>} />
+					<Route path="/dashboard" element={<Redirect to="/dashboard/quizzes" />} />
 					<Route path="/dashboard/auth" element={<Dashauth />} />
 					<Route path="/*" element={<Error />} />
 					<Route path="/dashboard/*" element={<Error />} />
 				</Route>
 
-        <Route exact path='/' element={<AdminPass />}>
-          <Route path="/dashboard/admin" element={<AdminPanel />} /> 
-        </Route>
-
+				<Route exact path="/" element={<AdminPass />}>
+					<Route path="/dashboard/admin" element={<AdminPanel />} />
+				</Route>
 			</Switch>
 		</Wrapper>
 	);
