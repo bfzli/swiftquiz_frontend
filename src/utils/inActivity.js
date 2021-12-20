@@ -1,6 +1,6 @@
 import { logOutAction } from '../reduxComponents/actions/Auth';
 
-export const inActive = (timeOutInMiliseconds = 30000, dispatch) => {
+export const inActive = (timeOutInMiliseconds = 600000, dispatch) => {
 	let timeOutId;
 
 	window.addEventListener('load', setTimers);
@@ -14,6 +14,7 @@ export const inActive = (timeOutInMiliseconds = 30000, dispatch) => {
 		//Alert the user for being AFK to long
 		alert('You were inActive for a long time we must log you out');
 		dispatch(logOutAction());
+		window.clearTimeout(timeOutId);
 		window.location.href = '/auth';
 	}
 
