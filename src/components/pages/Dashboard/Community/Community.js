@@ -92,8 +92,7 @@ export function Community({ userQuizes }) {
                   <div className={styles.quiz}>
                     <div className={styles.quiz_price}>
                       <p>
-                        {" "}
-                        {t("community.price")} :<b>{item.purchaseCoins}</b>{" "}
+                        <b>{item.purchaseCoins}</b>{" "}
                       </p>
                       <img
                         className={styles.quiz_priceicon}

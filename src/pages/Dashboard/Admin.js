@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import UserMembers from '../../components/pages/AdminPanel/Users/UserMembers';
+import UserMembers from '../../components/pages/Dashboard/Admin/Users/UserMembers';
 import { useDispatch } from 'react-redux';
 import { fetchAllUsersAction } from '../../reduxComponents/actions/Admin';
-import * as styles from '../../components/pages/AdminPanel/AdminPanel.module.scss';
-import Dashlayout from '../Dashboard/Dashlayout'
+import * as styles from '../../components/pages/Dashboard/Admin/Admin.module.scss';
+import Dashlayout from './Dashlayout'
 
-const AdminPanel = () => {
+const Admin = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -27,4 +27,4 @@ const AdminPanel = () => {
 	);
 };
 
-export default AdminPanel;
+export default Admin;

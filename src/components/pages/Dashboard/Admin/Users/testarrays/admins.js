@@ -1,8 +1,8 @@
-import mendrit from "../../../../../assets/images/profiles/mendrit.webp";
-import adnan from "../../../../../assets/images/profiles/adnan.webp";
-import fitim from "../../../../../assets/images/profiles/fitim.webp";
-import laurat from "../../../../../assets/images/profiles/laurat.webp";
-import benjamin from "../../../../../assets/images/profiles/benjamin.webp";
+import mendrit from "../../../../../../assets/images/profiles/mendrit.webp";
+import adnan from "../../../../../../assets/images/profiles/adnan.webp";
+import fitim from "../../../../../../assets/images/profiles/fitim.webp";
+import laurat from "../../../../../../assets/images/profiles/laurat.webp";
+import benjamin from "../../../../../../assets/images/profiles/benjamin.webp";
 
 export const admins = [
   {

@@ -4,6 +4,7 @@
     background: var(--background-less-important);
     position: relative;
     display: flex;
+    padding-bottom: 3%;
 }
 
 .section2 {
@@ -12,6 +13,8 @@
     background: var(--background-less-important);
     position: relative;
     display: flex;
+    padding: 3% 0%;
+
 }
 
 .section3 {
@@ -20,23 +23,24 @@
     background: var(--background-less-important);
     position: relative;
     display: flex;
+    padding: 3% 0%;
 }
 
 .section4 {
     width: 100%;
-    height: auto;
     background: var(--background-less-important);
-    position: relative;
     display: flex;
+    padding: 3% 0%;
 }
 
 .section5 {
     width: 100%;
     height: auto;
-    background: #e6f5f9;
+    background: var(--background-less-important);
     position: relative;
     display: flex;
     z-index: 1;
+    padding-bottom: 14%
 }
 
 .footerimg {
@@ -131,6 +135,18 @@
     }
 }
 
+.titles4{
+    width: 65%;
+    padding-top: 2.5%;
+    text-align: center;
+    font-size: 3em;
+    font-family: "Markprobold";
+    font-weight: bold;
+    z-index: 1;
+    line-height: 1;
+    color: var(--text-color);
+}
+
 .cta_title {
     width: 80%;
     text-align: center;
@@ -163,6 +179,21 @@
     text-align: center;
     margin: 2em 0em;
     z-index: 1;
+    color: var(--text-color-less);
+
+    @media screen and (max-width: 1200px) {
+        width: 90%;
+    }
+}
+
+.s4desc{
+    width: 50%;
+    font-size: 1.25em;
+    font-family: "Markpro";
+    text-align: center;
+    margin: 1em 0em;
+    z-index: 1;
+    margin-bottom: 8%;
     color: var(--text-color-less);
 
     @media screen and (max-width: 1200px) {
@@ -273,8 +304,9 @@
 .slidercontainer {
     width: 80%;
     height: 100%;
-    background: linear-gradient(30deg, #8d49f7, #6b53ff);
-    border-radius: 10em;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    border-radius: 2em;
     margin-bottom: 10%;
     display: flex;
     justify-content: space-between;
@@ -286,7 +318,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
+    padding: 6em;
+}
+
+.review-text {
+    font-family: "Markpro";
 }
 
 .reviewwho {
@@ -294,31 +330,60 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2em;
 }
 
-.reviewp{
-    color: white;
+.reviewp {
+    color: var(--text-color);
     font-size: 1.75em;
-    font-family: 'Makrproemdium'
+    font-family: "Markpromedium" !important;
 }
 
 .goright {
     position: absolute;
-    top: 50%;
-    right: 1em;
+    top: 30%;
+    transform: translateY(-30%);
+    right: 11%;
 }
 
 .goleft {
     position: absolute;
-    top: 50%;
-    left: 1em;
+    top: 30%;
+    transform: translateY(-30%);
+    left: 11%;
+
 }
 
 .featureswrap {
     display: flex;
-    margin: 2em 0em;
+    margin-top: 3em;
+    margin-bottom: 2em;
     width: 70%;
     justify-content: space-around;
+}
+
+.reviewer_avatar {
+    width: 9em;
+    height: 9em;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 5px solid var(--background-important)
+}
+.reviewer_name{
+    font-size: 1.5em;
+    font-family: "Markprobold"
+}
+
+.arrows {
+    width: 3em;
+    fill: var(--icon-border);
+    padding: .75em;
+
+    &:hover {
+        background: var(--hover-color);
+        border-radius: 100px;
+        cursor: pointer;
+    }
 }

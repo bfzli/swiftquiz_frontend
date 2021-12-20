@@ -1,9 +1,9 @@
 import React from 'react';
 import * as styles from '../Styles/UserCard.module.scss';
-import { ReactComponent as Eye } from '../../../../../assets/images/show.svg';
-import { ReactComponent as Edit } from '../../../../../assets/images/edit.svg';
-import { ReactComponent as Delete } from '../../../../../assets/images/delete.svg';
-import { deleteUserAction } from '../../../../../reduxComponents/actions/Admin';
+import { ReactComponent as Eye } from '../../../../../../assets/images/delete.svg';
+import { ReactComponent as Edit } from '../../../../../../assets/images/edit.svg';
+import { ReactComponent as Delete } from '../../../../../../assets/images/delete.svg';
+import { deleteUserAction } from '../../../../../../reduxComponents/actions/Admin';
 import { useDispatch } from 'react-redux';
 
 const UserCard = ({ profile, name, activity, _id }) => {

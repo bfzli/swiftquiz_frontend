@@ -44,7 +44,10 @@ export default function Play() {
 
       {
         playing === true && isEmpty(quiz) === false
-          ? <Screen quiz={quiz} /> : <Code code={code} setCode={setCode} play_quiz={() => play_quiz()} />
+          ? 
+          <Screen quiz={quiz} />
+          :
+          <Code code={code} setCode={setCode} play_quiz={() => play_quiz()} />
       }
     </Dashlayout>
   );

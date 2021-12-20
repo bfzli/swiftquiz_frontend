@@ -13,7 +13,7 @@ import UserProfile from './pages/Dashboard/User';
 import FormView from './pages/FormView';
 import Contact from './pages/Contact';
 import Profile from './pages/Dashboard/Profile';
-import AdminPanel from './pages/AdminDashboard/AdminPanel';
+import Admin from './pages/Dashboard/Admin';
 import Quizzes from './pages/Dashboard/Quizzes';
 import Play from './pages/Play';
 import About from './pages/AboutUs';
@@ -29,7 +29,6 @@ import { inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
-import Homev2 from './pages/Homev2'
 import Redirect from './utils/Redirect'
 import AdminPass from './utils/AdminPass'
 
@@ -98,7 +97,6 @@ export default function Routing() {
 				<Route path="/auth" element={<FormView />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/about" element={<About />} />
-				<Route path="/new" element={<Homev2 />} />
 				<Route exact path='/' element={<Auth />}>
 					<Route path="/invite/*" element={<Play />} />
 					<Route path="/play" element={<Play />} />
@@ -121,7 +119,7 @@ export default function Routing() {
 				</Route>
 
         <Route exact path='/' element={<AdminPass />}>
-          <Route path="/dashboard/admin" element={<AdminPanel />} /> 
+          <Route path="/dashboard/admin" element={<Admin />} /> 
         </Route>
 
 			</Switch>

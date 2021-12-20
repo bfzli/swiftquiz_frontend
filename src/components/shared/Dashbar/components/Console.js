@@ -6,18 +6,33 @@ export default function Console({ console, setConsole }) {
     const [content, setContent] = useState(["Swift Quiz console v.0.0.1 beta"]);
     const [fullScreen, setFullScreen] = useState(false)
     const [consoleContent, setConsoleContent] = useState("")
+    const [loading, setLaoding] = useState(false)
 
     const addLine = () => {
         content.push(consoleContent)
-        switch (consoleContent) {
+        switch (consoleContent.split(" ")[0]) {
             case "clear":
                 if (content.length < 0) content.push("There is nothing to delete.");
-                setContent([""])
-                content.push("Content was cleared.");
+                else {
+                    setContent([""])
+                    content.push("Content was cleared.");
+                }
+
                 break;
 
             case "help":
-                content.push("No commands for now.")
+                content.push(<>
+                    delete [model] [target] <br />
+                    add [model] [target] [?value] <br />
+                </>)
+                break;
+
+            case "delete":
+                handleDelete(consoleContent.split(" ")[1], consoleContent.split(" ")[2])
+                break;
+
+            case "add":
+                addCoins(consoleContent.split(" ")[1], consoleContent.split(" ")[2], consoleContent.split(" ")[3])
                 break;
 
             default:
@@ -25,6 +40,63 @@ export default function Console({ console, setConsole }) {
                 break;
         }
         setConsoleContent("")
+    }
+
+    const handleDelete = async (model, target) => {
+        try {
+            setLaoding(true)
+            const response = await fetch("http://localhost:1234/api/terminal/delete", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    // Authorization: "Bearer " + token,
+                },
+                body: JSON.stringify({
+                    model: model,
+                    target: target
+                })
+            }
+            );
+            const data = await response.json();
+            content.push(data.message)
+
+
+
+        } catch (err) {
+            content.push(err.message);
+        }
+        finally {
+            setLaoding(false)
+        }
+    }
+
+    const addCoins = async (model, target, value) => {
+        try {
+            setLaoding(true)
+            const response = await fetch("http://localhost:1234/api/terminal/add", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    // Authorization: "Bearer " + token,
+                },
+                body: JSON.stringify({
+                    model: model,
+                    target: target,
+                    value: value
+                })
+            }
+            );
+            const data = await response.json();
+            content.push(data.message)
+
+
+
+        } catch (err) {
+            content.push(err.message);
+        }
+        finally {
+            setLaoding(false)
+        }
     }
 
     return (
@@ -55,7 +127,7 @@ export default function Console({ console, setConsole }) {
                         }
                     </p>
 
-                    <svg style={{marginLeft: '.65em'}} onClick={() => setConsole(!console)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg style={{ marginLeft: '.65em' }} onClick={() => setConsole(!console)} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="#333333" />
                     </svg>
                 </div>
@@ -63,7 +135,7 @@ export default function Console({ console, setConsole }) {
 
             <div className={styles.body}>
                 {content.length > 0 ? content.map(currentLine => <p className={styles.command}>{currentLine}</p>) : null}
-                <input autoCorrect="off" autoFocus="true" autoComplete="off" className={styles.console_input} id="pw" value={consoleContent} onKeyPress={(keypress) => keypress.key === 'Enter' ? addLine() : null} onChange={(e) => { e.preventDefault(); setConsoleContent(e.target.value) }} autoComplete="false" type="text" />
+                <input autoCorrect="off" autoFocus="true" className={styles.console_input} id="pw" value={consoleContent} onKeyPress={(keypress) => keypress.key === 'Enter' ? addLine() : null} onChange={(e) => { e.preventDefault(); setConsoleContent(e.target.value) }} autoComplete="false" type="text" />
             </div>
         </section>
     )
