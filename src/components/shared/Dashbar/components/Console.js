@@ -1,6 +1,5 @@
 import * as styles from './Console.module.scss'
 import { useState } from 'react'
-
 export default function Console({ console, setConsole }) {
 
     const [content, setContent] = useState(["Swift Quiz console v.0.0.1 beta"]);
@@ -22,8 +21,9 @@ export default function Console({ console, setConsole }) {
 
             case "help":
                 content.push(<>
-                    delete [model] [target] <br />
-                    add [model] [target] [?value] <br />
+                    delete [user] [username] <br />
+                    add coins [username] [coin_count] <br />
+                    add coins [*] [coin_count] <br />
                 </>)
                 break;
 
@@ -135,7 +135,7 @@ export default function Console({ console, setConsole }) {
 
             <div className={styles.body}>
                 {content.length > 0 ? content.map(currentLine => <p className={styles.command}>{currentLine}</p>) : null}
-                <input autoCorrect="off" autoFocus="true" className={styles.console_input} id="pw" value={consoleContent} onKeyPress={(keypress) => keypress.key === 'Enter' ? addLine() : null} onChange={(e) => { e.preventDefault(); setConsoleContent(e.target.value) }} autoComplete="false" type="text" />
+                <input type="text" autoCorrect="off" autoComplete="off" autcomplete="off" autocorrect="off" autofocus="true" autoFocus="true" className={styles.console_input} id="pw" value={consoleContent} onKeyPress={(keypress) => keypress.key === 'Enter' ? addLine() : null} onChange={(e) => { e.preventDefault(); setConsoleContent(e.target.value) }} />
             </div>
         </section>
     )
