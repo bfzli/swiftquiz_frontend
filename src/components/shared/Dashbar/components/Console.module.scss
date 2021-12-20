@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 .container {
     position: absolute;
@@ -11,7 +11,7 @@
     right: 10vh;
     z-index: 100;
     border-radius: 0.75em;
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: "Source Code Pro", monospace !important;
 }
 
 .container_full {
@@ -23,6 +23,7 @@
     height: 100vh;
     top: 0;
     right: 0;
+    font-family: "Source Code Pro", monospace !important;
     z-index: 100;
     border-radius: 0.75em;
 }
@@ -44,7 +45,7 @@
     font-size: 1.15em;
     font-weight: bold;
     margin-left: 0.5em;
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 .head_left {
@@ -63,11 +64,23 @@
     border: 0;
     font-size: 1.15em;
     color: var(--text-color);
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: "Source Code Pro", monospace !important;
+}
+
+.consolepre {
+    width: 28%;
+    background: transparent;
+    border: 0;
+    font-size: 1.15em;
+    color: var(--text-color);
+    font-family: "Source Code Pro", monospace !important;
+    margin-right: .4em;
+    color: green;
 }
 
 .command {
     margin-bottom: 0.25em;
     font-size: 1.15em;
-    color: var(--text-color)
+    color: var(--text-color);
+    font-family: "Source Code Pro", monospace !important;
 }
