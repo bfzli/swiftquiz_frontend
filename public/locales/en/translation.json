@@ -37,6 +37,13 @@
       "description": "Our community of quizess with different categories for you to search and learn."
     }
   },
+  "quizzes": {
+    "addquiz": "Add Quizzes",
+    "emptyone": "You have no quizzes",
+    "emptytwo": "Go ahead create a new quiz",
+    "title": "Quizzes",
+    "search": "Search your quiz"
+  },
   "community": {
     "price": "Price",
     "confirm": "Are you sure you want to purchase this quiz ?",

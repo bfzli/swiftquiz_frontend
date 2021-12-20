@@ -15,12 +15,12 @@ export default function Play() {
   const [code, setCode] = useState(url === "play" ? "" : url);
   const currentQuiz = useSelector((state) => state.user.currentlyPlaying);
 
-  const play_quiz = () => dispatch(purchaseQuiz(code))
+  const play_quiz = () => dispatch(purchaseQuiz(code));
 
   useEffect(() => {
     setQuiz(currentQuiz);
     setPlaying(true);
-  }, [currentQuiz])
+  }, [currentQuiz]);
 
   function isEmpty(obj) {
     for (var prop in obj) {
@@ -42,13 +42,11 @@ export default function Play() {
         />
       </Helmet>
 
-      {
-        playing === true && isEmpty(quiz) === false
-          ? 
-          <Screen quiz={quiz} />
-          :
-          <Code code={code} setCode={setCode} play_quiz={() => play_quiz()} />
-      }
+      {playing === true && isEmpty(quiz) === false ? (
+        <Screen quiz={quiz} />
+      ) : (
+        <Code code={code} setCode={setCode} play_quiz={() => play_quiz()} />
+      )}
     </Dashlayout>
   );
 }
