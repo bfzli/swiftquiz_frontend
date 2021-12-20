@@ -13,7 +13,7 @@ import UserProfile from './pages/Dashboard/User';
 import FormView from './pages/FormView';
 import Contact from './pages/Contact';
 import Profile from './pages/Dashboard/Profile';
-import AdminPanel from './pages/AdminDashboard/AdminPanel';
+import Admin from './pages/Dashboard/Admin';
 import Quizzes from './pages/Dashboard/Quizzes';
 import Play from './pages/Play';
 import About from './pages/AboutUs';
@@ -29,6 +29,8 @@ import { inActive } from './utils/inActivity';
 import { useTranslation } from 'react-i18next';
 import Support from './pages/Dashboard/Support';
 import Help from './pages/Help';
+import Redirect from './utils/Redirect'
+import AdminPass from './utils/AdminPass'
 
 export default function Routing() {
   const dispatch = useDispatch();
@@ -100,7 +102,6 @@ export default function Routing() {
 					<Route path="/play" element={<Play />} />
 					<Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} />
 					<Route path="/dashboard/quizzes/edit-quiz/:id" element={<EditQuiz />} />
-					<Route path="/dashboard/admin" element={<AdminPanel />} />
 					<Route path="/dashboard/community" element={<Community />} />
 					<Route path="/dashboard/profile/edit" element={<EditProfile />} />
 					<Route path="/dashboard/profile/:username" element={<UserProfile />} />
@@ -111,11 +112,16 @@ export default function Routing() {
 					<Route path="/dashboard/store" element={<Store />} />
 					<Route path="/dashboard/messenger" element={<Support />} />
 					<Route path="/dashboard/help" element={<Help />} />
-					<Route path="/dashboard"></Route> {/* should be fixed to redirect*/}
+					<Route path="/dashboard" element={<Redirect to="/dashboard/quizzes"/>} />
 					<Route path="/dashboard/auth" element={<Dashauth />} />
 					<Route path="/*" element={<Error />} />
 					<Route path="/dashboard/*" element={<Error />} />
 				</Route>
+
+        <Route exact path='/' element={<AdminPass />}>
+          <Route path="/dashboard/admin" element={<Admin />} /> 
+        </Route>
+
 			</Switch>
 		</Wrapper>
 	);

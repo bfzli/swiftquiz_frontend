@@ -1,25 +1,11 @@
 import * as styles from "./Code.module.scss";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { purchaseQuiz } from "../../../../reduxComponents/actions/Questions";
 
 export default function Screen({ code, setCode, play_quiz }) {
-  const purchaseConfirmation = useSelector(
-    (state) => state.user.purchaseMessage
-  );
-
-  const dispatch = useDispatch();
-
-  const accessQuiz = () => {
-    dispatch(purchaseQuiz(code));
-    if (purchaseConfirmation) {
-      setTimeout(() => play_quiz(), 2000);
-    }
-  };
 
   const { t } = useTranslation();
+
   return (
     <>
       <div data-aos="fade-top" className={styles.container}>
@@ -37,7 +23,7 @@ export default function Screen({ code, setCode, play_quiz }) {
               placeholder="Type redeem code"
               type="text"
             />
-            <button onClick={accessQuiz} className={styles.cta}>
+            <button onClick={() => play_quiz()} className={styles.cta}>
               {t("play_screen.enter")}
             </button>
             <Link to={"/dashboard/community"} className={styles.back}>
