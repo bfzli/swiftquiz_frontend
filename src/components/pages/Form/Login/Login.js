@@ -31,15 +31,15 @@ export default function Login({ login }) {
 
   const googleHandle = (e) => {
     e.preventDefault();
-    window.open("https://swiftapi.vercel.app/auth/google", "_self");
+    window.open("http://localhost:5000/auth/google", "_self");
   };
   const githubHandle = (e) => {
     e.preventDefault();
-    window.open("https://swiftapi.vercel.app/auth/github", "_self");
+    window.open("http://localhost:5000/auth/github", "_self");
   };
   const facebookHandle = (e) => {
     e.preventDefault();
-    window.open("https://swiftapi.vercel.app/auth/facebook", "_self");
+    window.open("http://localhost:5000/auth/facebook", "_self");
   };
 
   return (

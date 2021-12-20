@@ -8,7 +8,7 @@ export default function Message({ message, own }) {
       <div className="messageTop">
         <img
           className="messageImg"
-          src="https://i.scdn.co/image/ab67616d0000b273111265bb2b857500f5576fbc"
+          src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
           alt=""
         />
         <p className="messageDesc">{message.text}</p>
