@@ -1,12 +1,14 @@
 import * as styles from './Quiz.module.scss'
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { createQuiz } from "../../../../reduxComponents/actions/Questions";
 import FileBase64 from 'react-file-base64';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
 export default function Quiz() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [sidebarView, setSidebarView] = useState('question_operations')
     const [mode, setMode] = useState("add");
     const [trueQ, setTrueQ] = useState('none');
@@ -48,6 +50,7 @@ export default function Quiz() {
 
         if (isEmpty(errors) === true || isEmpty(errors) === null) {
             dispatch(createQuiz(quiz))
+            navigate('/dashboard');
             message.title = "Yay! 🎉"
             message.description = "The quiz was succesfully published, you can now play it or share with friends."
             setNotification(true);
