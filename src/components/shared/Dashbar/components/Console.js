@@ -7,7 +7,6 @@ export default function Console({ console, setConsole }) {
     const [fullScreen, setFullScreen] = useState(false)
     const [consoleContent, setConsoleContent] = useState("")
     const [loading, setLaoding] = useState(false)
-
     const addLine = () => {
         content.push(consoleContent)
         switch (consoleContent.split(" ")[0]) {
@@ -28,8 +27,8 @@ export default function Console({ console, setConsole }) {
                         - delete user [*] <br />
                         - delete quiz [redeem code] <br />
                         - delete quiz [*] <br />
-                        - add coins username [coin_count] <br />
-                        - add coins * [coin_count] <br />
+                        - add coin username [coin_count] <br />
+                        - add coin * [coin_count] <br />
                         - delete coin * <br />
                         - delete coin username [coin_count] <br />
                     </>
@@ -54,11 +53,11 @@ export default function Console({ console, setConsole }) {
     const handleDelete = async (model, target) => {
         try {
             setLaoding(true)
-            const response = await fetch("http://localhost:1234/api/terminal/delete", {
+            const response = await fetch("https://swiftapi.vercel.app/api/terminal/delete", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: "Bearer " + localStorage.getItem('user'),
+                    Authorization: "Bearer " + user.token,
                 },
                 body: JSON.stringify({
                     model: model,
@@ -82,11 +81,11 @@ export default function Console({ console, setConsole }) {
     const addCoins = async (model, target, value) => {
         try {
             setLaoding(true)
-            const response = await fetch("http://localhost:1234/api/terminal/add", {
+            const response = await fetch("https://swiftapi.vercel.app/api/terminal/add", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: "Bearer " + localStorage.getItem('user'),
+                    Authorization: "Bearer " + user.token,
                 },
                 body: JSON.stringify({
                     model: model,
