@@ -14,7 +14,7 @@ export default function Checkout({ setCheckout, currentPackage }) {
     const pay = async () => {
         setState('loading')
         try {
-            const response = await fetch("https://swiftapi.vercel.app//api/user/pay/coins", {
+            const response = await fetch("https://swiftapi.vercel.app/api/user/pay/coins", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
