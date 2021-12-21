@@ -74,7 +74,7 @@ export default function Routing() {
     dispatch(fetchUserData());
     dispatch(fetchQuiz());
     if (JSON.parse(localStorage.getItem("user"))) {
-      inActive(10000, dispatch);
+      inActive(600000, dispatch);
     }
 
     if (localStorage.getItem("theme") === null)
