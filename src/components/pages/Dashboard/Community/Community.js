@@ -92,6 +92,7 @@ export function Community({ userQuizes }) {
                   <div className={styles.quiz}>
                     <div className={styles.quiz_price}>
                       <p>
+                        {t("community.price")}
                         <b>{item.purchaseCoins}</b>{" "}
                       </p>
                       <img
@@ -114,7 +115,7 @@ export function Community({ userQuizes }) {
                       className={styles.quizer_holder}
                     >
                       <img
-                        src={`https://swiftapi.vercel.app/${item.created_by.profile}`}
+                        src={`https://swiftapi.vercel.app/${item.created_by.avatar}`}
                         alt={item.name}
                         className={styles.quizer_profile}
                       />

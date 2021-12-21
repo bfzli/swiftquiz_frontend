@@ -2,7 +2,7 @@ import ReactDOM from "react-dom";
 import * as styles from "./PurchaseModal.module.scss";
 import { Link } from "react-router-dom";
 
-export default function Modal(props) {
+export default function PurchaseModal(props) {
   return ReactDOM.createPortal(
     <section className={styles.container}>
       <div class={styles.container_pruchasem}>
@@ -23,16 +23,18 @@ export default function Modal(props) {
         </div>
         <div className={styles.container_pruchasem_body}>
           <p>{props.text}</p>
-          <Link
-            to={`/invite/${props.redeem}`}
+          <button
             className={styles.container_pruchasem_confirmation}
-            onClick={() => props.dispatch(props.purchaseQuiz(props.quiz))}
+            onClick={props.onClick}
           >
-            {props.link1}
-          </Link>
-          <Link to={""} className={styles.container_pruchasem_deny}>
-            {props.link2}
-          </Link>
+            {props.yes}
+          </button>
+          <button
+            className={styles.container_pruchasem_deny}
+            onClick={props.onClose}
+          >
+            {props.no}
+          </button>
         </div>
       </div>
     </section>,

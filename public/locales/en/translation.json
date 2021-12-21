@@ -37,8 +37,18 @@
       "description": "Our community of quizess with different categories for you to search and learn."
     }
   },
+  "quizzes": {
+    "addquiz": "Add Quizzes",
+    "emptyone": "You have no quizzes",
+    "emptytwo": "Go ahead create a new quiz",
+    "title": "Quizzes",
+    "search": "Search your quiz",
+    "share": "Share your quiz",
+    "edit": "Edit",
+    "delete": "Delete quiz"
+  },
   "community": {
-    "price": "Price",
+    "price": "Price : ",
     "confirm": "Are you sure you want to purchase this quiz ?",
     "confirmation": "Yes",
     "deny": "No",
@@ -79,6 +89,8 @@
     "physics": "Physics"
   },
   "play_screen": {
+    "modalTitle": "Purchasing",
+    "modalText": "Are your sure you want to purchase this quiz ?",
     "title": "Test your knowledge, play now!",
     "description": "If you came here by invitation code, write it down below!",
     "enter": "Enter",

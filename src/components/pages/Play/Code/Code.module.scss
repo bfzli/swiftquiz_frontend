@@ -3,153 +3,112 @@
   height: 100vh;
   padding: 1em 3em;
   background: var(--background-less-important);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
   justify-content: center;
   align-items: center;
-
-  @media screen and (max-width: 900px) {
-    padding: 10% 0;
-    height: auto;
-    flex-direction: column;
-  }
-}
-
-.right {
-  width: 50%;
-  height: 100vh;
-  position: relative;
-  padding-bottom: 3%;
-}
-
-.left {
-  width: 50%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.codebox {
-  width: 60%;
-  font-size: 1.7em;
-  padding: 0.4em 1em;
-  border-radius: 99px;
-  background: none;
-  font-family: "Integral CF Extra";
-  border: 2px solid var(--border-color);
-  transition: all ease-in-out 0.3s;
-
-  &::placeholder {
-    color: gray;
-  }
-}
-
-.title {
-  font-family: "Integral CF Extra";
-  font-size: 5.5em;
-  letter-spacing: 1px;
-  line-height: 1.15em;
-  color: var(--text-color);
-  z-index: 2;
   @media (max-width: 767px) {
-    margin-left: -1em;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 10px;
   }
-
-  @media screen and (max-width: 900px) {
-    width: 70%;
-    font-size: 4.5em;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 900px) {
-    width: 70%;
-    font-size: 4.5em;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 600px) {
-    width: 70%;
-    font-size: 3.75em;
-    text-align: center;
-  }
-}
-
-.description {
-  width: 80%;
-  font-size: 1.2em;
-  font-family: "Space Grotesk", sans-serif;
-  color: var(--text-color);
-  margin: 0.6em 0em 0.9em 0em;
-  @media screen and (max-width: 900px) {
-    font-size: 1.3em;
-    width: 70%;
-    text-align: center;
-  }
-}
-
-.description_small {
-  width: 50%;
-  font-size: 0.95em;
-  font-family: "Space Grotesk", sans-serif;
-  color: var(--text-color);
-
-  margin: 0.6em 0em 0.9em 0em;
-  margin-left: 0.25em;
-
-  @media screen and (max-width: 900px) {
-    font-size: 1.3em;
-    width: 70%;
-    text-align: center;
-  }
-}
-
-.title {
-  font-size: 5.5em;
-}
-
-.cta {
-  font-family: "Integral CF Demi Bold";
-  width: 30%;
-  margin-left: 1em;
-  font-size: 1.1em;
-  padding: 1em 1.9em;
-  background: var(--button-bg);
-  color: var(--button-text);
-  border-radius: 100px;
-  border: 0;
-  cursor: pointer;
-  text-align: center;
-  transition: all ease-in-out 0.5s;
-
-  @media screen and (max-width: 900px) {
+  &_left {
     width: 100%;
-    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    &_title {
+      font-family: "Integral CF Extra";
+      font-size: 5.5em;
+      letter-spacing: 1px;
+      line-height: 1.15em;
+      color: var(--text-color);
+      z-index: 2;
+      @media (max-width: 767px) {
+        //margin-left: -1em;
+        font-size: 3.2em;
+        text-align: center;
+      }
+    }
+
+    &_description {
+      width: 80%;
+      font-size: 1.2em;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--text-color);
+      margin: 0.6em 0em 0.9em 0em;
+
+      @media (max-width: 767px) {
+        text-align: center;
+        font-size: 1.3em;
+        width: 100%;
+      }
+    }
+
+    &_inputs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 10px;
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 10px;
+      }
+      .codebox {
+        width: 100%;
+        font-size: 1.7em;
+        padding: 0.4em 1em;
+        border-radius: 99px;
+        background: none;
+        font-family: "Integral CF Extra";
+        border: 2px solid var(--border-color);
+        transition: all ease-in-out 0.3s;
+
+        &::placeholder {
+          color: gray;
+        }
+      }
+      &_cta {
+        font-family: "Integral CF Demi Bold";
+        width: 100%;
+        // margin-left: 1em;
+        font-size: 1.1em;
+        padding: 1em 1.9em;
+        background: var(--button-bg);
+        color: var(--button-text);
+        border-radius: 100px;
+        border: 0;
+        cursor: pointer;
+        text-align: center;
+        transition: all ease-in-out 0.5s;
+        &:hover {
+          letter-spacing: 2px;
+        }
+      }
+      &_back {
+        font-family: "Integral CF Demi Bold";
+        width: 100%;
+        //  margin-left: 1em;
+        font-size: 1.1em;
+        padding: 1em 1.9em;
+        background: #fedf60;
+        color: var(--button-btn);
+        border-radius: 100px;
+        border: 0;
+        cursor: pointer;
+        text-align: center;
+        transition: all ease-in-out 0.5s;
+        &:hover {
+          letter-spacing: 2px;
+        }
+      }
+    }
   }
 
-  &:hover {
-    letter-spacing: 2px;
-  }
-}
-.back {
-  font-family: "Integral CF Demi Bold";
-  width: 30%;
-  margin-left: 1em;
-  font-size: 1.1em;
-  padding: 1em 1.9em;
-  background: #fedf60;
-  color: var(--button-btn);
-  border-radius: 100px;
-  border: 0;
-  cursor: pointer;
-  text-align: center;
-  transition: all ease-in-out 0.5s;
-
-  @media screen and (max-width: 900px) {
-    width: 100%;
-    text-align: center;
-  }
-
-  &:hover {
-    letter-spacing: 2px;
+  &_right {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    padding-bottom: 3%;
   }
 }

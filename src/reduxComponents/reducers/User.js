@@ -9,7 +9,7 @@ export const userState = {
   isLoggedIn: false,
   leaderboard: [],
   currentlyPlaying: {},
-  // purchaseMessage: false,
+  purchaseMessage: "",
   coins: 100,
 };
 
@@ -67,7 +67,7 @@ const userReducer = (state = userState, action) => {
       return {
         ...state,
         error: payload,
-        // purchaseMessage: false,
+        purchaseMessage: payload,
       };
 
     case CONST.USER_SCORE_UPDATE:

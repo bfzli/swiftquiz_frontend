@@ -71,10 +71,11 @@ export const purchaseQuiz = (purchaseCoins) => async (dispatch) => {
       dispatch({ type: CONST.PURCHASE_SUCCESS, payload: data });
     }
   } catch (error) {
-    dispatch({ type: CONST.PURCHASE_FAILED, payload: error });
-    if (error.success) {
-      alert(error.message);
-    }
+    dispatch({
+      type: CONST.PURCHASE_FAILED,
+      payload: error.response.data.message,
+    });
+    alert(error.response.data.message);
   }
 };
 
