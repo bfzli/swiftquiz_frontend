@@ -50,7 +50,7 @@ export default function Login({ login }) {
             {backError}
           </div>
         )}
-        <h1 className={styles.h1}>Sign in</h1>
+        <h1 className={styles.dark_h1}>Sign in</h1>
         <div className="social_container">
           <a className={styles.a}>
             <img
