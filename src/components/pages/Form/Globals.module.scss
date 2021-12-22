@@ -1,6 +1,13 @@
 .h1 {
   font-weight: bold;
   font-family: Integral CF;
+  color: #f4f4f4;
+}
+
+.dark_h1 {
+  font-weight: bold;
+  font-family: Integral CF;
+  color: black;
 }
 
 .h2 {
@@ -13,6 +20,8 @@
   line-height: 20px;
   letter-spacing: 0.5px;
   margin-bottom: 1em;
+  color: #f4f4f4;
+  padding: 5px;
 }
 
 .span {
@@ -25,11 +34,12 @@
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
+  cursor: pointer;
 }
 
 .form {
   border: 2px solid var(--border-color);
-  background-color: #ffffff;
+  background-color: var(--background-important);
   display: flex;
   align-items: center;
   justify-content: center;

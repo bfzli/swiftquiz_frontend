@@ -1,0 +1,141 @@
+{
+    "dashbar": {
+        "home": "الصفحة الرئيسية",
+        "myquizzes": "اختباراتي",
+        "community": "تواصل اجتماعي",
+        "leaderboard": "ليدربورد",
+        "bookmarks": "إشارات مرجعية",
+        "support": "الدعم",
+        "settings": "إعدادات",
+        "theme": "سمة",
+        "language": "لغة",
+        "lightmode": "وضع الضوء",
+        "darkmode": "الوضع الداكن",
+        "ar": "عربي",
+        "en": "إنجليزي",
+        "sq": "ألمانية",
+        "fr": "فرنسي",
+        "de": "ألمانية",
+        "coins": "عملات معدنية",
+        "profile": "الملف الشخصي",
+        "logout": "تسجيل خروج"
+    },
+    "quizzes": {
+        "title": "الإختبارات",
+        "search": "البحث في الاختبارات الخاصة بك ...",
+        "addquiz": "إضافة اختبار جديد",
+        "emptyone": "ليس لديك أي اختبارات قصيرة",
+        "emptytwo": "لماذا لا تضيف واحد الآن؟",
+        "share": "يشارك",
+        "edit": "يحرر",
+        "delete": "حذف"
+    },
+    "community": {
+        "title": "تواصل اجتماعي",
+        "search": "مجتمع البحث ...",
+        "play": "تشغيل مسابقة",
+        "categories": "جميع الفئات",
+        "religion": "الدين",
+        "programming": "البرمجة",
+        "mathematics": "رياضيات",
+        "sport": "رياضة",
+        "art": "الفن",
+        "others": "آخرون",
+        "physics": "الفيزياء"
+    },
+    "quiz": {
+        "question": "ابدأ بكتابة سؤالك ...",
+        "answer": "إجابتك هنا",
+        "questions": "أسئلة",
+        "addquestion": "أضف سؤالا",
+        "publish": "ينشر",
+        "title": "عنوان",
+        "settings": "إعدادات",
+        "quizbuilder": "منشئ الاختبار",
+        "quizpublish": "تحرير الاختبار",
+        "quizedit": "نشر مسابقة",
+        "description": "وصف",
+        "category": "فئة",
+        "thumbnail": "ظفري",
+        "religion": "الدين",
+        "programming": "البرمجة",
+        "mathematics": "رياضيات",
+        "sport": "رياضة",
+        "art": "الفن",
+        "others": "آخرون",
+        "physics": "الفيزياء"
+    },
+    "play_screen": {
+        "title": "كن أينشتاين ، العب الآن",
+        "description": "تشغيل اختبار بسيط بسهولة ، يمكنك اللعب بإدخال رمز أو من خلال رابط دعاك شخص ما للقيام بذلك.",
+        "enter": "أدخل"
+    },
+    "play_enter": {
+        "timeleft": "وقت الرد",
+        "coinscollected": "تم تجميع العملات",
+        "correcta": "الإجابات الصحيحة",
+        "wronga": "إجابات خاطئة",
+        "leftquestions": "أسئلة اليسار",
+        "totalquestions": "مجموع الأسئلة",
+        "settings": "إعدادات",
+        "analytics": "تحليلات",
+        "anwsers": "الإجابات",
+        "play_again": "Pالعب مرة أخرى مع"
+    },
+    "auth": {
+        "logindesc": "If do you have an account, then come back let's learn together by playing quizes and bee a like Einstein.",
+        "logintitle": "Do you have an Account?",
+        "loginbtn": "Sign In",
+        "joinnow": "Join Now",
+        "o": "Or use your email for registration",
+        "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "confirmpassword": "Confrim Password",
+        "username": "Username",
+        "signupbtn": "Regjistrohu"
+    },
+    "header": {
+        "mission": "بعثة",
+        "pricing": "التسعير",
+        "contact": "الدعم",
+        "team": "فريق",
+        "about": "معلومات عنا",
+        "logincta": "تسجيل الدخول",
+        "registercta": "البدء",
+        "logout": "تسجيل خروج",
+        "profile": "الملف الشخصي"
+    },
+    "home": {
+        "section_1": {
+            "title": "Making Learning Fun with Quizzes",
+            "description": "With our platform learning is awesome and fun with community made quizzes of different fields.",
+            "cta": "Play a Random Quiz"
+        },
+        "section_2": {
+            "title": "Our Features",
+            "description": "Different features for knoweldge seekers, nonetheless always makeing it fun for you.            ",
+            "feature_one": {
+                "title": "Build Quizzes",
+                "description": "Build quizess of different kinds with our platoform with all the tools you need."
+            },
+            "feature_two": {
+                "title": "Share Quizzes",
+                "description": "Quizess that can be played by others are the fun of our platform, share them now."
+            },
+            "feature_three": {
+                "title": "Browse Community",
+                "description": "Our community of quizess with different categories for you to search and learn."
+            }
+        },
+        "section_3": {
+            "title": "What is the Mission of our platform?",
+            "description": "We are very passionate about helping the community learn, so for this reason we've build Swift Quiz to help people get knoweldge easy in a fun way for their topic they watch and love, this platform is all build by community.",
+            "cta": "Explore Quizzes"
+        }
+    },
+    "error": {
+        "description": "Page was not found, if you think this is a mistake then please contact our team.",
+        "cta": "Go Back Home"
+    }
+}

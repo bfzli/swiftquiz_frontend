@@ -17,6 +17,8 @@
     @media screen and (max-width: 900px) {
         font-size: 2.5em;
     }
+
+    z-index: 1;
 }
 
 .description {
@@ -29,12 +31,14 @@
     @media screen and (max-width: 900px) {
         width: 80%;
     }
+
+    z-index: 1;
 }
 
 .button {
     font-weight: 800;
     font-size: 1.1em;
-    padding: 1em 1.5em;
+    padding: .75em 1.1em;
     background: var(--button-bg);
     color: var(--button-text);
     letter-spacing: -.1px;
@@ -44,8 +48,42 @@
     text-align: center;
     transition: all ease-in-out 0.5s;
 
+    z-index: 1;
+
     &:hover{
         opacity: .7;
     }
 
+}
+
+.line1 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10%;
+}
+
+.line2 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10% + 26.66%;
+}
+
+.line3 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10% + 26.66% + 26.66%;
+}
+
+.line4 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10% + 26.66% + 26.66% + 26.66%;
 }

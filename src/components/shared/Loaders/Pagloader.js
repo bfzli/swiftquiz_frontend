@@ -1,16 +1,17 @@
 import { useSelector } from 'react-redux'
+import * as styles from './Loaders.module.scss'
 
 export default function Pagloader() {
     const theme = useSelector((state) => state.ui.theme);
     return (
-        <div id={theme === "lightmode" ? "lightmode" : "darkmode"}>
+        <div className={styles.pagloader_container} id={theme === "lightmode" ? "lightmode" : "darkmode"}>
             {
-                theme === 'lightmode' ?
+                theme === 'darkmode' ?
                     <lottie-player
                         src="https://assets4.lottiefiles.com/packages/lf20_msale29a.json"
                         background="transparent"
                         speed="1"
-                        style={{ width: '82px', height: '82px' }}
+                        style={{ width: '64px', height: '64px' }}
                         loop
                         autoplay />
                     :
@@ -18,7 +19,7 @@ export default function Pagloader() {
                         src="https://assets10.lottiefiles.com/packages/lf20_n5d5t5sp.json"
                         background="transparent"
                         speed="1"
-                        style={{ width: '82px', height: '82px' }}
+                        style={{ width: '64px', height: '64px' }}
                         loop
                         autoplay />
             }
