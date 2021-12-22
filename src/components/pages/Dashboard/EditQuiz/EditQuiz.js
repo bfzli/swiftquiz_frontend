@@ -2,9 +2,9 @@ import * as styles from './EditQuiz.module.scss'
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { editQuiz } from "../../../../reduxComponents/actions/Questions";
-// import Comploader from '../../../shared/Loaders/Comploader';
-import Pagloader from '../../../shared/Loaders/Pagloader';
+import Absoloader from '../../../shared/Loaders/Absoloader'
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Quiz() {
     const _quizzes = useSelector(state => state.quizes.quizes);
@@ -219,7 +219,7 @@ export default function Quiz() {
 
     if (isFetching === true) {
         return (
-            <Pagloader />
+            <Absoloader />
         )
     }
     else if (isFetching === false) {

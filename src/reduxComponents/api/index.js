@@ -1,7 +1,7 @@
 import axios from "axios";
 import { authState } from "../reducers/Auth";
 
-const API_BASE_URL = "http://localhost:1234/api/user/";
+const API_BASE_URL = "https://swiftapi.vercel.app/api/user/";
 
 const { user_id, token } = authState.auth;
 

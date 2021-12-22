@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createQuiz } from '../../../../reduxComponents/actions/Questions';
 import { useTranslation } from 'react-i18next';
-import Absoloader from '../../../shared/Loaders/Absoloader'
+import Absoloader from '../../../shared/Loaders/Absoloader';
 
 export default function Quiz() {
   const dispatch = useDispatch();
@@ -19,8 +19,20 @@ export default function Quiz() {
   const [quizImage, setQuizImage] = useState();
   const [stopTyping, setStopTyping] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
-
+  const [timerRunning ,setTimerRunning] = useState(false)
+  const [secondsToRedirect, setSecondsToRedirect] = useState(3)
   const test = t('quiz.quizbuilder');
+
+  const removeOneSecond = () => {
+      const newValue = secondsToRedirect - 1;
+      if(secondsToRedirect !== 0){
+        setSecondsToRedirect(newValue);
+      }
+  }
+
+  useEffect(() => {
+    removeOneSecond()
+  }, [timerRunning])
 
   function isEmpty(obj) {
     for (var prop in obj) {
@@ -53,17 +65,16 @@ export default function Quiz() {
     });
     if (isEmpty(errors) === true || isEmpty(errors) === null) {
       dispatch(createQuiz(quiz, quizImage));
-      message.title = 'Your Quiz was published.';
-      message.description = 'The quiz was succesfully published, you can now play it or share with friends.';
-      setNotification(true);
-      setTimeout(() => {
-        window.location.href = '/dashboard/quizzes'
-        setNotification(false);
-      }, 3000);
+      message.title = 'The Quiz was published!';
+      message.description = 'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
       setSidebarView('quiz-publish');
-      setIsAdded(true)
-      
-      setTimeout(() => setIsAdded(false), 4000)
+      setNotification(true);
+      timerRunning(true);
+      // setTimeout(() => {
+      //   setNotification(false),
+      //   window.location.href="/dashboard/quizzes"
+      // }, 3000);
+
     } else {
       message.title = 'Ops! 🥺';
       message.description =
@@ -211,9 +222,7 @@ export default function Quiz() {
 
   return (
     <div style={{ display: 'flex' }}>
-        {
-            isAdded && <Absoloader />
-        }
+      {isAdded && <Absoloader />}
       <div className={styles.container}>
         <div className={styles.slides}>
           {questionList.length <= 0 ? null : (
@@ -463,11 +472,11 @@ export default function Quiz() {
                     xmlns='http://www.w3.org/2000/svg'>
                     <path
                       d='M7.828 11H20V13H7.828L13.192 18.364L11.778 19.778L4 12L11.778 4.22198L13.192 5.63598L7.828 11Z'
-                      fill='#333333'
+                      fill='var(--text-color)'
                     />
                   </svg>
 
-                  <p>{t('quiz.quizpublish')}</p>
+                  <p style={{color: 'var(--text-color)'}}>{t('quiz.quizpublish')}</p>
                 </div>
               ),
             }[sidebarView]
@@ -604,9 +613,9 @@ export default function Quiz() {
         ) : null}
         {sidebarView === 'quiz-publish' ? (
           <div class={styles.header_container}>
-            <div className={styles.publishing}>
-              <h1>Yey it was published</h1>
-              <h3>30f-2f</h3>
+            <div className={styles.publishing} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center',}}>
+              <h3>Quiz was published succesfully.</h3> <br />
+              <h3>Redirecting you to homepagein {secondsToRedirect} seconds</h3> <br />
             </div>
           </div>
         ) : null}
@@ -729,7 +738,6 @@ export default function Quiz() {
                   <p style={{ color: 'var(--text-color)' }}>Characters Left</p>
                 </div>
               </div>
-              
 
               {mode !== 'edit' ? (
                 <>
@@ -751,35 +759,14 @@ export default function Quiz() {
                     </div>
                     <div className={styles.navicon_text}>
                       <p style={{ color: 'var(--text-color)' }}></p>
-                      <h3 style={{ color: 'var(--text-color)' }}>
-                          Play
-                      </h3>
+                      <h3 style={{ color: 'var(--text-color)' }}>Play</h3>
                       <p style={{ color: 'var(--text-color)' }}>
                         {t('quiz.addquestion')}
                       </p>
                     </div>
                   </div>
                 </>
-              ) : (
-                <div className={styles.boxes}>
-                  <div className={styles.navicon}>
-                    <svg
-                      width='18'
-                      height='18'
-                      viewBox='0 0 24 24'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'>
-                      <path
-                        d='M17 6H22V8H20V21C20 21.2652 19.8946 21.5196 19.7071 21.7071C19.5196 21.8946 19.2652 22 19 22H5C4.73478 22 4.48043 21.8946 4.29289 21.7071C4.10536 21.5196 4 21.2652 4 21V8H2V6H7V3C7 2.73478 7.10536 2.48043 7.29289 2.29289C7.48043 2.10536 7.73478 2 8 2H16C16.2652 2 16.5196 2.10536 16.7071 2.29289C16.8946 2.48043 17 2.73478 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z'
-                        fill='var(--icon-border)'
-                      />
-                    </svg>
-                  </div>
-                  <div className={styles.navicon_text}>
-                    <p>Delete Question</p>
-                  </div>
-                </div>
-              )}
+              ) : null}
 
               {mode === 'edit' ? (
                 <>
@@ -803,22 +790,23 @@ export default function Quiz() {
                   </div>
                 </>
               ) : null}
-             <div className={styles.questiont_list}>
-              <div className={styles.linee}></div>
-              <h3 className={styles.detailed_questions}>{quiz.questions.length === 0 ? null : 'Detailed Questions:'}</h3>
+              <div className={styles.questiont_list}>
+                <div className={styles.linee}></div>
+                <h3 className={styles.detailed_questions}>
+                  {quiz.questions.length === 0 ? null : 'Detailed Questions:'}
+                </h3>
 
-              {questionList.map((item) => (
-                <div className={styles.question_side}>
-                  <h3>{item.question}</h3>
-                  <h5>{item.answer1}</h5>
-                  <h5>{item.answer2}</h5>
-                  <h5>{item.answer3}</h5>
-                  <h5>{item.answer4}</h5>
-                  <h5>{item.isCorrect}</h5>
-                </div>
-              ))}
-                </div>
-
+                {questionList.map((item) => (
+                  <div className={styles.question_side}>
+                    <h3>{item.question}</h3>
+                    <h5>{item.answer1}</h5>
+                    <h5>{item.answer2}</h5>
+                    <h5>{item.answer3}</h5>
+                    <h5>{item.answer4}</h5>
+                    <h5>{item.isCorrect}</h5>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ) : null}

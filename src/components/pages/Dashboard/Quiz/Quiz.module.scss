@@ -451,7 +451,7 @@
 }
 
 .publishing_title {
-    font-family: "Integral CF Demi Bold";
+    color: var(--text-color)
 }
 
 .copy_code {
@@ -528,6 +528,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--text-color)
 }
 
 .question_side {
