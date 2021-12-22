@@ -3,19 +3,28 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+    .chatOnline {
+      display: none;
+    }
+  }
 }
 
 .chatMenu {
   flex: 2.5;
+  margin-top: 35px;
 }
 
 .chatBox {
   flex: 5;
   margin-bottom: 5px;
+  margin-top: 53px;
 }
 
 .chatOnline {
   flex: 2.5;
+  margin-top: 60px;
 }
 .chatMenuWrapper,
 .chatBoxWrapper,
@@ -42,6 +51,7 @@
   border: none;
   padding: 10px 0;
   border-bottom: 1px solid lightgray;
+  background: none;
 }
 
 .chatBoxBottom {

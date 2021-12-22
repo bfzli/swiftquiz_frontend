@@ -9,11 +9,16 @@ import { useDispatch } from "react-redux";
 import ValidationLogin from "../../../../utils/ValidationLogin";
 import { logInAction } from "../../../../reduxComponents/actions/Auth";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
+
 export default function Login({ login }) {
   const [details, setDetails] = useState({ username: "", password: "" });
   const [errors, setErrors] = useState({});
   const [backError, setBackError] = useState(null);
   const dispatch = useDispatch();
+  const errorMessage = useSelector((state) => state.auth.messageResponse);
 
   const LoginHandler = (e) => {
     e.preventDefault();
@@ -26,7 +31,7 @@ export default function Login({ login }) {
 
     dispatch(logInAction(logindata.username, logindata.password));
 
-    login();
+    toast(errorMessage);
   };
 
   const googleHandle = (e) => {
@@ -44,13 +49,14 @@ export default function Login({ login }) {
 
   return (
     <div className="form_container sign_in_container">
+      <ToastContainer />
       <form className={styles.form} onSubmit={LoginHandler}>
         {backError && (
           <div className="BackError" style={{ marginLeft: "115px" }}>
             {backError}
           </div>
         )}
-        <h1 className={styles.h1}>Sign in</h1>
+        <h1 className={styles.dark_h1}>Sign in</h1>
         <div className="social_container">
           <a className={styles.a}>
             <img

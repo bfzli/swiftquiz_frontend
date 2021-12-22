@@ -119,7 +119,9 @@
     "password": "Password",
     "confirmpassword": "Confrim Password",
     "username": "Username",
-    "signupbtn": "Regjistrohu"
+    "signupbtn": "Register",
+    "registerdesc": "Enter your personal details and start journey with us",
+    "oremail": "or use your email"
   },
   "header": {
     "mission": "Mission",

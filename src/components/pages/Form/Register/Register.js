@@ -53,7 +53,7 @@ function Register({ register }) {
               {backError}
             </div>
           )}
-          <h1 className={styles.h1}>{t("auth.joinnow")}</h1>
+          <h1 className={styles.dark_h1}>{t("auth.joinnow")}</h1>
           <div className="social_container">
             <a className={styles.a}>
               <img alt="Facebook" src={facebook} width="40px" height="40" />
