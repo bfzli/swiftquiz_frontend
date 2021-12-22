@@ -1,6 +1,13 @@
 .h1 {
   font-weight: bold;
   font-family: Integral CF;
+  color: #f4f4f4;
+}
+
+.dark_h1 {
+  font-weight: bold;
+  font-family: Integral CF;
+  color: black;
 }
 
 .h2 {
@@ -13,6 +20,8 @@
   line-height: 20px;
   letter-spacing: 0.5px;
   margin-bottom: 1em;
+  color: #f4f4f4;
+  padding: 5px;
 }
 
 .span {

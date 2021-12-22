@@ -112,6 +112,7 @@ export default function Messenger() {
     } catch (err) {
       console.log(err);
     }
+    //soundEffect
     {
       newMessage && soundEffect.play();
     }
@@ -121,8 +122,6 @@ export default function Messenger() {
   useEffect(() => {
     scrollToBottom.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
-  //soundEffect
 
   return (
     <div className="messenger">
@@ -157,6 +156,9 @@ export default function Messenger() {
                   placeholder="Type a message..."
                   onChange={(e) => setNewMessage(e.target.value)}
                   value={newMessage}
+                  onKeyPress={(e) =>
+                    e.key === "Enter" && newMessage && handleSubmit(e)
+                  }
                 ></textarea>
                 <img
                   src={sendMessage}
