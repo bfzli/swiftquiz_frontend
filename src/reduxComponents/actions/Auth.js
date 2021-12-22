@@ -1,6 +1,5 @@
 import * as CONST from "../constants/index";
 import * as api from "../api/index";
-import axios from "axios";
 
 const confirmedLogIn = (data) => {
    return {

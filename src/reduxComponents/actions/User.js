@@ -77,3 +77,126 @@ export const getUserProfileAction = () => {
       }
    };
 };
+
+// Forgot Pasaword
+export const forgotpasswordAction = (email) => async (dispatch) => {
+   try {
+      dispatch({type: CONST.USER_FORGOT_REQUEST});
+
+      // Headers
+      const config = {headers: {"Content-Type": "application/json"}};
+      const data = await api.forgot("/password/forgot", email, config);
+      dispatch({type: CONST.USER_FORGOT_SUCESS, payload: data.message});
+   } catch (error) {
+      dispatch({
+         type: CONST.USER_FORGOT_FAIL,
+         payload: error.response && error.response.data.message,
+      });
+   }
+};
+
+// Reset Password
+export const resetPasswordAction = (token, passwords) => async (dispatch) => {
+   try {
+      dispatch({type: CONST.USER_RESET_PASSWORD_REQUEST});
+
+      // Headers
+      const config = {headers: {"Content-Type": "application/json"}};
+      const data = await api.resetPassword(
+         `password/reset/${token}`,
+         passwords,
+         config
+      );
+      dispatch({type: CONST.USER_RESET_PASSWORD_SUCESS, payload: data.message});
+   } catch (error) {
+      dispatch({
+         type: CONST.USER_RESET_PASSWORD_FAIL,
+         payload: error.response && error.response.data.message,
+      });
+   }
+};
+
+// Clearing Errors
+export const clearErrors = () => async (dispatch) => {
+   dispatch({type: CONST.CLEAR_ERROR});
+};
+
+// Update profil
+
+// Update Profile
+export const updateProfile = (userData) => async (dispatch, getState) => {
+   try {
+      dispatch({type: CONST.UPDATE_PROFILE_REQUEST});
+
+      const userInfo = getState().auth.auth;
+      const config = {
+         headers: {"Content-Type": "multipart/form-data"},
+         authorization: `Bearer ${userInfo.token}`,
+      };
+
+      const data = await api.editprofil(`/me/update`, userData, config);
+      //    name
+      //    email,
+      //    username,
+      //    about,
+      // });
+
+      const dataStore = await data.data;
+      api.saveToLocalStorage(JSON.stringify(dataStore));
+
+      dispatch({type: CONST.UPDATE_PROFILE_SUCCESS, payload: data.success});
+   } catch (error) {
+      dispatch({
+         type: CONST.UPDATE_PROFILE_FAIL,
+         payload: error.response.data.message,
+      });
+   }
+};
+
+// Load User
+
+export const loadUser = () => async (dispatch) => {
+   try {
+      dispatch({type: CONST.LOAD_USER_REQUEST});
+
+      const {data} = await axios.get(`s`);
+
+      dispatch({type: CONST.LOAD_USER_SUCCESS, payload: data.user});
+   } catch (error) {
+      dispatch({
+         type: CONST.LOAD_USER_FAIL,
+         payload: error.response.data.message,
+      });
+   }
+};
+// Update Password
+export const updatePassword =
+   (currentPassword, newPassword, confirmPassword) =>
+   async (dispatch, getState) => {
+      try {
+         dispatch({type: CONST.UPDATE_PASSWORD_REQUEST});
+
+         const userData = getState().auth.auth;
+         const config = {
+            headers: {"Content-Type": "application/json"},
+            authorization: `Bearer ${userData.token}`,
+         };
+
+         const sentData = await api.updatingPsw(
+            `/profile/password/update`,
+            currentPassword,
+            newPassword,
+            confirmPassword
+            // config
+         );
+         const data = await sentData.data;
+         api.saveToLocalStorage(JSON.stringify(data));
+
+         dispatch({type: CONST.UPDATE_PASSWORD_SUCCESS, payload: data.success});
+      } catch (error) {
+         dispatch({
+            type: CONST.UPDATE_PASSWORD_FAIL,
+            payload: error.response && error.response.data.message,
+         });
+      }
+   };

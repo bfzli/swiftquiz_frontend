@@ -1,0 +1,155 @@
+.fg_pass h2 {
+   color: #555;
+   text-transform: uppercase;
+   text-align: center;
+   font-size: 2rem;
+   margin: 50px 0;
+   letter-spacing: 1.3px;
+}
+.fg_pass {
+   /* box-shadow: rgba(2, 5, 54, 0.7); */
+   overflow: hidden;
+}
+.fg_pass .row {
+   max-width: 500px;
+   margin: auto;
+   padding: 0 10px;
+   /* box-shadow: rgba(2, 5, 54, 0.7); */
+}
+.fg_pass .row input {
+   width: 100%;
+   height: 45px;
+   border: 1px solid #ccc;
+   outline: none;
+   padding: 0 15px;
+   border-radius: 3px;
+   margin: 5px 0;
+}
+.fg_pass .row button {
+   background: #333;
+   color: white;
+   padding: 10px 30px;
+   text-transform: uppercase;
+   letter-spacing: 1.3px;
+   border-radius: 3px;
+   margin-top: 15px;
+}
+
+/***** For Smartphones *******/
+
+.fg_pass {
+   position: absolute;
+   left: 50%;
+   width: 85%;
+   height: auto;
+   background-color: transparent;
+   -webkit-transition: all 0.1s;
+   transition: all 0.1s;
+   bottom: 75%;
+   -webkit-transform: translateX(-50%) translateY(50%);
+   transform: translateX(-50%) translateY(50%);
+}
+#btn {
+   border: none;
+   color: #fefefe;
+   padding: 0.8em 0;
+   font-size: 1em;
+   font-weight: 300;
+   width: 100%;
+   border-radius: 55px;
+   -webkit-box-shadow: 0px 3px 21px rgba(255, 100, 0, 0.7);
+   box-shadow: 0px 3px 21px rgba(255, 100, 0, 0.7);
+   background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#f98340),
+      to(#f71442)
+   );
+   background: linear-gradient(to right, #f98340, #5928e5);
+   background-size: 100%;
+   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+h4 {
+   text-align: center;
+   color: black;
+   font-size: 1.1em;
+   font-family: times;
+   font-style: normal;
+   line-height: 130%;
+   opacity: 0.6;
+}
+
+#form {
+   width: 100%;
+   overflow: hidden;
+   background-color: #fefefe;
+}
+
+.form input:focus {
+   opacity: 1;
+   border-bottom: 2px solid #f71442;
+   color: #f71442;
+}
+
+/***** For Tablets *******/
+@media screen and (min-width: 480px) {
+   .fg_pass {
+      width: 70%;
+   }
+   #btn {
+      border: none;
+      color: #fefefe;
+      padding: 0.8em 0;
+      font-size: 1em;
+      font-weight: 300;
+      width: 100%;
+      border-radius: 55px;
+      -webkit-box-shadow: 0px 3px 21px rgba(255, 100, 0, 0.7);
+      box-shadow: 0px 3px 21px rgba(138, 0, 230, 0.7);
+      background: -webkit-gradient(
+         linear,
+         left top,
+         right top,
+         from(#f98340),
+         to(#f71442)
+      );
+      background: linear-gradient(to right, #a104b6cc, #5928e5);
+      background-size: 100%;
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+   }
+
+   #btn {
+      padding: 0.8em 0;
+      font-size: 1.2em;
+   }
+}
+/***** For Desktop Monitors *******/
+@media screen and (min-width: 768px) {
+   .fg_pass {
+      width: 100%;
+   }
+   #btn {
+      border: none;
+      color: #fefefe;
+      padding: 0.8em 0;
+      font-size: 1em;
+      font-weight: 300;
+      width: 50%;
+      border-radius: 55px;
+      -webkit-box-shadow: 0px 3px 21px rgba(255, 100, 0, 0.7);
+      box-shadow: 0px 3px 21px rgba(138, 0, 230, 0.7);
+      /* background: -webkit-gradient(
+         linear,
+         left top,
+         right top,
+         from(#f98340),
+         to(#f71442)
+      ); */
+      /* background: linear-gradient(to right, #a104b6cc, #5928e5); */
+      background-size: 100%;
+      background-color: rgba(48, 3, 85, 0.808);
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+   }
+}

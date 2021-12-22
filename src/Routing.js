@@ -25,6 +25,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchQuiz} from "./reduxComponents/actions/Questions";
 import * as CONST from "./reduxComponents/constants/index";
 import EditProfile from "./pages/EditProfil";
+import ForgotEmail from "./pages/ForgotEmail";
+import ResetPass from "./pages/ResetPass";
+import UpdatePassword from "./components/pages/Dashboard/EditProfilScreen/UpdatePassword";
+import UpdateProfile from "./components/pages/Dashboard/EditProfilScreen/UpdateProfile";
 
 export default function Routing() {
    const theme = useSelector((state) => state.ui.theme);
@@ -69,6 +73,8 @@ export default function Routing() {
                path="/dashboard/quizzes/add-quiz"
                component={Quiz}
             />
+            <NotProtected path="/forgot" component={ForgotEmail} />
+            <NotProtected path="/password/reset/:token" component={ResetPass} />
             <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
             <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
             <ProtectedRoute path="/dashboard/community" component={Community} />
@@ -77,7 +83,14 @@ export default function Routing() {
                path="/dashboard/profile/edit"
                component={EditProfile}
             />
-
+            <NotProtected
+               path="/dashboard/updatePassword"
+               component={UpdatePassword}
+            />
+            <NotProtected
+               path="/dashboard/UpdateProfil"
+               component={UpdateProfile}
+            />
             <NotProtected path="/dashboard">
                <Redirect to="/dashboard/welcome" />
             </NotProtected>

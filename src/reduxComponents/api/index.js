@@ -1,7 +1,9 @@
 import axios from "axios";
 import {authState} from "../reducers/Auth";
 
-const API_BASE_URL = "https://swiftapi.vercel.app/api/user";
+//const API_BASE_URL = "https://swiftapi.vercel.app/api/user";
+
+const API_BASE_URL = "http://localhost:1234/api/user";
 
 const {user_id, token} = authState.auth;
 
@@ -37,9 +39,27 @@ export const fetchAllUsers = () => client.get(`/all-users`);
 //Delete single user request
 export const deleteUser = (userId) => client.delete(`/${userId}`);
 
-//Signup request
 // Edit Profil Information
 export const editprofil = (id, params) => client.put(`${id}`, params);
+// Forgot Password
+export const forgot = (id, email) => {
+   const sendEmail = {
+      email,
+   };
+   return axios.post(`${API_BASE_URL}/${id}`, sendEmail);
+};
+// Reset Password
+export const resetPassword = (token, password, confirmPassword) => {
+   const sucessReset = {
+      password,
+      confirmPassword,
+   };
+   return axios.put(`${token}`, sucessReset);
+};
+// export const resetPassword = (id, password, confirmpassword) =>
+//    client.put(`${id}`, password, confirmpassword);
+
+export const updatingPsw = (id, params) =>client.put(`${id}`, params);
 
 export const signUp = (name, email, username, password) => {
    const postData = {

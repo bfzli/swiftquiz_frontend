@@ -39,7 +39,7 @@ export default function ProfileScreen() {
    return (
       <div className="container-fluid">
          <h1 className="title">Edit Profil</h1>
-         <form clasName="center" onSubmit={handleFormSubmit}>
+         <form clasName="center form" onSubmit={handleFormSubmit}>
             <div className="grid">
                <div className="form-group">
                   <label for="name">Full Name</label>

@@ -7,9 +7,16 @@ import adminReducer from "../reducers/Admin";
 import UIreducer from "../reducers/Theme";
 import logger from "../middleware/logger";
 import thunk from "redux-thunk";
-import updateUserProfil from "../reducers/User";
-import userProfileReducer from "../reducers/User";
-
+import {
+   updateUserProfil,
+   profileReducer,
+   userProfileReducer,
+   forgotPasswordUser,
+   ResetPasswordUser,
+} from "../reducers/User";
+// import userProfileReducer from "../reducers/User";
+// import forgotPasswordUser from "../reducers/User";
+// import ResetPasswordUser from "../reducers/User";
 const configureStore = () => {
    const store = createStore(
       combineReducers({
@@ -23,6 +30,12 @@ const configureStore = () => {
          userProfile: userProfileReducer,
          //  Store Update User
          updatedUser: updateUserProfil,
+         // Forgot password
+         forgotPass: forgotPasswordUser,
+         // Reset Password
+         resetPass: ResetPasswordUser,
+         // Update Profil User
+         profile: profileReducer,
       }),
       applyMiddleware(thunk, logger)
       //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
