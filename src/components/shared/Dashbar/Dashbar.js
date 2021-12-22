@@ -1,41 +1,104 @@
 import * as styles from './Dashbar.module.scss';
-import Logo from './Logo';
 import { useState, useEffect } from 'react';
-import coin from './components/coin.png';
+import coins from './components/coin.svg';
+import score from './components/score.svg';
 import { useSelector } from 'react-redux';
 import CheckPath from '../../../utils/CheckPath';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchUserData } from '../../../reduxComponents/actions/User';
 import * as CONST from '../../../reduxComponents/constants/index';
+import Console from './components/Console'
+import Loader from '../Loaders/Pagloader'
+import { logOutAction } from '../../../reduxComponents/actions/Auth';
+import { useTranslation } from 'react-i18next';
 
 export default function Dashbar({ page }) {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user);
+	const role = useSelector((state) => state.auth.auth);
+	const [lang, setLang] = useState(localStorage.getItem('i18nextLng') || 'en')
+	const [loading, setLoading] = useState(true)
+
+	const { t, i18n } = useTranslation();
+
+	const changeLang = (lang) => {
+		i18n.changeLanguage(lang);
+		localStorage.setItem('i18nextLng', lang)
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false)
+		}, 1234)
+	}, [])
+
 	const [menu, setMenu] = useState(false);
-	const [dropdown, setDropdown] = useState(false);
 	const theme = useSelector((state) => state.ui.theme);
 	const current_url = document.URL;
+	const [isModal, setIsModal] = useState(false);
+	const [adminConsole, setAdminConsole] = useState(false);
 
 	useEffect(() => {
 		dispatch(fetchUserData());
 	}, []);
 
-	function handleTheme() {
-		theme === 'lightmode' ? dispatch({ type: CONST.SET_DARK_MODE }) : dispatch({ type: CONST.SET_LIGHT_MODE });
-	}
-
 	return (
 		<main className={styles.container}>
-			<header className={styles.sidebar}>
+			{adminConsole === true ? <Console console={adminConsole} setConsole={setAdminConsole} /> : null}
+
+			{
+				isModal === true ?
+					<div className={styles.modal_container}>
+						<div className={styles.modal_box}>
+							<div className={styles.modal_header}>
+								<p className={styles.modal_title}>{t("dashbar.settings")}</p>
+
+								<svg onClick={() => setIsModal(false)} className={styles.closemodal} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M12 10.586L16.95 5.63599L18.364 7.04999L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.04999 18.364L5.63599 16.95L10.586 12L5.63599 7.04999L7.04999 5.63599L12 10.586Z" fill="var(--icon-border)" />
+								</svg>
+							</div>
+
+							<div className={styles.modal_body}>
+								<label className={styles._form_label_name} htmFor="thememode">{t("dashbar.theme")}</label>
+								<select className={styles._form_input} defaultValue={theme === "lightmode" ? "lightmode" : "darkmode"} onChange={(e) => { const selected = e.target.value; selected === 'darkmode' ? dispatch({ type: CONST.SET_DARK_MODE }) : dispatch({ type: CONST.SET_LIGHT_MODE }) }} id="thememode" placeholder="Category">
+									<option value="lightmode">{t("dashbar.lightmode")}</option>
+									<option value="darkmode">{t("dashbar.darkmode")}</option>
+								</select>
+							</div>
+
+							<div style={{ marginTop: '-1em' }} className={styles.modal_body}>
+								<label className={styles._form_label_name} htmFor="languagechoser">{t("dashbar.language")}</label>
+								<select value={localStorage.getItem('i18nextLng')} onChange={(e) => {
+									setLang(e.target.value)
+									changeLang(e.target.value)
+								}} className={styles._form_input} value={lang} id="languagechoser" placeholder="Language">
+									<option value="sq">{t("dashbar.sq")}</option>
+									<option value="ar">{t("dashbar.ar")}</option>
+									<option value="en">{t("dashbar.en")}</option>
+									<option value="de">{t("dashbar.de")}</option>
+									<option value="fr">{t("dashbar.fr")}</option>
+								</select>
+							</div>
+						</div>
+					</div> : null
+			}
+			<header id={menu === true ? "isOpen" : "notOpen"} onMouseLeave={() => setMenu(false)} onMouseEnter={() => setMenu(true)} className={styles.sidebar}>
 				<div className={menu === true ? styles.sidebar_top : styles.sidebar_top_small}>
-					<Logo />
+					<div className={styles.logocontainer}>
+						<Link to="/">
+							<svg style={{ cursor: 'pointer' }} width="2.5em" viewBox="0 0 83 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M57.5804 42.6399C59.2018 43.45 60.4752 44.5712 65.159 49.312C81.2774 65.6265 81.1902 65.5221 81.8807 69.3311C82.1495 70.8137 82.1243 71.5244 81.7442 73.1636C81.148 75.7343 80.2421 77.2632 78.2194 79.1116C75.6977 81.4164 74.2783 81.977 70.9141 81.9975C66.0926 82.0266 66.0626 82.0052 54.039 69.9679C48.4302 64.3526 43.5445 59.291 43.1822 58.7198C42.0869 56.9921 41.5362 54.914 41.5365 52.5094C41.5365 50.6464 41.6822 49.958 42.3887 48.482C43.6 45.951 45.7239 43.8305 48.3299 42.5497C50.4193 41.5227 50.4205 41.5227 53.1093 41.5969C55.2865 41.6568 55.8981 41.7995 57.5804 42.6399Z" fill="var(--text-color)" />
+								<path d="M45.9874 0.393832C49.1308 0.916997 51.6727 1.52741 53.406 2.17491C54.1405 2.4494 55.0085 2.75327 55.3349 2.8503C56.6685 3.24646 61.6604 6.02075 63.6225 7.45611C64.7765 8.30065 66.8356 10.0651 68.1977 11.377C76.695 19.5619 81.0086 29.2644 81 40.1731C80.997 43.705 80.3017 49.2425 79.6664 50.7901C78.996 52.4234 78.9655 52.3979 65.5466 39.0401C58.4611 31.9867 52.1817 25.8583 51.5923 25.4209C49.8549 24.1324 46.2812 22.5033 44.2069 22.0543C37.0375 20.5023 29.5467 23.522 24.8732 29.8481C24.2453 30.6982 23.7314 31.573 23.7314 31.792C23.7314 32.0113 23.6156 32.3173 23.4741 32.4725C22.1746 33.8963 21.4933 41.6034 22.3607 45.0694C23.1242 48.12 24.7142 50.9358 27.3825 53.9626C28.7203 55.4799 34.7137 61.6745 40.7011 67.7284C48.645 75.7599 51.5072 78.8321 51.2894 79.0944C50.3914 80.1763 41.9335 81.1179 37.0045 80.685C26.8223 79.7903 17.9059 75.4014 10.6549 67.715C5.4559 62.2039 1.7154 54.6324 0.410899 46.9792C-0.312866 42.7331 -0.048166 34.9542 0.950981 31.1178C2.94838 23.4478 6.46098 17.2953 11.9256 11.8945C18.0412 5.85011 24.7507 2.26007 32.7821 0.735682C34.0878 0.487602 35.4232 0.228245 35.7496 0.158806C37.1592 -0.140612 43.6742 0.00895092 45.9874 0.393832Z" fill="var(--text-color)" />
+							</svg>
+						</Link>
+					</div>
 					<div className={styles.spacer} />
 
-					<Link to="/dashboard/welcome">
+					<Link to="/dashboard/quizzes">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/welcome') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/quizzes') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -55,14 +118,14 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Homepage</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.home")}</p> : null}
 						</div>
 					</Link>
 
-					<Link to="/dashboard/quizzes">
+					<Link to="/dashboard/community">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/quizzes') === true || CheckPath(current_url, '/quizzes') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/community') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -86,41 +149,14 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>My Quizzesy</p> : null}
-						</div>
-					</Link>
-
-					<Link to="/dashboard/community">
-						<div
-							id="nav-item"
-							className={CheckPath(current_url, '/community') === true ? styles.item_is_active : null}
-						>
-							<svg
-								className={styles.sidebar_item_icon}
-								viewBox="0 0 24 24"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.0913 3.26467 14.1827 3.60145 15.1296C4.1276 16.609 4.39067 17.3486 4.4171 17.7689C4.44675 18.2406 4.4246 18.4195 4.28084 18.8697C4.15275 19.2709 3.84348 19.7348 3.22496 20.6626L3 21H12Z"
-									fill="var(--icon-inside)"
-									fill-opacity="0.15"
-								/>
-								<path
-									fillRule="evenodd"
-									clipRule="evenodd"
-									d="M12 3.75C7.44365 3.75 3.75 7.44365 3.75 12C3.75 12.9766 3.98831 13.9792 4.30809 14.8783L4.31311 14.8924C4.57195 15.6201 4.77257 16.1842 4.91115 16.6183C5.04587 17.0403 5.14598 17.4095 5.16562 17.7218C5.1813 17.9712 5.18681 18.1893 5.15832 18.4195C5.12983 18.6497 5.0713 18.8599 4.9953 19.0979C4.90459 19.382 4.75975 19.6573 4.57853 19.9569C4.52323 20.0483 4.46217 20.1457 4.39535 20.25H12C16.5564 20.25 20.25 16.5563 20.25 12C20.25 7.44365 16.5564 3.75 12 3.75ZM2.25 12C2.25 6.61522 6.61522 2.25 12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75H3C2.7234 21.75 2.46926 21.5978 2.33875 21.3539C2.20823 21.11 2.22254 20.8141 2.37596 20.584L2.60092 20.2465C2.91394 19.777 3.135 19.4451 3.29509 19.1805C3.45516 18.9159 3.529 18.7587 3.56638 18.6416C3.63414 18.4294 3.65857 18.325 3.66968 18.2352C3.68079 18.1455 3.68255 18.0383 3.66858 17.816C3.66179 17.7081 3.61715 17.4972 3.4822 17.0745C3.35199 16.6666 3.1597 16.1257 2.89482 15.3809C2.54104 14.3862 2.25 13.2061 2.25 12ZM7.25 10C7.25 9.58579 7.58579 9.25 8 9.25H16C16.4142 9.25 16.75 9.58579 16.75 10C16.75 10.4142 16.4142 10.75 16 10.75H8C7.58579 10.75 7.25 10.4142 7.25 10ZM8 13.25C7.58579 13.25 7.25 13.5858 7.25 14C7.25 14.4142 7.58579 14.75 8 14.75H12C12.4142 14.75 12.75 14.4142 12.75 14C12.75 13.5858 12.4142 13.25 12 13.25H8Z"
-									fill="var(--icon-border)"
-								/>
-							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Community</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.community")}</p> : null}
 						</div>
 					</Link>
 
 					<Link to="/dashboard/leaderboard">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/ff') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/leaderboard') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -142,63 +178,28 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Leaderboard</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.leaderboard")}</p> : null}
 						</div>
 					</Link>
 
-					<Link to="/dashboard/leaderboard">
+					<Link to="/dashboard/store">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/leaderboard') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/store') === true ? styles.item_is_active : null}
 						>
-							<svg
-								className={styles.sidebar_item_icon}
-								viewBox="0 0 24 24"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M19 21V9C19 6.17157 19 4.75736 18.1213 3.87868C17.2426 3 15.8284 3 13 3H11C8.17157 3 6.75736 3 5.87868 3.87868C5 4.75736 5 6.17157 5 9V21L10.0154 18.134C10.9844 17.5803 11.4689 17.3035 12 17.3035C12.5311 17.3035 13.0156 17.5803 13.9846 18.134L19 21Z"
-									fill="var(--icon-inside)"
-									fill-opacity="0.15"
-								/>
-								<path
-									fillRule="evenodd"
-									clipRule="evenodd"
-									d="M10.9451 2.25L11 2.25H13L13.0549 2.25C14.4225 2.24998 15.5248 2.24996 16.3918 2.36652C17.2919 2.48754 18.0497 2.74643 18.6517 3.34835C19.2536 3.95027 19.5125 4.70814 19.6335 5.60825C19.75 6.47522 19.75 7.57754 19.75 8.94513V9V21C19.75 21.2674 19.6077 21.5145 19.3764 21.6487C19.1452 21.7829 18.86 21.7838 18.6279 21.6512L13.6125 18.7852C13.1154 18.5012 12.7887 18.3154 12.5212 18.1955C12.2686 18.0822 12.123 18.0535 12 18.0535C11.877 18.0535 11.7314 18.0822 11.4788 18.1955C11.2113 18.3154 10.8846 18.5012 10.3875 18.7852L5.37211 21.6512C5.13998 21.7838 4.85479 21.7829 4.62356 21.6487C4.39232 21.5145 4.25 21.2674 4.25 21V9L4.25 8.94513C4.24998 7.57754 4.24996 6.47522 4.36652 5.60825C4.48754 4.70814 4.74643 3.95027 5.34835 3.34835C5.95027 2.74643 6.70814 2.48754 7.60825 2.36652C8.47522 2.24996 9.57754 2.24998 10.9451 2.25ZM7.80812 3.85315C7.07435 3.9518 6.68577 4.13225 6.40901 4.40901C6.13225 4.68577 5.9518 5.07435 5.85315 5.80812C5.75159 6.56347 5.75 7.56458 5.75 9V19.7076L9.64334 17.4829L9.67333 17.4657C10.1322 17.2035 10.5226 16.9804 10.865 16.8268C11.2297 16.6632 11.5918 16.5535 12 16.5535C12.4082 16.5535 12.7703 16.6632 13.135 16.8268C13.4774 16.9803 13.8678 17.2035 14.3266 17.4657L14.3567 17.4829L18.25 19.7076V9C18.25 7.56459 18.2484 6.56347 18.1469 5.80812C18.0482 5.07435 17.8678 4.68577 17.591 4.40901C17.3142 4.13225 16.9257 3.9518 16.1919 3.85315C15.4365 3.75159 14.4354 3.75 13 3.75H11C9.56459 3.75 8.56347 3.75159 7.80812 3.85315Z"
-									fill="var(--icon-border)"
-								/>
+							<svg className={styles.sidebar_item_icon}
+								viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M1 1.25C0.585786 1.25 0.25 1.58579 0.25 2C0.25 2.41421 0.585786 2.75 1 2.75H1.78428C2.77204 2.75 3.64429 3.39423 3.93478 4.33831L6.63155 13.1028C7.1157 14.6763 8.56946 15.75 10.2157 15.75H16.7679C18.4239 15.75 19.8839 14.6637 20.3598 13.0776L21.946 7.79021C22.4753 6.02577 21.1541 4.25 19.3119 4.25H5.5C5.49234 4.25 5.48471 4.25011 5.47711 4.25034L5.36845 3.89718C4.8843 2.32371 3.43054 1.25 1.78428 1.25H1ZM8.06522 12.6617L5.93855 5.75H19.3119C20.1493 5.75 20.7498 6.55717 20.5092 7.35918L18.923 12.6465C18.6375 13.5982 17.7615 14.25 16.7679 14.25H10.2157C9.22796 14.25 8.35571 13.6058 8.06522 12.6617ZM10 18.7499C9.30964 18.7499 8.75 19.3096 8.75 19.9999C8.75 20.6903 9.30964 21.2499 10 21.2499C10.6904 21.2499 11.25 20.6903 11.25 19.9999C11.25 19.3096 10.6904 18.7499 10 18.7499ZM7.25 19.9999C7.25 18.4812 8.48122 17.2499 10 17.2499C11.5188 17.2499 12.75 18.4812 12.75 19.9999C12.75 21.5187 11.5188 22.7499 10 22.7499C8.48122 22.7499 7.25 21.5187 7.25 19.9999ZM18 18.7499C17.3096 18.7499 16.75 19.3096 16.75 19.9999C16.75 20.6903 17.3096 21.2499 18 21.2499C18.6904 21.2499 19.25 20.6903 19.25 19.9999C19.25 19.3096 18.6904 18.7499 18 18.7499ZM15.25 19.9999C15.25 18.4812 16.4812 17.2499 18 17.2499C19.5188 17.2499 20.75 18.4812 20.75 19.9999C20.75 21.5187 19.5188 22.7499 18 22.7499C16.4812 22.7499 15.25 21.5187 15.25 19.9999Z" fill="var(--icon-border)" />
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Bookmarks</p> : null}
+
+							{menu === true ? <p className={styles.sidebar_item_text}>Store</p> : null}
 						</div>
 					</Link>
 
-					<Link to="/dashboard/community">
+					<Link to="/dashboard/support">
 						<div
 							id="nav-item"
-							className={CheckPath(current_url, '/bookmarks') === true ? styles.item_is_active : null}
-						>
-							<svg
-								className={styles.sidebar_item_icon}
-								viewBox="0 0 24 24"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									fillRule="evenodd"
-									clipRule="evenodd"
-									d="M15 4.25C15.3 4.25 15.5712 4.4288 15.6894 4.70456L18.4945 11.25L22 11.25C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75L18 12.75C17.7 12.75 17.4288 12.5712 17.3106 12.2954L15 6.90395L9.68936 19.2954C9.57117 19.5712 9.30002 19.75 9 19.75C8.69998 19.75 8.42882 19.5712 8.31064 19.2954L5.50545 12.75L2 12.75C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25L6 11.25C6.30002 11.25 6.57117 11.4288 6.68936 11.7046L9 17.0961L14.3106 4.70456C14.4288 4.4288 14.7 4.25 15 4.25Z"
-									fill="var(--icon-border)"
-								/>
-							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Analytics</p> : null}
-						</div>
-					</Link>
-
-					<Link to="/dashboard/community">
-						<div
-							id="nav-item"
-							className={CheckPath(current_url, '/analytics') === true ? styles.item_is_active : null}
+							className={CheckPath(current_url, '/support') === true ? styles.item_is_active : null}
 						>
 							<svg
 								className={styles.sidebar_item_icon}
@@ -222,135 +223,112 @@ export default function Dashbar({ page }) {
 									fill="var(--icon-border)"
 								/>
 							</svg>
-							{menu === true ? <p className={styles.sidebar_item_text}>Support</p> : null}
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.support")}</p> : null}
 						</div>
 					</Link>
+
+					{
+						role.role === "admin"
+
+							?
+
+							<Link to="/dashboard/admin">
+								<div
+									id="nav-item"
+									className={CheckPath(current_url, '/admin') === true ? styles.item_is_active : null}
+								>
+									<svg className={styles.sidebar_item_icon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM9.99992 12.5555C9.99992 15.8148 13.9999 15.8148 13.9999 12.5555C13.9999 10.4815 11.9999 9 11.9999 9C11.9999 9 9.99992 10.4815 9.99992 12.5555Z" fill="#A4ADB7" fill-opacity="0.15" />
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12.75 5V3.78363C14.4651 3.93819 16.0289 4.61767 17.2795 5.66018L16.4698 6.46957C16.1768 6.76241 16.1767 7.23729 16.4696 7.53023C16.7624 7.82318 17.2373 7.82327 17.5302 7.53043L18.3401 6.72087C19.3824 7.97135 20.0618 9.53501 20.2164 11.25H19C18.5858 11.25 18.25 11.5858 18.25 12C18.25 12.4142 18.5858 12.75 19 12.75H20.2164C20.0618 14.465 19.3824 16.0286 18.3401 17.2791L17.5302 16.4696C17.2373 16.1767 16.7624 16.1768 16.4696 16.4698C16.1767 16.7627 16.1768 17.2376 16.4698 17.5304L17.2795 18.3398C15.8488 19.5325 14.0082 20.25 12 20.25C9.9919 20.25 8.15136 19.5325 6.72075 18.34L7.5306 17.5304C7.82355 17.2376 7.82363 16.7627 7.53079 16.4698C7.23795 16.1768 6.76308 16.1767 6.47013 16.4696L5.66008 17.2793C4.61762 16.0288 3.93819 14.4651 3.78363 12.75H5C5.41421 12.75 5.75 12.4142 5.75 12C5.75 11.5858 5.41421 11.25 5 11.25H3.78363C3.93819 9.53493 4.61761 7.97122 5.66005 6.72071L6.46967 7.53033C6.76256 7.82322 7.23744 7.82322 7.53033 7.53033C7.82322 7.23744 7.82322 6.76256 7.53033 6.46967L6.72071 5.66005C7.97122 4.61761 9.53493 3.93819 11.25 3.78363V5C11.25 5.41421 11.5858 5.75 12 5.75C12.4142 5.75 12.75 5.41421 12.75 5ZM12 2.25C17.3848 2.25 21.75 6.61522 21.75 12C21.75 17.3848 17.3848 21.75 12 21.75C6.61522 21.75 2.25 17.3848 2.25 12C2.25 6.61522 6.61522 2.25 12 2.25ZM11.9999 9.00001L12.4463 8.39734C12.1811 8.2009 11.8186 8.2009 11.5534 8.39735L11.9999 9.00001ZM12.4126 10.4664C12.2704 10.2874 12.1277 10.1316 11.9999 10.0031C11.8721 10.1316 11.7294 10.2874 11.5872 10.4664C11.1378 11.0324 10.7499 11.7588 10.7499 12.5556C10.7499 13.2136 10.949 13.6335 11.1767 13.881C11.4072 14.1313 11.7058 14.25 11.9999 14.25C12.294 14.25 12.5927 14.1313 12.8231 13.881C13.0509 13.6335 13.2499 13.2136 13.2499 12.5556C13.2499 11.7589 12.862 11.0324 12.4126 10.4664ZM14.7499 12.5556C14.7499 11.2782 14.1378 10.2269 13.5872 9.53359C13.307 9.18068 13.0279 8.90171 12.8182 8.71018C12.713 8.61401 12.624 8.53881 12.5596 8.48629C12.5273 8.46 12.5011 8.4393 12.4819 8.42443L12.4584 8.40647L12.4509 8.40079L12.4482 8.39878L12.4472 8.39799L12.4467 8.39765C12.4465 8.39749 12.4463 8.39734 11.9999 9.00001C11.5534 8.39735 11.5532 8.3975 11.553 8.39766L11.5526 8.398L11.5515 8.3988L11.5488 8.4008L11.5413 8.40648L11.5179 8.42444C11.4987 8.43932 11.4724 8.46001 11.4402 8.4863C11.3757 8.53883 11.2868 8.61403 11.1815 8.71019C10.9719 8.90172 10.6928 9.18069 10.4126 9.53361C9.86201 10.2269 9.24992 11.2782 9.24992 12.5556C9.24992 13.5271 9.55087 14.3295 10.0731 14.8968C10.5927 15.4613 11.294 15.75 11.9999 15.75C12.7058 15.75 13.4072 15.4613 13.9267 14.8968C14.449 14.3295 14.7499 13.5271 14.7499 12.5556Z" fill="var(--icon-border)" />
+									</svg>
+
+									{menu === true ? <p className={styles.sidebar_item_text}>Admin Panel</p> : null}
+								</div>
+							</Link>
+
+							: null
+					}
 				</div>
 
 				<div className={styles.sidebar_bottom}>
-					<div
-						onClick={() => setMenu(!menu)}
-						id="nav-item"
-						className={CheckPath(current_url, '/help') === true ? styles.item_is_active : null}
-					>
-						{menu === false ? (
-							<svg
-								style={{ width: '2em' }}
-								viewBox="0 0 24 24"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M13.1719 12L8.22192 7.04999L9.63592 5.63599L15.9999 12L9.63592 18.364L8.22192 16.95L13.1719 12Z"
-									fill="var(--icon-border)"
-								/>
+					<div onClick={() => setIsModal(true)}>
+						<div
+							id="nav-item"
+							className={isModal === true ? styles.item_is_active : null}
+						>
+							<svg className={styles.sidebar_item_icon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fillRule="evenodd" clipRule="evenodd" fill="var(--icon-border)" d="M10.25 7C10.25 4.92893 11.9289 3.25 14 3.25C15.8142 3.25 17.3275 4.53832 17.675 6.25H21C21.4142 6.25 21.75 6.58579 21.75 7C21.75 7.41421 21.4142 7.75 21 7.75H17.675C17.3275 9.46168 15.8142 10.75 14 10.75C11.9289 10.75 10.25 9.07107 10.25 7ZM14 4.75C15.2426 4.75 16.25 5.75736 16.25 7C16.25 8.24264 15.2426 9.25 14 9.25C12.7574 9.25 11.75 8.24264 11.75 7C11.75 5.75736 12.7574 4.75 14 4.75ZM2 6.25C1.58579 6.25 1.25 6.58579 1.25 7C1.25 7.41421 1.58579 7.75 2 7.75H8C8.41421 7.75 8.75 7.41421 8.75 7C8.75 6.58579 8.41421 6.25 8 6.25H2ZM2 16.25C1.58579 16.25 1.25 16.5858 1.25 17C1.25 17.4142 1.58579 17.75 2 17.75H5.32501C5.67247 19.4617 7.18578 20.75 9 20.75C11.0711 20.75 12.75 19.0711 12.75 17C12.75 14.9289 11.0711 13.25 9 13.25C7.18578 13.25 5.67247 14.5383 5.32501 16.25H2ZM6.75 17C6.75 18.2426 7.75736 19.25 9 19.25C10.2426 19.25 11.25 18.2426 11.25 17C11.25 15.7574 10.2426 14.75 9 14.75C7.75736 14.75 6.75 15.7574 6.75 17ZM15 16.25C14.5858 16.25 14.25 16.5858 14.25 17C14.25 17.4142 14.5858 17.75 15 17.75H21C21.4142 17.75 21.75 17.4142 21.75 17C21.75 16.5858 21.4142 16.25 21 16.25H15Z" />
 							</svg>
-						) : (
+
+							{menu === true ? <p className={styles.sidebar_item_text}>{t("dashbar.settings")}</p> : null}
+						</div>
+					</div>
+
+					<div onClick={() => dispatch(logOutAction())}>
+						<div
+							id="nav-item"
+						>
 							<svg
-								style={{ width: '2em' }}
+								className={styles.sidebar_item_icon}
 								viewBox="0 0 24 24"
 								fill="var(--icon-inside)"
 								xmlns="http://www.w3.org/2000/svg"
 							>
 								<path
-									d="M10.828 12L15.778 16.95L14.364 18.364L8 12L14.364 5.63599L15.778 7.04999L10.828 12Z"
+									fill-rule="evenodd"
+									clip-rule="evenodd"
+									d="M13.5302 7.46975C13.2374 7.17686 12.7625 7.17686 12.4696 7.46975C12.1767 7.76264 12.1767 8.23752 12.4696 8.53041L15.1893 11.2501L2.99991 11.2501C2.5857 11.2501 2.24991 11.5859 2.24991 12.0001C2.24991 12.4143 2.5857 12.7501 2.99991 12.7501L15.1893 12.7501L12.4696 15.4698C12.1767 15.7626 12.1767 16.2375 12.4696 16.5304C12.7625 16.8233 13.2374 16.8233 13.5302 16.5304L17.5302 12.5304C17.8231 12.2375 17.8231 11.7626 17.5302 11.4698L13.5302 7.46975ZM16.2 2.75C17.0525 2.75 17.6467 2.75058 18.1093 2.78838C18.5632 2.82547 18.824 2.8946 19.0215 2.99523C19.4448 3.21095 19.789 3.55516 20.0048 3.97852C20.1054 4.17604 20.1745 4.4368 20.2116 4.89068C20.2494 5.35331 20.25 5.94755 20.25 6.8L20.25 17.2C20.25 18.0525 20.2494 18.6467 20.2116 19.1093C20.1745 19.5632 20.1054 19.824 20.0048 20.0215C19.789 20.4448 19.4448 20.789 19.0215 21.0048C18.824 21.1054 18.5632 21.1745 18.1093 21.2116C17.6467 21.2494 17.0525 21.25 16.2 21.25L11.8 21.25C10.9475 21.25 10.3533 21.2494 9.89068 21.2116C9.43681 21.1745 9.17604 21.1054 8.97852 21.0048C8.55516 20.789 8.21095 20.4448 7.99524 20.0215C7.8946 19.824 7.82547 19.5632 7.78838 19.1093C7.75058 18.6467 7.75 18.0525 7.75 17.2L7.75 16C7.75 15.5858 7.41421 15.25 7 15.25C6.58579 15.25 6.25 15.5858 6.25 16L6.25 17.2L6.25 17.2321L6.25 17.2321C6.24999 18.045 6.24999 18.7006 6.29336 19.2315C6.33803 19.7781 6.43239 20.2582 6.65873 20.7025C7.01825 21.4081 7.59193 21.9817 8.29754 22.3413C8.74176 22.5676 9.2219 22.662 9.76853 22.7066C10.2994 22.75 10.955 22.75 11.7679 22.75L11.8 22.75L16.2 22.75L16.2321 22.75C17.045 22.75 17.7006 22.75 18.2315 22.7066C18.7781 22.662 19.2582 22.5676 19.7025 22.3413C20.4081 21.9817 20.9817 21.4081 21.3413 20.7025C21.5676 20.2582 21.662 19.7781 21.7066 19.2315C21.75 18.7006 21.75 18.0449 21.75 17.2321L21.75 17.2L21.75 6.8L21.75 6.76788C21.75 5.95505 21.75 5.29944 21.7066 4.76853C21.662 4.22189 21.5676 3.74175 21.3413 3.29754C20.9817 2.59193 20.4081 2.01825 19.7025 1.65872C19.2582 1.43239 18.7781 1.33803 18.2315 1.29336C17.7006 1.24999 17.0449 1.24999 16.2321 1.25L16.2 1.25L11.8 1.25L11.7679 1.25C10.9551 1.24999 10.2994 1.24999 9.76853 1.29336C9.2219 1.33803 8.74175 1.43239 8.29754 1.65873C7.59193 2.01825 7.01825 2.59193 6.65873 3.29754C6.43239 3.74175 6.33803 4.2219 6.29336 4.76853C6.24999 5.29944 6.24999 5.95506 6.25 6.7679L6.25 6.8L6.25 8C6.25 8.41421 6.58579 8.75 7 8.75C7.41421 8.75 7.75 8.41421 7.75 8L7.75 6.8C7.75 5.94755 7.75058 5.35331 7.78838 4.89068C7.82546 4.43681 7.8946 4.17604 7.99524 3.97852C8.21095 3.55516 8.55516 3.21095 8.97852 2.99524C9.17604 2.8946 9.4368 2.82547 9.89068 2.78838C10.3533 2.75058 10.9475 2.75 11.8 2.75L16.2 2.75Z"
 									fill="var(--icon-border)"
 								/>
 							</svg>
-						)}
 
-						{menu === true ? (
-							<p className={styles.sidebar_item_text}>{menu === false ? '' : 'Close'}</p>
-						) : null}
-					</div>
-					<div onClick={() => handleTheme()} id="nav-item">
-						{menu !== true ? (
-							<svg
-								style={{ width: '2em' }}
-								viewBox="0 0 24 24"
-								fill="var(--icon-inside)"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M12 18C10.4087 18 8.88258 17.3679 7.75736 16.2426C6.63214 15.1174 6 13.5913 6 12C6 10.4087 6.63214 8.88258 7.75736 7.75736C8.88258 6.63214 10.4087 6 12 6C13.5913 6 15.1174 6.63214 16.2426 7.75736C17.3679 8.88258 18 10.4087 18 12C18 13.5913 17.3679 15.1174 16.2426 16.2426C15.1174 17.3679 13.5913 18 12 18ZM12 16C13.0609 16 14.0783 15.5786 14.8284 14.8284C15.5786 14.0783 16 13.0609 16 12C16 10.9391 15.5786 9.92172 14.8284 9.17157C14.0783 8.42143 13.0609 8 12 8C10.9391 8 9.92172 8.42143 9.17157 9.17157C8.42143 9.92172 8 10.9391 8 12C8 13.0609 8.42143 14.0783 9.17157 14.8284C9.92172 15.5786 10.9391 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.515 4.929L4.929 3.515L7.05 5.636L5.636 7.05L3.515 4.93V4.929ZM16.95 18.364L18.364 16.95L20.485 19.071L19.071 20.485L16.95 18.364ZM19.071 3.514L20.485 4.929L18.364 7.05L16.95 5.636L19.071 3.515V3.514ZM5.636 16.95L7.05 18.364L4.929 20.485L3.515 19.071L5.636 16.95ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"
-									fill="var(--icon-border)"
-								/>
-							</svg>
-						) : (
-							<svg
-								style={{ width: '2em' }}
-								viewBox="0 0 24 24"
-								fill="var(--icon-inside)"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M10 6C9.99965 7.40007 10.3667 8.77571 11.0646 9.98947C11.7624 11.2032 12.7666 12.2126 13.9767 12.9167C15.1868 13.6208 16.5605 13.995 17.9606 14.0019C19.3606 14.0088 20.738 13.6482 21.955 12.956C21.474 18.03 17.2 22 12 22C6.477 22 2 17.523 2 12C2 6.8 5.97 2.526 11.044 2.045C10.3576 3.24994 9.99768 4.61325 10 6ZM4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20C13.4135 19.9999 14.8017 19.6256 16.0237 18.9151C17.2456 18.2047 18.2577 17.1834 18.957 15.955C18.641 15.985 18.321 16 18 16C12.477 16 8 11.523 8 6C8 5.679 8.015 5.36 8.045 5.043C6.81664 5.74232 5.79533 6.75439 5.08486 7.97633C4.37438 9.19827 4.00008 10.5865 4 12ZM18.164 2.291L19 2.5V3.5L18.164 3.709C17.8124 3.79693 17.4913 3.97875 17.235 4.23503C16.9788 4.4913 16.7969 4.8124 16.709 5.164L16.5 6H15.5L15.291 5.164C15.2031 4.8124 15.0212 4.4913 14.765 4.23503C14.5087 3.97875 14.1876 3.79693 13.836 3.709L13 3.5V2.5L13.836 2.291C14.1874 2.20291 14.5083 2.02102 14.7644 1.76475C15.0205 1.50849 15.2021 1.18748 15.29 0.836L15.5 0H16.5L16.709 0.836C16.7969 1.1876 16.9788 1.5087 17.235 1.76497C17.4913 2.02125 17.8124 2.20307 18.164 2.291ZM23.164 7.291L24 7.5V8.5L23.164 8.709C22.8124 8.79693 22.4913 8.97875 22.235 9.23503C21.9788 9.4913 21.7969 9.8124 21.709 10.164L21.5 11H20.5L20.291 10.164C20.2031 9.8124 20.0212 9.4913 19.765 9.23503C19.5087 8.97875 19.1876 8.79693 18.836 8.709L18 8.5V7.5L18.836 7.291C19.1876 7.20307 19.5087 7.02125 19.765 6.76497C20.0212 6.5087 20.2031 6.1876 20.291 5.836L20.5 5H21.5L21.709 5.836C21.7969 6.1876 21.9788 6.5087 22.235 6.76497C22.4913 7.02125 22.8124 7.20307 23.164 7.291Z"
-									fill="var(--icon-border)"
-								/>
-							</svg>
-						)}
-
-						{menu === true ? (
-							<p className={styles.sidebar_item_text}>{theme === true ? 'Lightmode' : 'Darkmode'}</p>
-						) : null}
-					</div>
-				</div>
-			</header>
-			<section className="body-dash">{page}</section>
-			{CheckPath(current_url, '/add-quiz') === true ? null : (
-				<section className={styles.acc_actions}>
-					<div className={styles.action_item}>
-						<p className={styles.action_item_acc_name}> {user.coins} Coins </p>
-						<img className={styles.actions_bar_icon} src={coin} />
+							{menu === true ? <p className={styles.sidebar_item_text}>Log Out</p> : null}
+						</div>
 					</div>
 
-					<div onClick={() => setDropdown(!dropdown)} className={styles.action_item}>
-						<p className={styles.action_item_acc_name}>{user.name}</p>
+					<Link to="/dashboard/profile" id="nav-item-profile">
 						<img
-							style={{ marginLeft: '.3em' }}
-							className={styles.actions_bar_icon}
+							className={styles.profile_nav}
 							src={`https://swiftapi.vercel.app/${user.avatar}`}
 						/>
-					</div>
+						{menu === true ? (
+							<p className={styles.sidebar_item_text}>{user.name === '' || user.name === null ? 'Guest' : user.name}</p>
+						) : null}
+					</Link>
+				</div>
+			</header>
+			<section className="body-dash">
+				{loading === true ? <Loader /> : page}
+			</section>
+			{
+				CheckPath(current_url, '/add-quiz') === true || CheckPath(current_url, '/profile') === true || CheckPath(current_url, '/auth') === true ? null : (
+					<section className={styles.acc_actions}>
 
-					{dropdown === true ? (
-						<div className={styles.acc_actions_dropwdown}>
-							<div className={styles.action_dropdown_item}>
-								<p className={styles.action_dropdown_item_name}>Profile</p>
-								<svg
-									className={styles.action_item_icon}
-									viewBox="0 0 24 24"
-									fill="var(--icon-inside)"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M8.75 7C8.75 5.20507 10.2051 3.75 12 3.75C13.7949 3.75 15.25 5.20507 15.25 7C15.25 8.79493 13.7949 10.25 12 10.25C10.2051 10.25 8.75 8.79493 8.75 7ZM12 2.25C9.37665 2.25 7.25 4.37665 7.25 7C7.25 9.62335 9.37665 11.75 12 11.75C14.6234 11.75 16.75 9.62335 16.75 7C16.75 4.37665 14.6234 2.25 12 2.25ZM5.75 19C5.75 17.2051 7.20507 15.75 9 15.75H15C16.7949 15.75 18.25 17.2051 18.25 19C18.25 19.6904 17.6904 20.25 17 20.25H7C6.30964 20.25 5.75 19.6904 5.75 19ZM9 14.25C6.37665 14.25 4.25 16.3766 4.25 19C4.25 20.5188 5.48122 21.75 7 21.75H17C18.5188 21.75 19.75 20.5188 19.75 19C19.75 16.3766 17.6234 14.25 15 14.25H9Z"
-										fill="var(--icon-border)"
-									/>
-								</svg>
-							</div>
-							<div className={styles.action_dropdown_item}>
-								<p className={styles.action_dropdown_item_name}> Logout </p>
-								<svg
-									className={styles.action_item_icon}
-									viewBox="0 0 24 24"
-									fill="var(--icon-inside)"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										fill-rule="evenodd"
-										clip-rule="evenodd"
-										d="M13.5302 7.46975C13.2374 7.17686 12.7625 7.17686 12.4696 7.46975C12.1767 7.76264 12.1767 8.23752 12.4696 8.53041L15.1893 11.2501L2.99991 11.2501C2.5857 11.2501 2.24991 11.5859 2.24991 12.0001C2.24991 12.4143 2.5857 12.7501 2.99991 12.7501L15.1893 12.7501L12.4696 15.4698C12.1767 15.7626 12.1767 16.2375 12.4696 16.5304C12.7625 16.8233 13.2374 16.8233 13.5302 16.5304L17.5302 12.5304C17.8231 12.2375 17.8231 11.7626 17.5302 11.4698L13.5302 7.46975ZM16.2 2.75C17.0525 2.75 17.6467 2.75058 18.1093 2.78838C18.5632 2.82547 18.824 2.8946 19.0215 2.99523C19.4448 3.21095 19.789 3.55516 20.0048 3.97852C20.1054 4.17604 20.1745 4.4368 20.2116 4.89068C20.2494 5.35331 20.25 5.94755 20.25 6.8L20.25 17.2C20.25 18.0525 20.2494 18.6467 20.2116 19.1093C20.1745 19.5632 20.1054 19.824 20.0048 20.0215C19.789 20.4448 19.4448 20.789 19.0215 21.0048C18.824 21.1054 18.5632 21.1745 18.1093 21.2116C17.6467 21.2494 17.0525 21.25 16.2 21.25L11.8 21.25C10.9475 21.25 10.3533 21.2494 9.89068 21.2116C9.43681 21.1745 9.17604 21.1054 8.97852 21.0048C8.55516 20.789 8.21095 20.4448 7.99524 20.0215C7.8946 19.824 7.82547 19.5632 7.78838 19.1093C7.75058 18.6467 7.75 18.0525 7.75 17.2L7.75 16C7.75 15.5858 7.41421 15.25 7 15.25C6.58579 15.25 6.25 15.5858 6.25 16L6.25 17.2L6.25 17.2321L6.25 17.2321C6.24999 18.045 6.24999 18.7006 6.29336 19.2315C6.33803 19.7781 6.43239 20.2582 6.65873 20.7025C7.01825 21.4081 7.59193 21.9817 8.29754 22.3413C8.74176 22.5676 9.2219 22.662 9.76853 22.7066C10.2994 22.75 10.955 22.75 11.7679 22.75L11.8 22.75L16.2 22.75L16.2321 22.75C17.045 22.75 17.7006 22.75 18.2315 22.7066C18.7781 22.662 19.2582 22.5676 19.7025 22.3413C20.4081 21.9817 20.9817 21.4081 21.3413 20.7025C21.5676 20.2582 21.662 19.7781 21.7066 19.2315C21.75 18.7006 21.75 18.0449 21.75 17.2321L21.75 17.2L21.75 6.8L21.75 6.76788C21.75 5.95505 21.75 5.29944 21.7066 4.76853C21.662 4.22189 21.5676 3.74175 21.3413 3.29754C20.9817 2.59193 20.4081 2.01825 19.7025 1.65872C19.2582 1.43239 18.7781 1.33803 18.2315 1.29336C17.7006 1.24999 17.0449 1.24999 16.2321 1.25L16.2 1.25L11.8 1.25L11.7679 1.25C10.9551 1.24999 10.2994 1.24999 9.76853 1.29336C9.2219 1.33803 8.74175 1.43239 8.29754 1.65873C7.59193 2.01825 7.01825 2.59193 6.65873 3.29754C6.43239 3.74175 6.33803 4.2219 6.29336 4.76853C6.24999 5.29944 6.24999 5.95506 6.25 6.7679L6.25 6.8L6.25 8C6.25 8.41421 6.58579 8.75 7 8.75C7.41421 8.75 7.75 8.41421 7.75 8L7.75 6.8C7.75 5.94755 7.75058 5.35331 7.78838 4.89068C7.82546 4.43681 7.8946 4.17604 7.99524 3.97852C8.21095 3.55516 8.55516 3.21095 8.97852 2.99524C9.17604 2.8946 9.4368 2.82547 9.89068 2.78838C10.3533 2.75058 10.9475 2.75 11.8 2.75L16.2 2.75Z"
-										fill="var(--icon-border)"
-									/>
-								</svg>
-							</div>
+						{
+							role.role === "admin"
+								?
+								<div onClick={() => setAdminConsole(!adminConsole)} className={styles.action_item}>
+									<p className={styles.action_item_acc_name} style={{ marginRight: '1em' }}>Console</p>
+									<svg width="24" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M29.7143 0.571411H2.28571C1.02321 0.571411 0 1.59462 0 2.85713V25.7143C0 26.9768 1.02321 28 2.28571 28H29.7143C30.9768 28 32 26.9768 32 25.7143V2.85713C32 1.59462 30.9768 0.571411 29.7143 0.571411ZM4.57143 16.5714L9.14286 12L4.57143 7.42855L6.85714 5.14284L13.7143 12L6.85714 18.8571L4.57143 16.5714ZM22.8571 18.8571H13.7143V16.5714H22.8571V18.8571V18.8571Z" fill="var(--icon-border)" />
+									</svg>
+								</div>
+								: null
+						}
+
+
+						<div className={styles.action_item}>
+							<p className={styles.action_item_acc_name}> {user.coins} {t("dashbar.coins")}</p>
+							<img className={styles.actions_bar_icon} src={coins} />
 						</div>
-					) : null}
-				</section>
-			)}
-		</main>
+
+						<div className={styles.action_item}>
+							<p className={styles.action_item_acc_name}> {user.score} {t("dashbar.score")}</p>
+							<img className={styles.actions_bar_icon} src={score} />
+						</div>
+					</section>
+				)
+			}
+		</main >
 	);
 }

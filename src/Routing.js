@@ -1,104 +1,157 @@
 import * as React from "react";
 import {
-   BrowserRouter as Wrapper,
-   Switch,
-   Route as NotProtected,
-   Redirect,
+  BrowserRouter as Wrapper,
+  Routes as Switch,
+  Route,
 } from "react-router-dom";
+import * as CONST from "./reduxComponents/constants/index";
+import Auth from "./pages/Auth";
+import { useDispatch } from "react-redux";
+import { fetchQuiz } from "./reduxComponents/actions/Questions";
+import { fetchUserData } from "./reduxComponents/actions/User";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
+import UserProfile from "./pages/Dashboard/User";
 import FormView from "./pages/FormView";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Dashboard/Profile";
-import AdminPanel from "./pages/AdminDashboard/AdminPanel";
+import AdminPanel from "./pages/Dashboard/Admin";
 import Quizzes from "./pages/Dashboard/Quizzes";
-import Screen from "./pages/Dashboard/Screen";
 import Play from "./pages/Play";
 import About from "./pages/AboutUs";
 import Quiz from "./pages/Dashboard/Quiz";
+import DashboardContact from "./pages/Dashboard/Contact";
+import EditQuiz from "./pages/Dashboard/EditQuiz";
 import Community from "./pages/Dashboard/Community";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Loaders from "./pages/Loaders";
-import {ProtectedRoute} from "./pages/ProtectedRoute";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchQuiz} from "./reduxComponents/actions/Questions";
-import * as CONST from "./reduxComponents/constants/index";
+import Leaderboard from "./pages/Dashboard/Leaderboard";
 import EditProfile from "./pages/EditProfil";
+import Dashauth from "./pages/Dashboard/Auth";
+import Store from "./pages/Dashboard/Store";
+import { inActive } from "./utils/inActivity";
+import { useTranslation } from "react-i18next";
+import Support from "./pages/Dashboard/Support";
+import Help from "./pages/Help";
+//import Homev2 from './pages/Homev2';
+import Redirect from "./utils/Redirect";
+import AdminPass from "./utils/AdminPass";
 import ForgotEmail from "./pages/ForgotEmail";
 import ResetPass from "./pages/ResetPass";
 import UpdatePassword from "./components/pages/Dashboard/EditProfilScreen/UpdatePassword";
 import UpdateProfile from "./components/pages/Dashboard/EditProfilScreen/UpdateProfile";
 
 export default function Routing() {
-   const theme = useSelector((state) => state.ui.theme);
+  const dispatch = useDispatch();
 
-   React.useEffect(() => {
-      console.log(theme);
-   }, [theme]);
+  const { t, i18n } = useTranslation();
 
+  const changeLang = (lang) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("i18nextLng", lang);
+  };
    React.useEffect(() => {
       if (localStorage.getItem("theme") === null)
          dispatch({type: CONST.SET_LIGHT_MODE});
 
+  React.useEffect(() => {
+    if (localStorage.getItem("i18nextLng") === null) {
+      localStorage.setItem("i18nextLng", "en");
+    } else
+      switch (localStorage.getItem("i18nextLng")) {
+        case "en":
+          changeLang("en");
+          break;
+        case "sq":
+          changeLang("sq");
+          break;
+        case "ar":
+          changeLang("ar");
+          break;
+        case "de":
+          changeLang("de");
+          break;
+        case "fr":
+          changeLang("fr");
+          break;
+      }
+  }, []);
       localStorage.getItem("theme") === "lightmode"
          ? dispatch({type: CONST.SET_LIGHT_MODE})
          : dispatch({type: CONST.SET_DARK_MODE});
    }, []);
 
-   const dispatch = useDispatch();
-   AOS.init({
-      duration: 800,
-      disable: "mobile",
-      once: true,
-   });
+  React.useEffect(() => {
+    dispatch(fetchUserData());
+    dispatch(fetchQuiz());
+    if (JSON.parse(localStorage.getItem("user"))) {
+      inActive(600000, dispatch);
+    }
 
-   React.useEffect(() => {
-      dispatch(fetchQuiz());
-   }, []);
+    if (localStorage.getItem("theme") === null)
+      dispatch({ type: CONST.SET_LIGHT_MODE });
 
-   return (
-      <Wrapper>
-         <Switch>
-            <NotProtected path="/" component={Home} exact />
-            <NotProtected path="/auth" component={FormView} />
-            <NotProtected path="/contact" component={Contact} />
-            <NotProtected path="/about-us" component={About} />
-            <NotProtected path="/loaders" component={Loaders} />
+    localStorage.getItem("theme") === "lightmode"
+      ? dispatch({ type: CONST.SET_LIGHT_MODE })
+      : dispatch({ type: CONST.SET_DARK_MODE });
+  }, []);
 
-            <ProtectedRoute path="/dashboard/welcome" component={Screen} />
-            <ProtectedRoute path="/invite/*" component={Play} />
-            <ProtectedRoute path="/play" component={Play} />
-            <ProtectedRoute
-               path="/dashboard/quizzes/add-quiz"
-               component={Quiz}
-            />
-            <NotProtected path="/forgot" component={ForgotEmail} />
-            <NotProtected path="/password/reset/:token" component={ResetPass} />
-            <ProtectedRoute path="/dashboard/admin" component={AdminPanel} />
-            <ProtectedRoute path="/dashboard/quizzes" component={Quizzes} />
-            <ProtectedRoute path="/dashboard/community" component={Community} />
-            <ProtectedRoute path="/dashboard/profile" component={Profile} />
-            <ProtectedRoute
-               path="/dashboard/profile/edit"
-               component={EditProfile}
-            />
-            <NotProtected
-               path="/dashboard/updatePassword"
-               component={UpdatePassword}
-            />
-            <NotProtected
+  AOS.init({
+    duration: 800,
+    disable: "mobile",
+    once: true,
+  });
+
+  return (
+    <Wrapper>
+      <Switch>
+        <Route path="/" element={<Home />} exact />
+        <Route path="/auth" element={<FormView />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route exact path="/" element={<Auth />}>
+          <Route path="/invite/*" element={<Play />} />
+          <Route path="/play" element={<Play />} />
+          <Route path="/dashboard/quizzes/add-quiz" element={<Quiz />} />
+          <Route
+            path="/dashboard/quizzes/edit-quiz/:id"
+            element={<EditQuiz />}
+          />
+          <Route path="/dashboard/community" element={<Community />} />
+          <Route path="/dashboard/profile/edit" element={<EditProfile />} />
+            <Route
                path="/dashboard/UpdateProfil"
-               component={UpdateProfile}
+               element={<UpdateProfile/>}
             />
-            <NotProtected path="/dashboard">
-               <Redirect to="/dashboard/welcome" />
-            </NotProtected>
-            <NotProtected path="/dashboard/*">
-               <Redirect to="/dashboard/welcome" />
-            </NotProtected>
-            <NotProtected path="/*" component={Error} />
-         </Switch>
-      </Wrapper>
-   );
+            <Route
+               path="/dashboard/updatePassword"
+               element={<UpdatePassword/>}
+            />
+          <Route
+            path="/dashboard/profile/:username"
+            element={<UserProfile />}
+          />
+          <Route path="/dashboard/profile" element={<Profile />} />
+          <Route path="/dashboard/quizzes" element={<Quizzes />} />
+          <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
+          <Route path="/dashboard/support" element={<DashboardContact />} />
+          <Route path="/dashboard/store" element={<Store />} />
+          <Route path="/dashboard/messenger" element={<Support />} />
+          <Route path="/dashboard/help" element={<Help />} />
+          <Route
+            path="/dashboard"
+            element={<Redirect to="/dashboard/quizzes" />}
+          />
+          <Route path="/dashboard/auth" element={<Dashauth />} />
+          <Route path="/*" element={<Error />} />
+          <Route path="/dashboard/*" element={<Error />} />
+        </Route>
+
+        <Route exact path="/" element={<AdminPass />}>
+          <Route path="/dashboard/admin" element={<AdminPanel />} />
+        </Route>
+      </Switch>
+    </Wrapper>
+  );
+          
 }

@@ -1,0 +1,141 @@
+{
+    "dashbar": {
+        "home": "Hause",
+        "myquizzes": "Meine Quiz",
+        "community": "Gemeinschaft",
+        "leaderboard": "Bestenliste",
+        "bookmarks": "Lesezeichen",
+        "support": "Unterstützung",
+        "settings": "Einstellungen",
+        "theme": "Thema",
+        "language": "Sprache",
+        "lightmode": "Lichtmodus",
+        "darkmode": "Dunkelmodus",
+        "ar": "Arabisch",
+        "en": "Englisch",
+        "sq": "Albanisch",
+        "fr": "Französisch",
+        "de": "Deutsch",
+        "coins": "Münzen",
+        "profile": "Profil",
+        "logout": "Abmelden"
+    },
+    "quizzes": {
+        "title": "Quizfragen",
+        "search": "Suche...",
+        "addquiz": "Neues Quiz hinzufügen",
+        "emptyone": "Du hast keine Quizfragen",
+        "emptytwo": "Warum fügst du jetzt keinen hinzu?",
+        "share": "Teilen",
+        "edit": "Bearbeiten",
+        "delete": "Löschen"
+    },
+    "community": {
+        "title": "Community",
+        "search": "Suche...",
+        "play": "Spiel Quiz",
+        "categories": "Alle Kategorien",
+        "religion": "Religion",
+        "programming": "Programmierung",
+        "mathematics": "Mathematik",
+        "sport": "Sport",
+        "art": "Kunst",
+        "others": "Andere",
+        "physics": "Physik"
+    },
+    "quiz": {
+        "question": "Geben Sie hier Ihre Frage ein...",
+        "answer": "Ihre Antwort hier",
+        "questions": "Fragen",
+        "addquestion": "Frage hinzufügen",
+        "publish": "Veröffentlichen",
+        "title": "Titel",
+        "settings": "Einstellungen",
+        "quizbuilder": "Quiz Builder",
+        "quizpublish": "Quiz veröffentlichen",
+        "quizedit": "Quiz bearbeiten",
+        "description": "Beschreibung",
+        "category": "Kategorie",
+        "thumbnail": "Miniaturansicht",
+        "religion": "Religion",
+        "programming": "Programmierung",
+        "mathematics": "Mathematik",
+        "sport": "Sport",
+        "art": "Kunst",
+        "others": "Andere",
+        "physics": "Physik"
+    },
+    "play_screen": {
+        "title": "Sei ein Einstein, spiele jetzt!",
+        "description": "Ein Quiz zu spielen ist ganz einfach. Spielen Sie durch Eingabe eines Codes oder über einen Link, zu dem Sie jemand eingeladen hat.",
+        "enter": "Eingeben"
+    },
+    "play_enter": {
+        "timeleft": "Zeit zu antworten",
+        "coinscollected": "Münzen gesammelt",
+        "correcta": "Korrekte Antworten",
+        "wronga": "Falsche Antworten",
+        "leftquestions": "Linke Fragen",
+        "totalquestions": "Gesamtzahl der Fragen",
+        "settings": "Einstellungen",
+        "analytics": "Analytik",
+        "anwsers": "Antworten",
+        "play_again": "Spielen Sie wieder mit"
+    },
+    "auth": {
+        "logindesc": "Wenn du ein Konto hast, dann komm zurück, lass uns gemeinsam Quizspiele spielen und bienen wie Einstein.",
+        "logintitle": "Haben Sie ein Konto?",
+        "loginbtn": "Anmelden",
+        "joinnow": "Jetzt beitreten",
+        "o": "Oder verwenden Sie Ihre E-Mail für die Registrierung",
+        "name": "Vollständiger Name",
+        "email": "E-mail Adresse",
+        "password": "Passwort",
+        "confirmpassword": "Passwort bestätigen",
+        "username": "Benutzername",
+        "signupbtn": "Regjistrohu"
+    },
+    "header": {
+        "mission": "Mission",
+        "pricing": "Preis",
+        "contact": "Unterstützung",
+        "team": "Team",
+        "about": "Über uns",
+        "logincta": "Anmelden",
+        "registercta": "Erste Schritte",
+        "logout": "Abmelden",
+        "profile": "Profil"
+    },
+    "home": {
+        "section_1": {
+            "title": "Lernen mit Quiz zum Spaß machen",
+            "description": "Mit unserer Plattform ist das Lernen großartig und macht Spaß mit von der Community erstellten Quiz aus verschiedenen Bereichen.",
+            "cta": "Spiele ein Zufallsquiz"
+        },
+        "section_2": {
+            "title": "Unsere Funktionen",
+            "description": "Verschiedene Features für Wissenssuchende, aber trotzdem immer Spaß für dich.",
+            "feature_one": {
+                "title": "Quiz Erstellen",
+                "description": "Erstellen Sie Quizes verschiedener Art mit unserer Plattform mit allen Tools, die Sie benötigen."
+            },
+            "feature_two": {
+                "title": "Quiz Teilen",
+                "description": "Quizes, die von anderen gespielt werden können, sind der Spaß unserer Plattform, teile sie jetzt."
+            },
+            "feature_three": {
+                "title": "Community Durchsuchen",
+                "description": "Unsere Quiz-Community mit verschiedenen Kategorien zum Suchen und Lernen."
+            }
+        },
+        "section_3": {
+            "title": "Was ist die Mission unserer Plattform?",
+            "description": "Wir sind sehr leidenschaftlich daran interessiert, der Community beim Lernen zu helfen. Aus diesem Grund haben wir Swift Quiz entwickelt, um den Leuten zu helfen, sich auf spielerische Weise Wissen für ihr Thema zu verschaffen, das sie sehen und lieben. Diese Plattform wird von der Community erstellt.",
+            "cta": "Quiz Erkunden"
+        }
+    },
+    "error": {
+        "description": "Die Seite wurde nicht gefunden, wenn Sie der Meinung sind, dass dies ein Fehler ist, wenden Sie sich bitte an unser Team.",
+        "cta": "Zurück nach Hause"
+    }
+}

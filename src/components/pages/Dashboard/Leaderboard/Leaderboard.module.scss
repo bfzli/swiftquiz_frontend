@@ -1,0 +1,306 @@
+.container {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome_text {
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+.top_right {
+    width: 100%;
+    border-radius: 0.75em;
+
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+}
+
+.quizess {
+    width: 100%;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1em;
+}
+
+.search {
+    display: flex;
+    margin-left: 1em;
+}
+
+.search_input {
+    font-size: 1.15em;
+    padding: 0.69em 1em;
+    border-radius: 5em 0em 0em 5em;
+    background: var(--background-important);
+    border: 2px solid var(--border-color);
+    border-right: 0px transparent solid;
+    color: var(--text-color);
+    font-family: "Poppins";
+}
+
+.search_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.69em 1em;
+    border-radius: 0em 5em 5em 0em;
+    background: var(--background-important);
+    border-top: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.search_icon {
+    fill: var(--icon-inside);
+}
+
+.page_info {
+    display: flex;
+    align-items: center;
+}
+
+.hallOfFame {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+    border: 2px solid var(--border-color);
+    border-radius: 0.75em;
+    position: relative;
+}
+
+.hallOfFameTitle {
+    font-size: 2.15em;
+    position: absolute;
+    top: .65em;
+    color: var(--text-color)
+}
+
+.leftleftPinned {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.leftPinned {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.centerPinned {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.rightPinned {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+.rightrightPinned {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.leftleftScene {
+    width: 100%;
+    height: 10%;
+    background: var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-start-start-radius: 0.75em;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.leftScene {
+    width: 100%;
+    height: 20%;
+    background: var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-start-start-radius: 0.75em;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.centerScene {
+    width: 100%;
+    height: 30%;
+    background: var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.75em 0.75em 0em 0em;
+}
+
+.rightScene {
+    width: 100%;
+    height: 20%;
+    background: var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-start-end-radius: 0.75em;
+}
+
+.rightrightScene {
+    width: 100%;
+    height: 10%;
+    background: var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-start-end-radius: 0.75em;
+}
+
+.profilePinnedCenter {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profilePinnedTop {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profilePinnedDown {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.avatarPinned {
+    width: 6.5em;
+    height: 6.5em;
+    border-radius: 100%;
+    border: 2px solid var(--border-color)
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+}
+
+.rank {
+    width: 100%;
+    height: 10vh;
+    border: 2px solid var(--border-color);
+    margin-top: 1em;
+    border-radius: 0.75em;
+    display: flex;
+    align-items: center;
+}
+
+.rank_name {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.rank_name_text{
+    color: var(--text-color);
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.rank_count {
+    height: 100%;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank_count_text{
+    color: var(--text-color);
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.rank_avatar {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.rank_avatar_image{
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+    border: 2px solid var(--border-color)
+}
+
+.hallusername{
+    color: var(--text-color);
+    margin-top: .375em;
+    font-weight: bold;
+    font-weight: 2em;
+}
+
+.hallcoins{
+    color: var(--text-color);
+    margin-top: -.1em;
+    margin-bottom: 1.75em;
+}

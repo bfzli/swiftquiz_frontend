@@ -1,6 +1,7 @@
 // Filter Quizzes
 export const SET_TEXT_FILTER = "SET_TEXT_FILTER";
 export const SORT_BY_DIFFICULTY = "SORT_BY_DIFFICULTY";
+export const SET_CATEGORY_FILTER = "SET_CATEGORY_FILTER";
 
 // Fetch Quizzes
 export const FETCH_QUIZES_STARTED = "FETCH_QUIZES_STARTED";
@@ -61,6 +62,25 @@ export const USER_PROFIL_SUCCESS = "USER_PROFIL_SUCCESS";
 export const USER_UPDATE_REQUEST = "USER_UPDATE_REQUEST";
 export const USER_UPDATE_SUCCESS = "USER_UPDATE_SUCCESS";
 export const USER_UPDATE_FAIL = "USER_UPDATE_FAIL";
+
+//Update (Save user coins)
+export const USER_SCORE_UPDATE = "USER_SCORE_REQUEST";
+export const USER_SCORE_FAILED = "USER_SCORE_FAILED";
+
+// Get Single Profile from Database
+export const USER_GET_PROFILE_SUCCESS = "USER_GET_PROFILE_SUCCESS";
+export const USER_GET_PROFILE_FAIL = "USER_GET_PROFILE_FAIL";
+
+//Quiz Purchase
+export const QUIZ_PURCHASE = "QUIZ_PURCHASE";
+export const PURCHASE_SUCCESS = "PURCHASE_SUCCESS";
+export const PURCHASE_FAILED = "PURCHASE_FAILED";
+export const CLEAR_PLAYING_QUIZ = "CLEAR_PLAYING_QUIZ";
+
+// Get Single Profile from Database
+export const ACCOUNT_CLOSED_SUCCESS = "ACCOUNT_CLOSED_SUCCESS";
+export const ACCOUNT_CLOSED_FAIL = "ACCOUNT_CLOSED_FAIL";
+
 
 // Forgot and Reset password
 export const USER_FORGOT_REQUEST = "USER_FORGOT_REQUEST";

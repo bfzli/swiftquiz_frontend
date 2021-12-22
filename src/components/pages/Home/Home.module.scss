@@ -1,0 +1,389 @@
+.section1 {
+    width: 100%;
+    height: auto;
+    background: var(--background-less-important);
+    position: relative;
+    display: flex;
+    padding-bottom: 3%;
+}
+
+.section2 {
+    width: 100%;
+    height: auto;
+    background: var(--background-less-important);
+    position: relative;
+    display: flex;
+    padding: 3% 0%;
+
+}
+
+.section3 {
+    width: 100%;
+    height: auto;
+    background: var(--background-less-important);
+    position: relative;
+    display: flex;
+    padding: 3% 0%;
+}
+
+.section4 {
+    width: 100%;
+    background: var(--background-less-important);
+    display: flex;
+    padding: 3% 0%;
+}
+
+.section5 {
+    width: 100%;
+    height: auto;
+    background: var(--background-less-important);
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding-bottom: 14%
+}
+
+.footerimg {
+    width: 97%;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+}
+
+.line1 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10%;
+}
+
+.line2 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10% + 26.66%;
+}
+
+.line3 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10% + 26.66% + 26.66%;
+}
+
+.line4 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 10% + 26.66% + 26.66% + 26.66%;
+}
+
+.line5 {
+    width: 2px;
+    height: 100%;
+    background: var(--line-color);
+    position: absolute;
+    left: 90%;
+}
+
+.hero {
+    padding-top: 10%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hand {
+    height: 70%;
+    object-fit: cover;
+    position: absolute;
+    bottom: -5%;
+    transform: rotateX(-10);
+}
+
+.title {
+    width: 65%;
+    padding-top: 2.5%;
+    text-align: center;
+    font-size: 4.5em;
+    font-family: "Markprobold";
+    font-weight: bold;
+    z-index: 1;
+    line-height: 1;
+    color: var(--text-color);
+    -webkit-text-stroke: 2.5px var(--text-color);
+
+    @media screen and (max-width: 800px) {
+        width: 80%;
+        font-size: 4em;
+        padding-top: 10%;
+        -webkit-text-stroke: 1px var(--text-color);
+    }
+
+    @media screen and (max-width: 800px) {
+        width: 80%;
+        font-size: 3em;
+        padding-top: 25%;
+        -webkit-text-stroke: 1px var(--text-color);
+    }
+}
+
+.titles4{
+    width: 65%;
+    padding-top: 2.5%;
+    text-align: center;
+    font-size: 3em;
+    font-family: "Markprobold";
+    font-weight: bold;
+    z-index: 1;
+    line-height: 1;
+    color: var(--text-color);
+}
+
+.cta_title {
+    width: 80%;
+    text-align: center;
+    font-size: 3.5em;
+    font-family: "Markprobold";
+    font-weight: bold;
+    z-index: 1;
+    margin-bottom: 0.65em;
+    line-height: 1;
+    color: var(--text-color);
+    -webkit-text-stroke: 2px var(--text-color);
+}
+
+.s3title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: -5%;
+    font-family: "Markprobold";
+    font-weight: bold;
+    z-index: 1;
+    line-height: 1;
+    color: var(--text-color);
+    -webkit-text-stroke: 1px var(--text-color);
+}
+
+.description {
+    width: 50%;
+    font-size: 1.5em;
+    font-family: "Markpro";
+    text-align: center;
+    margin: 2em 0em;
+    z-index: 1;
+    color: var(--text-color-less);
+
+    @media screen and (max-width: 1200px) {
+        width: 90%;
+    }
+}
+
+.s4desc{
+    width: 50%;
+    font-size: 1.25em;
+    font-family: "Markpro";
+    text-align: center;
+    margin: 1em 0em;
+    z-index: 1;
+    margin-bottom: 8%;
+    color: var(--text-color-less);
+
+    @media screen and (max-width: 1200px) {
+        width: 90%;
+    }
+}
+
+.cta_description {
+    width: 100%;
+    font-size: 1.4em;
+    font-family: "Markpro";
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color-less);
+}
+
+.s3description {
+    width: 50%;
+    font-size: 1.25em;
+    font-family: "Markpro";
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    z-index: 1;
+    color: var(--text-color-less);
+}
+
+.currentContent {
+    width: 100%;
+    text-align: center;
+    font-family: "Markpromedium";
+    font-size: 1.4em;
+    color: var(--text-color);
+    z-index: 1;
+}
+
+.web {
+    width: 97%;
+    z-index: 1;
+}
+
+.s2switcher {
+    display: flex;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-around;
+}
+
+.switcherbox {
+    font-size: 1.25em;
+    font-family: "Markpromedium";
+    cursor: pointer;
+    padding: 1em;
+    border-bottom: 5px solid transparent;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+        background: var(--hover-color);
+    }
+}
+
+.s2content {
+    width: 70%;
+    z-index: 1;
+}
+
+.btn_primary {
+    background: var(--button-bg);
+    padding: 0.55em 1.6em;
+    font-size: 1.15em;
+    border-radius: 1000px;
+    color: var(--button-text);
+    border: 0;
+    margin-left: 0.5em;
+    font-family: "Markpromedium";
+    cursor: pointer;
+    border: 2px solid var(--button-bg);
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+        color: var(--button-bg);
+        background: transparent;
+        border: 2px solid var(--button-bg);
+    }
+}
+
+.brands {
+    width: 80%;
+    z-index: 1;
+}
+
+.brand {
+    padding: 1em;
+}
+
+.slider {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.slidercontainer {
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    border-radius: 2em;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviewbody {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6em;
+}
+
+.review-text {
+    font-family: "Markpro";
+}
+
+.reviewwho {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2em;
+}
+
+.reviewp {
+    color: var(--text-color);
+    font-size: 1.75em;
+    font-family: "Markpromedium" !important;
+}
+
+.goright {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-30%);
+    right: 11%;
+}
+
+.goleft {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-30%);
+    left: 11%;
+
+}
+
+.featureswrap {
+    display: flex;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.reviewer_avatar {
+    width: 9em;
+    height: 9em;
+    object-fit: cover;
+    border-radius: 999px;
+    border: 5px solid var(--background-important)
+}
+.reviewer_name{
+    font-size: 1.5em;
+    font-family: "Markprobold"
+}
+
+.arrows {
+    width: 3em;
+    fill: var(--icon-border);
+    padding: .75em;
+
+    &:hover {
+        background: var(--hover-color);
+        border-radius: 100px;
+        cursor: pointer;
+    }
+}

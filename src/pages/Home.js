@@ -1,22 +1,24 @@
-import Layout from "./Layout";
-import Hero from "../components/pages/Home/Hero/Hero";
-import Features from "../components/pages/Home/Features/Features";
-import Started from "../components/pages/Home/Started/Started";
-import Community from "../components/pages/Home/Community/Community";
 import { Helmet } from "react-helmet";
+import Header from "../components/shared/Header/Header";
+import HomeComponent from "../components/pages/Home/Home";
+import Footer from "../components/shared/Footer/Footer";
+import { useSelector } from 'react-redux';
 
 export default function Home() {
+
+    const theme = useSelector(state => state.ui.theme)
+
     return (
-        <Layout>
+        <div class="body" id={theme === "lightmode" ? "lightmode" : "darkmode"}>
+            
             <Helmet>
                 <title>The land of Quizzes - Swiftquiz</title>
                 <meta name="description" content="The land of Quizzes to play." />
             </Helmet>
 
-            <Hero />
-            <Features />
-            {/* <Started /> */}
-            <Community />
-        </Layout>
+            <Header />
+                <HomeComponent />
+            <Footer />
+        </div>
     )
 }
