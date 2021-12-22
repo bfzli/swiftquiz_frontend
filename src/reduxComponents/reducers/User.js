@@ -5,12 +5,13 @@ export const userState = {
   email: "",
   username: "",
   bio: "",
-  avatar: "56a40ed882704900355010dd44e777ed.png",
+  avatar: "daecd7bf24999a246a2fdb44c62200c6.png",
   isLoggedIn: false,
   leaderboard: [],
   currentlyPlaying: {},
   purchaseMessage: "",
   coins: 100,
+  score: 0
 };
 
 const userReducer = (state = userState, action) => {

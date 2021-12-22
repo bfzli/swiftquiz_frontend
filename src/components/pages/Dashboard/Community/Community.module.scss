@@ -157,6 +157,8 @@
     height: 25vh;
     object-fit: cover;
     border-radius: 0.85em 0.85em 0em 0em;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: .5em;
 }
 
 .quiz_title {
@@ -288,4 +290,30 @@
 .page_info {
     display: flex;
     align-items: center;
+}
+
+
+.quiz_cost{
+    display: flex;
+    font-size: .9em;
+    background: var(--button-bg);
+    width: 35%;
+    text-align: center;
+    color: var(--button-text);
+    padding: .25em 0.35em;
+    margin-left: .65em;
+    border-radius: 99px;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz_difficulty{
+    font-size: .9em;
+    background: var(--button-bg);
+    width: 25%;
+    text-align: center;
+    color: var(--button-text);
+    padding: .25em 0.35em;
+    margin-left: .65em;
+    border-radius: 99px;
 }

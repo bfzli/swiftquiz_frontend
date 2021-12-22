@@ -1,5 +1,6 @@
-import * as CONST from "../constants/index";
-import * as api from "../api/index";
+import * as CONST from '../constants/index';
+import * as api from '../api/index';
+import axios from 'axios';
 
 //Remove a Question action
 export const removeQuiz = (id) => async (dispatch) => {
@@ -24,7 +25,7 @@ export const fetchQuiz = () => async (dispatch) => {
 
   try {
     //const response = await api.fetchQuizes();
-    const response = await api.fetchData("quizzes/my-quizzes");
+    const response = await api.fetchData('quizzes/my-quizzes');
     const data = await response.data;
     dispatch({ type: CONST.FETCH_QUIZES_SUCCEEDED, payload: data.quizzes });
   } catch (error) {
@@ -32,26 +33,54 @@ export const fetchQuiz = () => async (dispatch) => {
   }
 };
 
-export const createQuiz = (data) => async (dispatch) => {
-  let user = JSON.parse(localStorage.getItem("user"));
+export const uploadThumbnail = async (quizId, filename) => {
+  try {
+    await axios({
+      headers: { 'Content-Type': 'multipart/form-data'},
+      method: 'put',
+      url: `https://swiftapi.vercel.app/api/user/quizzes/${quizId}/update-thumbnail`,
+      data: filename,
+    });
+  } catch (error) {
+    console.log(error.response);
+  }
+};
 
-  const { title, questions, thumbnail, description, category, difficulty } =
-    data;
+export const createQuiz = (quiz, quizImage) => async (dispatch) => {
+  let user = JSON.parse(localStorage.getItem('user'));
+
+  const {
+    title,
+    questions,
+    filename,
+    description,
+    category,
+    purchaseCoins,
+    privacy,
+    difficulty,
+    thumbnail,
+  } = quiz;
+
   const newObj = {
     created_by: user.user_id,
     title,
     description,
     category,
     questions,
-    thumbnail,
+    filename,
+    purchaseCoins,
+    privacy,
     difficulty,
+    thumbnail,
   };
+
   try {
     const response = await api.createQuiz(newObj);
     const data = await response.data;
-    window.location.href = "/dashboard/welcome";
+    uploadThumbnail(data.quizId, quizImage);
     dispatch({ type: CONST.ADD_QUIZ_SUCCEEDED, payload: data });
   } catch (error) {
+    console.log(error);
     dispatch({ type: CONST.ADD_QUIZ_FAILED, payload: error });
   }
 };

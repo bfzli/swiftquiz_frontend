@@ -29,8 +29,7 @@ export default function Checkout({ setCheckout, currentPackage }) {
             const data = await response.json();
             const cardElement = elements.getElement(CardElement);
             const confirmPayment = await stripe.confirmCardPayment(
-                data.clientSecret,
-                { payment_method: { card: cardElement } }
+                data.clientSecret, { payment_method: { card: cardElement } }
             );
             console.log(confirmPayment);
             const { paymentIntent } = confirmPayment;

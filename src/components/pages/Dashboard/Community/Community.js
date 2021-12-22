@@ -90,22 +90,26 @@ export function Community({ userQuizes }) {
               return (
                 <>
                   <div className={styles.quiz}>
-                    <div className={styles.quiz_price}>
-                      <p>
-                        {t("community.price")}
-                        <b>{item.purchaseCoins}</b>{" "}
-                      </p>
-                      <img
-                        className={styles.quiz_priceicon}
-                        alt="Quiz Price"
-                        src={coin}
-                      />
-                    </div>
+                   
                     <img
                       className={styles.quiz_image}
                       alt="Quiz Image"
                       src={`https://swiftapi.vercel.app/${item.thumbnail}`}
                     />
+                    <div style={{display: 'flex'}}>
+                    <p className={styles.quiz_difficulty}>
+                      {{
+                          "1": "Easy",
+                          "2": "Medium",
+                          "3": "Hard",
+                        }[item.difficulty]}
+                    </p>
+
+                    <div className={styles.quiz_cost}>
+                      <p>{item.purchaseCoins}</p>
+                      <img className={styles.quiz_priceicon} alt="Quiz Price" src={coin}/>
+                    </div>
+                    </div>
                     <h3 className={styles.quiz_title}>{item.title}</h3>
                     <p className={styles.quiz_description}>
                       {item.description}
@@ -119,9 +123,8 @@ export function Community({ userQuizes }) {
                         alt={item.name}
                         className={styles.quizer_profile}
                       />
-                      <p className={styles.quizer_name}>
-                        {item.created_by.name}
-                      </p>
+                      <p className={styles.quizer_name}> {item.created_by.name} </p>
+                      
                     </Link>
 
                     <Link
@@ -132,20 +135,6 @@ export function Community({ userQuizes }) {
                     >
                       {t("community.play")}
                     </Link>
-                    {/*
-                    <button className={styles.quiz_play}>
-                      <p
-                        style={{ textAlign: "center" }}
-                        onClick={handlePurchase}
-                        title={item.title}
-                        id={item._id}
-                        value={item.redeem_code}
-                      >
-                        {console.log(item)}
-                        {t("community.play")}
-                      </p>{" "}
-                    </button>
-                                     */}
                   </div>
                 </>
               );
