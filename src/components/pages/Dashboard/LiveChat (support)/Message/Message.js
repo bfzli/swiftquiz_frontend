@@ -1,6 +1,9 @@
 import React from "react";
 import "./Message.scss";
 import { format } from "timeago.js";
+import { useSelector } from "react-redux";
+import hisAvatar from "../../../../../assets/images/chat/Avatar 2.png";
+import ownAvatar from "../../../../../assets/images/chat/Avatar 5.png";
 
 export default function Message({ message, own }) {
   return (
@@ -8,7 +11,7 @@ export default function Message({ message, own }) {
       <div className="messageTop">
         <img
           className="messageImg"
-          src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
+          src={own === true ? hisAvatar : hisAvatar}
           alt=""
         />
         <p className="messageDesc">{message.text}</p>
