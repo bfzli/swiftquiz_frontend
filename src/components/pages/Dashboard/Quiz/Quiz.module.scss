@@ -226,6 +226,7 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    position: relative;
 }
 
 .current_question_input {
@@ -577,4 +578,31 @@
 .detailed_questions{
     width: 100%;
     text-align: center;
+    color: var(--text-color);
+}
+
+.lengthium{
+    color: var(--text-color);
+    position: absolute;
+    top: 1em; right: 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.mapquizztitle{
+    background: var(--background-less-important);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    color: var(--text-color) !important;
+    font-weight: bold;
+    font-size: 1.15em;
+}
+
+.mapquizz_answer{
+    font-size: 1em;
 }

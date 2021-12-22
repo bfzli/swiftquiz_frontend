@@ -27,10 +27,8 @@ export default function Quiz() {
     const newValue = secondsToRedirect - 1;
 
     if (secondsToRedirect > 0) {
-      setTimeout(() => setSecondsToRedirect(newValue), 1000)
-    }
-    
-    else return;
+      setTimeout(() => setSecondsToRedirect(newValue), 1000);
+    } else return;
   };
 
   useEffect(() => {
@@ -69,7 +67,7 @@ export default function Quiz() {
     if (isEmpty(errors) === true || isEmpty(errors) === null) {
       dispatch(createQuiz(quiz, quizImage));
       message.title = 'The Quiz was published!';
-      setTimerRunning(true)
+      setTimerRunning(true);
       message.description =
         'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
       setSidebarView('quiz-publish');
@@ -111,35 +109,55 @@ export default function Quiz() {
 
   function handleCorrectAnwser(which) {
     if (which === 'answer1') {
-      setTrueQ('anwser1');
+      setTrueQ('answer1');
       setTrue('isCorrect', 'answer1');
+
     } else if (which === 'answer2') {
-      setTrueQ('anwser2');
+      setTrueQ('answer2');
       setTrue('isCorrect', 'answer2');
+
     } else if (which === 'answer3') {
-      setTrueQ('anwser3');
+      setTrueQ('answer3');
       setTrue('isCorrect', 'answer3');
+
     } else if (which === 'answer4') {
-      setTrueQ('anwser4');
+      setTrueQ('answer4');
       setTrue('isCorrect', 'answer4');
     }
   }
 
   const addQuestion = (question) => {
-    setQuestionList([...questionList, question]);
-    setQuiz({ ...quiz, questions: [...questionList, question] });
-    if (mode === 'add') {
-      updateFields({
-        quiz_id: Math.floor(100000 + Math.random() * 900000),
-        question: '',
-        answer1: '',
-        answer2: '',
-        answer3: '',
-        answer4: '',
-        isCorrect: '',
-      });
+      if (question.question === '') errors.question = 'All questions should be filled';
+      if (question.answer1 === '') errors.answers = 'All answers should be fillder';
+      if (question.answer2 === '') errors.answers = 'All answers should be fillder';
+      if (question.answer3 === '') errors.answers = 'All answers should be fillder';
+      if (question.answer4 === '') errors.answers = 'All answers should be fillder';
+      if (question.isCorrect === '') errors.isCorrect = 'All Correct answers must be chosen';
+
+    if (isEmpty(errors) === true || isEmpty(errors) === null) {
+      setQuestionList([...questionList, question]);
+      setQuiz({ ...quiz, questions: [...questionList, question] });
+      if (mode === 'add') {
+        updateFields({
+          quiz_id: Math.floor(100000 + Math.random() * 900000),
+          question: '',
+          answer1: '',
+          answer2: '',
+          answer3: '',
+          answer4: '',
+          isCorrect: '',
+        });
+      }
+      setTrueQ('none');
+    } else {
+      message.title = 'Quiz was not added! 🥺';
+      message.description =
+        'The question is not properly filled so to be updated.';
+      setNotification(true);
+      setTimeout(function () {
+        setNotification(false);
+      }, 5000);
     }
-    setTrueQ('none');
   };
 
   useEffect(() => {
@@ -152,6 +170,8 @@ export default function Quiz() {
   }, [fields]);
 
   const editQuestion = (question) => {
+    setTrueQ(question.isCorrect)
+    console.log("this:", question.isCorrect)
     setMode('edit');
     setEdited(question);
   };
@@ -173,6 +193,7 @@ export default function Quiz() {
       }
       return item;
     });
+    setTrueQ('none')
     setQuestionList(newData);
   };
 
@@ -299,6 +320,9 @@ export default function Quiz() {
           {mode === 'edit' || mode === 'add' ? (
             <div className={styles.current_slide}>
               <div className={styles.current_question}>
+                <p className={styles.lengthium}>
+                  {100 - fields.question.length}
+                </p>
                 <textarea
                   className={styles.current_question_input}
                   placeholder={t('quiz.question')}
@@ -314,7 +338,7 @@ export default function Quiz() {
               <div className={styles.options_wrapper}>
                 <div
                   className={
-                    trueQ === 'anwser1' ? styles.option_active : styles.option
+                    trueQ === 'answer1' ? styles.option_active : styles.option
                   }>
                   <input
                     className={styles.option_input}
@@ -334,7 +358,7 @@ export default function Quiz() {
                       fill='none'
                       xmlns='http://www.w3.org/2000/svg'>
                       <path
-                        opacity={trueQ === 'anwser1' ? '1' : '.1234'}
+                        opacity={trueQ === 'answer1' ? '1' : '.1234'}
                         d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
                       />
                     </svg>
@@ -343,7 +367,7 @@ export default function Quiz() {
 
                 <div
                   className={
-                    trueQ === 'anwser2' ? styles.option_active : styles.option
+                    trueQ === 'answer2' ? styles.option_active : styles.option
                   }>
                   <input
                     className={styles.option_input}
@@ -363,7 +387,7 @@ export default function Quiz() {
                       fill='none'
                       xmlns='http://www.w3.org/2000/svg'>
                       <path
-                        opacity={trueQ === 'anwser2' ? '1' : '.1234'}
+                        opacity={trueQ === 'answer2' ? '1' : '.1234'}
                         d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
                       />
                     </svg>
@@ -372,7 +396,7 @@ export default function Quiz() {
 
                 <div
                   className={
-                    trueQ === 'anwser3' ? styles.option_active : styles.option
+                    trueQ === 'answer3' ? styles.option_active : styles.option
                   }>
                   <input
                     className={styles.option_input}
@@ -392,7 +416,7 @@ export default function Quiz() {
                       fill='none'
                       xmlns='http://www.w3.org/2000/svg'>
                       <path
-                        opacity={trueQ === 'anwser3' ? '1' : '.1234'}
+                        opacity={trueQ === 'answer3' ? '1' : '.1234'}
                         d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
                       />
                     </svg>
@@ -401,7 +425,7 @@ export default function Quiz() {
 
                 <div
                   className={
-                    trueQ === 'anwser4' ? styles.option_active : styles.option
+                    trueQ === 'answer4' ? styles.option_active : styles.option
                   }>
                   <input
                     className={styles.option_input}
@@ -421,7 +445,7 @@ export default function Quiz() {
                       fill='none'
                       xmlns='http://www.w3.org/2000/svg'>
                       <path
-                        opacity={trueQ === 'anwser4' ? '1' : '.1234'}
+                        opacity={trueQ === 'answer4' ? '1' : '.1234'}
                         d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
                       />
                     </svg>
@@ -628,13 +652,11 @@ export default function Quiz() {
                 src='https://assets8.lottiefiles.com/packages/lf20_oqlgwlim.json'
                 background='transparent'
                 speed='1'
-                style={{width: '150px', height: '150px'}}
+                style={{ width: '150px', height: '150px' }}
                 loop
                 autoplay></lottie-player>
               <h3>Quiz was published succesfully.</h3>
-              <p>
-                Redirecting you to homepagein {secondsToRedirect} seconds
-              </p>
+              <p>Redirecting you to Quizzes in few seconds...</p>
               <br />
             </div>
           </div>
@@ -715,50 +737,6 @@ export default function Quiz() {
                 </div>
               </div>
 
-              <div className={styles.boxes}>
-                <div className={styles.navicon}>
-                  <svg
-                    width='18'
-                    height='18'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'>
-                    <path
-                      d='M7.29101 20.824L2.00001 22L3.17601 16.709C2.40154 15.2604 1.99754 13.6426 2.00001 12C2.00001 6.477 6.47701 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C10.3574 22.0025 8.73963 21.5985 7.29101 20.824ZM7.00001 12C7.00001 13.3261 7.5268 14.5979 8.46448 15.5355C9.40216 16.4732 10.6739 17 12 17C13.3261 17 14.5979 16.4732 15.5355 15.5355C16.4732 14.5979 17 13.3261 17 12H15C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7957 15 12 15C11.2044 15 10.4413 14.6839 9.87869 14.1213C9.31608 13.5587 9.00001 12.7956 9.00001 12H7.00001Z'
-                      fill='var(--icon-border)'
-                    />
-                  </svg>
-                </div>
-                <div className={styles.navicon_text}>
-                  <h3 style={{ color: 'var(--text-color)' }}>
-                    {100 - fields.question.length}
-                  </h3>
-                  <p style={{ color: 'var(--text-color)' }}>Characters Left</p>
-                </div>
-              </div>
-
-              <div className={styles.boxes}>
-                <div className={styles.navicon}>
-                  <svg
-                    width='18'
-                    height='18'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'>
-                    <path
-                      d='M7.29101 20.824L2.00001 22L3.17601 16.709C2.40154 15.2604 1.99754 13.6426 2.00001 12C2.00001 6.477 6.47701 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C10.3574 22.0025 8.73963 21.5985 7.29101 20.824ZM7.00001 12C7.00001 13.3261 7.5268 14.5979 8.46448 15.5355C9.40216 16.4732 10.6739 17 12 17C13.3261 17 14.5979 16.4732 15.5355 15.5355C16.4732 14.5979 17 13.3261 17 12H15C15 12.7956 14.6839 13.5587 14.1213 14.1213C13.5587 14.6839 12.7957 15 12 15C11.2044 15 10.4413 14.6839 9.87869 14.1213C9.31608 13.5587 9.00001 12.7956 9.00001 12H7.00001Z'
-                      fill='var(--icon-border)'
-                    />
-                  </svg>
-                </div>
-                <div className={styles.navicon_text}>
-                  <h3 style={{ color: 'var(--text-color)' }}>
-                    {100 - fields.question.length}
-                  </h3>
-                  <p style={{ color: 'var(--text-color)' }}>Characters Left</p>
-                </div>
-              </div>
-
               {mode !== 'edit' ? (
                 <>
                   <div
@@ -778,10 +756,9 @@ export default function Quiz() {
                       </svg>
                     </div>
                     <div className={styles.navicon_text}>
-                      <p style={{ color: 'var(--text-color)' }}></p>
-                      <h3 style={{ color: 'var(--text-color)' }}>Play</h3>
+                      <h3 style={{ color: 'var(--text-color)' }}>Add</h3>
                       <p style={{ color: 'var(--text-color)' }}>
-                        {t('quiz.addquestion')}
+                        Current Question
                       </p>
                     </div>
                   </div>
@@ -816,14 +793,36 @@ export default function Quiz() {
                   {quiz.questions.length === 0 ? null : 'Detailed Questions:'}
                 </h3>
 
-                {questionList.map((item) => (
+                {questionList.map((item, index) => (
                   <div className={styles.question_side}>
-                    <h3 style={{ color: 'var(--text-color)'}}>{item.question}</h3>
-                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer1}</h5>
-                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer2}</h5>
-                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer3}</h5>
-                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer4}</h5>
-                    <h5 style={{ color: 'var(--text-color)'}}>{item.isCorrect}</h5>
+                    <div className={styles.mapquizztitle}>{item.question} {++index}</div>
+                    <div>
+                      <h5
+                        className={styles.mapquizz_answer}
+                        style={{ color: 'var(--text-color)' }}>
+                        {item.answer1}
+                      </h5>
+                      <h5
+                        className={styles.mapquizz_answer}
+                        style={{ color: 'var(--text-color)' }}>
+                        {item.answer2}
+                      </h5>
+                      <h5
+                        className={styles.mapquizz_answer}
+                        style={{ color: 'var(--text-color)' }}>
+                        {item.answer3}
+                      </h5>
+                      <h5
+                        className={styles.mapquizz_answer}
+                        style={{ color: 'var(--text-color)' }}>
+                        {item.answer4}
+                      </h5>
+                      <h5
+                        className={styles.mapquizz_answer}
+                        style={{ color: 'var(--text-color)' }}>
+                        {item.isCorrect}
+                      </h5>
+                    </div>
                   </div>
                 ))}
               </div>
