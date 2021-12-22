@@ -35,12 +35,15 @@ export const fetchQuiz = () => async (dispatch) => {
 
 export const uploadThumbnail = async (quizId, filename) => {
   try {
-    await axios({
+    const data = await axios({
       headers: { 'Content-Type': 'multipart/form-data'},
       method: 'put',
       url: `https://swiftapi.vercel.app/api/user/quizzes/${quizId}/update-thumbnail`,
       data: filename,
     });
+
+    if(data) setTimeout(() => window.location.href = "/dashboard/quizzes", 3000)
+
   } catch (error) {
     console.log(error.response);
   }

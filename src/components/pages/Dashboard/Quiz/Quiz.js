@@ -19,20 +19,23 @@ export default function Quiz() {
   const [quizImage, setQuizImage] = useState();
   const [stopTyping, setStopTyping] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
-  const [timerRunning ,setTimerRunning] = useState(false)
-  const [secondsToRedirect, setSecondsToRedirect] = useState(3)
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [secondsToRedirect, setSecondsToRedirect] = useState(4);
   const test = t('quiz.quizbuilder');
 
   const removeOneSecond = () => {
-      const newValue = secondsToRedirect - 1;
-      if(secondsToRedirect !== 0){
-        setSecondsToRedirect(newValue);
-      }
-  }
+    const newValue = secondsToRedirect - 1;
+
+    if (secondsToRedirect > 0) {
+      setTimeout(() => setSecondsToRedirect(newValue), 1000)
+    }
+    
+    else return;
+  };
 
   useEffect(() => {
-    removeOneSecond()
-  }, [timerRunning])
+    removeOneSecond();
+  }, [timerRunning, timerRunning]);
 
   function isEmpty(obj) {
     for (var prop in obj) {
@@ -66,15 +69,14 @@ export default function Quiz() {
     if (isEmpty(errors) === true || isEmpty(errors) === null) {
       dispatch(createQuiz(quiz, quizImage));
       message.title = 'The Quiz was published!';
-      message.description = 'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
+      setTimerRunning(true)
+      message.description =
+        'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
       setSidebarView('quiz-publish');
       setNotification(true);
-      timerRunning(true);
-      // setTimeout(() => {
-      //   setNotification(false),
-      //   window.location.href="/dashboard/quizzes"
-      // }, 3000);
-
+      setTimeout(() => {
+        setNotification(false);
+      }, 3000);
     } else {
       message.title = 'Ops! 🥺';
       message.description =
@@ -476,7 +478,9 @@ export default function Quiz() {
                     />
                   </svg>
 
-                  <p style={{color: 'var(--text-color)'}}>{t('quiz.quizpublish')}</p>
+                  <p style={{ color: 'var(--text-color)' }}>
+                    {t('quiz.quizpublish')}
+                  </p>
                 </div>
               ),
             }[sidebarView]
@@ -613,9 +617,25 @@ export default function Quiz() {
         ) : null}
         {sidebarView === 'quiz-publish' ? (
           <div class={styles.header_container}>
-            <div className={styles.publishing} style={{display: 'flex', flexDirection: 'column', justifyContent: 'center',}}>
-              <h3>Quiz was published succesfully.</h3> <br />
-              <h3>Redirecting you to homepagein {secondsToRedirect} seconds</h3> <br />
+            <div
+              className={styles.publishing}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+              }}>
+              <lottie-player
+                src='https://assets8.lottiefiles.com/packages/lf20_oqlgwlim.json'
+                background='transparent'
+                speed='1'
+                style={{width: '150px', height: '150px'}}
+                loop
+                autoplay></lottie-player>
+              <h3>Quiz was published succesfully.</h3>
+              <p>
+                Redirecting you to homepagein {secondsToRedirect} seconds
+              </p>
+              <br />
             </div>
           </div>
         ) : null}
@@ -798,12 +818,12 @@ export default function Quiz() {
 
                 {questionList.map((item) => (
                   <div className={styles.question_side}>
-                    <h3>{item.question}</h3>
-                    <h5>{item.answer1}</h5>
-                    <h5>{item.answer2}</h5>
-                    <h5>{item.answer3}</h5>
-                    <h5>{item.answer4}</h5>
-                    <h5>{item.isCorrect}</h5>
+                    <h3 style={{ color: 'var(--text-color)'}}>{item.question}</h3>
+                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer1}</h5>
+                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer2}</h5>
+                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer3}</h5>
+                    <h5 style={{ color: 'var(--text-color)'}}>{item.answer4}</h5>
+                    <h5 style={{ color: 'var(--text-color)'}}>{item.isCorrect}</h5>
                   </div>
                 ))}
               </div>
