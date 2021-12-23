@@ -75,7 +75,7 @@ export default function Quiz() {
     category: "61a49f18da82d9000993e281",
     purchaseCoins: "",
     questions: [],
-    thumbnail: "",
+    thumbnail: "7b3377eb378e9dfb56799cf7f92fe383.png",
   });
 
   const [fields, updateFields] = useState({
