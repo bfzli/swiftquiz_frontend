@@ -8,7 +8,7 @@ const setLeaderboard = (state) => state.user.leaderboard;
 
 //
 export const selectQuizesOfUsers = createSelector([ selectUser, selectQuizes ], (user, quizes) => {
-    console.table(quizes)
+	console.table(quizes);
 	let userQuizes = quizes.filter((quiz) => quiz.created_by._id === user.user_id);
 	return userQuizes;
 });
@@ -23,14 +23,14 @@ export const searchSelectedQuizzes = createSelector([ selectQuizesOfUsers, searc
 
 //Searching All Quizzes
 export const searchAllQuizes = createSelector([ selectQuizes, searchTerm, setCategory ], (quizzes, term, category) => {
-    return quizzes.filter((quiz) => {
-        const textMatch = quiz.title.toLowerCase().includes(term.toLowerCase());
-        const categoryMatch = category ? quiz.category === category : true;
-        return textMatch && categoryMatch;
-    });
+	return quizzes.filter((quiz) => {
+		const textMatch = quiz.title.toLowerCase().includes(term.toLowerCase());
+		const categoryMatch = category ? quiz.category === category : true;
+		return textMatch && categoryMatch;
+	});
 });
 
 //sort leaderboard from high to low
 export const sortLeaderboardUsers = createSelector([ setLeaderboard ], (leaderboard) => {
-    return leaderboard.sort((a, b) => b.coins - a.coins);
+	return leaderboard.sort((a, b) => b.coins - a.coins);
 });
