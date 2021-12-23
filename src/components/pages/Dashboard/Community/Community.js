@@ -2,7 +2,6 @@ import * as styles from "./Community.module.scss";
 import coin from "../../../shared/Dashbar/components/coin.svg";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { connect } from "react-redux";
 import { searchAllQuizes } from "../../../../reduxComponents/selectors/selectorsUserQuizzes";
 import { setTextFilter } from "../../../../reduxComponents/actions/Filters";
@@ -12,10 +11,6 @@ import { clearPlayingQuiz } from "../../../../reduxComponents/actions/Questions"
 
 export function Community({ userQuizes }) {
   const dispatch = useDispatch();
-  const [isModal, setIsModal] = useState(false);
-  const [selectedQuiz, setSelectedQuiz] = useState("");
-  const [redeemCode, setRedeemCode] = useState("");
-  const [quizId, setQuizId] = useState();
 
   const handleOnChange = (e) => {
     const text = e.target.value;
@@ -86,11 +81,10 @@ export function Community({ userQuizes }) {
       <main style={{ marginTop: "2.5em" }}>
         <div className={styles.top_right} data-aos="fade-left">
           <div className={styles.quizess}>
-            {userQuizes.map((item, i) => {
+            {userQuizes.map((item) => {
               return (
                 <>
                   <div className={styles.quiz}>
-                   
                     <img
                       className={styles.quiz_image}
                       alt="Quiz Image"
@@ -123,6 +117,7 @@ export function Community({ userQuizes }) {
                         alt={item.name}
                         className={styles.quizer_profile}
                       />
+                      {console.log(item.created_by.avatar, item.created_by)}
                       <p className={styles.quizer_name}> {item.created_by.name} </p>
                       
                     </Link>
