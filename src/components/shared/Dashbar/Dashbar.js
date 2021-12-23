@@ -269,7 +269,7 @@ export default function Dashbar({ page }) {
               </svg>
 
               {menu === true ? (
-                <p className={styles.sidebar_item_text}>Messenger</p>
+                <p className={styles.sidebar_item_text}>{t("dashbar.messenger")}</p>
               ) : null}
             </div>
           </Link>
@@ -296,7 +296,7 @@ export default function Dashbar({ page }) {
               </svg>
 
               {menu === true ? (
-                <p className={styles.sidebar_item_text}>Store</p>
+                <p className={styles.sidebar_item_text}>{t("dashbar.store")}</p>
               ) : null}
             </div>
           </Link>

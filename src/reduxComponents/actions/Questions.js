@@ -80,7 +80,7 @@ export const createQuiz = (quiz, quizImage) => async (dispatch) => {
   try {
     const response = await api.createQuiz(newObj);
     const data = await response.data;
-    uploadThumbnail(data.quizId, quizImage);
+    // uploadThumbnaiload(data.quizId, quizImage);
     dispatch({ type: CONST.ADD_QUIZ_SUCCEEDED, payload: data });
   } catch (error) {
     console.log(error);
@@ -124,7 +124,7 @@ export const editQuiz = (id, body, quizImage) => async (dispatch, getState) => {
     const response = await api.editQuiz(id, body);
     const data = await response.data;
     const editedQuiz = { ...quiz, ...data };
-    uploadThumbnail(data.quizId, quizImage);
+    // uploadThumbnail(data.quizId, quizImage);
     // console.log(data);
     dispatch({ type: CONST.EDIT_QUIZ_SUCCEEDED, payload: editedQuiz });
   } catch (error) {
