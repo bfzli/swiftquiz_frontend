@@ -1,143 +1,161 @@
 {
-    "dashbar": {
-        "home": "Ballina",
-        "myquizzes": "Kuizet",
-        "community": "Komuniteti",
-        "leaderboard": "Renditja",
-        "bookmarks": "Preferuarat",
-        "support": "Ndihma",
-        "settings": "Preferencat",
-        "theme": "Tema",
-        "language": "Gjuha",
-        "lightmode": "Dukja Ditë",
-        "darkmode": "Dukja Natë",
-        "ar": "Arabisht",
-        "en": "Anglisht",
-        "sq": "Shqip",
-        "fr": "Frengjisht",
-        "de": "Gjermanisht",
-        "coins": "Monedha",
-        "score":"Pikët",
-        "profile": "Llogaria",
-        "logout": "Shkyçu"
+  "dashbar": {
+    "home": "Ballina",
+    "myquizzes": "Kuizet",
+    "community": "Komuniteti",
+    "leaderboard": "Renditja",
+    "bookmarks": "Preferuarat",
+    "support": "Ndihma",
+    "settings": "Preferencat",
+    "store": "Dyqani",
+    "messenger": "Bisedat",
+    "theme": "Tema",
+    "language": "Gjuha",
+    "lightmode": "Dukja Ditë",
+    "darkmode": "Dukja Natë",
+    "ar": "Arabisht",
+    "en": "Anglisht",
+    "sq": "Shqip",
+    "fr": "Frengjisht",
+    "de": "Gjermanisht",
+    "coins": "Monedha",
+    "score": "Pikët",
+    "profile": "Llogaria",
+    "logout": "Dil nga llogaria"
+  },
+  "quizzes": {
+    "title": "Kuizet",
+    "search": "Kërko kuizet e tua...",
+    "addquiz": "Shto një Kuiz",
+    "emptyone": "Ju nuk keni asnjë Kuiz",
+    "emptytwo": "Pse nuk po e shton një?",
+    "share": "Shpërnda",
+    "edit": "Redakto",
+    "delete": "Fshije"
+  },
+  "community": {
+    "price": "Qmimi",
+    "title": "Komuniteti",
+    "search": "Kërko kuize...",
+    "play": "Paguaj per te luajtur",
+    "categories": "Katogoritë",
+    "religion": "Religjion",
+    "programming": "Programim",
+    "mathematics": "Matematikë",
+    "sport": "Sport",
+    "art": "Art",
+    "others": "Të tjera",
+    "physics": "Fizikë"
+  },
+  "quiz": {
+    "question": "Shkruaj pyetjen këtu...",
+    "answer": "Përgjigja këtu",
+    "questions": "Pyetje",
+    "addquestion": "Shto Pyetjen",
+    "addButton": "Shto",
+    "currentQuestion": "Pyetjen Aktuale",
+    "publish": "Publiko",
+    "editQuestion": "Ndrysho Pyetjen",
+    "title": "Titulli",
+    "settings": "Redakto",
+    "quizbuilder": "Ndërtimi Kuzit",
+    "quizedit": "Redaktimi i Kuizit",
+    "quizpublish": "Publikimi Kuizit",
+    "description": "Përshkrimi",
+    "category": "Kategoria",
+    "thumbnail": "Fotoja",
+    "religion": "Religjion",
+    "programming": "Programim",
+    "mathematics": "Matematikë",
+    "sport": "Sport",
+    "art": "Art",
+    "others": "Të tjera",
+    "physics": "Fizikë",
+    "priceInCoins": "Çmimi në monedha",
+    "price": "Çmimi",
+    "visibility": "Lloji",
+    "visibilityType": {
+      "private": "Privat",
+      "public": "Publik"
     },
-    "quizzes": {
-        "title": "Kuizet",
-        "search": "Kërko kuizet e tua...",
-        "addquiz": "Shto një Kuiz",
-        "emptyone": "Ju nuk keni asnjë Kuiz",
-        "emptytwo": "Pse nuk po e shton një?",
-        "share": "Shpërnda",
-        "edit": "Redakto",
-        "delete": "Fshije"
-    },
-    "community": {
-        "price":"Qmimi",
-        "title": "Komuniteti",
-        "search": "Kërko kuize...",
-        "play": "Paguaj per te luajtur",
-        "categories": "Katogoritë",
-        "religion": "Religjion",
-        "programming": "Programim",
-        "mathematics": "Matematikë",
-        "sport": "Sport",
-        "art": "Artë",
-        "others": "Të tjera",
-        "physics": "Fizikë"
-    },
-    "quiz": {
-        "question": "Fill shkruaj pyetjen këtu...",
-        "answer": "Përgjigja këtu",
-        "questions": "Pyetje",
-        "addquestion": "Shto Pyetjen",
-        "publish": "Publiko",
-        "title": "Titulli",
-        "settings": "Redakto",
-        "quizbuilder": "Ndërtimi Kuzit",
-        "quizedit": "Redaktimi i Kuizit",
-        "quizpublish": "Publikimi Kuizit",
-        "description": "Përshkrimi",
-        "category": "Kategoria",
-        "thumbnail": "Fotoja",
-        "religion": "Religjion",
-        "programming": "Programim",
-        "mathematics": "Matematikë",
-        "sport": "Sport",
-        "art": "Artë",
-        "others": "Të tjera",
-        "physics": "Fizikë"
-    },
-    "play_screen": {
-        "title": "Bëhu një Ajnshtajn, luaj tani!",
-        "description": "Të luash një kuiz është e thjeshtë dhe lehtësisht, luani duke futur një kod ose nëpërmjet një lidhjeje që dikush ju ka ftuar ta bëni këtë.",
-        "enter": "Hyrë"
-    },
-    "play_enter": {
-        "timeleft": "Koha",
-        "coinscollected": "Monedhat e mbledhura",
-        "correcta": "Përjigjet e sakta",
-        "wronga": "Përgjigjet gabim",
-        "leftquestions": "Pyetjet e mbetura",
-        "totalquestions": "Pyetjet totale",
-        "settings": "Preferencat",
-        "analytics": "Analtika",
-        "anwsers": "Përgjigjet",
-        "play_again": "Luaj përsëri me"
-    },
-    "auth": {
-        "logindesc": "Nese keni ndonjë llogari atëhere ju mund te kyceni në platform pa problem.",
-        "logintitle": "Keni llogari?",
-        "loginbtn": "Kycu",
-        "joinnow": "Regjistrou Tani",
-        "oremail": "Ose përdor adres elektronike për regjistrim?",
-        "name": "Emri i plotë",
-        "email": "Adresa Elektronike",
-        "password": "Fjalëkalimi",
-        "confirmpassword": "Konfirmo Fjalëkalimin",
-        "username": "Niknejmi",
-        "signupbtn": "Regjistrohu"
-    },
-    "header": {
-        "mission": "Misioni",
-        "pricing": "Cmimorja",
-        "contact": "Na Kontaktoni",
-        "team": "Ekipi",
-        "about": "Rreth Nesh",
-        "logincta": "Kycu",
-        "registercta": "Regjsitrohu",
-        "logout": "Dil nga llogaria",
-        "profile": "Llogaria ime"
-    },
-    "home": {
-        "section_1": {
-            "title": "Mësim të lehtë me Kuize",
-            "description": "Me platformën tonë ju mundë të mësoni duke u argëtuar dhe kërkuar kuize në komunitet për lëmin tuaj.",
-            "cta": "Luaj një Kuiz të randomtë"
-        },
-        "section_2": {
-            "title": "Shërbimet e Tona",
-            "description": "Karakteristika të ndryshme për kërkuesit e njohurive, megjithatë gjithmonë duke e bërë atë argëtuese për ju.",
-            "feature_one": {
-                "title": "Ndërto Kuize",
-                "description": "Ndërtoni kuize të llojeve të ndryshme me platformën tonë me të gjitha mjetet që ju nevojiten."
-            },
-            "feature_two": {
-                "title": "Shpërnda Kuize",
-                "description": "Kuizet që mund të luhen nga të tjerët janë kënaqësia e platformës sonë, ndajini ato tani."
-            },
-            "feature_three": {
-                "title": "Kërko në Komunitet",
-                "description": "Komuniteti ynë i kuizes me kategori të ndryshme për të kërkuar dhe mësuar"
-            }
-        },
-        "section_3": {
-            "title": "Cili është misioni i platformës sonë?",
-            "description": "Ne jemi shumë të pasionuar për të ndihmuar komunitetin të mësojë, kështu që për këtë arsye ne kemi ndërtuar Swift Quiz për t'i ndihmuar njerëzit të njohin lehtësisht në një mënyrë argëtuese për temën e tyre që shikojnë dhe duan, kjo platformë është e ndërtuar e gjitha nga komuniteti.",
-            "cta": "Eksploro Kuize"
-        }
-    },
-    "error": {
-        "description": "Faqja nuk u gjend nëse mendoni kjo ështa gabim atëherë kontaktoni ekipin tonë.",
-        "cta": "Ktheu tek Ballina"
+    "difficulty": "Vështirësia",
+    "difficultyType": {
+      "easy": "Lehtë",
+      "medium": "Mesatarë",
+      "hard": "Vështirë"
     }
+  },
+  "play_screen": {
+    "title": "Bëhu një Ajnshtajn, luaj tani!",
+    "description": "Të luash një kuiz është e thjeshtë dhe lehtësisht, luani duke futur një kod ose nëpërmjet një lidhjeje që dikush ju ka ftuar ta bëni këtë.",
+    "enter": "Hyrë"
+  },
+  "play_enter": {
+    "timeleft": "Koha",
+    "coinscollected": "Monedhat e mbledhura",
+    "correcta": "Përjigjet e sakta",
+    "wronga": "Përgjigjet gabim",
+    "leftquestions": "Pyetjet e mbetura",
+    "totalquestions": "Pyetjet totale",
+    "settings": "Preferencat",
+    "analytics": "Analtika",
+    "anwsers": "Përgjigjet",
+    "play_again": "Luaj përsëri me"
+  },
+  "auth": {
+    "logindesc": "Nese keni ndonjë llogari atëhere ju mund te kyceni në platform pa problem.",
+    "logintitle": "Keni llogari?",
+    "loginbtn": "Kycu",
+    "joinnow": "Regjistrou Tani",
+    "oremail": "Ose përdor adres elektronike për regjistrim?",
+    "name": "Emri i plotë",
+    "email": "Adresa Elektronike",
+    "password": "Fjalëkalimi",
+    "confirmpassword": "Konfirmo Fjalëkalimin",
+    "username": "Niknejmi",
+    "signupbtn": "Regjistrohu"
+  },
+  "header": {
+    "mission": "Misioni",
+    "pricing": "Cmimorja",
+    "contact": "Na Kontaktoni",
+    "team": "Ekipi",
+    "about": "Rreth Nesh",
+    "logincta": "Kycu",
+    "registercta": "Regjsitrohu",
+    "logout": "Dil nga llogaria",
+    "profile": "Llogaria ime"
+  },
+  "home": {
+    "section_1": {
+      "title": "Mësim të lehtë me Kuize",
+      "description": "Me platformën tonë ju mundë të mësoni duke u argëtuar dhe kërkuar kuize në komunitet për lëmin tuaj.",
+      "cta": "Luaj një Kuiz të randomtë"
+    },
+    "section_2": {
+      "title": "Shërbimet e Tona",
+      "description": "Karakteristika të ndryshme për kërkuesit e njohurive, megjithatë gjithmonë duke e bërë atë argëtuese për ju.",
+      "feature_one": {
+        "title": "Ndërto Kuize",
+        "description": "Ndërtoni kuize të llojeve të ndryshme me platformën tonë me të gjitha mjetet që ju nevojiten."
+      },
+      "feature_two": {
+        "title": "Shpërnda Kuize",
+        "description": "Kuizet që mund të luhen nga të tjerët janë kënaqësia e platformës sonë, ndajini ato tani."
+      },
+      "feature_three": {
+        "title": "Kërko në Komunitet",
+        "description": "Komuniteti ynë i kuizes me kategori të ndryshme për të kërkuar dhe mësuar"
+      }
+    },
+    "section_3": {
+      "title": "Cili është misioni i platformës sonë?",
+      "description": "Ne jemi shumë të pasionuar për të ndihmuar komunitetin të mësojë, kështu që për këtë arsye ne kemi ndërtuar Swift Quiz për t'i ndihmuar njerëzit të njohin lehtësisht në një mënyrë argëtuese për temën e tyre që shikojnë dhe duan, kjo platformë është e ndërtuar e gjitha nga komuniteti.",
+      "cta": "Eksploro Kuize"
+    }
+  },
+  "error": {
+    "description": "Faqja nuk u gjend nëse mendoni kjo ështa gabim atëherë kontaktoni ekipin tonë.",
+    "cta": "Ktheu tek Ballina"
+  }
 }

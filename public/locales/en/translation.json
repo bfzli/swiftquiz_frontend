@@ -6,6 +6,8 @@
     "leaderboard": "Leaderboard",
     "bookmarks": "Bookmarks",
     "support": "Support",
+    "store": "Store",
+    "messenger": "Messenger",
     "settings": "Settings",
     "theme": "Theme",
     "language": "Language",
@@ -71,6 +73,22 @@
     "answer": "Your answer here",
     "questions": "Questions",
     "addquestion": "Add Question",
+    "addButton": "Add",
+    "currentQuestion": "Current Question",
+    "editQuestion":"Edit Question",
+    "visibility": "Visibility",
+    "visibilityType": {
+      "private": "Private",
+      "public": "Public"
+    },
+    "difficulty": "Difficulty",
+    "priceInCoins": "Price in coins",
+    "price": "Price",
+    "difficultyType": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
     "publish": "Publish",
     "title": "Title",
     "settings": "Settings",
