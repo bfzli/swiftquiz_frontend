@@ -1,34 +1,42 @@
 import React from 'react';
-import * as styles from '../Styles/UserCard.module.scss';
-import { ReactComponent as Eye } from '../../../../../../assets/images/delete.svg';
-import { ReactComponent as Edit } from '../../../../../../assets/images/edit.svg';
+import * as styles from '../../Admin.module.scss';
 import { ReactComponent as Delete } from '../../../../../../assets/images/delete.svg';
 import { deleteUserAction } from '../../../../../../reduxComponents/actions/Admin';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const UserCard = ({ profile, name, activity, _id }) => {
-	const dispatch = useDispatch();
+const UserCard = ({ profile, name, oneUser, _id }) => {
+  const dispatch = useDispatch();
 
-	const handleRemoveUser = (e) => {
-		dispatch(deleteUserAction(e));
-	};
+  const handleRemoveUser = (e) => {
+    dispatch(deleteUserAction(e));
+  };
 
-	return (
-		<div className={styles.admin_member}>
-			<div className={styles.admin_info}>
-				<img src={profile} />
-				<div className={styles.member_dscp}>
-					<h2 className={styles.member_name}>{name}</h2>
-					<p className={styles.member_activity}>{activity}</p>
-				</div>
-			</div>
-			<div className={styles.member_config}>
-				<Eye />
-				<Edit />
-				<Delete onClick={() => handleRemoveUser(_id)} />
-			</div>
-		</div>
-	);
+  return (
+    <div className={styles.rank}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div className={styles.rank_avatar}>
+          <Link to={`profile/${oneUser.username}`}>
+            <img
+              src={`https://swiftapi.vercel.app/${oneUser.avatar}`}
+              className={styles.rank_avatar_image}
+            />
+          </Link>
+        </div>
+        <div className={styles.rank_name}>
+          <Link to={`profile/${oneUser.username}`}>
+            <h3 className={styles.hallusername}>{name}</h3>
+          </Link>
+        </div>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Delete
+          style={{ cursor: 'pointer' }}
+          onClick={() => handleRemoveUser(_id)}
+        />
+      </div>
+    </div>
+  );
 };
 
 export default UserCard;

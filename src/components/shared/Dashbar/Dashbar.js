@@ -301,7 +301,7 @@ export default function Dashbar({ page }) {
 				{loading === true ? <Loader /> : page}
 			</section>
 			{
-				CheckPath(current_url, '/add-quiz') === true || CheckPath(current_url, '/profile') === true || CheckPath(current_url, '/auth') === true ? null : (
+				CheckPath(current_url, '/add-quiz') === true || CheckPath(current_url, '/edit-quiz') === true || CheckPath(current_url, '/profile') === true || CheckPath(current_url, '/auth') === true ? null : (
 					<section className={styles.acc_actions}>
 
 						{
