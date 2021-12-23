@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createQuiz } from '../../../../reduxComponents/actions/Questions';
 import { useTranslation } from 'react-i18next';
-import Absoloader from '../../../shared/Loaders/Absoloader';
 
 export default function Quiz() {
   const dispatch = useDispatch();
@@ -31,15 +30,9 @@ export default function Quiz() {
   }
 
   function checkValidation() {
-    if (quiz.title === '')
-      errors.title = 'The Quiz must have a title to be published.';
-    if (quiz.description === '')
-      errors.description = 'Description is required for each quiz.';
-    if (quiz.thumbnail === '') errors.thumbnail = 'A Quiz thumbnail is required to begin with.';
-    if (quiz.category === '') errors.category = 'Category is required to publish the Quiz';
-    if (quiz.difficulty === '') errors.difficulty = 'Difficulty is required to begin with sharing.';
+    if (quiz.title === '') errors.title = 'The Quiz must have a title to be published.';
+    if (quiz.description === '') errors.description = 'Description is required for each quiz.';
     if (quiz.purchaseCoins === '') errors.purchaseCoins = 'Purchase coins are required so you can share the Quiz.';
-    if (quiz.privacy === '') errors.privacy = 'The Quiz must be set to Private or Public to begin with.';
 
     if (isEmpty(errors) === true || isEmpty(errors) === null) {
       dispatch(createQuiz(quiz, quizImage));
@@ -47,7 +40,7 @@ export default function Quiz() {
       message.description = 'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
       setSidebarView('quiz-publish');
       setNotification(true);
-      
+
       setTimeout(() => {
         setNotification(false);
         setErrors({})
