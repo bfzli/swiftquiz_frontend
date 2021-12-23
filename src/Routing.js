@@ -71,7 +71,7 @@ export default function Routing() {
 		dispatch(fetchUserData());
 		dispatch(fetchQuiz());
 		if (JSON.parse(localStorage.getItem('user'))) {
-			inActive(600000, dispatch);
+			// inActive(6000000000000000, dispatch);
 		}
 
 		if (localStorage.getItem('theme') === null) dispatch({ type: CONST.SET_LIGHT_MODE });

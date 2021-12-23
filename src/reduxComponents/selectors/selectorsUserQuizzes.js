@@ -33,5 +33,5 @@ export const searchAllQuizes = createSelector([ selectQuizes, searchTerm, setCat
 
 //sort leaderboard from high to low
 export const sortLeaderboardUsers = createSelector([ setLeaderboard ], (leaderboard) => {
-	return leaderboard.sort((a, b) => b.coins - a.coins);
+	return leaderboard.sort((a, b) => b.score - a.score);
 });

@@ -67,7 +67,7 @@ function Leaderboard({ leaderboardRank }) {
                       {leaderboardRank[3].name}
                     </Link>
                     <p className={styles.hallcoins}>
-                      {leaderboardRank[3].coins} <img src={coin} width="1em"/>
+                      {leaderboardRank[3].score} <img src={coin} width="1em"/>
                     </p>
                   </div>
                   <div className={styles.leftleftScene}>
@@ -88,7 +88,7 @@ function Leaderboard({ leaderboardRank }) {
                       {leaderboardRank[1].name}
                     </Link>
                     <p className={styles.hallcoins}>
-                      {leaderboardRank[1].coins} coins
+                      {leaderboardRank[1].score} score
                     </p>
                   </div>
                   <div className={styles.leftScene}>
@@ -109,7 +109,7 @@ function Leaderboard({ leaderboardRank }) {
                       {leaderboardRank[0].name}
                     </Link>
                     <p className={styles.hallcoins}>
-                      {leaderboardRank[0].coins} coins
+                      {leaderboardRank[0].score} score
                     </p>
                   </div>
                   <div className={styles.centerScene}>
@@ -130,7 +130,7 @@ function Leaderboard({ leaderboardRank }) {
                       {leaderboardRank[2].name}
                     </Link>
                     <p className={styles.hallcoins}>
-                      {leaderboardRank[2].coins} coins
+                      {leaderboardRank[2].score} score
                     </p>
                   </div>
                   <div className={styles.rightScene}>3</div>
@@ -149,7 +149,7 @@ function Leaderboard({ leaderboardRank }) {
                       {leaderboardRank[4].name}
                     </Link>
                     <p className={styles.hallcoins}>
-                      {leaderboardRank[4].coins} coins
+                      {leaderboardRank[4].score} score
                     </p>
                   </div>
                   <div className={styles.rightrightScene}>5</div>
@@ -179,7 +179,7 @@ function Leaderboard({ leaderboardRank }) {
                     </div>
 
                     <div className={styles.rank_count}>
-                      <p>{item.coins}</p>
+                      <p>{item.score}</p>
                     </div>
                   </div>
                 ))}
