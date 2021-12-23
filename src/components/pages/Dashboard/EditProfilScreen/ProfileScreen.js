@@ -111,7 +111,7 @@ export default function ProfileScreen() {
                      <input
                         type="submit"
                         value="Close Account"
-                        className={styles.inputi}
+                        className={styles.inputii}
                         onClick={() => dispatch(closeAccount())}
                      />
                   </div>

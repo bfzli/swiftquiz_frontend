@@ -1,8 +1,8 @@
 .messenger {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   @media all and (max-width: 768px) {
     flex-direction: column;
     .chatOnline {
@@ -12,14 +12,14 @@
 }
 
 .chatMenu {
-  flex: 2.5;
-  margin-top: 35px;
+  flex: 1.5;
+  border-left: 2px solid var(--border-color);
+  background: var(--background-important) !important;
 }
 
 .chatBox {
   flex: 5;
   margin-bottom: 5px;
-  margin-top: 53px;
 }
 
 .chatOnline {
@@ -29,11 +29,16 @@
 .chatMenuWrapper,
 .chatBoxWrapper,
 .chatOnlineWrapper {
-  padding: 10px;
   height: 100%;
+  background: var(--background-less-important);
+}
+
+.chatMenuWrapper{
+  background: var(--background-important) !important;
 }
 
 .chatBoxWrapper {
+  padding: 0em .8em .8em .8em;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -59,26 +64,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  & textarea {
-    width: 80%;
-    height: 35px;
-    padding: 6px;
+  & input {
+    width: 100%;
+    font-size: 1.1em;
     resize: none;
     font-family: "Poppins";
-    background-color: rgb(231, 231, 231);
-    border: none;
-    border-radius: 10px;
+    padding: .75em 1em;
+    border: 2px solid var(--border-color);
+    border-radius: .75em;
+    margin-right: 1em;
   }
   & img {
-    width: 40px;
-    height: 40px;
+    width: 3.35em;
+    height: 3.35em;
     border-radius: 50%;
-    background-color: #5928e5;
-    padding: 5px;
+    border: 2px solid var(--border-color);
+    background-color: var(--button-bg);
+    padding: .6em;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
+
     &:hover {
-      transform: scale(1.1) rotate(45deg);
+      transform: scale(1.05) rotate(10deg);
     }
   }
 }

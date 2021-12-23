@@ -124,19 +124,20 @@
     "oremail": "or use your email"
   },
   "header": {
-    "mission": "Mission",
+    "mission": "Our Mission",
+    "features": "Features",
     "pricing": "Pricing",
-    "contact": "Support",
+    "contact": "Get In Touch",
     "team": "Team",
-    "about": "About",
-    "logincta": "Login",
-    "registercta": "Get Started",
+    "login": "Sign In",
+    "dashboard": "Go to Dashboard",
     "logout": "Logout",
-    "profile": "Profile"
+    "profile": "Profile",
+    "try": "Try for Free"
   },
   "home": {
     "section_1": {
-      "title": "Making Learning Fun with Quizzes",
+      "title": "Enjoyable way of learning by playing quizzes.",
       "description": "With our platform learning is awesome and fun with community made quizzes of different fields.",
       "cta": "Play a Random Quiz"
     },

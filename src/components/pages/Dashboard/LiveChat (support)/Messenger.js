@@ -54,7 +54,7 @@ export default function Messenger() {
     const getConversations = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/user/getConversations/" + user.user_id
+          "http://localhost:1234/api/user/getConversations/" + user.user_id
         );
         setConversation(res.data);
       } catch (err) {
@@ -69,7 +69,7 @@ export default function Messenger() {
     const getMessages = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/user/getMessages/" + currentChat._id
+          "http://localhost:1234/api/user/getMessages/" + currentChat._id
         );
         setMessages(res.data);
       } catch (err) {
@@ -104,7 +104,7 @@ export default function Messenger() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/user/messages",
+        "http://localhost:1234/api/user/messages",
         message
       );
       setMessages([...messages, res.data]);
@@ -129,7 +129,7 @@ export default function Messenger() {
         <div className="chatMenuWrapper">
           <input
             type="text"
-            placeholder="Search for admins..."
+            placeholder="Search users..."
             className="chatMenuInput"
           />
           {conversation.map((C) => (
@@ -155,7 +155,8 @@ export default function Messenger() {
                 ))}
               </div>
               <div className="chatBoxBottom">
-                <textarea
+                <input
+                 type="text"
                   className="chatBoxInput"
                   placeholder="Type a message..."
                   onChange={(e) => setNewMessage(e.target.value)}
@@ -163,7 +164,7 @@ export default function Messenger() {
                   onKeyPress={(e) =>
                     e.key === "Enter" && newMessage && handleSubmit(e)
                   }
-                ></textarea>
+                ></input>
                 <img
                   src={sendMessage}
                   alt=""
@@ -180,7 +181,7 @@ export default function Messenger() {
           )}
         </div>
       </div>
-      <div className="chatOnline">
+      {/* <div className="chatOnline">
         <div className="chatOnlineWrapper">
           <ChatOnline
             onlineUsers={onlineUsers}
@@ -188,7 +189,7 @@ export default function Messenger() {
             setCurrentChat={setCurrentChat}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

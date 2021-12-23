@@ -247,11 +247,11 @@ export default function Dashbar({ page }) {
             </div>
           </Link>
 
-          <Link to='/dashboard/store'>
+          <Link to='/dashboard/messenger'>
             <div
               id='nav-item'
               className={
-                CheckPath(current_url, '/store') === true
+                CheckPath(current_url, '/messenger') === true
                   ? styles.item_is_active
                   : null
               }>
@@ -269,7 +269,7 @@ export default function Dashbar({ page }) {
               </svg>
 
               {menu === true ? (
-                <p className={styles.sidebar_item_text}>Store</p>
+                <p className={styles.sidebar_item_text}>Messenger</p>
               ) : null}
             </div>
           </Link>
@@ -441,6 +441,7 @@ export default function Dashbar({ page }) {
       {CheckPath(current_url, '/add-quiz') === true ||
       CheckPath(current_url, '/edit-quiz') === true ||
       CheckPath(current_url, '/profile') === true ||
+      CheckPath(current_url, '/messenger') === true ||
       CheckPath(current_url, '/auth') === true ? null : (
         <section className={styles.acc_actions}>
           {role.role === 'admin' ? (

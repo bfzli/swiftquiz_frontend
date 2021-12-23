@@ -22,7 +22,6 @@ export function Community({ userQuizes }) {
   };
 
   const { t } = useTranslation();
-
   return (
     <div className={styles.container}>
       <div className={styles.page_info} data-aos="fade-down">
@@ -117,9 +116,7 @@ export function Community({ userQuizes }) {
                         alt={item.name}
                         className={styles.quizer_profile}
                       />
-                      {console.log(item.created_by.avatar, item.created_by)}
                       <p className={styles.quizer_name}> {item.created_by.name} </p>
-                      
                     </Link>
 
                     <Link
