@@ -47,9 +47,12 @@ export default function Quiz() {
       message.description = 'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
       setSidebarView('quiz-publish');
       setNotification(true);
+      
       setTimeout(() => {
         setNotification(false);
+        setErrors({})
       }, 3000);
+
     } else {
       message.title = 'Ops! 🥺';
       message.description =
@@ -125,6 +128,7 @@ export default function Quiz() {
           answer4: '',
           isCorrect: '',
         });
+
         setErrors({})
       }
       setTrueQ('none');
