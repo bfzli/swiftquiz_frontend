@@ -117,14 +117,15 @@ const findQuiz = (id, quizzes) => {
 };
 
 //Edit a Quiz action
-export const editQuiz = (id, body) => async (dispatch, getState) => {
+export const editQuiz = (id, body, quizImage) => async (dispatch, getState) => {
   const quizzes = getState().quizes.quizes;
   const quiz = findQuiz(id, quizzes);
   try {
     const response = await api.editQuiz(id, body);
     const data = await response.data;
     const editedQuiz = { ...quiz, ...data };
-    console.log(data);
+    uploadThumbnail(data.quizId, quizImage);
+    // console.log(data);
     dispatch({ type: CONST.EDIT_QUIZ_SUCCEEDED, payload: editedQuiz });
   } catch (error) {
     dispatch({ type: CONST.EDIT_QUIZ_FAILED, payload: error });
