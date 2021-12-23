@@ -536,20 +536,20 @@
 
 .question_side {
     width: 100%;
-    height: 25vh;
+    height: auto;
     border: 2px solid var(--border-color);
     border-radius: 25px;
 
-    padding: 1em;
+    padding: .5em;
     font-size: 1.1em;
-    margin-bottom: .75em;
-
-    margin-top: 0.75em;
+    margin: 1em 0em;
 
     &:last-child {
         margin-top: 0em;
         margin-bottom: 5em;
     }
+
+    position: relative;
 }
 
 .navicon_text{
@@ -567,7 +567,8 @@
 .questiont_list{
     width: 100%;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    position: relative;
 }
 
 .linee{
@@ -590,19 +591,49 @@
 }
 
 .mapquizztitle{
-    background: var(--background-less-important);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1em;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
+    padding: .5em;
+    margin-bottom: .5em;
+    border-radius: 1em;
     color: var(--text-color) !important;
     font-weight: bold;
     font-size: 1.15em;
+    border: 2px solid var(--border-color);
 }
 
 .mapquizz_answer{
     font-size: 1em;
+    padding: .5em;
+    border-radius: .75em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--border-color)
+}
+
+.gridium{
+    display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-auto-columns: auto;
+	grid-auto-rows: auto;
+	grid-row-gap: .5em;
+	grid-column-gap: .5em;
+}
+
+.indexium{
+    position: absolute;
+    right: -.5em; top: -.75em;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1em;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -18,22 +18,7 @@ export default function Quiz() {
   const { t } = useTranslation();
   const [quizImage, setQuizImage] = useState();
   const [stopTyping, setStopTyping] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
-  const [timerRunning, setTimerRunning] = useState(false);
-  const [secondsToRedirect, setSecondsToRedirect] = useState(4);
   const test = t('quiz.quizbuilder');
-
-  const removeOneSecond = () => {
-    const newValue = secondsToRedirect - 1;
-
-    if (secondsToRedirect > 0) {
-      setTimeout(() => setSecondsToRedirect(newValue), 1000);
-    } else return;
-  };
-
-  useEffect(() => {
-    removeOneSecond();
-  }, [timerRunning, timerRunning]);
 
   function isEmpty(obj) {
     for (var prop in obj) {
@@ -50,26 +35,16 @@ export default function Quiz() {
       errors.title = 'The Quiz must have a title to be published.';
     if (quiz.description === '')
       errors.description = 'Description is required for each quiz.';
-    // if (quiz.thumbnail === '') errors.thumbnail = 'A Quiz thumbnail is required to begin with.';
-    if (quiz.questions.length === 0)
-      errors.no_questions = 'You should add at least 1 question with anwsers.';
+    if (quiz.thumbnail === '') errors.thumbnail = 'A Quiz thumbnail is required to begin with.';
+    if (quiz.category === '') errors.category = 'Category is required to publish the Quiz';
+    if (quiz.difficulty === '') errors.difficulty = 'Difficulty is required to begin with sharing.';
+    if (quiz.purchaseCoins === '') errors.purchaseCoins = 'Purchase coins are required so you can share the Quiz.';
+    if (quiz.privacy === '') errors.privacy = 'The Quiz must be set to Private or Public to begin with.';
 
-    quiz.questions.map((item) => {
-      if (item.question === '')
-        errors.question = 'All questions should be filled';
-      if (item.answer1 === '') errors.answers = 'All answers should be fillder';
-      if (item.answer2 === '') errors.answers = 'All answers should be fillder';
-      if (item.answer3 === '') errors.answers = 'All answers should be fillder';
-      if (item.answer4 === '') errors.answers = 'All answers should be fillder';
-      if (item.isCorrect === '')
-        errors.isCorrect = 'All Correct answers must be chosen';
-    });
     if (isEmpty(errors) === true || isEmpty(errors) === null) {
       dispatch(createQuiz(quiz, quizImage));
       message.title = 'The Quiz was published!';
-      setTimerRunning(true);
-      message.description =
-        'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
+      message.description = 'The quiz was succesfully published, you can now play it or share with friends, we are redirecting you to your quizzes.';
       setSidebarView('quiz-publish');
       setNotification(true);
       setTimeout(() => {
@@ -111,15 +86,12 @@ export default function Quiz() {
     if (which === 'answer1') {
       setTrueQ('answer1');
       setTrue('isCorrect', 'answer1');
-
     } else if (which === 'answer2') {
       setTrueQ('answer2');
       setTrue('isCorrect', 'answer2');
-
     } else if (which === 'answer3') {
       setTrueQ('answer3');
       setTrue('isCorrect', 'answer3');
-
     } else if (which === 'answer4') {
       setTrueQ('answer4');
       setTrue('isCorrect', 'answer4');
@@ -127,12 +99,18 @@ export default function Quiz() {
   }
 
   const addQuestion = (question) => {
-      if (question.question === '') errors.question = 'All questions should be filled';
-      if (question.answer1 === '') errors.answers = 'All answers should be fillder';
-      if (question.answer2 === '') errors.answers = 'All answers should be fillder';
-      if (question.answer3 === '') errors.answers = 'All answers should be fillder';
-      if (question.answer4 === '') errors.answers = 'All answers should be fillder';
-      if (question.isCorrect === '') errors.isCorrect = 'All Correct answers must be chosen';
+    if (question.question === '')
+      errors.question = 'All questions should be filled';
+    if (question.answer1 === '')
+      errors.answers = 'All answers should be fillder';
+    if (question.answer2 === '')
+      errors.answers = 'All answers should be fillder';
+    if (question.answer3 === '')
+      errors.answers = 'All answers should be fillder';
+    if (question.answer4 === '')
+      errors.answers = 'All answers should be fillder';
+    if (question.isCorrect === '')
+      errors.isCorrect = 'All Correct answers must be chosen';
 
     if (isEmpty(errors) === true || isEmpty(errors) === null) {
       setQuestionList([...questionList, question]);
@@ -147,16 +125,19 @@ export default function Quiz() {
           answer4: '',
           isCorrect: '',
         });
+        setErrors({})
       }
       setTrueQ('none');
     } else {
       message.title = 'Quiz was not added! 🥺';
-      message.description =
-        'The question is not properly filled so to be updated.';
+      message.description = 'The question is missing some of its required fields, please check and fill it completely.';
+      
       setNotification(true);
+      
       setTimeout(function () {
         setNotification(false);
-      }, 5000);
+        setErrors({})
+      }, 3000);
     }
   };
 
@@ -170,8 +151,8 @@ export default function Quiz() {
   }, [fields]);
 
   const editQuestion = (question) => {
-    setTrueQ(question.isCorrect)
-    console.log("this:", question.isCorrect)
+    setTrueQ(question.isCorrect);
+    console.log('this:', question.isCorrect);
     setMode('edit');
     setEdited(question);
   };
@@ -193,7 +174,7 @@ export default function Quiz() {
       }
       return item;
     });
-    setTrueQ('none')
+    setTrueQ('none');
     setQuestionList(newData);
   };
 
@@ -245,7 +226,6 @@ export default function Quiz() {
 
   return (
     <div style={{ display: 'flex' }}>
-      {isAdded && <Absoloader />}
       <div className={styles.container}>
         <div className={styles.slides}>
           {questionList.length <= 0 ? null : (
@@ -788,40 +768,99 @@ export default function Quiz() {
                 </>
               ) : null}
               <div className={styles.questiont_list}>
-                <div className={styles.linee}></div>
-                <h3 className={styles.detailed_questions}>
-                  {quiz.questions.length === 0 ? null : 'Detailed Questions:'}
-                </h3>
-
                 {questionList.map((item, index) => (
                   <div className={styles.question_side}>
-                    <div className={styles.mapquizztitle}>{item.question} {++index}</div>
-                    <div>
-                      <h5
+                    <p className={styles.indexium}>{++index}</p>
+                    <div className={styles.mapquizztitle}>{item.question}</div>
+                    <div className={styles.gridium}>
+                      <div
                         className={styles.mapquizz_answer}
                         style={{ color: 'var(--text-color)' }}>
                         {item.answer1}
-                      </h5>
-                      <h5
+                        <div
+                          className={styles.option_check}>
+                          <svg
+                            className={styles.option_check_icon}
+                            width='1.25em'
+                            height='1.25em'
+                            viewBox='0 0 24 24'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'>
+                            <path
+                              opacity={
+                                item.isCorrect === 'answer1' ? '1' : '.1234'
+                              }
+                              d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
                         className={styles.mapquizz_answer}
                         style={{ color: 'var(--text-color)' }}>
                         {item.answer2}
-                      </h5>
-                      <h5
+                        <div
+                          className={styles.option_check}>
+                          <svg
+                            className={styles.option_check_icon}
+                            width='1.25em'
+                            height='1.25em'
+                            viewBox='0 0 24 24'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'>
+                            <path
+                              opacity={
+                                item.isCorrect === 'answer2' ? '1' : '.1234'
+                              }
+                              d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
                         className={styles.mapquizz_answer}
                         style={{ color: 'var(--text-color)' }}>
                         {item.answer3}
-                      </h5>
-                      <h5
+                        <div
+                          className={styles.option_check}>
+                          <svg
+                            className={styles.option_check_icon}
+                            width='1.25em'
+                            height='1.25em'
+                            viewBox='0 0 24 24'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'>
+                            <path
+                              opacity={
+                                item.isCorrect === 'answer3' ? '1' : '.1234'
+                              }
+                              d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div
                         className={styles.mapquizz_answer}
                         style={{ color: 'var(--text-color)' }}>
                         {item.answer4}
-                      </h5>
-                      <h5
-                        className={styles.mapquizz_answer}
-                        style={{ color: 'var(--text-color)' }}>
-                        {item.isCorrect}
-                      </h5>
+                        <div
+                          className={styles.option_check}>
+                          <svg
+                            className={styles.option_check_icon}
+                            width='1.25em'
+                            height='1.25em'
+                            viewBox='0 0 24 24'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'>
+                            <path
+                              opacity={
+                                item.isCorrect === 'answer4' ? '1' : '.1234'
+                              }
+                              d='M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM11.003 16L18.073 8.929L16.659 7.515L11.003 13.172L8.174 10.343L6.76 11.757L11.003 16Z'
+                            />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
